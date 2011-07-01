@@ -11,7 +11,7 @@ language time C
 
 syntax enable
 filetype plugin indent on
-" }}}
+"}}}
 
 " file encoding {{{
 command! -bang -bar -complete=file -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
@@ -24,7 +24,7 @@ command! -bang -bar -complete=file -nargs=? Utf16be edit<bang> ++enc=ucs-2 <args
 command! -bang -bar -complete=file -nargs=? Jis  Iso2022jp<bang> <args>
 command! -bang -bar -complete=file -nargs=? Sjis  Cp932<bang> <args>
 command! -bang -bar -complete=file -nargs=? Unicode Utf16<bang> <args>
-" }}}
+"}}}
 
 
 " options {{{
@@ -35,9 +35,12 @@ set smartcase
 set incsearch
 set hlsearch
 set wrapscan
-" }}}
+"}}}
 
-" }}}
+"}}}
+
+" keymap {{{
+"}}}
 
 " finally {{{
 if filereadable(expand('~/.vimrc.local'))
