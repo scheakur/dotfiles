@@ -1,9 +1,12 @@
 #!/bin/sh
 
 path=$(pwd)
-
-for target in {vimrc, vim};
+target_list=(vimrc vim)
+for (( i = 0; i < ${#target_list[@]}; i++ ))
 do
-    mv ~/.$target ~/.$target.orig.back
+    target=${target_list[i]}
+    if [ -e ~/.$target ]; then
+        mv ~/.$target ~/.$target.orig.back
+    fi
     ln -s $path/$target ~/.$target
 done
