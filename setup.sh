@@ -1,5 +1,9 @@
 #!/bin/sh
 
-ln -s vimrc ~/.vimrc
-ln -s vim ~/.vim
+path=$(pwd)
 
+for target in {vimrc, vim};
+do
+    mv ~/.$target ~/.$target.orig.back
+    ln -s $path/$target ~/.$target
+done
