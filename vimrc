@@ -153,6 +153,7 @@ nnoremap j  gj
 nnoremap k  gk
 nnoremap gj  j
 nnoremap gk  k
+nnoremap Y  y$
 vnoremap <  <gv
 vnoremap >  >gv
 nnoremap n  nzz
@@ -160,6 +161,16 @@ nnoremap N  Nzz
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-l> <Right>
+" }}}
+
+" toggle option {{{
+function! s:ToggleOption(option_name)
+  execute 'setlocal ' . a:option_name . '!'
+  execute 'setlocal ' . a:option_name . '?'
+endfunction
+nnoremap <silent> <Space>ow  :<C-u>call <SID>ToggleOption('wrap')<Return>
+nnoremap <silent> <Space>nu  :<C-u>call <SID>ToggleOption('number')<Return>
+nnoremap <silent> <Space>hl  :<C-u>call <SID>ToggleOption('hlsearch')<Return>
 " }}}
 
 " current date/time {{{
@@ -197,6 +208,40 @@ onoremap id  i"
 vnoremap id  i"
 " }}}
 
+" handle window {{{
+nnoremap [Window]  <Nop>
+nmap w  [Window]
+nnoremap [Window]c  <C-w>c
+nnoremap [Window]w  <C-w>c
+nnoremap [Window]q  <C-w>c
+nnoremap [Window]n  <C-w>n
+nnoremap [Window]v  <C-w>v
+nnoremap [Window]h  <C-w>h
+nnoremap [Window]j  <C-w>j
+nnoremap [Window]k  <C-w>k
+nnoremap [Window]l  <C-w>l
+nnoremap [Window]=  <C-w>3+
+nnoremap [Window]-  <C-w>3-
+nnoremap [Window].  <C-w>3>
+nnoremap [Window],  <C-w>3<
+nnoremap [Window]_  <C-w>_
+nnoremap [Window]+  <C-w>=
+
+" split window
+nmap [Window]sj <SID>(split-to-j)
+nmap [Window]sk <SID>(split-to-k)
+nmap [Window]sh <SID>(split-to-h)
+nmap [Window]sl <SID>(split-to-l)
+nmap <Space>wj <SID>(split-to-j)
+nmap <Space>wk <SID>(split-to-k)
+nmap <Space>wh <SID>(split-to-h)
+nmap <Space>wl <SID>(split-to-l)
+
+nnoremap <silent> <SID>(split-to-j)  :<C-u>execute 'belowright' (v:count == 0 ? '' : v:count) 'split'<Return>
+nnoremap <silent> <SID>(split-to-k)  :<C-u>execute 'aboveleft'  (v:count == 0 ? '' : v:count) 'split'<Return>
+nnoremap <silent> <SID>(split-to-h)  :<C-u>execute 'topleft'    (v:count == 0 ? '' : v:count) 'vsplit'<Return>
+nnoremap <silent> <SID>(split-to-l)  :<C-u>execute 'botright'   (v:count == 0 ? '' : v:count) 'vsplit'<Return>
+" }}}
 
 " }}}
 
