@@ -19,7 +19,6 @@ language messages C
 language time C
 
 syntax enable
-" }}}
 
 " vundle {{{
 filetype off
@@ -32,10 +31,15 @@ Bundle 'git://github.com/gmarik/vundle.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
 Bundle 'git://github.com/tyru/caw.vim.git'
 Bundle 'git://github.com/tacroe/unite-alias.git'
+Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
+Bundle 'git://github.com/vim-scripts/Lucius.git'
 " }}}
 
 filetype plugin on
 filetype indent on
+" }}}
+
+colorscheme lucius
 " }}}
 
 
@@ -297,6 +301,7 @@ let g:unite_source_alias_aliases = {
 
 
 " }}}
+
 
 " finally {{{
 " ------------------------------------------------------------------------

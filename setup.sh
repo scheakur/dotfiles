@@ -1,7 +1,7 @@
 #!/bin/sh
 
 path=$(pwd)
-target_list=(vimrc vim)
+target_list=(vimrc vim gvimrc)
 for (( i = 0; i < ${#target_list[@]}; i++ ))
 do
     target=${target_list[i]}
