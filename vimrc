@@ -89,12 +89,25 @@ set undofile
 let &undodir=&directory
 " }}}
 
+" invisible characters {{{
+set list
+set listchars=tab:>-,trail:_
+" }}}
+
 " misc {{{
 set autoread
 set backspace=indent,eol,start
 set clipboard& clipboard+=unnamed
 set modeline
 set virtualedit=block
+set statusline=%<@%{getcwd()}\|%f\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%m%r%h%w%=%lL\ %2vC\ %3p%%
+" }}}
+
+" completion {{{
+set wildignore&
+set wildignore+=.git,.svn,*.class
+set nowildmenu
+set wildmode=list:longest,full
 " }}}
 
 " }}}
@@ -177,15 +190,27 @@ vnoremap <  <gv
 vnoremap >  >gv
 nnoremap n  nzz
 nnoremap N  Nzz
+
+inoremap <C-u>  <C-g>u<C-u>
+inoremap <C-w>  <C-g>u<C-w>
+inoremap <C-d>  <Delete>
+nnoremap <expr> s*  ':%s/\<' . expand('<cword>') . '\>//g<Left><Left>'
+nnoremap O  :<C-u>call append(expand('.'), '')<Return>j
+nnoremap <Space>M  :<C-u>marks<Return>:mark<Space>
+" }}}
+
+" command line mode {{{
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 cnoremap <C-l> <Right>
+cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
 " }}}
 
 " toggle option {{{
 function! s:ToggleOption(option_name)
-  execute 'setlocal ' . a:option_name . '!'
-  execute 'setlocal ' . a:option_name . '?'
+    execute 'setlocal ' . a:option_name . '!'
+    execute 'setlocal ' . a:option_name . '?'
 endfunction
 nnoremap <silent> <Space>ow  :<C-u>call <SID>ToggleOption('wrap')<Return>
 nnoremap <silent> <Space>nu  :<C-u>call <SID>ToggleOption('number')<Return>
@@ -262,6 +287,15 @@ nnoremap <silent> <SID>(split-to-h)  :<C-u>execute 'topleft'    (v:count == 0 ? 
 nnoremap <silent> <SID>(split-to-l)  :<C-u>execute 'botright'   (v:count == 0 ? '' : v:count) 'vsplit'<Return>
 " }}}
 
+" change current directory {{{
+nnoremap <silent> <Space>cd :<C-u>CD<Return>
+" }}}
+
+" yank filename {{{
+nnoremap <silent> <Space>yf  :let @@=expand("%:p")<Return>
+nnoremap <silent> <Space>yy  :let @@=expand("%")<Return>
+" }}}
+
 " }}}
 
 
@@ -299,6 +333,11 @@ let g:unite_source_alias_aliases = {
 \ }
 " }}}
 
+
+" caw {{{
+vmap <Space>/  <Plug>(caw:i:toggle)
+nmap <Space>/  <Plug>(caw:i:toggle)
+" }}}
 
 " }}}
 
