@@ -25,9 +25,6 @@ syntax enable
 filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
-filetype plugin on
-filetype indent on
-
 " vundle itself
 Bundle 'git://github.com/gmarik/vundle.git'
 
@@ -37,6 +34,8 @@ Bundle 'git://github.com/tyru/caw.vim.git'
 Bundle 'git://github.com/tacroe/unite-alias.git'
 " }}}
 
+filetype plugin on
+filetype indent on
 " }}}
 
 
@@ -261,6 +260,43 @@ nnoremap <silent> <SID>(split-to-l)  :<C-u>execute 'botright'   (v:count == 0 ? 
 
 " }}}
 
+
+" plugin {{{
+
+" unite {{{
+let g:unite_split_rule = 'aboveleft'
+
+nnoremap [Unite]  <Nop>
+nmap <Space>  [Unite]
+nnoremap <silent> [Unite]ff  :<C-u>Unite file<Return>
+nnoremap <silent> [Unite]fm  :<C-u>Unite file_mru<Return>
+nnoremap <silent> [Unite]b  :<C-u>Unite buffer<Return>
+nnoremap <silent> [Unite]r  :<C-u>Unite register<Return>
+nnoremap [Unite]<Space>  :<C-u>Unite<Space>
+
+let g:unite_source_alias_aliases = {
+\   'memo' : {
+\     'source': 'file_rec',
+\     'args': '~/Dropbox/memo',
+\     'description': 'my memo files',
+\   },
+\   'tmp' : {
+\     'source': 'file_rec',
+\     'args': '~/Dropbox/tmp',
+\   },
+\   'opera' : {
+\     'source': 'file_rec',
+\     'args': '~/Dropbox/config/opera',
+\   },
+\   'junk' : {
+\     'source': 'file_rec',
+\     'args': '~/tmp/junk',
+\   },
+\ }
+" }}}
+
+
+" }}}
 
 " finally {{{
 " ------------------------------------------------------------------------
