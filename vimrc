@@ -19,8 +19,24 @@ language messages C
 language time C
 
 syntax enable
+" }}}
+
+" vundle {{{
+filetype off
+set runtimepath+=~/.vim/bundle/vundle/
+call vundle#rc()
 filetype plugin on
 filetype indent on
+
+" vundle itself
+Bundle 'git://github.com/gmarik/vundle.git'
+
+" vundle list {{{
+Bundle 'git://github.com/Shougo/unite.vim.git'
+Bundle 'git://github.com/tyru/caw.vim.git'
+Bundle 'git://github.com/tacroe/unite-alias.git'
+" }}}
+
 " }}}
 
 
@@ -98,7 +114,7 @@ command! -bang -bar -complete=file -nargs=? Dos edit<bang> ++fileformat=dos <arg
 " }}}
 
 " junk file {{{
-command! -nargs=0 Junk call s:open_junk_file('txt')
+command! -nargs=0 JunkFile call s:open_junk_file('txt')
 function! s:open_junk_file(ext)
   let l:junk_dir = $HOME . '/tmp/junk'. strftime('/%Y/%m')
   if !isdirectory(l:junk_dir)
@@ -185,7 +201,7 @@ inoremap <Leader>dt <C-r>=strftime
 cnoremap <expr> <C-o>t  strftime('%Y-%m-%d-%H%M%S')
 " }}}
 
-" text-objects " {{{
+" text-objects {{{
 " <angle>
 onoremap aa  a>
 vnoremap aa  a>
