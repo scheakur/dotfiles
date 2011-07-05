@@ -64,8 +64,8 @@ set fileformats=unix,dos,mac
 set smarttab
 set expandtab
 set tabstop=4
-set softtabstop=4
 set shiftwidth=4
+set softtabstop&
 set shiftround
 " }}}
 
@@ -91,11 +91,12 @@ let &undodir=&directory
 
 " invisible characters {{{
 set list
-set listchars=tab:>-,trail:_
+set listchars=tab:>-,trail:･
 " }}}
 
 " misc {{{
 set autoread
+set hidden
 set backspace=indent,eol,start
 set clipboard& clipboard+=unnamed
 set modeline
@@ -150,18 +151,16 @@ command! -range -nargs=1  InsertBlankLineEvery
       \ | :<line1>,<line2>s!\v(.*\n){<args>}!&\r
 " }}}
 
-" rename file " {{{
+" rename file
 command! -nargs=1 -complete=file Rename f <args>|w|call delete(expand('#'))
-" }}}
 
-" remove trail ^M " {{{
+" remove trail ^M
 command! -range RemoveTrailM :setlocal nohlsearch | :<line1>,<line2>s!\r$!!g
-" }}}
 
 " }}}
 
 
-" keymap {{{
+" standard keymap {{{
 " ------------------------------------------------------------------------
 
 " map leader {{{
@@ -287,9 +286,8 @@ nnoremap <silent> <SID>(split-to-h)  :<C-u>execute 'topleft'    (v:count == 0 ? 
 nnoremap <silent> <SID>(split-to-l)  :<C-u>execute 'botright'   (v:count == 0 ? '' : v:count) 'vsplit'<Return>
 " }}}
 
-" change current directory {{{
+" change current directory
 nnoremap <silent> <Space>cd :<C-u>CD<Return>
-" }}}
 
 " yank filename {{{
 nnoremap <silent> <Space>yf  :let @@=expand("%:p")<Return>
@@ -302,16 +300,23 @@ nnoremap <silent> <Space>yy  :let @@=expand("%")<Return>
 " plugin {{{
 
 " unite {{{
-let g:unite_split_rule = 'aboveleft'
 
+" option {{{
+let g:unite_split_rule = 'aboveleft'
+" }}}
+
+" keymap {{{
 nnoremap [Unite]  <Nop>
 nmap <Space>  [Unite]
+
+nnoremap [Unite]<Space>  :<C-u>Unite<Space>
 nnoremap <silent> [Unite]ff  :<C-u>Unite file<Return>
 nnoremap <silent> [Unite]fm  :<C-u>Unite file_mru<Return>
 nnoremap <silent> [Unite]b  :<C-u>Unite buffer<Return>
 nnoremap <silent> [Unite]r  :<C-u>Unite register<Return>
-nnoremap [Unite]<Space>  :<C-u>Unite<Space>
+" }}}
 
+" unite alias {{{
 let g:unite_source_alias_aliases = {
 \   'memo' : {
 \     'source': 'file_rec',
@@ -331,6 +336,8 @@ let g:unite_source_alias_aliases = {
 \     'args': '~/tmp/junk',
 \   },
 \ }
+"}}}
+
 " }}}
 
 
@@ -355,4 +362,4 @@ set secure
 " }}}
 
 
-" vim: set foldenable foldmethod=marker : @see |modeline|
+" vim: set foldenable foldmethod=marker : @see :help modeline
