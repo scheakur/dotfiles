@@ -39,7 +39,13 @@ filetype plugin on
 filetype indent on
 " }}}
 
+" color {{{
 colorscheme lucius
+
+highlight IncSearch ctermfg=0 ctermbg=11 guifg=#2e3436 guibg=#fcaf3e
+highlight Search    ctermfg=0 ctermbg=11 guifg=#2e3436 guibg=#fcaf3e
+" }}}
+
 " }}}
 
 
