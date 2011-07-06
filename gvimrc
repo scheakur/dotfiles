@@ -2,8 +2,13 @@
 "     gvimrc
 " ========================================================================
 
+" basic {{{
 colorscheme newspaper
+language messages C
+" }}}
 
+
+" font {{{
 if has('mac')
   set guifontwide=Monaco:h14
   set guifont=Monaco:h14
@@ -17,15 +22,28 @@ elseif has('unix')
   set guifontwide=VL\ Gothic\ 12
   set lines=40
   set columns=100
-  winpos 400 90 
+  winpos 400 90
 endif
+" }}}
 
-set guioptions& 
+
+" guioption {{{
+set guioptions&
 set guioptions-=m
 set guioptions-=r
 set guioptions-=L
 set guioptions-=T
 set langmenu=none
-language messages C
+" }}}
 
-" vim: set foldenable foldmethod=marker : @see |modeline|
+
+" workaround {{{
+" Resetting listchars.
+" Unless resetting,  "･" is treat as "<5a>" in MacVim.
+" I doubt encoding setting, but I couldn't specify the cause.
+" TODO specify the cause
+set listchars=tab:>-,trail:･
+" }}}
+
+
+" vim: set foldenable foldmethod=marker : @see :help modeline
