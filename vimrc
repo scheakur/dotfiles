@@ -246,16 +246,19 @@ onoremap aa  a>
 vnoremap aa  a>
 onoremap ia  i>
 vnoremap ia  i>
+
 " [rectangle]
 onoremap ar  a]
 vnoremap ar  a]
 onoremap ir  i]
 vnoremap ir  i]
+
 " 'quote'
 onoremap aq  a'
 vnoremap aq  a'
 onoremap iq  i'
 vnoremap iq  i'
+
 " "double quote"
 onoremap ad  a"
 vnoremap ad  a"
@@ -296,6 +299,14 @@ nnoremap <silent> <SID>(split-to-j)  :<C-u>execute 'belowright' (v:count == 0 ? 
 nnoremap <silent> <SID>(split-to-k)  :<C-u>execute 'aboveleft'  (v:count == 0 ? '' : v:count) 'split'<Return>
 nnoremap <silent> <SID>(split-to-h)  :<C-u>execute 'topleft'    (v:count == 0 ? '' : v:count) 'vsplit'<Return>
 nnoremap <silent> <SID>(split-to-l)  :<C-u>execute 'botright'   (v:count == 0 ? '' : v:count) 'vsplit'<Return>
+" }}}
+
+" handle tags {{{
+nnoremap [Tag]  <Nop>
+nmap <C-t>  [Tag]
+nnoremap [Tag]<C-t>  <C-]>
+nnoremap [Tag]<C-j>  :<C-u>tag<Return>
+nnoremap [Tag]<C-k>  :<C-u>pop<Return>
 " }}}
 
 " change current directory
