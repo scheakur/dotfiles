@@ -101,6 +101,12 @@ set list
 set listchars=tab:>-,trail:･
 " }}}
 
+" footer (statusline, cmdheight) {{{
+set laststatus=2
+set statusline=%<@%{getcwd()}\|%f\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%m%r%h%w%=%lL\ %2vC\ %3p%%
+set cmdheight=2
+" }}}
+
 " misc {{{
 set autoread
 set hidden
@@ -108,7 +114,6 @@ set backspace=indent,eol,start
 set clipboard& clipboard+=unnamed
 set modeline
 set virtualedit=block
-set statusline=%<@%{getcwd()}\|%f\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%m%r%h%w%=%lL\ %2vC\ %3p%%
 " }}}
 
 " completion {{{
