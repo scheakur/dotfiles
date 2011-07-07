@@ -384,5 +384,6 @@ endif
 set secure
 " }}}
 
-
-" vim: set foldenable foldmethod=marker : @see :help modeline
+" @see :help modeline
+" vim: set foldenable foldmethod=marker :
+" vim: set formatoptions& formatoptions-=ro :

@@ -3,6 +3,7 @@
 " ========================================================================
 
 " basic {{{
+scriptencoding utf-8
 colorscheme newspaper
 language messages C
 " }}}
@@ -46,4 +47,6 @@ set listchars=tab:>-,trail:･
 " }}}
 
 
-" vim: set foldenable foldmethod=marker : @see :help modeline
+" @see :help modeline
+" vim: set foldenable foldmethod=marker :
+" vim: set formatoptions& formatoptions-=ro :
