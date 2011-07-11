@@ -8,3 +8,4 @@ do
         rm ~/.$target.orig.back
     fi
 done
+

@@ -10,3 +10,4 @@ do
     fi
     ln -s $path/$target ~/.$target
 done
+
