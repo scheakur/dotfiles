@@ -117,8 +117,7 @@ set virtualedit=block
 " }}}
 
 " completion {{{
-set wildignore&
-set wildignore+=.git,.svn,*.class
+set wildignore& wildignore+=.git,.svn,*.class
 set nowildmenu
 set wildmode=list:longest,full
 " }}}
@@ -208,6 +207,17 @@ inoremap <C-d>  <Delete>
 nnoremap <expr> s*  ':%s/\<' . expand('<cword>') . '\>//g<Left><Left>'
 nnoremap O  :<C-u>call append(expand('.'), '')<Return>j
 nnoremap <Space>M  :<C-u>marks<Return>:mark<Space>
+" }}}
+
+" copy and paste with clipboard {{{
+inoremap <C-o>p  <C-r><C-o>+
+cnoremap <C-o>p  <C-r><C-o>+
+nnoremap <C-o>p  "+p
+nnoremap <C-o>P  "+P
+vnoremap <C-o>y  "+y
+vnoremap <C-o>Y  "+Y
+nnoremap <C-o>y  "+y
+nnoremap <C-o>Y  "+Y
 " }}}
 
 " command line mode {{{

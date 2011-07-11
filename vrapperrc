@@ -1,0 +1,11 @@
+" Config file for Vrapper (eclipse plugin).
+
+set ignorecase
+set smartcase
+
+noremap ;  :
+noremap :  ;
+
+nnoremap vip  {jV}
+
+" vim: filetype=vim
