@@ -6,6 +6,9 @@ set smartcase
 noremap ;  :
 noremap :  ;
 
+noremap <Space>j  <C-d>
+noremap <Space>k  <C-u>
+
 nnoremap vip  {jV}
 
 " vim: filetype=vim
