@@ -9,15 +9,15 @@ language messages C
 " colorscheme {{{
 colorscheme newspaper
 " override {{{
-highlight Normal   guifg=#252525
-highlight Pmenu    guifg=#252525
-highlight PmenuSel gui=NONE guifg=#252525 guibg=#918d71
-highlight Comment  gui=NONE
+highlight Normal      guifg=#252525
+highlight Pmenu       guifg=#252525
+highlight PmenuSel    gui=NONE guifg=#252525 guibg=#918d71
+highlight Comment     gui=NONE
+highlight SpecialKey  guifg=#004ec8 guibg=#ebebe0
 " }}}
 " }}}
 
 " }}}
-
 
 " font {{{
 if has('mac')
