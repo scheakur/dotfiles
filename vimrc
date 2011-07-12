@@ -168,6 +168,24 @@ command! -nargs=1 -complete=file Rename f <args>|w|call delete(expand('#'))
 " remove trail ^M
 command! -range RemoveTrailM :setlocal nohlsearch | :<line1>,<line2>s!\r$!!g
 
+
+" change current directory {{{
+" command CD {{{
+command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
+function! s:ChangeCurrentDir(directory, bang)
+  if a:directory == ''
+    lcd %:p:h
+  else
+    execute 'lcd' . a:directory
+  endif
+  if a:bang == ''
+    pwd
+  endif
+endfunction
+" }}}
+nnoremap <silent> <Space>cd :<C-u>CD<Return>
+" }}}
+
 " }}}
 
 
@@ -318,9 +336,6 @@ nnoremap [Tag]<C-t>  <C-]>
 nnoremap [Tag]<C-j>  :<C-u>tag<Return>
 nnoremap [Tag]<C-k>  :<C-u>pop<Return>
 " }}}
-
-" change current directory
-nnoremap <silent> <Space>cd :<C-u>CD<Return>
 
 " yank filename {{{
 nnoremap <silent> <Space>yf  :let @@=expand("%:p")<Return>
