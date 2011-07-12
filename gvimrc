@@ -24,6 +24,11 @@ elseif has('unix')
   set lines=40
   set columns=100
   winpos 400 90
+else
+  set guifont=VL\ Gothic:h12
+  set guifontwide=VL\ Gothic:h12
+  set lines=40
+  set columns=100
 endif
 " }}}
 
