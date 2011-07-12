@@ -114,6 +114,7 @@ set backspace=indent,eol,start
 set clipboard& clipboard+=unnamed
 set modeline
 set virtualedit=block
+set formatoptions=tcroqnlM1
 " }}}
 
 " completion {{{
@@ -340,6 +341,11 @@ nnoremap [Tag]<C-k>  :<C-u>pop<Return>
 " yank filename {{{
 nnoremap <silent> <Space>yf  :let @@=expand("%:p")<Return>
 nnoremap <silent> <Space>yy  :let @@=expand("%")<Return>
+" }}}
+
+" misc {{{
+" search with the selected text
+vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<Return><Return>
 " }}}
 
 " }}}

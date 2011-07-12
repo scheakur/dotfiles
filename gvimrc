@@ -19,6 +19,7 @@ highlight SpecialKey  guifg=#004ec8 guibg=#ebebe0
 
 " }}}
 
+
 " font {{{
 if has('mac')
   set guifontwide=Monaco:h14
