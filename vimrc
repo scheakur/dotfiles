@@ -394,10 +394,13 @@ let g:unite_source_alias_aliases = {
 
 " }}}
 
-
 " caw {{{
 vmap <Space>/  <Plug>(caw:i:toggle)
 nmap <Space>/  <Plug>(caw:i:toggle)
+" }}}
+
+" matchit {{{
+:source $VIMRUNTIME/macros/matchit.vim
 " }}}
 
 " }}}
