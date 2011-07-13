@@ -143,6 +143,7 @@ command! -bang -bar -complete=file -nargs=? Dos edit<bang> ++fileformat=dos <arg
 " }}}
 
 " junk file {{{
+" ref. http://vim-users.jp/2010/11/hack181/
 command! -nargs=0 JunkFile call s:open_junk_file('txt')
 function! s:open_junk_file(ext)
   let l:junk_dir = $HOME . '/tmp/junk'. strftime('/%Y/%m')
@@ -185,6 +186,27 @@ function! s:ChangeCurrentDir(directory, bang)
 endfunction
 " }}}
 nnoremap <silent> <Space>cd :<C-u>CD<Return>
+" }}}
+
+" capture outputs of command {{{
+" ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
+command!
+\   -nargs=+ -complete=command
+\   Capture
+\   call s:cmd_capture(<q-args>)
+
+function! s:cmd_capture(q_args) "{{{
+    redir => output
+    silent execute a:q_args
+    redir END
+    let output = substitute(output, '^\n\+', '', '')
+
+    belowright new
+
+    silent file `=printf('[Capture: %s]', a:q_args)`
+    setlocal buftype=nofile bufhidden=unload noswapfile nobuflisted
+    call setline(1, split(output, '\n'))
+endfunction "}}}
 " }}}
 
 " }}}
@@ -345,7 +367,9 @@ nnoremap <silent> <Space>yy  :let @@=expand("%")<Return>
 
 " misc {{{
 " search with the selected text
+" ref. http://vim-users.jp/2009/11/hack104/
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<Return><Return>
+vnoremap <silent> <Return> "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<Return><Return>
 " }}}
 
 " }}}
