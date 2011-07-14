@@ -9,9 +9,9 @@ scriptencoding utf-8
 set nocompatible
 
 " clear command
-augroup MyAutoCmd
+augroup my
     autocmd!
-augroup END
+augroup end
 
 " user interface in English
 language messages C
@@ -47,11 +47,16 @@ filetype indent on
 " /vundle }}}
 
 " color {{{
-colorscheme lucius
-" overwrite some colors {{{
-highlight IncSearch cterm=reverse ctermfg=0 gui=reverse ctermbg=11 guifg=#2e3436 guibg=#fcaf3e
-highlight Search    cterm=NONE    ctermfg=0 gui=NONE    ctermbg=11 guifg=#2e3436 guibg=#fcaf3e
+" auto loading after/colors {{{
+function! s:load_after_colors()
+    let l:color = expand('~/.vim/after/colors/' . g:colors_name . '.vim')
+    if filereadable(l:color)
+        execute 'source' l:color
+    endif
+endfunction
+autocmd my ColorScheme * call s:load_after_colors()
 " }}}
+colorscheme lucius
 " }}}
 
 " /basic }}}
