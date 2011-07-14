@@ -6,6 +6,12 @@
 scriptencoding utf-8
 language messages C
 
+" environment {{{
+let s:in_win = has('win32') || has('win64')
+let s:in_mac = has('mac') || has('macunix')
+let s:in_nix = !s:in_mac && has('unix')
+" }}}
+
 " colorscheme {{{
 colorscheme newspaper
 " override {{{
@@ -22,7 +28,7 @@ highlight Folded      gui=NONE guifg=#ebebeb guibg=#677c53
 
 
 " font {{{
-if has('mac')
+if s:in_mac
   set guifontwide=Monaco:h14
   set guifont=Monaco:h14
   set linespace=1
@@ -30,7 +36,7 @@ if has('mac')
   set lines=48
   set columns=100
   set fuoptions=maxvert,maxhorz
-elseif has('unix')
+elseif s:in_nix
   set guifont=VL\ Gothic\ 12
   set guifontwide=VL\ Gothic\ 12
   set lines=40
