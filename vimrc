@@ -2,7 +2,6 @@
 "     vimrc
 " ========================================================================
 
-
 " basic {{{
 " ------------------------------------------------------------------------
 scriptencoding utf-8
@@ -11,12 +10,18 @@ set nocompatible
 
 " clear command
 augroup MyAutoCmd
-  autocmd!
+    autocmd!
 augroup END
 
 " user interface in English
 language messages C
 language time C
+
+" environment {{{
+let s:in_win = has('win32') || has('win64')
+let s:in_mac = has('mac') || has('macunix')
+let s:in_nix = !s:in_mac && has('unix')
+" }}}
 
 syntax enable
 
@@ -35,9 +40,10 @@ Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
 Bundle 'git://github.com/vim-scripts/Lucius.git'
 " }}}
 
+" after bundling, enable filetype
 filetype plugin on
 filetype indent on
-" }}}
+" /vundle }}}
 
 " color {{{
 colorscheme lucius
@@ -47,7 +53,7 @@ highlight Search    cterm=NONE    ctermfg=0 gui=NONE    ctermbg=11 guifg=#2e3436
 " }}}
 " }}}
 
-" }}}
+" /basic }}}
 
 
 " option {{{
@@ -123,7 +129,7 @@ set nowildmenu
 set wildmode=list:longest,full
 " }}}
 
-" }}}
+" /option }}}
 
 
 " command {{{
@@ -142,26 +148,34 @@ command! -bang -bar -complete=file -nargs=? Mac edit<bang> ++fileformat=mac <arg
 command! -bang -bar -complete=file -nargs=? Dos edit<bang> ++fileformat=dos <args>
 " }}}
 
+" remove spaces {{{
+command! -range=% TrimSpace :setlocal nohlsearch | :<line1>,<line2>s!\s*$!!g
+command! -range ShrinkSpace
+            \ :setlocal nohlsearch
+            \ | :<line1>,<line2>s!\s\{2,}! !g
+            \ | :normal gv
+" }}}
+
 " junk file {{{
 " ref. http://vim-users.jp/2010/11/hack181/
 command! -nargs=0 JunkFile call s:open_junk_file('txt')
 function! s:open_junk_file(ext)
-  let l:junk_dir = $HOME . '/tmp/junk'. strftime('/%Y/%m')
-  if !isdirectory(l:junk_dir)
-    call mkdir(l:junk_dir, 'p')
-  endif
+    let l:junk_dir = $HOME . '/tmp/junk'. strftime('/%Y/%m')
+    if !isdirectory(l:junk_dir)
+        call mkdir(l:junk_dir, 'p')
+    endif
 
-  let l:filename = input('Junk File: ', l:junk_dir.strftime('/%Y-%m-%d-%H%M%S.') . a:ext)
-  if l:filename != ''
-    execute 'edit ' . l:filename
-  endif
+    let l:filename = input('Junk File: ', l:junk_dir.strftime('/%Y-%m-%d-%H%M%S.') . a:ext)
+    if l:filename != ''
+        execute 'edit ' . l:filename
+    endif
 endfunction
 "}}}
 
 " insert a blank line every N lines {{{
 command! -range -nargs=1  InsertBlankLineEvery
-      \ :setlocal nohlsearch
-      \ | :<line1>,<line2>s!\v(.*\n){<args>}!&\r
+            \ :setlocal nohlsearch
+            \ | :<line1>,<line2>s!\v(.*\n){<args>}!&\r
 " }}}
 
 " rename file
@@ -175,14 +189,14 @@ command! -range RemoveTrailM :setlocal nohlsearch | :<line1>,<line2>s!\r$!!g
 " command CD {{{
 command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
 function! s:ChangeCurrentDir(directory, bang)
-  if a:directory == ''
-    lcd %:p:h
-  else
-    execute 'lcd' . a:directory
-  endif
-  if a:bang == ''
-    pwd
-  endif
+    if a:directory == ''
+        lcd %:p:h
+    else
+        execute 'lcd' . a:directory
+    endif
+    if a:bang == ''
+        pwd
+    endif
 endfunction
 " }}}
 nnoremap <silent> <Space>cd :<C-u>CD<Return>
@@ -191,9 +205,9 @@ nnoremap <silent> <Space>cd :<C-u>CD<Return>
 " capture outputs of command {{{
 " ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
 command!
-\   -nargs=+ -complete=command
-\   Capture
-\   call s:cmd_capture(<q-args>)
+            \   -nargs=+ -complete=command
+            \   Capture
+            \   call s:cmd_capture(<q-args>)
 
 function! s:cmd_capture(q_args) "{{{
     redir => output
@@ -372,7 +386,16 @@ vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<Retur
 vnoremap <silent> <Return> "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<Return><Return>
 " }}}
 
+" open current file in web browser {{{
+if s:in_nix
+    " I'm sorry for not using Opera.
+    nnoremap <silent> <Space>o :!google-chrome %<Return><Return>
+elseif s:in_mac
+    nnoremap <silent> <Space>o :!open %<Return><Return>
+endif
 " }}}
+
+" /command }}}
 
 
 " plugin {{{
@@ -414,9 +437,9 @@ let g:unite_source_alias_aliases = {
 \     'args': '~/tmp/junk',
 \   },
 \ }
-"}}}
-
 " }}}
+
+" /unite }}}
 
 " caw {{{
 vmap <Space>/  <Plug>(caw:i:toggle)
@@ -427,7 +450,7 @@ nmap <Space>/  <Plug>(caw:i:toggle)
 :source $VIMRUNTIME/macros/matchit.vim
 " }}}
 
-" }}}
+" /plugin }}}
 
 
 " finally {{{
@@ -440,7 +463,7 @@ if filereadable(expand('~/.vimrc.local'))
     endtry
 endif
 set secure
-" }}}
+" /finally }}}
 
 " @see :help modeline
 " vim: set foldenable foldmethod=marker :
