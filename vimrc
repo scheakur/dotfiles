@@ -98,6 +98,8 @@ set matchpairs+=<:>
 " fold {{{
 set foldenable
 set foldmethod=marker
+" vert:\| is default
+set fillchars=fold:\ ,vert:\|
 " }}}
 
 " backup & swap & undo {{{
@@ -427,20 +429,24 @@ nnoremap <silent> [Unite]r  :<C-u>Unite register<Return>
 let g:unite_source_alias_aliases = {
 \   'memo' : {
 \     'source': 'file_rec',
-\     'args': '~/Dropbox/memo',
+\     'args': '~/Dropbox/memo/',
 \     'description': 'my memo files',
 \   },
 \   'tmp' : {
 \     'source': 'file_rec',
-\     'args': '~/Dropbox/tmp',
+\     'args': '~/Dropbox/tmp/',
 \   },
 \   'opera' : {
 \     'source': 'file_rec',
-\     'args': '~/Dropbox/config/opera',
+\     'args': '~/Dropbox/config/opera/',
+\   },
+\   'vim' : {
+\     'source': 'file_rec',
+\     'args': '~/.vim/',
 \   },
 \   'junk' : {
 \     'source': 'file_rec',
-\     'args': '~/tmp/junk',
+\     'args': '~/tmp/junk/',
 \   },
 \ }
 " }}}
