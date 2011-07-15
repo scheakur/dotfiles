@@ -1,4 +1,3 @@
-echomsg 'afteeeeerrrrr'
 highlight Normal      guifg=#252525
 highlight Pmenu       guifg=#252525
 highlight PmenuSel    gui=NONE guifg=#252525 guibg=#918d71
