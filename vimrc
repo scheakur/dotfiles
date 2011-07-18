@@ -213,9 +213,9 @@ nnoremap <silent> <Space>cd :<C-u>CD<Return>
 " capture outputs of command {{{
 " ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
 command!
-            \   -nargs=+ -complete=command
-            \   Capture
-            \   call s:cmd_capture(<q-args>)
+\   -nargs=+ -complete=command
+\   Capture
+\   call s:cmd_capture(<q-args>)
 
 function! s:cmd_capture(q_args) "{{{
     redir => output
@@ -428,27 +428,59 @@ nnoremap <silent> [Unite]r  :<C-u>Unite register<Return>
 " unite alias {{{
 let g:unite_source_alias_aliases = {
 \   'memo' : {
-\     'source': 'file_rec',
-\     'args': '~/Dropbox/memo/',
-\     'description': 'my memo files',
+\       'source': 'file_rec',
+\       'args': '~/Dropbox/memo/',
+\       'description': 'my memo files',
 \   },
 \   'tmp' : {
-\     'source': 'file_rec',
-\     'args': '~/Dropbox/tmp/',
+\       'source': 'file_rec',
+\       'args': '~/Dropbox/tmp/',
 \   },
 \   'opera' : {
-\     'source': 'file_rec',
-\     'args': '~/Dropbox/config/opera/',
+\       'source': 'file_rec',
+\       'args': '~/Dropbox/config/opera/',
 \   },
 \   'vim' : {
-\     'source': 'file_rec',
-\     'args': '~/.vim/',
+\       'source': 'file_rec',
+\       'args': '~/.vim/',
 \   },
 \   'junk' : {
-\     'source': 'file_rec',
-\     'args': '~/tmp/junk/',
+\       'source': 'file_rec',
+\       'args': '~/tmp/junk/',
 \   },
 \ }
+" }}}
+
+" static template file {{{
+let read_action = {
+\   'is_selectable' : 1,
+\   'description' : 'Read file contents and write into a current buffer.',
+\ }
+
+function! read_action.func(candidates)
+    for l:candidate in a:candidates
+        " write at current line -1
+        call unite#util#smart_execute_command(':.-1 read', l:candidate.action__path)
+    endfor
+endfunction
+
+call unite#custom_action('file', 'read', read_action)
+
+unlet read_action
+
+function! s:unite_load_template_files()
+    let l:type = (&filetype != '') ? &filetype . '/' : ''
+    let l:dir = expand('~/.vim/template/' . l:type)
+    if !filereadable(l:dir)
+        let l:dir = expand('~/.vim/template/')
+    endif
+    call unite#start(['file_rec'], {
+    \        'input' : l:dir,
+    \        'default_action' : 'read'
+    \    })
+endfunction
+
+nnoremap [Unite]t  :call <SID>unite_load_template_files()<Return>
 " }}}
 
 " /unite }}}
