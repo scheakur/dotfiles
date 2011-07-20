@@ -240,10 +240,10 @@ function! s:cmd_capture(q_args) "{{{
 endfunction "}}}
 " }}}
 
-" }}}
+" /command }}}
 
 
-" standard keymap {{{
+" keymap {{{
 " ------------------------------------------------------------------------
 
 " map leader {{{
@@ -412,7 +412,7 @@ elseif s:in_mac
 endif
 " }}}
 
-" /command }}}
+" /keymap }}}
 
 
 " plugin {{{
