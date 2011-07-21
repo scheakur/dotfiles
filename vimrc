@@ -308,6 +308,7 @@ endfunction
 nnoremap <silent> <Space>ow  :<C-u>call <SID>ToggleOption('wrap')<Return>
 nnoremap <silent> <Space>nu  :<C-u>call <SID>ToggleOption('number')<Return>
 nnoremap <silent> <Space>hl  :<C-u>call <SID>ToggleOption('hlsearch')<Return>
+nnoremap <silent> <Space>et  :<C-u>call <SID>ToggleOption('expandtab')<Return>
 " }}}
 
 " current date/time {{{
