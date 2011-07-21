@@ -33,12 +33,13 @@ call vundle#rc()
 Bundle 'git://github.com/gmarik/vundle.git'
 
 " vundle list {{{
+Bundle 'git://github.com/kana/vim-smartchr.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
-Bundle 'git://github.com/tyru/caw.vim.git'
 Bundle 'git://github.com/tacroe/unite-alias.git'
+Bundle 'git://github.com/thinca/vim-ref.git'
+Bundle 'git://github.com/tyru/caw.vim.git'
 Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
 Bundle 'git://github.com/vim-scripts/Lucius.git'
-Bundle 'git://github.com/kana/vim-smartchr.git'
 " }}}
 
 " after bundling, enable filetype
