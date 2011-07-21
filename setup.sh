@@ -1,7 +1,7 @@
 #!/bin/bash
 
 path=$(pwd)
-target_list=(vimrc vim gvimrc tmux.conf vrapperrc)
+target_list=(vimrc vim gvimrc tmux.conf vrapperrc gitconfig gitignore)
 for (( i = 0; i < ${#target_list[@]}; i++ ))
 do
     target=${target_list[i]}
