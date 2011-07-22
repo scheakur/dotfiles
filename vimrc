@@ -273,6 +273,8 @@ vnoremap <  <gv
 vnoremap >  >gv
 nnoremap n  nzz
 nnoremap N  Nzz
+nnoremap e  W
+nnoremap E  B
 
 nnoremap <C-a> ^
 nnoremap <C-e> $
