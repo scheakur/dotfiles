@@ -11,29 +11,62 @@ export RPROMPT=''
 # }}}
 
 
-# env {{{
+# misc {{{
 export TERM=xterm-256color
 export EDITOR=vim
+export LANG=ja_JP.UTF-8
+bindkey -e
+# }}}
+
+
+# directory {{{
+setopt auto_cd
+setopt auto_pushd
+
+alias ls='ls -GFv'
+alias ll='ls -GFl'
+alias la='ls -GFal'
+
+function chpwd() {
+    ls -GFv
+}
 # }}}
 
 
 # history {{{
-HISTFILE=~/.zsh_history
-HISTSIZE=999999
-SAVEHIST=999999
+export HISTFILE=~/.zsh_history
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+setopt append_history
+setopt hist_ignore_dups
+setopt share_history
+
+autoload -U history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey '^P' history-beginning-search-backward-end
+bindkey '^N' history-beginning-search-forward-end
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
 # }}}
 
 
-# alias {{{
-alias ls='ls -GFv --color'
-alias ll='ls -GFl'
-alias la='ls -GFal'
+# complete {{{
+autoload -U compinit
+compinit
 # }}}
 
 
-# function {{{
-function chpwd() {
-    ls -GFv --color
-}
+# for root user {{{
+case ${UID} in
+0)
+    # TBD
+    ;;
+esac
+# }}}
+
+
+# finally {{{
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
 # }}}
 
