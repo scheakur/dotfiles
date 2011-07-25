@@ -275,6 +275,8 @@ nnoremap n  nzz
 nnoremap N  Nzz
 nnoremap e  W
 nnoremap E  B
+vnoremap e  W
+vnoremap E  B
 
 nnoremap <C-a> ^
 nnoremap <C-e> $
