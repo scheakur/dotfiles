@@ -14,6 +14,8 @@ export RPROMPT=''
 # complete {{{
 autoload -U compinit
 compinit
+
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # }}}
 
 
@@ -28,6 +30,7 @@ bindkey -e
 # directory {{{
 setopt auto_cd
 setopt auto_pushd
+setopt pushd_ignore_dups
 
 case "${OSTYPE}" in
 darwin*)
@@ -42,11 +45,19 @@ alias ll='ls -l'
 alias la='ls -al'
 alias dir='ls'
 
+zstyle ':completion:*' list-colors ''
+
 function chpwd() {
     ls
 }
 
-zstyle ':completion:*' list-colors ''
+function cdup() {
+    echo
+    cd ..
+    zle reset-prompt
+}
+zle -N cdup
+bindkey '\^' cdup
 # }}}
 
 
