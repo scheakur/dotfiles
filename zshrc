@@ -11,6 +11,12 @@ export RPROMPT=''
 # }}}
 
 
+# complete {{{
+autoload -U compinit
+compinit
+# }}}
+
+
 # misc {{{
 export TERM=xterm-256color
 export EDITOR=vim
@@ -23,13 +29,24 @@ bindkey -e
 setopt auto_cd
 setopt auto_pushd
 
-alias ls='ls -GFv'
-alias ll='ls -GFl'
-alias la='ls -GFal'
+case "${OSTYPE}" in
+darwin*)
+        alias ls='ls -GFv'
+        ;;
+linux-gnu*)
+        alias ls='ls --color -Fv'
+        ;;
+esac
+
+alias ll='ls -l'
+alias la='ls -al'
+alias dir='ls'
 
 function chpwd() {
-    ls -GFv
+    ls
 }
+
+zstyle ':completion:*' list-colors ''
 # }}}
 
 
@@ -48,12 +65,6 @@ bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
-# }}}
-
-
-# complete {{{
-autoload -U compinit
-compinit
 # }}}
 
 
