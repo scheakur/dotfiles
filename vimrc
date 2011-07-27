@@ -27,6 +27,8 @@ syntax enable
 
 " runtimepath {{{
 filetype off
+
+" vundle {{{
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
 " vundle itself
@@ -43,8 +45,11 @@ Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
 Bundle 'git://github.com/vim-scripts/Lucius.git'
 " }}}
 
+" }}}
+
 " rptutil {{{
 call rtputil#bundle('try')
+call rtputil#helptags()
 " }}}
 
 " after bundling, enable filetype
