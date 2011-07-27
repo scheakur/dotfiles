@@ -25,7 +25,7 @@ let s:in_nix = !s:in_mac && has('unix')
 
 syntax enable
 
-" vundle {{{
+" runtimepath {{{
 filetype off
 set runtimepath+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -37,15 +37,21 @@ Bundle 'git://github.com/kana/vim-smartchr.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
 Bundle 'git://github.com/tacroe/unite-alias.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
+Bundle 'git://github.com/thinca/vim-rtputil.git'
 Bundle 'git://github.com/tyru/caw.vim.git'
 Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
 Bundle 'git://github.com/vim-scripts/Lucius.git'
 " }}}
 
+" rptutil {{{
+call rtputil#bundle('try')
+" }}}
+
 " after bundling, enable filetype
 filetype plugin on
 filetype indent on
-" /vundle }}}
+" /runtimepath }}}
+
 
 " color {{{
 " auto loading after/colors {{{
