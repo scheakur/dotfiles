@@ -289,8 +289,6 @@ nnoremap E  B
 vnoremap e  W
 vnoremap E  B
 
-nnoremap <C-a> ^
-nnoremap <C-e> $
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-d>  <Delete>
