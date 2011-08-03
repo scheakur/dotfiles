@@ -38,6 +38,7 @@ Bundle 'git://github.com/gmarik/vundle.git'
 Bundle 'git://github.com/kana/vim-smartchr.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
 Bundle 'git://github.com/tacroe/unite-alias.git'
+Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'git://github.com/thinca/vim-rtputil.git'
 Bundle 'git://github.com/tyru/caw.vim.git'
@@ -517,6 +518,20 @@ nmap <Space>/  <Plug>(caw:i:toggle)
 
 " matchit {{{
 :source $VIMRUNTIME/macros/matchit.vim
+" }}}
+
+" quickrun {{{
+let g:quickrun_config = {
+\  '_': {
+\    'outputter/buffer/split': 'aboveleft'
+\  },
+\  'javascript': {
+\    'command': 'java',
+\    'args': '-jar ~/app/rhino/js.jar',
+\    'tempfile': '%{tempname()}.js',
+\    'exec': '%c %a %s'
+\  }
+\}
 " }}}
 
 " /plugin }}}
