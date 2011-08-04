@@ -370,7 +370,6 @@ vnoremap id  i"
 nnoremap [Window]  <Nop>
 nmap w  [Window]
 nnoremap [Window]c  <C-w>c
-nnoremap [Window]w  <C-w>c
 nnoremap [Window]q  <C-w>c
 nnoremap [Window]n  <C-w>n
 nnoremap [Window]v  <C-w>v
