@@ -119,8 +119,13 @@ set fillchars=fold:\ ,vert:\|
 set nowritebackup
 set nobackup
 set directory-=.
+let &directory = $HOME . '/tmp/vim,' . &directory
 set undofile
-let &undodir=&directory
+let &undodir=$HOME . '/tmp/vim/undo,' . &directory
+" make tmp directory
+if !isdirectory($HOME . '/tmp/vim/undo')
+    call mkdir($HOME . '/tmp/vim/undo', 'p')
+endif
 " }}}
 
 " invisible characters {{{
