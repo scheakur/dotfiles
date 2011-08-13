@@ -24,6 +24,9 @@ export TERM=xterm-256color
 export EDITOR=vim
 export LANG=ja_JP.UTF-8
 bindkey -e
+
+export GREP_OPTIONS='--color=auto'
+export GREP_COLORS='fn=01;34:mt=00;33'
 # }}}
 
 
