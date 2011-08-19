@@ -99,6 +99,9 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop&
 set shiftround
+
+" for Vim script. see help: ft-vim-indent
+let g:vim_indent_cont=0
 " }}}
 
 " matching parenthesis {{{
