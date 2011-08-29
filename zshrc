@@ -95,6 +95,15 @@ case ${UID} in
 esac
 # }}}
 
+# OS dependent
+case "${OSTYPE}" in
+darwin*)
+        ;;
+linux-gnu*)
+        alias pbcopy='xsel --clipboard --input'
+        ;;
+esac
+
 
 # finally {{{
 # Load RVM into a shell session *as a function*

@@ -37,7 +37,6 @@ Bundle 'git://github.com/gmarik/vundle.git'
 " vundle list {{{
 Bundle 'git://github.com/kana/vim-smartchr.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
-Bundle 'git://github.com/tacroe/unite-alias.git'
 Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'git://github.com/thinca/vim-rtputil.git'
