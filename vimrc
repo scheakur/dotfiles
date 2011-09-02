@@ -269,7 +269,7 @@ endfunction "}}}
 
 " map leader {{{
 let mapleader = ','
-let maplocalleader = '.'
+let maplocalleader = '\'
 " }}}
 
 " vimrc {{{
