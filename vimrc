@@ -37,6 +37,7 @@ Bundle 'git://github.com/gmarik/vundle.git'
 " vundle list {{{
 Bundle 'git://github.com/kana/vim-smartchr.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
+Bundle 'git://github.com/t9md/vim-quickhl.git'
 Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'git://github.com/thinca/vim-rtputil.git'
@@ -539,6 +540,17 @@ let g:quickrun_config = {
 \    'exec': '%c %a %s'
 \  }
 \}
+" }}}
+
+" quickhl {{{
+nnoremap [QuickHilite]  <Nop>
+nmap ,  [QuickHilite]
+xmap ,  [QuickHilite]
+nmap [QuickHilite]m <Plug>(quickhl-toggle)
+xmap [QuickHilite]m <Plug>(quickhl-toggle)
+nmap [QuickHilite]M <Plug>(quickhl-reset)
+xmap [QuickHilite]M <Plug>(quickhl-reset)
+nmap [QuickHilite]j <Plug>(quickhl-match)
 " }}}
 
 " /plugin }}}
