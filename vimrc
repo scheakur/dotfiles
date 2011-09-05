@@ -36,6 +36,8 @@ Bundle 'git://github.com/gmarik/vundle.git'
 
 " vundle list {{{
 Bundle 'git://github.com/kana/vim-smartchr.git'
+Bundle 'git://github.com/Shougo/neocomplcache.git'
+Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
 Bundle 'git://github.com/t9md/vim-quickhl.git'
 Bundle 'git://github.com/thinca/vim-quickrun.git'
@@ -44,6 +46,7 @@ Bundle 'git://github.com/thinca/vim-rtputil.git'
 Bundle 'git://github.com/tyru/caw.vim.git'
 Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
 Bundle 'git://github.com/vim-scripts/Lucius.git'
+Bundle 'git://github.com/wincent/Command-T.git'
 " }}}
 
 " }}}
