@@ -485,6 +485,10 @@ let g:unite_source_alias_aliases = {
 \       'source': 'file_rec',
 \       'args': '~/tmp/junk/',
 \   },
+\   'keymap' : {
+\       'source': 'output',
+\       'args': ['map', 'map!', 'lmap'],
+\   },
 \ }
 " }}}
 
