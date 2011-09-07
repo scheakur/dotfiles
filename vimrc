@@ -119,6 +119,8 @@ set foldenable
 set foldmethod=marker
 " vert:\| is default
 set fillchars=fold:\ ,vert:\|
+" for xml folding
+let g:xml_syntax_folding = 1
 " }}}
 
 " backup & swap & undo {{{
