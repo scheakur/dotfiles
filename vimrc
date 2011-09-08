@@ -562,6 +562,21 @@ xmap [QuickHilite]M <Plug>(quickhl-reset)
 nmap [QuickHilite]j <Plug>(quickhl-match)
 " }}}
 
+" neocomplcache {{{
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_auto_completion_start_length = 3
+
+" <CR>: close popup
+inoremap <expr><CR>  pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
+" <TAB>: completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <Esc>: cancel completion if completing
+inoremap <expr><Esc>  pumvisible() ? neocomplcache#cancel_popup() : "\<Esc>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h>  neocomplcache#smart_close_popup() . "\<C-h>"
+inoremap <expr><BS>  neocomplcache#smart_close_popup() . "\<C-h>"
+" }}}
+
 " /plugin }}}
 
 
