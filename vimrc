@@ -121,6 +121,8 @@ set foldmethod=marker
 set fillchars=fold:\ ,vert:\|
 " for xml folding
 let g:xml_syntax_folding = 1
+" for javascript folding
+let javaScript_fold = 1
 " }}}
 
 " backup & swap & undo {{{
