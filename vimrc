@@ -556,11 +556,11 @@ let g:quickrun_config = {
 nnoremap [QuickHilite]  <Nop>
 nmap ,  [QuickHilite]
 xmap ,  [QuickHilite]
-nmap [QuickHilite]m <Plug>(quickhl-toggle)
-xmap [QuickHilite]m <Plug>(quickhl-toggle)
-nmap [QuickHilite]M <Plug>(quickhl-reset)
-xmap [QuickHilite]M <Plug>(quickhl-reset)
-nmap [QuickHilite]j <Plug>(quickhl-match)
+nmap [QuickHilite]m  <Plug>(quickhl-toggle)
+xmap [QuickHilite]m  <Plug>(quickhl-toggle)
+nmap [QuickHilite]M  <Plug>(quickhl-reset)
+xmap [QuickHilite]M  <Plug>(quickhl-reset)
+nmap [QuickHilite]j  <Plug>(quickhl-match)
 " }}}
 
 " neocomplcache {{{
