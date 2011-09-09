@@ -36,6 +36,7 @@ Bundle 'git://github.com/gmarik/vundle.git'
 
 " vundle list {{{
 Bundle 'git://github.com/kana/vim-smartchr.git'
+Bundle 'git://github.com/pangloss/vim-javascript.git'
 Bundle 'git://github.com/Shougo/neocomplcache.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
@@ -121,8 +122,6 @@ set foldmethod=marker
 set fillchars=fold:\ ,vert:\|
 " for xml folding
 let g:xml_syntax_folding = 1
-" for javascript folding
-let javaScript_fold = 1
 " }}}
 
 " backup & swap & undo {{{
