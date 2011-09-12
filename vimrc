@@ -572,7 +572,7 @@ inoremap <expr><CR>  pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
 " <TAB>: completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <Esc>: cancel completion if completing
-inoremap <expr><Esc>  pumvisible() ? neocomplcache#cancel_popup() : "\<Esc>"
+inoremap <expr><Esc>  neocomplcache#cancel_popup() . "\<Esc>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h>  neocomplcache#smart_close_popup() . "\<C-h>"
 inoremap <expr><BS>  neocomplcache#smart_close_popup() . "\<C-h>"
