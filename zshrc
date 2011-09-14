@@ -98,6 +98,7 @@ esac
 # OS dependent
 case "${OSTYPE}" in
 darwin*)
+        alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
         ;;
 linux-gnu*)
         alias pbcopy='xsel --clipboard --input'
