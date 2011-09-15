@@ -312,15 +312,26 @@ nnoremap O  :<C-u>call append(expand('.'), '')<Return>j
 nnoremap <Space>M  :<C-u>marks<Return>:mark<Space>
 " }}}
 
-" copy and paste with clipboard {{{
-inoremap <C-o>p  <C-r><C-o>+
-cnoremap <C-o>p  <C-r><C-o>+
-nnoremap <C-o>p  "+p
-nnoremap <C-o>P  "+P
-vnoremap <C-o>y  "+y
-vnoremap <C-o>Y  "+Y
-nnoremap <C-o>y  "+y
-nnoremap <C-o>Y  "+Y
+" copy(yank) and paste with clipboard {{{
+if s:in_nix
+    inoremap <C-o>p  <C-r><C-o>+
+    cnoremap <C-o>p  <C-r><C-o>+
+    nnoremap <C-o>p  "+p
+    nnoremap <C-o>P  "+P
+    vnoremap <C-o>y  "+y
+    vnoremap <C-o>Y  "+y$
+    nnoremap <C-o>y  "+y
+    nnoremap <C-o>Y  "+y$
+else
+    inoremap <C-o>p  <C-r><C-o>*
+    cnoremap <C-o>p  <C-r><C-o>*
+    nnoremap <C-o>p  "*p
+    nnoremap <C-o>P  "*P
+    vnoremap <C-o>y  "*y
+    vnoremap <C-o>Y  "*y$
+    nnoremap <C-o>y  "*y
+    nnoremap <C-o>Y  "*y$
+endif
 " }}}
 
 " command line mode {{{
@@ -576,6 +587,15 @@ inoremap <expr><Esc>  neocomplcache#cancel_popup() . "\<Esc>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h>  neocomplcache#smart_close_popup() . "\<C-h>"
 inoremap <expr><BS>  neocomplcache#smart_close_popup() . "\<C-h>"
+
+" Override <C-o>p key mapping which defined above.
+" Because the completion will not end after pasting
+" when executing '<C-r><C-o>+' in insert mode.
+if s:in_nix
+    inoremap <expr><C-o>p  neocomplcache#cancel_popup() . "\<C-r><C-o>+"
+else
+    inoremap <expr><C-o>p  neocomplcache#cancel_popup() . "\<C-r><C-o>*"
+endif
 " }}}
 
 " /plugin }}}
