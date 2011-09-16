@@ -17,6 +17,21 @@ augroup end
 language messages C
 language time C
 
+function! s:load_local_vimrc(...)
+    let l:suffix = (a:0 > 0) ? ('.' . a:1) : ''
+    let l:vimrc = expand('~/.vimrc.local' . l:suffix)
+    if filereadable(l:vimrc)
+        try
+            execute 'source' l:vimrc
+        catch
+        " TODO do not ignore errors
+        endtry
+    endif
+endfunction
+
+" load local config
+call s:load_local_vimrc('prepare')
+
 " environment {{{
 let s:in_win = has('win32') || has('win64')
 let s:in_mac = has('mac') || has('macunix')
@@ -550,6 +565,7 @@ nmap <Space>/  <Plug>(caw:i:toggle)
 " }}}
 
 " quickrun {{{
+
 let g:quickrun_config = {
 \  '_': {
 \    'outputter/buffer/split': 'aboveleft'
@@ -559,8 +575,39 @@ let g:quickrun_config = {
 \    'args': '-jar ~/app/rhino/js.jar',
 \    'tempfile': '%{tempname()}.js',
 \    'exec': '%c %a %s'
-\  }
+\  },
+\  'sql': {
+\    'command': 'sqlplus',
+\    'cmdopt': '-S',
+\    'args': '%{g:get_oracle_connection("quickrun")}',
+\    'tempfile': '%{tempname()}.sql',
+\    'exec': '%c %o %a \@%s'
+\  },
 \}
+
+" to quickrun sql {{{
+function! g:get_oracle_connection(mode)
+    let l:user_pass = s:get_option('oracle_user_pass', 'system/oracle')
+    let l:sid = s:get_option('oracle_sid', 'localhost/xe')
+    let l:sep = (a:mode == 'quickrun') ? '\\\@' : '@'
+    let l:conn = l:user_pass . l:sep . l:sid
+    return l:conn
+endfunction
+
+function! s:get_option(option_name, ...)
+    if exists('b:' . a:option_name)
+        return eval('b:' . a:option_name)
+    endif
+    if exists('g:' . a:option_name)
+        return eval('g:' . a:option_name)
+    endif
+    if a:0 > 0
+        " default value
+        return a:1
+    endif
+endfunction
+" }}}
+
 " }}}
 
 " quickhl {{{
@@ -603,13 +650,7 @@ endif
 
 " finally {{{
 " ------------------------------------------------------------------------
-if filereadable(expand('~/.vimrc.local'))
-    try
-        execute 'source' expand('~/.vimrc.local')
-    catch
-      " TODO do not ignore errors
-    endtry
-endif
+call s:load_local_vimrc()
 set secure
 " /finally }}}
 
