@@ -56,6 +56,7 @@ Bundle 'git://github.com/Shougo/neocomplcache.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
 Bundle 'git://github.com/t9md/vim-quickhl.git'
+Bundle 'git://github.com/thinca/vim-ambicmd.git'
 Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'git://github.com/thinca/vim-rtputil.git'
@@ -643,6 +644,11 @@ if s:in_nix
 else
     inoremap <expr><C-o>p  neocomplcache#cancel_popup() . "\<C-r><C-o>*"
 endif
+" }}}
+
+" ambicmd {{{
+cnoremap <expr><Space>  ambicmd#expand("\<Space>")
+cnoremap <expr><CR>  ambicmd#expand("\<CR>")
 " }}}
 
 " /plugin }}}
