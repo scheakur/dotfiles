@@ -659,7 +659,7 @@ inoremap <expr><Esc>  neocomplcache#cancel_popup() . "\<Esc>"
 inoremap <expr><C-h>  neocomplcache#smart_close_popup() . "\<C-h>"
 inoremap <expr><BS>  neocomplcache#smart_close_popup() . "\<C-h>"
 
-" Override <C-o>p key mapping which defined above.
+" Override <C-o>p key mapping which is defined above.
 " Because the completion will not end after pasting
 " when executing '<C-r><C-o>+' in insert mode.
 if s:in_nix
