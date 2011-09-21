@@ -52,7 +52,6 @@ Bundle 'git://github.com/gmarik/vundle.git'
 " vundle list {{{
 Bundle 'git://github.com/h1mesuke/ref-dicts-en.git'
 Bundle 'git://github.com/kana/vim-smartchr.git'
-Bundle 'git://github.com/kana/vim-fakeclip.git'
 Bundle 'git://github.com/pangloss/vim-javascript.git'
 Bundle 'git://github.com/Shougo/neocomplcache.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
@@ -332,15 +331,25 @@ nnoremap <Space>M  :<C-u>marks<Return>:mark<Space>
 " }}}
 
 " copy(yank) and paste with clipboard {{{
-let g:fakeclip_no_default_key_mappings = 1
-cmap <C-o>p  <Plug>(fakeclip-insert-o)
-imap <C-o>p  <Plug>(fakeclip-insert-o)
-nmap <C-o>p  <Plug>(fakeclip-p)
-nmap <C-o>P  <Plug>(fakeclip-P)
-nmap <C-o>y  <Plug>(fakeclip-y)
-nmap <C-o>Y  <Plug>(fakeclip-Y)
-vmap <C-o>y  <Plug>(fakeclip-y)
-vmap <C-o>Y  <Plug>(fakeclip-Y)
+if s:in_nix
+    inoremap <C-o>p  <C-r><C-o>+
+    cnoremap <C-o>p  <C-r><C-o>+
+    nnoremap <C-o>p  "+p
+    nnoremap <C-o>P  "+P
+    vnoremap <C-o>y  "+y
+    vnoremap <C-o>Y  "+y$
+    nnoremap <C-o>y  "+y
+    nnoremap <C-o>Y  "+y$
+else
+    inoremap <C-o>p  <C-r><C-o>*
+    cnoremap <C-o>p  <C-r><C-o>*
+    nnoremap <C-o>p  "*p
+    nnoremap <C-o>P  "*P
+    vnoremap <C-o>y  "*y
+    vnoremap <C-o>Y  "*y$
+    nnoremap <C-o>y  "*y
+    nnoremap <C-o>Y  "*y$
+endif
 " }}}
 
 " command line mode {{{
