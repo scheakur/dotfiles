@@ -54,6 +54,7 @@ Bundle 'git://github.com/h1mesuke/ref-dicts-en.git'
 Bundle 'git://github.com/kana/vim-smartchr.git'
 Bundle 'git://github.com/pangloss/vim-javascript.git'
 Bundle 'git://github.com/Shougo/neocomplcache.git'
+Bundle 'git://github.com/Shougo/vimfiler.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
 Bundle 'git://github.com/t9md/vim-quickhl.git'
@@ -672,6 +673,10 @@ endif
 " ambicmd {{{
 cnoremap <expr><Space>  ambicmd#expand("\<Space>")
 cnoremap <expr><CR>  ambicmd#expand("\<CR>")
+" }}}
+
+" vimfiler {{{
+let g:vimfiler_as_default_explorer = 1
 " }}}
 
 " /plugin }}}
