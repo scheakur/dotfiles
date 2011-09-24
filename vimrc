@@ -454,8 +454,13 @@ nnoremap [Tag]<C-k>  :<C-u>pop<Return>
 " }}}
 
 " yank filename {{{
-nnoremap <silent> <Space>yf  :let @@=expand("%:p")<Return>
-nnoremap <silent> <Space>yy  :let @@=expand("%")<Return>
+if s:in_mac
+    nnoremap <silent> <Space>yf  :let @*=expand("%:p")<Return>
+    nnoremap <silent> <Space>yy  :let @*=expand("%")<Return>
+else
+    nnoremap <silent> <Space>yf  :let @@=expand("%:p")<Return>
+    nnoremap <silent> <Space>yy  :let @@=expand("%")<Return>
+endif
 " }}}
 
 " quickfix {{{
@@ -596,10 +601,9 @@ let g:quickrun_config = {
 \    'outputter/buffer/split': 'aboveleft'
 \  },
 \  'javascript': {
-\    'command': 'java',
-\    'args': '-jar ~/app/rhino/js.jar',
+\    'command': '$HOME/app/ringo/bin/ringo',
 \    'tempfile': '%{tempname()}.js',
-\    'exec': '%c %a %s'
+\    'exec': '%c %s'
 \  },
 \  'sql': {
 \    'command': 'sqlplus',
