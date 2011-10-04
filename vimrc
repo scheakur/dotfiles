@@ -174,6 +174,8 @@ set clipboard& clipboard+=unnamed
 set modeline
 set virtualedit=block
 set formatoptions=tcroqnlM1
+" show the number of lines of selection
+set showcmd
 " }}}
 
 " completion {{{
@@ -595,10 +597,9 @@ let g:quickrun_config = {
 \    'outputter/buffer/split': 'aboveleft'
 \  },
 \  'javascript': {
-\    'command': 'java',
-\    'args': '-jar ~/app/rhino/js.jar',
+\    'command': '$HOME/app/ringo/bin/ringo',
 \    'tempfile': '%{tempname()}.js',
-\    'exec': '%c %a %s'
+\    'exec': '%c %s'
 \  },
 \  'sql': {
 \    'command': 'sqlplus',
