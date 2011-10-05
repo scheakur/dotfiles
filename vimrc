@@ -54,6 +54,7 @@ Bundle 'git://github.com/h1mesuke/ref-dicts-en.git'
 Bundle 'git://github.com/kana/vim-smartchr.git'
 Bundle 'git://github.com/pangloss/vim-javascript.git'
 Bundle 'git://github.com/Shougo/neocomplcache.git'
+Bundle 'git://github.com/Shougo/vimfiler.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
 Bundle 'git://github.com/t9md/vim-quickhl.git'
@@ -455,8 +456,13 @@ nnoremap [Tag]<C-k>  :<C-u>pop<Return>
 " }}}
 
 " yank filename {{{
-nnoremap <silent> <Space>yf  :let @@=expand("%:p")<Return>
-nnoremap <silent> <Space>yy  :let @@=expand("%")<Return>
+if s:in_mac
+    nnoremap <silent> <Space>yf  :let @*=expand("%:p")<Return>
+    nnoremap <silent> <Space>yy  :let @*=expand("%")<Return>
+else
+    nnoremap <silent> <Space>yf  :let @@=expand("%:p")<Return>
+    nnoremap <silent> <Space>yy  :let @@=expand("%")<Return>
+endif
 " }}}
 
 " quickfix {{{
@@ -673,6 +679,10 @@ endif
 " ambicmd {{{
 cnoremap <expr><Space>  ambicmd#expand("\<Space>")
 cnoremap <expr><CR>  ambicmd#expand("\<CR>")
+" }}}
+
+" vimfiler {{{
+let g:vimfiler_as_default_explorer = 1
 " }}}
 
 " /plugin }}}
