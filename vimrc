@@ -683,6 +683,8 @@ cnoremap <expr><CR>  ambicmd#expand("\<CR>")
 
 " vimfiler {{{
 let g:vimfiler_as_default_explorer = 1
+
+call vimfiler#set_execute_file('c,cc,cpp,css,cxx,h,hpp,html,java,js,m,markdown,md,mkd,py,rb,sh,sql,txt,vim', 'vim')
 " }}}
 
 " /plugin }}}
