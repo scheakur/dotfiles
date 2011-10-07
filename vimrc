@@ -491,6 +491,17 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " ref. http://vim-users.jp/2009/11/hack104/
 vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<Return><Return>
 vnoremap <silent> <Return> "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<Return><Return>
+
+" identify the syntax highlighting group used at the cursor
+" http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
+function! s:show_hilite()
+    let hilite = ''
+    let hilite .= 'hilite <' . synIDattr(synID(line('.'), col('.'), 1), 'name') . '>, '
+    let hilite .= 'trans <' . synIDattr(synID(line('.'), col('.'), 0), 'name') . '>, '
+    let hilite .= 'link <' . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name') . '>'
+    echo hilite
+endfunction
+nnoremap <F10> :call <SID>show_hilite()<CR>
 " }}}
 
 " open current file in web browser {{{
