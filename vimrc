@@ -671,6 +671,7 @@ let g:neocomplcache_auto_completion_start_length = 3
 inoremap <expr><CR>  pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
 " <TAB>: completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " <Esc>: cancel completion if completing
 inoremap <expr><Esc>  neocomplcache#cancel_popup() . "\<Esc>"
 " <C-h>, <BS>: close popup and delete backword char.
