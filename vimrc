@@ -316,6 +316,10 @@ nnoremap j  gj
 nnoremap k  gk
 nnoremap gj  j
 nnoremap gk  k
+vnoremap j  gj
+vnoremap k  gk
+vnoremap gj  j
+vnoremap gk  k
 nnoremap Y  y$
 vnoremap <  <gv
 vnoremap >  >gv
