@@ -507,6 +507,13 @@ function! s:show_hilite()
     echo hilite
 endfunction
 nnoremap <F10> :call <SID>show_hilite()<CR>
+
+" till before parenthesis
+" ref. http://vim-users.jp/2011/04/hack214/
+onoremap )  t)
+onoremap (  t(
+vnoremap )  t)
+vnoremap (  t(
 " }}}
 
 " open current file in web browser {{{
