@@ -506,7 +506,7 @@ function! s:show_hilite()
     let hilite .= 'link <' . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name') . '>'
     echo hilite
 endfunction
-nnoremap <F10> :call <SID>show_hilite()<CR>
+nnoremap <C-H> :call <SID>show_hilite()<CR>
 
 " till before parenthesis
 " ref. http://vim-users.jp/2011/04/hack214/
