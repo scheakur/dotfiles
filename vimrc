@@ -710,6 +710,12 @@ let g:vimfiler_as_default_explorer = 1
 call vimfiler#set_execute_file('c,cc,cpp,css,cxx,h,hpp,html,java,js,m,markdown,md,mkd,py,rb,sh,sql,txt,vim', 'vim')
 " }}}
 
+" dois.vim {{{
+let g:dois_file = $HOME . '/Dropbox/tmp/doinglist.taskpaper'
+let g:dois_dir = $HOME . '/Dropbox/tmp/doinglist'
+nmap <C-Return>  <Plug>(dois:n:add-daily-task)
+" }}}
+
 " /plugin }}}
 
 
