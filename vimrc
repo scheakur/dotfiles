@@ -703,6 +703,7 @@ endif
 
 " ambicmd {{{
 cnoremap <expr><Space>  ambicmd#expand("\<Space>")
+cnoremap <expr><C-Return>  ambicmd#expand("\<Return>")
 " }}}
 
 " vimfiler {{{
