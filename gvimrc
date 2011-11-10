@@ -26,8 +26,8 @@ if s:in_mac
   set columns=100
   set fuoptions=maxvert,maxhorz
 elseif s:in_nix
-  set guifont=VL\ Gothic\ 12
-  set guifontwide=VL\ Gothic\ 12
+  set guifont=Ricty\ 12
+  set guifontwide=Ricty\ 12
   set lines=40
   set columns=100
   winpos 400 90
