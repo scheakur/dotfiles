@@ -70,6 +70,7 @@ Bundle 'git://github.com/vim-jp/vimdoc-ja.git'
 Bundle 'git://github.com/vim-scripts/groovyindent'
 Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
 Bundle 'git://github.com/vim-scripts/Lucius.git'
+Bundle 'git://github.com/vim-scripts/sudo.vim.git'
 " }}}
 
 " }}}
