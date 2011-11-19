@@ -67,6 +67,7 @@ Bundle 'git://github.com/thinca/vim-rtputil.git'
 Bundle 'git://github.com/tyru/caw.vim.git'
 Bundle 'git://github.com/ujihisa/neco-look.git'
 Bundle 'git://github.com/vim-jp/vimdoc-ja.git'
+Bundle 'git://github.com/vim-scripts/groovyindent'
 Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
 Bundle 'git://github.com/vim-scripts/Lucius.git'
 " }}}
