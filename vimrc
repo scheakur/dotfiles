@@ -544,7 +544,8 @@ nnoremap [Unite]  <Nop>
 nmap <Space>  [Unite]
 
 nnoremap [Unite]<Space>  :<C-u>Unite<Space>
-nnoremap <silent> [Unite]f  :<C-u>Unite file_mru file<Return>
+nnoremap <silent> [Unite]f  :<C-u>Unite buffer file_mru file<Return>
+nnoremap <silent> [Unite]g  :<C-u>UniteWithBufferDir file buffer file_mru -input=<Return>
 nnoremap <silent> [Unite]b  :<C-u>Unite buffer<Return>
 nnoremap <silent> [Unite]r  :<C-u>Unite register<Return>
 " }}}
