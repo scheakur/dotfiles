@@ -369,6 +369,10 @@ cnoremap <C-e> <End>
 cnoremap <C-l> <Right>
 cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
+cnoremap <C-p>  <Up>
+cnoremap <Up>  <C-p>
+cnoremap <C-n>  <Down>
+cnoremap <Down>  <C-n>
 " }}}
 
 " toggle option {{{
