@@ -719,8 +719,9 @@ cnoremap <expr><C-Return>  ambicmd#expand("\<Return>")
 let g:vimfiler_as_default_explorer = 1
 
 call vimfiler#set_execute_file(
-\   'c,cc,cpp,css,cxx,h,hpp,html,java,js,jsp,log,m,markdown,'.
-\   'md,mkd,py,rb,sh,sql,tag,taskpaper,txt,vim,xml',
+\   'bat,c,cc,cpp,css,cxx,groovy,gradle,h,hpp,html,'.
+\   'java,js,jsp,log,m,markdown,md,mkd,pl,properties,'.
+\   'py,rb,sh,sql,tag,taskpaper,txt,vim,xml,yaml',
 \   'vim')
 " }}}
 
