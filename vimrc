@@ -730,6 +730,21 @@ nmap <C-Return>  <Plug>(dois:n:add-daily-task)
 " /plugin }}}
 
 
+" autocmd {{{
+
+" Create non-existing diretories automatically when the file is saved.
+function! s:auto_mkdir(dir, force)
+    if isdirectory(a:dir)
+        return
+    endif
+    if a:force || input(printf('mkdir %s? [y/n] ', a:dir), 'y') =~? '^y\%[es]$'
+        call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+    endif
+endfunction
+autocmd my BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
+
+" }}}
+
 " finally {{{
 " ------------------------------------------------------------------------
 call s:load_local_vimrc()
