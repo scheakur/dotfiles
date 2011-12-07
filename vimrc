@@ -718,7 +718,10 @@ cnoremap <expr><C-Return>  ambicmd#expand("\<Return>")
 " vimfiler {{{
 let g:vimfiler_as_default_explorer = 1
 
-call vimfiler#set_execute_file('c,cc,cpp,css,cxx,h,hpp,html,java,js,jsp,m,markdown,md,mkd,py,rb,sh,sql,tag,txt,vim,xml', 'vim')
+call vimfiler#set_execute_file(
+\   'c,cc,cpp,css,cxx,h,hpp,html,java,js,jsp,log,m,markdown,'.
+\   'md,mkd,py,rb,sh,sql,tag,taskpaper,txt,vim,xml',
+\   'vim')
 " }}}
 
 " dois.vim {{{
