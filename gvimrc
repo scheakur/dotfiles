@@ -42,6 +42,7 @@ endif
 
 " guioption {{{
 set guioptions&
+set guioptions-=e
 set guioptions-=m
 set guioptions-=r
 set guioptions-=L

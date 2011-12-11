@@ -185,6 +185,35 @@ set formatoptions=tcroqnlM1
 set showcmd
 " }}}
 
+" tabline {{{
+set showtabline=2
+set tabline=%!MyMakeTabLine()
+
+function! MyMakeTabLine()
+    let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
+    let tabpages = join(titles, '') . ' ' . '%#TabLineFill#%T'
+    let info = fnamemodify(getcwd(), ":~") . ' '
+    return tabpages . '%=' . info
+endfunction
+
+function! s:tabpage_label(n)
+    let title = gettabvar(a:n, 'title')
+    if title !=# ''
+        return title
+    endif
+    let bufnrs = tabpagebuflist(a:n)
+    let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+    let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '*' : ''
+    let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]
+    let fname = pathshorten(bufname(curbufnr))
+    if fname ==# ''
+        let fname = '[No Name]'
+    endif
+    let label = ' ' . fname . mod . ' '
+    return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
+endfunction
+" }}}
+
 " completion {{{
 set wildignore& wildignore+=.git,.svn,*.class
 set nowildmenu
@@ -461,12 +490,16 @@ nnoremap <silent> <SID>(split-to-h)  :<C-u>execute 'topleft'    (v:count == 0 ? 
 nnoremap <silent> <SID>(split-to-l)  :<C-u>execute 'botright'   (v:count == 0 ? '' : v:count) 'vsplit'<Return>
 " }}}
 
-" handle tags {{{
-nnoremap [Tag]  <Nop>
-nmap <C-t>  [Tag]
-nnoremap [Tag]<C-t>  <C-]>
-nnoremap [Tag]<C-j>  :<C-u>tag<Return>
-nnoremap [Tag]<C-k>  :<C-u>pop<Return>
+" handle tabs and tags {{{
+nnoremap [TabTag]  <Nop>
+nmap <C-t>  [TabTag]
+nnoremap [TabTag]<C-t>  <C-]>
+nnoremap [TabTag]<C-j>  :<C-u>tag<Return>
+nnoremap [TabTag]<C-k>  :<C-u>pop<Return>
+nnoremap [TabTag]<C-n> :<C-u>tabnew<Return>
+nnoremap [TabTag]<C-h> :<C-u>tabprevious<Return>
+nnoremap [TabTag]<C-l> :<C-u>tabnext<Return>
+nnoremap [TabTag]<C-w> :<C-u>tabclose<Return>
 " }}}
 
 " yank filename {{{
@@ -749,11 +782,13 @@ autocmd my BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
 
 " }}}
 
+
 " finally {{{
 " ------------------------------------------------------------------------
 call s:load_local_vimrc()
 set secure
 " /finally }}}
+
 
 " @see :help modeline
 " vim: set foldenable foldmethod=marker :
