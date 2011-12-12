@@ -38,6 +38,11 @@ let s:in_mac = has('mac') || has('macunix')
 let s:in_nix = !s:in_mac && has('unix')
 " }}}
 
+" map leader {{{
+let mapleader = ','
+let maplocalleader = '\'
+" }}}
+
 syntax enable
 
 " runtimepath {{{
@@ -84,7 +89,6 @@ call rtputil#helptags()
 filetype plugin on
 filetype indent on
 " /runtimepath }}}
-
 
 " color {{{
 " auto loading after/colors {{{
@@ -306,6 +310,8 @@ autocmd my TabEnter *
       \ |   let t:__cwd__ = getcwd()
       \ | endif
       \ | execute 'cd' fnameescape(expand(t:__cwd__))
+
+nnoremap <silent> <Leader>cd  :<C-u>CdInTab %:p:h<Return>
 " }}}
 
 " command CD {{{
@@ -350,11 +356,6 @@ endfunction "}}}
 
 " keymap {{{
 " ------------------------------------------------------------------------
-
-" map leader {{{
-let mapleader = ','
-let maplocalleader = '\'
-" }}}
 
 " vimrc {{{
 nnoremap <Space>s.  :<C-u>source $MYVIMRC<Return>
