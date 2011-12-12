@@ -185,7 +185,7 @@ set formatoptions=tcroqnlM1
 set showcmd
 " }}}
 
-" tabline {{{
+" tabpages {{{
 set showtabline=2
 set tabline=%!MyMakeTabLine()
 
@@ -197,19 +197,27 @@ function! MyMakeTabLine()
 endfunction
 
 function! s:tabpage_label(n)
-    let title = gettabvar(a:n, 'title')
-    if title !=# ''
-        return title
-    endif
     let bufnrs = tabpagebuflist(a:n)
-    let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
     let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '*' : ''
-    let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]
-    let fname = fnamemodify(bufname(curbufnr), ':t')
-    let fname = len(fname) ? fname : '[No Name]'
-    let label = ' ' . fname . mod . ' '
+    let title = gettabvar(a:n, '__title__')
+    if !len(title)
+        let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]
+        let title = fnamemodify(bufname(curbufnr), ':t')
+        let title = len(title) ? title : '[No Name]'
+    endif
+    let label = ' ' . title . mod . ' '
+    let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
     return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
 endfunction
+
+function! s:set_tabpage_title(title)
+    if len(a:title)
+        let t:__title__ = a:title
+    endif
+    redraw!
+endfunction
+
+command! -nargs=1 TabTitle call s:set_tabpage_title(<q-args>)
 " }}}
 
 " completion {{{
@@ -284,6 +292,22 @@ command! -range RemoveTrailM :setlocal nohlsearch | :<line1>,<line2>s!\r$!!g
 
 
 " change current directory {{{
+" in tab {{{
+command! -bar -complete=dir -nargs=?
+      \   CdInTab
+      \   execute 'cd' fnameescape(expand(<q-args>))
+      \   | let t:__cwd__ = getcwd()
+
+autocmd my TabEnter *
+      \   if exists('t:__cwd__') && !isdirectory(t:__cwd__)
+      \ |     unlet t:__cwd__
+      \ | endif
+      \ | if !exists('t:__cwd__')
+      \ |   let t:__cwd__ = getcwd()
+      \ | endif
+      \ | execute 'cd' fnameescape(expand(t:__cwd__))
+" }}}
+
 " command CD {{{
 command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
 function! s:ChangeCurrentDir(directory, bang)
