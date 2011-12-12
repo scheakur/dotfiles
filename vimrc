@@ -294,7 +294,6 @@ command! -nargs=1 -complete=file Rename f <args>|w|call delete(expand('#'))
 " remove trail ^M
 command! -range RemoveTrailM :setlocal nohlsearch | :<line1>,<line2>s!\r$!!g
 
-
 " change current directory {{{
 " in tab {{{
 command! -bar -complete=dir -nargs=?
@@ -326,8 +325,8 @@ function! s:ChangeCurrentDir(directory, bang)
         pwd
     endif
 endfunction
-" }}}
 nnoremap <silent> <Space>cd :<C-u>CD<Return>
+" }}}
 " }}}
 
 " capture outputs of command {{{
@@ -811,7 +810,6 @@ autocmd my BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
 call s:load_local_vimrc()
 set secure
 " /finally }}}
-
 
 " @see :help modeline
 " vim: set foldenable foldmethod=marker :
