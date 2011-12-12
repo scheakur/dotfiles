@@ -205,10 +205,8 @@ function! s:tabpage_label(n)
     let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
     let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '*' : ''
     let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]
-    let fname = pathshorten(bufname(curbufnr))
-    if fname ==# ''
-        let fname = '[No Name]'
-    endif
+    let fname = fnamemodify(bufname(curbufnr), ':t')
+    let fname = len(fname) ? fname : '[No Name]'
     let label = ' ' . fname . mod . ' '
     return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
 endfunction
