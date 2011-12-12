@@ -394,6 +394,12 @@ nnoremap O  :<C-u>call append(expand('.'), '')<Return>j
 nnoremap <Space>M  :<C-u>marks<Return>:mark<Space>
 " }}}
 
+" escape {{{
+inoremap <C-j>  <Esc>
+onoremap <C-j>  <Esc>
+cnoremap <C-j>  <C-c>
+" }}}
+
 " copy(yank) and paste with clipboard {{{
 if s:in_nix
     inoremap <C-o>p  <C-r><C-o>+
@@ -605,9 +611,9 @@ nnoremap [Unite]  <Nop>
 nmap <Space>  [Unite]
 
 nnoremap [Unite]<Space>  :<C-u>Unite<Space>
-nnoremap <silent> [Unite]f  :<C-u>Unite buffer file_mru file<Return>
+nnoremap <silent> [Unite]f  :<C-u>Unite buffer_tab buffer file_mru file<Return>
 nnoremap <silent> [Unite]g  :<C-u>UniteWithBufferDir file file_rec<Return>
-nnoremap <silent> [Unite]b  :<C-u>Unite buffer<Return>
+nnoremap <silent> [Unite]b  :<C-u>Unite buffer_tab buffer<Return>
 nnoremap <silent> [Unite]r  :<C-u>Unite register<Return>
 " }}}
 
