@@ -388,6 +388,7 @@ vnoremap E  B
 
 " for repeating 't'
 nnoremap ff  l;
+vnoremap ff  l;
 
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
