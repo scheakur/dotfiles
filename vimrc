@@ -201,27 +201,39 @@ function! MyMakeTabLine()
 endfunction
 
 function! s:tabpage_label(n)
+    let title = s:tabpage_title(a:n)
     let bufnrs = tabpagebuflist(a:n)
     let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '*' : ''
+    let label = ' ' . title . mod . ' '
+    let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
+    return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
+endfunction
+
+function! s:tabpage_title(n)
+    let bufnrs = tabpagebuflist(a:n)
     let title = gettabvar(a:n, '__title__')
     if !len(title)
         let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]
         let title = fnamemodify(bufname(curbufnr), ':t')
         let title = len(title) ? title : '[No Name]'
     endif
-    let label = ' ' . title . mod . ' '
-    let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
-    return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
+    return title
 endfunction
 
 function! s:set_tabpage_title(title)
-    if len(a:title)
+    if !empty(a:title)
         let t:__title__ = a:title
+    else
+        let n = tabpagenr('$')
+        let title = input("Tab's title : ", s:tabpage_title(n))
+        if !empty(title)
+            let t:__title__ = title
+        endif
     endif
     redraw!
 endfunction
 
-command! -nargs=1 TabTitle call s:set_tabpage_title(<q-args>)
+command! -nargs=? SetTabTitle call s:set_tabpage_title(<q-args>)
 " }}}
 
 " completion {{{
