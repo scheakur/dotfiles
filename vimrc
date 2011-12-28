@@ -628,9 +628,9 @@ nnoremap [Unite]  <Nop>
 nmap <Space>  [Unite]
 
 nnoremap [Unite]<Space>  :<C-u>Unite<Space>
-nnoremap <silent> [Unite]f  :<C-u>Unite buffer_tab buffer file_mru file<Return>
+nnoremap <silent> [Unite]f  :<C-u>Unite buffer file_mru file<Return>
 nnoremap <silent> [Unite]g  :<C-u>UniteWithBufferDir file file_rec<Return>
-nnoremap <silent> [Unite]b  :<C-u>Unite buffer_tab buffer<Return>
+nnoremap <silent> [Unite]b  :<C-u>Unite buffer<Return>
 nnoremap <silent> [Unite]r  :<C-u>Unite register<Return>
 " }}}
 
@@ -721,14 +721,14 @@ let g:quickrun_config = {
 \  'sql': {
 \    'command': 'sqlplus',
 \    'cmdopt': '-S',
-\    'args': '%{g:get_oracle_connection("quickrun")}',
+\    'args': '%{MyGetOracleConnection("quickrun")}',
 \    'tempfile': '%{tempname()}.sql',
 \    'exec': '%c %o %a \@%s'
 \  },
 \}
 
 " to quickrun sql {{{
-function! g:get_oracle_connection(mode)
+function! MyGetOracleConnection(mode)
     let l:user_pass = s:get_option('oracle_user_pass', 'system/oracle')
     let l:sid = s:get_option('oracle_sid', 'localhost/xe')
     let l:sep = (a:mode == 'quickrun') ? '\\\@' : '@'
