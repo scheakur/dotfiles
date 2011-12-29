@@ -3,6 +3,7 @@
 " ========================================================================
 
 " basic {{{
+set encoding=utf-8
 scriptencoding utf-8
 language messages C
 
@@ -49,20 +50,6 @@ set guioptions-=L
 set guioptions-=T
 set langmenu=none
 " }}}
-
-
-" workaround {{{
-" Resetting listchars.
-" Unless resetting,  "･" is treat as "<5a>" in MacVim.
-" I doubt encoding setting, but I couldn't specify the cause.
-" TODO specify the cause
-set listchars=tab:>-,trail:･
-" Resetting vimfiler icons.
-" The reason is as same as the above one.
-let g:vimfiler_tree_opened_icon = '▾'
-let g:vimfiler_tree_closed_icon = '▸'
-" }}}
-
 
 " @see :help modeline
 " vim: set foldenable foldmethod=marker :

@@ -4,9 +4,17 @@
 
 " basic {{{
 " ------------------------------------------------------------------------
+" encoding {{{
+" ref. http://pastebin.com/eb6uGLrP
+" `set encoding=utf8` *must* be before `scriptencoding utf8`
+" because `scriptencoding utf8` converts source string
+" from its argument encoding to current &encoding.
+"
+" If `&encoding` does not match source string,
+" `mbstrlen()` does not work properly.
+set encoding=utf-8
 scriptencoding utf-8
-" disable vi compatible mode
-set nocompatible
+" }}}
 
 " clear command
 augroup my
@@ -103,6 +111,7 @@ autocmd my ColorScheme * call s:load_after_colors()
 colorscheme lucius
 " }}}
 
+
 " /basic }}}
 
 
@@ -117,9 +126,7 @@ set hlsearch
 set wrapscan
 " }}}
 
-" encoding & file {{{
-set encoding=utf-8
-set fileencoding=utf-8
+" characters {{{
 set fileformats=unix,dos,mac
 set ambiwidth=double
 " }}}
