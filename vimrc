@@ -801,6 +801,14 @@ call vimfiler#set_execute_file(
 \   'java,js,jsp,log,m,markdown,md,mkd,pl,properties,'.
 \   'py,rb,sh,sql,tag,taskpaper,txt,vim,xml,yaml',
 \   'vim')
+
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = ' '
+let g:vimfiler_marked_file_icon = '*'
+
+nnoremap [Unite]v  :<C-u>VimFiler -split -no-quit<Return>
 " }}}
 
 " dois.vim {{{

@@ -57,6 +57,10 @@ set langmenu=none
 " I doubt encoding setting, but I couldn't specify the cause.
 " TODO specify the cause
 set listchars=tab:>-,trail:･
+" Resetting vimfiler icons.
+" The reason is as same as the above one.
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
 " }}}
 
 
