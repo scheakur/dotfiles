@@ -5,7 +5,7 @@
 " basic {{{
 " ------------------------------------------------------------------------
 " encoding {{{
-" ref. http://pastebin.com/eb6uGLrP
+" ref. http://d.hatena.ne.jp/tyru/20100603/vim_mbstrlen
 " `set encoding=utf8` *must* be before `scriptencoding utf8`
 " because `scriptencoding utf8` converts source string
 " from its argument encoding to current &encoding.
