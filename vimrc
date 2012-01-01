@@ -63,6 +63,7 @@ call vundle#rc()
 Bundle 'git://github.com/gmarik/vundle.git'
 
 " vundle list {{{
+Bundle 'git://github.com/jnwhiteh/vim-golang'
 Bundle 'git://github.com/h1mesuke/ref-dicts-en.git'
 Bundle 'git://github.com/kana/vim-smartchr.git'
 Bundle 'git://github.com/pangloss/vim-javascript.git'
