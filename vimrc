@@ -192,7 +192,7 @@ set clipboard& clipboard+=unnamed
 set modeline
 " Do not increase/decrease as octal number or hexadecimal number
 set nrformats& nrformats-=octal,hex
-set virtualedit=block
+set virtualedit=all
 set formatoptions=tcroqnlM1
 " show the number of lines of selection
 set showcmd
