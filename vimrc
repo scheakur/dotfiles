@@ -21,6 +21,9 @@ augroup my
     autocmd!
 augroup end
 
+" reset all options
+set all&
+
 " user interface in English
 language messages C
 language time C
