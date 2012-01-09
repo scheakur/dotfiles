@@ -5,13 +5,9 @@
 " basic {{{
 " ------------------------------------------------------------------------
 " encoding {{{
-" ref. http://d.hatena.ne.jp/tyru/20100603/vim_mbstrlen
 " `set encoding=utf8` *must* be before `scriptencoding utf8`
 " because `scriptencoding utf8` converts source string
 " from its argument encoding to current &encoding.
-"
-" If `&encoding` does not match source string,
-" `mbstrlen()` does not work properly.
 set encoding=utf-8
 scriptencoding utf-8
 " }}}
