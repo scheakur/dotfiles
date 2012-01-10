@@ -72,7 +72,6 @@ Bundle 'git://github.com/Shougo/neocomplcache.git'
 Bundle 'git://github.com/Shougo/vimfiler.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
-Bundle 'git://github.com/t9md/vim-quickhl.git'
 Bundle 'git://github.com/thinca/vim-ambicmd.git'
 Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
@@ -757,17 +756,6 @@ function! s:get_option(option_name, ...)
 endfunction
 " }}}
 
-" }}}
-
-" quickhl {{{
-nnoremap [QuickHilite]  <Nop>
-nmap ,  [QuickHilite]
-xmap ,  [QuickHilite]
-nmap [QuickHilite]m  <Plug>(quickhl-toggle)
-xmap [QuickHilite]m  <Plug>(quickhl-toggle)
-nmap [QuickHilite]M  <Plug>(quickhl-reset)
-xmap [QuickHilite]M  <Plug>(quickhl-reset)
-nmap [QuickHilite]j  <Plug>(quickhl-match)
 " }}}
 
 " neocomplcache {{{
