@@ -329,7 +329,7 @@ autocmd my TabEnter *
       \ | endif
       \ | execute 'cd' fnameescape(expand(t:__cwd__))
 
-nnoremap <silent> <Leader>cd  :<C-u>CdInTab %:p:h<Return>
+nnoremap <silent> <Leader>cd  :<C-u>CdInTab %:p:h<CR>
 " }}}
 
 " command CD {{{
@@ -344,7 +344,7 @@ function! s:ChangeCurrentDir(directory, bang)
         pwd
     endif
 endfunction
-nnoremap <silent> <Space>cd :<C-u>CD<Return>
+nnoremap <silent> <Space>cd :<C-u>CD<CR>
 " }}}
 " }}}
 
@@ -376,10 +376,10 @@ endfunction "}}}
 " ------------------------------------------------------------------------
 
 " vimrc {{{
-nnoremap <Space>s.  :<C-u>source $MYVIMRC<Return>
-nnoremap <Space>.  :<C-u>edit $MYVIMRC<Return>
-nnoremap <Space>s>  :<C-u>source ~/.gvimrc<Return>
-nnoremap <Space>>  :<C-u>edit ~/.gvimrc<Return>
+nnoremap <Space>s.  :<C-u>source $MYVIMRC<CR>
+nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
+nnoremap <Space>s>  :<C-u>source ~/.gvimrc<CR>
+nnoremap <Space>>  :<C-u>edit ~/.gvimrc<CR>
 " }}}
 
 " basic {{{
@@ -404,6 +404,7 @@ nnoremap e  W
 nnoremap E  B
 vnoremap e  W
 vnoremap E  B
+nnoremap <CR>  i<CR><Esc>
 
 " for repeating 't'
 nnoremap ff  l;
@@ -413,8 +414,8 @@ inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-d>  <Delete>
 nnoremap <expr> s*  ':%s/\<' . expand('<cword>') . '\>//g<Left><Left>'
-nnoremap O  :<C-u>call append(expand('.'), '')<Return>j
-nnoremap <Space>M  :<C-u>marks<Return>:mark<Space>
+nnoremap O  :<C-u>call append(expand('.'), '')<CR>j
+nnoremap <Space>M  :<C-u>marks<CR>:mark<Space>
 " }}}
 
 " escape {{{
@@ -462,19 +463,19 @@ function! s:ToggleOption(option_name)
     execute 'setlocal ' . a:option_name . '!'
     execute 'setlocal ' . a:option_name . '?'
 endfunction
-nnoremap <silent> <Space>ow  :<C-u>call <SID>ToggleOption('wrap')<Return>
-nnoremap <silent> <Space>nu  :<C-u>call <SID>ToggleOption('number')<Return>
-nnoremap <silent> <Space>hl  :<C-u>call <SID>ToggleOption('hlsearch')<Return>
-nnoremap <silent> <Space>et  :<C-u>call <SID>ToggleOption('expandtab')<Return>
+nnoremap <silent> <Space>ow  :<C-u>call <SID>ToggleOption('wrap')<CR>
+nnoremap <silent> <Space>nu  :<C-u>call <SID>ToggleOption('number')<CR>
+nnoremap <silent> <Space>hl  :<C-u>call <SID>ToggleOption('hlsearch')<CR>
+nnoremap <silent> <Space>et  :<C-u>call <SID>ToggleOption('expandtab')<CR>
 " }}}
 
 " current date/time {{{
-inoremap <Leader>dF <C-r>=strftime('%Y-%m-%dT%H:%M:%S%z')<Return>
-inoremap <Leader>df <C-r>=strftime('%Y-%m-%d %H:%M:%S')<Return>
-inoremap <Leader>dd <C-r>=strftime('%Y-%m-%d')<Return>
-inoremap <Leader>dm <C-r>=strftime('%Y-%m')<Return>
-inoremap <Leader>dy <C-r>=strftime('%Y')<Return>
-inoremap <Leader>dT <C-r>=strftime('%H:%M:%S')<Return>
+inoremap <Leader>dF <C-r>=strftime('%Y-%m-%dT%H:%M:%S%z')<CR>
+inoremap <Leader>df <C-r>=strftime('%Y-%m-%d %H:%M:%S')<CR>
+inoremap <Leader>dd <C-r>=strftime('%Y-%m-%d')<CR>
+inoremap <Leader>dm <C-r>=strftime('%Y-%m')<CR>
+inoremap <Leader>dy <C-r>=strftime('%Y')<CR>
+inoremap <Leader>dT <C-r>=strftime('%H:%M:%S')<CR>
 inoremap <Leader>dt <C-r>=strftime
 
 cnoremap <expr> <C-o>d  strftime('%Y-%m-%d')
@@ -535,31 +536,31 @@ nmap <Space>wk <SID>(split-to-k)
 nmap <Space>wh <SID>(split-to-h)
 nmap <Space>wl <SID>(split-to-l)
 
-nnoremap <silent> <SID>(split-to-j)  :<C-u>execute 'belowright' (v:count == 0 ? '' : v:count) 'split'<Return>
-nnoremap <silent> <SID>(split-to-k)  :<C-u>execute 'aboveleft'  (v:count == 0 ? '' : v:count) 'split'<Return>
-nnoremap <silent> <SID>(split-to-h)  :<C-u>execute 'topleft'    (v:count == 0 ? '' : v:count) 'vsplit'<Return>
-nnoremap <silent> <SID>(split-to-l)  :<C-u>execute 'botright'   (v:count == 0 ? '' : v:count) 'vsplit'<Return>
+nnoremap <silent> <SID>(split-to-j)  :<C-u>execute 'belowright' (v:count == 0 ? '' : v:count) 'split'<CR>
+nnoremap <silent> <SID>(split-to-k)  :<C-u>execute 'aboveleft'  (v:count == 0 ? '' : v:count) 'split'<CR>
+nnoremap <silent> <SID>(split-to-h)  :<C-u>execute 'topleft'    (v:count == 0 ? '' : v:count) 'vsplit'<CR>
+nnoremap <silent> <SID>(split-to-l)  :<C-u>execute 'botright'   (v:count == 0 ? '' : v:count) 'vsplit'<CR>
 " }}}
 
 " handle tabs and tags {{{
 nnoremap [TabTag]  <Nop>
 nmap <C-t>  [TabTag]
 nnoremap [TabTag]<C-t>  <C-]>
-nnoremap [TabTag]<C-j>  :<C-u>tag<Return>
-nnoremap [TabTag]<C-k>  :<C-u>pop<Return>
-nnoremap [TabTag]<C-n> :<C-u>tabnew<Return>
-nnoremap [TabTag]<C-h> :<C-u>tabprevious<Return>
-nnoremap [TabTag]<C-l> :<C-u>tabnext<Return>
-nnoremap [TabTag]<C-w> :<C-u>tabclose<Return>
+nnoremap [TabTag]<C-j>  :<C-u>tag<CR>
+nnoremap [TabTag]<C-k>  :<C-u>pop<CR>
+nnoremap [TabTag]<C-n> :<C-u>tabnew<CR>
+nnoremap [TabTag]<C-h> :<C-u>tabprevious<CR>
+nnoremap [TabTag]<C-l> :<C-u>tabnext<CR>
+nnoremap [TabTag]<C-w> :<C-u>tabclose<CR>
 " }}}
 
 " yank filename {{{
 if s:in_mac
-    nnoremap <silent> <Space>yf  :let @*=expand("%:p")<Return>
-    nnoremap <silent> <Space>yy  :let @*=expand("%")<Return>
+    nnoremap <silent> <Space>yf  :let @*=expand("%:p")<CR>
+    nnoremap <silent> <Space>yy  :let @*=expand("%")<CR>
 else
-    nnoremap <silent> <Space>yf  :let @@=expand("%:p")<Return>
-    nnoremap <silent> <Space>yy  :let @@=expand("%")<Return>
+    nnoremap <silent> <Space>yf  :let @@=expand("%:p")<CR>
+    nnoremap <silent> <Space>yy  :let @@=expand("%")<CR>
 endif
 " }}}
 
@@ -587,8 +588,8 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " misc {{{
 " search with the selected text
 " ref. http://vim-users.jp/2009/11/hack104/
-vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<Return><Return>
-vnoremap <silent> <Return> "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<Return><Return>
+vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
+vnoremap <silent> <CR> "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
 
 " identify the syntax highlighting group used at the cursor
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
@@ -612,9 +613,9 @@ vnoremap (  t(
 " open current file in web browser {{{
 if s:in_nix
     " I'm sorry for not using Opera.
-    nnoremap <silent> <Space>o :!google-chrome %<Return><Return>
+    nnoremap <silent> <Space>o :!google-chrome %<CR><CR>
 elseif s:in_mac
-    nnoremap <silent> <Space>o :!open %<Return><Return>
+    nnoremap <silent> <Space>o :!open %<CR><CR>
 endif
 " }}}
 
@@ -634,10 +635,10 @@ nnoremap [Unite]  <Nop>
 nmap <Space>  [Unite]
 
 nnoremap [Unite]<Space>  :<C-u>Unite<Space>
-nnoremap <silent> [Unite]f  :<C-u>Unite buffer file_mru file<Return>
-nnoremap <silent> [Unite]g  :<C-u>UniteWithBufferDir file file_rec<Return>
-nnoremap <silent> [Unite]b  :<C-u>Unite buffer<Return>
-nnoremap <silent> [Unite]r  :<C-u>Unite register<Return>
+nnoremap <silent> [Unite]f  :<C-u>Unite buffer file_mru file<CR>
+nnoremap <silent> [Unite]g  :<C-u>UniteWithBufferDir file file_rec<CR>
+nnoremap <silent> [Unite]b  :<C-u>Unite buffer<CR>
+nnoremap <silent> [Unite]r  :<C-u>Unite register<CR>
 " }}}
 
 " unite alias {{{
@@ -699,7 +700,7 @@ function! s:unite_load_template_files()
     \    })
 endfunction
 
-nnoremap [Unite]t  :call <SID>unite_load_template_files()<Return>
+nnoremap [Unite]t  :call <SID>unite_load_template_files()<CR>
 " }}}
 
 " /unite }}}
@@ -785,7 +786,7 @@ endif
 
 " ambicmd {{{
 cnoremap <expr><Space>  ambicmd#expand("\<Space>")
-cnoremap <expr><C-Return>  ambicmd#expand("\<Return>")
+cnoremap <expr><C-CR>  ambicmd#expand("\<CR>")
 " }}}
 
 " vimfiler {{{
@@ -803,13 +804,13 @@ let g:vimfiler_tree_closed_icon = '▸'
 let g:vimfiler_file_icon = ' '
 let g:vimfiler_marked_file_icon = '*'
 
-nnoremap [Unite]v  :<C-u>VimFiler -split -no-quit<Return>
+nnoremap [Unite]v  :<C-u>VimFiler -split -no-quit<CR>
 " }}}
 
 " dois.vim {{{
 let g:dois_file = $HOME . '/Dropbox/tmp/doinglist.taskpaper'
 let g:dois_dir = $HOME . '/Dropbox/tmp/doinglist'
-nmap <C-Return>  <Plug>(dois:n:add-daily-task)
+nmap <C-CR>  <Plug>(dois:n:add-daily-task)
 " }}}
 
 " /plugin }}}
