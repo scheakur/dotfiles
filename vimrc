@@ -17,9 +17,6 @@ augroup my
     autocmd!
 augroup end
 
-" reset all options
-set all&
-
 " user interface in English
 language messages C
 language time C
@@ -65,6 +62,8 @@ Bundle 'git://github.com/gmarik/vundle.git'
 Bundle 'git://github.com/jnwhiteh/vim-golang'
 Bundle 'git://github.com/h1mesuke/ref-dicts-en.git'
 Bundle 'git://github.com/kana/vim-smartchr.git'
+Bundle 'git://github.com/kana/vim-textobj-line.git'
+Bundle 'git://github.com/kana/vim-textobj-user.git'
 Bundle 'git://github.com/pangloss/vim-javascript.git'
 Bundle 'git://github.com/scheakur/dois.vim.git'
 Bundle 'git://github.com/scheakur/scheakur.vim.git'
@@ -186,7 +185,10 @@ set cmdheight=2
 set autoread
 set hidden
 set backspace=indent,eol,start
-set clipboard& clipboard+=unnamed
+set clipboard=unnamed
+if has('unnamedplus')
+    set clipboard+=unnamedplus
+endif
 set modeline
 " Do not increase/decrease as octal number or hexadecimal number
 set nrformats& nrformats-=octal,hex
