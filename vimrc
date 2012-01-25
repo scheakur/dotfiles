@@ -67,7 +67,6 @@ Bundle 'git://github.com/kana/vim-textobj-user.git'
 Bundle 'git://github.com/pangloss/vim-javascript.git'
 Bundle 'git://github.com/scheakur/dois.vim.git'
 Bundle 'git://github.com/scheakur/scheakur.vim.git'
-Bundle 'git://github.com/Shougo/neocomplcache.git'
 Bundle 'git://github.com/Shougo/vimfiler.git'
 Bundle 'git://github.com/Shougo/vimproc.git'
 Bundle 'git://github.com/Shougo/unite.vim.git'
@@ -759,31 +758,6 @@ function! s:get_option(option_name, ...)
 endfunction
 " }}}
 
-" }}}
-
-" neocomplcache {{{
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_auto_completion_start_length = 3
-
-" <CR>: close popup
-inoremap <expr><CR>  pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
-" <TAB>: completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-" <Esc>: cancel completion if completing
-inoremap <expr><Esc>  neocomplcache#cancel_popup() . "\<Esc>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h>  neocomplcache#smart_close_popup() . "\<C-h>"
-inoremap <expr><BS>  neocomplcache#smart_close_popup() . "\<C-h>"
-
-" Override <C-o>p key mapping which is defined above.
-" Because the completion will not end after pasting
-" when executing '<C-r><C-o>+' in insert mode.
-if s:in_nix
-    inoremap <expr><C-o>p  neocomplcache#cancel_popup() . "\<C-r><C-o>+"
-else
-    inoremap <expr><C-o>p  neocomplcache#cancel_popup() . "\<C-r><C-o>*"
-endif
 " }}}
 
 " ambicmd {{{
