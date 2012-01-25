@@ -483,6 +483,11 @@ cnoremap <expr> <C-o>d  strftime('%Y-%m-%d')
 cnoremap <expr> <C-o>t  strftime('%Y-%m-%d-%H%M%S')
 " }}}
 
+" completion {{{
+imap <C-Space>  <C-@>
+inoremap <C-@>  <C-n>
+" }}}
+
 " text-objects {{{
 " <angle>
 onoremap aa  a>
