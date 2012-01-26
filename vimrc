@@ -172,6 +172,8 @@ endif
 " invisible characters {{{
 set list
 set listchars=tab:>-,trail:･
+" highlight column 81
+set colorcolumn=81
 " }}}
 
 " footer (statusline, cmdheight) {{{
