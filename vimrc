@@ -174,6 +174,7 @@ set list
 set listchars=tab:>-,trail:･
 " highlight column 81
 set colorcolumn=81
+set textwidth=0
 " }}}
 
 " footer (statusline, cmdheight) {{{
@@ -390,23 +391,19 @@ noremap ;  :
 noremap :  ;
 noremap '  `
 noremap `  '
-nnoremap j  gj
-nnoremap k  gk
-nnoremap gj  j
-nnoremap gk  k
-vnoremap j  gj
-vnoremap k  gk
-vnoremap gj  j
-vnoremap gk  k
+noremap j  gj
+noremap k  gk
+noremap gj  j
+noremap gk  k
+nnoremap J  <C-u>
+nnoremap K  <C-d>
+noremap H  b
+noremap L  w
 nnoremap Y  y$
 vnoremap <  <gv
 vnoremap >  >gv
 nnoremap n  nzz
 nnoremap N  Nzz
-nnoremap e  W
-nnoremap E  B
-vnoremap e  W
-vnoremap E  B
 nnoremap <CR>  i<CR><Esc>
 
 " for repeating 't'
@@ -670,7 +667,7 @@ let g:unite_source_alias_aliases = {
 \   },
 \   'junk' : {
 \       'source': 'file_rec',
-\       'args': '~/tmp/junk/',
+\       'args': '~/tmp/junk/' . strftime('%Y/%m/'),
 \   },
 \   'keymap' : {
 \       'source': 'output',
