@@ -61,6 +61,7 @@ Bundle 'git://github.com/gmarik/vundle.git'
 " vundle list {{{
 Bundle 'git://github.com/jnwhiteh/vim-golang'
 Bundle 'git://github.com/h1mesuke/ref-dicts-en.git'
+Bundle 'git://github.com/h1mesuke/textobj-wiw.git'
 Bundle 'git://github.com/kana/vim-smartchr.git'
 Bundle 'git://github.com/kana/vim-textobj-line.git'
 Bundle 'git://github.com/kana/vim-textobj-user.git'
@@ -74,6 +75,7 @@ Bundle 'git://github.com/thinca/vim-ambicmd.git'
 Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'git://github.com/thinca/vim-rtputil.git'
+Bundle 'git://github.com/thinca/vim-textobj-plugins.git'
 Bundle 'git://github.com/tyru/caw.vim.git'
 Bundle 'git://github.com/ujihisa/neco-look.git'
 Bundle 'git://github.com/vim-jp/vimdoc-ja.git'
@@ -404,7 +406,6 @@ vnoremap <  <gv
 vnoremap >  >gv
 nnoremap n  nzz
 nnoremap N  Nzz
-nnoremap <CR>  i<CR><Esc>
 
 " for repeating 't'
 nnoremap ff  l;
@@ -514,28 +515,17 @@ vnoremap id  i"
 " }}}
 
 " handle window {{{
-nnoremap [Window]  <Nop>
-nmap w  [Window]
-nnoremap [Window]c  <C-w>c
-nnoremap [Window]q  <C-w>c
-nnoremap [Window]n  <C-w>n
-nnoremap [Window]v  <C-w>v
-nnoremap [Window]h  <C-w>h
-nnoremap [Window]j  <C-w>j
-nnoremap [Window]k  <C-w>k
-nnoremap [Window]l  <C-w>l
-nnoremap [Window]=  <C-w>3+
-nnoremap [Window]-  <C-w>3-
-nnoremap [Window].  <C-w>3>
-nnoremap [Window],  <C-w>3<
-nnoremap [Window]_  <C-w>_
-nnoremap [Window]+  <C-w>=
+nnoremap <C-w>=  <C-w>3+
+nnoremap <C-w>-  <C-w>3-
+nnoremap <C-w>.  <C-w>3>
+nnoremap <C-w>,  <C-w>3<
+nnoremap <C-w>+  <C-w>=
 
 " split window
-nmap [Window]sj <SID>(split-to-j)
-nmap [Window]sk <SID>(split-to-k)
-nmap [Window]sh <SID>(split-to-h)
-nmap [Window]sl <SID>(split-to-l)
+nmap <C-w>sj <SID>(split-to-j)
+nmap <C-w>sk <SID>(split-to-k)
+nmap <C-w>sh <SID>(split-to-h)
+nmap <C-w>sl <SID>(split-to-l)
 nmap <Space>wj <SID>(split-to-j)
 nmap <Space>wk <SID>(split-to-k)
 nmap <Space>wh <SID>(split-to-h)
