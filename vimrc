@@ -603,6 +603,10 @@ onoremap )  t)
 onoremap (  t(
 vnoremap )  t)
 vnoremap (  t(
+
+inoremap {  {}<Left>
+inoremap (  ()<Left>
+inoremap [  []<Left>
 " }}}
 
 " open current file in web browser {{{
