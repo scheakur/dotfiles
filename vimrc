@@ -414,7 +414,7 @@ vnoremap ff  l;
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-d>  <Delete>
-nnoremap <expr> s*  ':%s/\<' . expand('<cword>') . '\>//g<Left><Left>'
+nnoremap <expr> S*  ':%s/\<' . expand('<cword>') . '\>//g<Left><Left>'
 nnoremap O  :<C-u>call append(expand('.'), '')<CR>j
 nnoremap <Space>M  :<C-u>marks<CR>:mark<Space>
 " }}}
