@@ -174,6 +174,8 @@ let &undodir = $HOME . '/tmp/vim/undo,' . &directory
 if !isdirectory($HOME . '/tmp/vim/undo')
     call mkdir($HOME . '/tmp/vim/undo', 'p')
 endif
+set history=1024
+set viminfo='128,<512,s64,h
 " }}}
 
 " invisible characters {{{
@@ -402,8 +404,8 @@ noremap j  gj
 noremap k  gk
 noremap gj  j
 noremap gk  k
-nnoremap J  <C-u>
-nnoremap K  <C-d>
+nnoremap J  <C-d>
+nnoremap K  <C-u>
 noremap H  b
 noremap L  w
 nnoremap Y  y$
