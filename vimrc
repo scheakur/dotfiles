@@ -608,9 +608,9 @@ vnoremap (  t(
 " open current file in web browser {{{
 if s:in_nix
     " I'm sorry for not using Opera.
-    nnoremap <silent> <Space>o :!google-chrome %<CR><CR>
+    nnoremap <silent> <Space>O :!google-chrome %<CR><CR>
 elseif s:in_mac
-    nnoremap <silent> <Space>o :!open %<CR><CR>
+    nnoremap <silent> <Space>O :!open %<CR><CR>
 endif
 " }}}
 
