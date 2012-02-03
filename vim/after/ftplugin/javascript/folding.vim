@@ -2,8 +2,14 @@ setlocal foldmethod=syntax
 setlocal foldtext=MakeXMLFoldingLabelWithStartLineAndNumbersOfFoldedLines()
 
 function! MakeXMLFoldingLabelWithStartLineAndNumbersOfFoldedLines()
-    let l:line = getline(v:foldstart)
-    let l:line .= ' // +' . (v:foldend - v:foldstart) . ' lines'
-    return l:line
+    let line = getline(v:foldstart)
+    if (line =~# '/\*\*\?\s*')
+        let next = getline(v:foldstart + 1)
+        let next = substitute(next, '^\s*\*\?\s*', '', '')
+        let line = substitute(line, '/\*\*\?\zs\s*', '', '')
+        let line .= ' ' . next
+    endif
+    let line .= ' // +' . (v:foldend - v:foldstart) . ' lines'
+    return line
 endfunction
 
