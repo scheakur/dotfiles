@@ -286,7 +286,7 @@ command! -bang -bar -complete=file -nargs=? Dos edit<bang> ++fileformat=dos <arg
 command! -range=% TrimSpace :setlocal nohlsearch | :<line1>,<line2>s!\s*$!!g
 command! -range ShrinkSpace
             \ :setlocal nohlsearch
-            \ | :<line1>,<line2>s!\s\{2,}! !g
+            \ | :<line1>,<line2>s![^ ]\zs\s\{2,}! !g
             \ | :normal gv
 " }}}
 
@@ -358,8 +358,12 @@ function! s:ChangeCurrentDir(directory, bang)
         pwd
     endif
 endfunction
-nnoremap <silent> <Space>cd :<C-u>CD<CR>
+nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 " }}}
+
+" format JSON
+command! -range FormatJson  :<line1>,<line2>!python -m json.tool
+vnoremap <silent> <Leader>fj  :FormatJson<CR>
 " }}}
 
 " capture outputs of command {{{

@@ -60,7 +60,7 @@ function cdup() {
     zle reset-prompt
 }
 zle -N cdup
-bindkey '\^' cdup
+# bindkey '\^' cdup
 # }}}
 
 
