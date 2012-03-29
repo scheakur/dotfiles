@@ -75,11 +75,9 @@ Bundle 'git://github.com/thinca/vim-ambicmd.git'
 Bundle 'git://github.com/thinca/vim-quickrun.git'
 Bundle 'git://github.com/thinca/vim-ref.git'
 Bundle 'git://github.com/thinca/vim-rtputil.git'
-Bundle 'git://github.com/thinca/vim-singleton.git'
 Bundle 'git://github.com/thinca/vim-textobj-plugins.git'
 Bundle 'git://github.com/tpope/vim-surround.git'
 Bundle 'git://github.com/tyru/caw.vim.git'
-Bundle 'git://github.com/ujihisa/neco-look.git'
 Bundle 'git://github.com/vim-jp/vimdoc-ja.git'
 Bundle 'git://github.com/vim-scripts/groovyindent'
 Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
@@ -98,10 +96,6 @@ call rtputil#helptags()
 filetype plugin on
 filetype indent on
 " /runtimepath }}}
-
-" use vim as singleton {{{
-call singleton#enable()
-" }}}
 
 " color {{{
 " auto loading after/colors {{{
