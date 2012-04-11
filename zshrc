@@ -71,6 +71,7 @@ export SAVEHIST=1000000
 setopt append_history
 setopt hist_ignore_dups
 setopt share_history
+setopt interactive_comments
 
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
