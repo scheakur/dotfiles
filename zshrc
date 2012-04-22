@@ -83,11 +83,6 @@ bindkey '^S' history-incremental-pattern-search-forward
 # }}}
 
 
-# util alias {{{
-alias antd='date; ant deploy; date'
-# }}}
-
-
 # for root user {{{
 case ${UID} in
 0)
