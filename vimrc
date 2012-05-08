@@ -53,38 +53,7 @@ syntax enable
 filetype off
 
 " vundle {{{
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
-" vundle itself
-Bundle 'git://github.com/gmarik/vundle.git'
-
-" vundle list {{{
-Bundle 'git://github.com/jnwhiteh/vim-golang'
-Bundle 'git://github.com/h1mesuke/ref-dicts-en.git'
-Bundle 'git://github.com/h1mesuke/textobj-wiw.git'
-Bundle 'git://github.com/kana/vim-smartchr.git'
-Bundle 'git://github.com/kana/vim-textobj-line.git'
-Bundle 'git://github.com/kana/vim-textobj-user.git'
-Bundle 'git://github.com/pangloss/vim-javascript.git'
-Bundle 'git://github.com/scheakur/dois.vim.git'
-Bundle 'git://github.com/scheakur/scheakur.vim.git'
-Bundle 'git://github.com/Shougo/vimfiler.git'
-Bundle 'git://github.com/Shougo/vimproc.git'
-Bundle 'git://github.com/Shougo/unite.vim.git'
-Bundle 'git://github.com/thinca/vim-ambicmd.git'
-Bundle 'git://github.com/thinca/vim-quickrun.git'
-Bundle 'git://github.com/thinca/vim-ref.git'
-Bundle 'git://github.com/thinca/vim-rtputil.git'
-Bundle 'git://github.com/thinca/vim-textobj-plugins.git'
-Bundle 'git://github.com/tpope/vim-surround.git'
-Bundle 'git://github.com/tyru/caw.vim.git'
-Bundle 'git://github.com/vim-jp/vimdoc-ja.git'
-Bundle 'git://github.com/vim-scripts/groovyindent'
-Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
-Bundle 'git://github.com/vim-scripts/Lucius.git'
-Bundle 'git://github.com/vim-scripts/sudo.vim.git'
-" }}}
-
+execute 'source' . expand('~/.vim/bundles.vim')
 " }}}
 
 " rptutil {{{
