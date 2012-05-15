@@ -86,6 +86,10 @@ colorscheme lucius
 " option {{{
 " ------------------------------------------------------------------------
 
+if !has("gui_running")
+    set term=screen-256color
+endif
+
 " search {{{
 set ignorecase
 set smartcase
