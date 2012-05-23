@@ -354,6 +354,10 @@ function! s:cmd_capture(q_args) "{{{
 endfunction "}}}
 " }}}
 
+" reload the file {{{
+command! -nargs=0 Reload :edit %
+" }}}
+
 " /command }}}
 
 
@@ -533,8 +537,8 @@ if s:in_mac
     nnoremap <silent> <Space>yf  :let @*=expand("%:p")<CR>
     nnoremap <silent> <Space>yy  :let @*=expand("%")<CR>
 else
-    nnoremap <silent> <Space>yf  :let @@=expand("%:p")<CR>
-    nnoremap <silent> <Space>yy  :let @@=expand("%")<CR>
+    nnoremap <silent> <Space>yf  :let @+=expand("%:p")<CR>
+    nnoremap <silent> <Space>yy  :let @+=expand("%")<CR>
 endif
 " }}}
 
