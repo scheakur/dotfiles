@@ -266,7 +266,7 @@ command! -nargs=0 Junkhtml call s:open_junk_file('html', 1)
 command! -nargs=0 Junktext call s:open_junk_file('txt', 1)
 command! -nargs=0 Junksql call s:open_junk_file('sql', 1)
 function! s:open_junk_file(ext, immediately)
-    let l:junk_dir = $HOME . '/tmp/junk'. strftime('/%Y/%m')
+    let l:junk_dir = $HOME . '/Dropbox/tmp/junk'. strftime('/%Y/%m')
     if !isdirectory(l:junk_dir)
         call mkdir(l:junk_dir, 'p')
     endif
@@ -644,7 +644,7 @@ let g:unite_source_alias_aliases = {
 \   },
 \   'junk' : {
 \       'source': 'file_rec',
-\       'args': '~/tmp/junk/' . strftime('%Y/%m/'),
+\       'args': '~/Dropbox/tmp/junk/' . strftime('%Y/%m/'),
 \   },
 \   'keymap' : {
 \       'source': 'output',
