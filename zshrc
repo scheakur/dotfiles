@@ -22,9 +22,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 # misc {{{
 export TERM=xterm-256color
 export EDITOR=vim
-export LC_ALL=C
-export LOCALE=C
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LOCALE=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 bindkey -e
 
