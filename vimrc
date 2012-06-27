@@ -549,6 +549,8 @@ nnoremap Q  q
 
 nnoremap <silent> [Quickfix]n  :<C-u>cnext<CR>
 nnoremap <silent> [Quickfix]p  :<C-u>cprevious<CR>
+nnoremap <silent> [Quickfix]j  :<C-u>cnext<CR>
+nnoremap <silent> [Quickfix]k  :<C-u>cprevious<CR>
 nnoremap <silent> [Quickfix]r  :<C-u>crewind<CR>
 nnoremap <silent> [Quickfix]N  :<C-u>cfirst<CR>
 nnoremap <silent> [Quickfix]P  :<C-u>clast<CR>
@@ -786,6 +788,8 @@ function! s:auto_mkdir(dir, force)
 endfunction
 autocmd my BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
 
+" Open quickfix window after executing make.
+autocmd my QuickfixCmdPost make copen
 " }}}
 
 
