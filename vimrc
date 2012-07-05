@@ -360,7 +360,7 @@ let s:sql_keywords = [
       \]
 
 function! s:list2regexp(list) "{{{
-    let regexp = '\<\('
+    let regexp = '\V\ \<\('
     let sep = ''
     for word in a:list
         let escaped = substitute(word, '\ ', '\\ ', '')
