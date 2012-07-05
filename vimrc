@@ -328,9 +328,53 @@ endfunction
 nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 " }}}
 
+" }}}
+
 " format JSON
 command! -range FormatJson  :<line1>,<line2>!python -m json.tool
 vnoremap <silent> <Leader>fj  :FormatJson<CR>
+
+" format SQL {{{
+let s:sql_keywords = [
+      \ 'union all',
+      \ 'minus',
+      \ 'insert',
+      \ 'delete',
+      \ 'update',
+      \ 'select',
+      \ 'from',
+      \ 'where',
+      \ 'and',
+      \ 'or',
+      \ 'order by',
+      \ 'group by',
+      \ 'having',
+      \ 'inner join',
+      \ 'left outer join',
+      \ 'right outer join',
+      \ 'on',
+      \ 'case',
+      \ 'when',
+      \ 'then',
+      \ 'end',
+      \]
+
+function! s:list2regexp(list) "{{{
+    let regexp = '\<\('
+    let sep = ''
+    for word in a:list
+        let escaped = substitute(word, '\ ', '\\ ', '')
+        let regexp .= sep . escaped
+        let sep = '\|'
+    endfor
+    let regexp .= '\)\>'
+    return regexp
+endfunction "}}}
+
+command! -range FormatSql
+  \ :setlocal nohlsearch
+  \ | :execute ':<line1>,<line2>s!' . <SID>list2regexp(s:sql_keywords) . '!\r&!g'
+  \ | :normal =ip
 " }}}
 
 " capture outputs of command {{{
