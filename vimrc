@@ -76,6 +76,7 @@ function! s:load_after_colors()
 endfunction
 autocmd my ColorScheme * call s:load_after_colors()
 " }}}
+let g:lucius_style = 'dark_dim'
 colorscheme lucius
 " }}}
 
