@@ -403,6 +403,18 @@ endfunction "}}}
 command! -nargs=0 Reload :edit %
 " }}}
 
+" draw underline " {{{
+command! -nargs=? Underline call s:underline(<q-args>)
+
+function! s:underline(c)
+    let curr = getline('.')
+    let length = len(curr)
+    let char = (len(a:c) > 0) ? a:c[0] : '-'
+    let line = repeat(char, length)
+    call append('.', line)
+endfunction
+" }}}
+
 " /command }}}
 
 
@@ -746,21 +758,25 @@ nmap <Space>/  <Plug>(caw:i:toggle)
 " quickrun {{{
 
 let g:quickrun_config = {
-\  '_': {
-\    'outputter/buffer/split': 'aboveleft'
-\  },
-\  'javascript': {
-\    'command': '$HOME/app/ringo/bin/ringo',
-\    'tempfile': '%{tempname()}.js',
-\    'exec': '%c %s'
-\  },
-\  'sql': {
-\    'command': 'sqlplus',
-\    'cmdopt': '-S',
-\    'args': '%{MyGetOracleConnection("quickrun")}',
-\    'tempfile': '%{tempname()}.sql',
-\    'exec': '%c %o %a \@%s'
-\  },
+\   '_': {
+\       'outputter/buffer/split': 'aboveleft'
+\   },
+\   'javascript': {
+\       'command': '$HOME/app/ringo/bin/ringo',
+\       'tempfile': '%{tempname()}.js',
+\       'exec': '%c %s'
+\   },
+\   'sql': {
+\       'command': 'sqlplus',
+\       'cmdopt': '-S',
+\       'args': '%{MyGetOracleConnection("quickrun")}',
+\       'tempfile': '%{tempname()}.sql',
+\       'exec': '%c %o %a \@%s'
+\   },
+\   'rst': {
+\       'command': 'rst2html',
+\       'outputter': 'browser',
+\   },
 \}
 
 " to quickrun sql {{{
