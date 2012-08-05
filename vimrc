@@ -817,6 +817,11 @@ let g:dois_dir = $HOME . '/Dropbox/tmp/doinglist'
 nmap <C-CR>  <Plug>(dois:n:add-daily-task)
 " }}}
 
+
+" operator-replace {{{
+map R  <Plug>(operator-replace)
+" }}}
+
 " /plugin }}}
 
 
