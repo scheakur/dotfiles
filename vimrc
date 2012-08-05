@@ -404,13 +404,28 @@ command! -nargs=0 Reload :edit %
 " }}}
 
 " draw underline " {{{
-command! -nargs=? Underline call s:underline(<q-args>)
+command! -range=0 -nargs=? Underline2 call s:underline(<line1>, <q-args>)
 
-function! s:underline(c)
-    let curr = getline('.')
-    let length = len(curr)
-    let char = (len(a:c) > 0) ? a:c[0] : '-'
-    let line = repeat(char, length)
+function! s:underline(num, char)
+    let char = (len(a:char) > 0) ? a:char[0] : '-'
+    let num = line("'<")
+    if (num != a:num)
+        let curr = getline('.')
+        let length = len(curr)
+        let line = repeat(char, length)
+    else
+        let start = col("'<") - 1
+        let end = col("'>")
+        let eol = col("$") - 1
+        if (end < start || end > eol)
+            let end = eol
+        endif
+        let line = ''
+        if (start >= 0)
+            let line = line . repeat(' ', start)
+        endif
+        let line = line . repeat(char, end - start)
+    endif
     call append('.', line)
 endfunction
 " }}}
