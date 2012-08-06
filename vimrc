@@ -404,7 +404,7 @@ command! -nargs=0 Reload :edit %
 " }}}
 
 " draw underline " {{{
-command! -range=0 -nargs=? Underline2 call s:underline(<line1>, <q-args>)
+command! -range=0 -nargs=? Underline call s:underline(<line1>, <q-args>)
 
 function! s:underline(num, char)
     let char = (len(a:char) > 0) ? a:char[0] : '-'
