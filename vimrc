@@ -399,9 +399,6 @@ function! s:cmd_capture(q_args) "{{{
 endfunction "}}}
 " }}}
 
-" reload the file {{{
-command! -nargs=0 Reload :edit %
-" }}}
 
 " draw underline " {{{
 command! -range=0 -nargs=? Underline call s:underline(<line1>, <q-args>)
