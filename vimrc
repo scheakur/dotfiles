@@ -401,29 +401,14 @@ endfunction "}}}
 
 
 " draw underline " {{{
-command! -range=0 -nargs=? Underline call s:underline(<line1>, <q-args>)
+" ref. http://vim.wikia.com/wiki/Underline_using_dashes_automatically
+command! -nargs=? Underline call s:underline(<q-args>)
 
-function! s:underline(num, char)
-    let char = (len(a:char) > 0) ? a:char[0] : '-'
-    let num = line("'<")
-    if (num != a:num)
-        let curr = getline('.')
-        let length = len(curr)
-        let line = repeat(char, length)
-    else
-        let start = col("'<") - 1
-        let end = col("'>")
-        let eol = col("$") - 1
-        if (end < start || end > eol)
-            let end = eol
-        endif
-        let line = ''
-        if (start >= 0)
-            let line = line . repeat(' ', start)
-        endif
-        let line = line . repeat(char, end - start)
-    endif
-    call append('.', line)
+function! s:underline(chars)
+   let chars = empty(a:chars) ? '-' : a:chars
+   let nr_columns = virtcol('$') - 1
+   let uline = repeat(chars, (nr_columns / len(chars)) + 1)
+   put =strpart(uline, 0, nr_columns)
 endfunction
 " }}}
 
