@@ -702,6 +702,10 @@ let g:unite_source_alias_aliases = {
 \       'source': 'file_rec',
 \       'args': '~/Dropbox/tmp/junk/' . strftime('%Y/%m/'),
 \   },
+\   'blog' : {
+\       'source': 'file_rec',
+\       'args': '~/Dropbox/git/octopress-for-blog/source/_posts/',
+\   },
 \   'keymap' : {
 \       'source': 'output',
 \       'args': ['map', 'map!', 'lmap'],
