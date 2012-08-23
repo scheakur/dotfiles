@@ -780,6 +780,18 @@ let g:quickrun_config = {
 \   },
 \}
 
+if (s:in_mac)
+    call extend(g:quickrun_config, {
+    \   'markdown' : {
+    \       'command': 'open',
+    \       'cmdopt': '-a',
+    \       'tempfile': '%{tempname()}.md',
+    \       'exec': '%c %s %o /Applications/Marked.app',
+    \       'outputter': 'null',
+    \   },
+    \})
+endif
+
 " to quickrun sql {{{
 function! MyGetOracleConnection(mode)
     let l:user_pass = s:get_option('oracle_user_pass', 'system/oracle')
