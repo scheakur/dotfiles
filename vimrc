@@ -412,6 +412,9 @@ function! s:underline(chars)
 endfunction
 " }}}
 
+" Delete buffers without breaking window layout
+" ref. https://raw.github.com/taku-o/downloads/master/kwbd.vim
+command! Kwbd let kwbd_bn= bufnr("%")|enew|exe "bdelete ".kwbd_bn|unlet kwbd_bn
 " /command }}}
 
 
@@ -441,8 +444,8 @@ noremap L  w
 nnoremap Y  y$
 vnoremap <  <gv
 vnoremap >  >gv
-nnoremap n  nzz
-nnoremap N  Nzz
+nnoremap <silent> n  :<C-u>set hlsearch<CR>nzz
+nnoremap <silent> N  :<C-u>set hlsearch<CR>Nzz
 
 " for repeating 't'
 nnoremap ff  l;
@@ -655,6 +658,14 @@ if s:in_nix
 elseif s:in_mac
     nnoremap <silent> <Space>O :!open %<CR><CR>
 endif
+" }}}
+
+" hlsearch (search and highlight) {{{
+nnoremap <Esc><Esc> :<C-u>set nohlsearch<CR>
+nnoremap / :<C-u>set hlsearch<CR>/
+nnoremap ? :<C-u>set hlsearch<CR>?
+nnoremap * :<C-u>set hlsearch<CR>*
+nnoremap # :<C-u>set hlsearch<CR>#
 " }}}
 
 " /keymap }}}
