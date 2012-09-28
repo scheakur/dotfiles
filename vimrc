@@ -158,7 +158,7 @@ set cmdheight=2
 
 " misc {{{
 set autoread
-set hidden
+set nohidden
 set backspace=indent,eol,start
 set clipboard=unnamed
 if has('unnamedplus')
@@ -408,8 +408,22 @@ endfunction
 " }}}
 
 " Delete buffers without breaking window layout
-" ref. https://raw.github.com/taku-o/downloads/master/kwbd.vim
-command! Kwbd let kwbd_bn= bufnr("%")|enew|exe "bdelete ".kwbd_bn|unlet kwbd_bn
+command! Bdelete call s:delete_buffer()
+
+function! s:delete_buffer()
+    let curr = bufnr('%')
+    let prev = bufnr('#')
+
+    if (prev > 0 && buflisted(prev) && curr != prev)
+        execute 'buffer' . prev
+    else
+        enew
+    endif
+
+    if (curr && buflisted(curr))
+        execute 'bdelete' . curr
+    endif
+endfunction
 " /command }}}
 
 
