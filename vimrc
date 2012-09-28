@@ -86,11 +86,6 @@ colorscheme lucius
 
 " option {{{
 " ------------------------------------------------------------------------
-
-if !has("gui_running")
-    set term=screen-256color
-endif
-
 " search {{{
 set ignorecase
 set smartcase
@@ -469,21 +464,13 @@ cnoremap <C-j>  <C-c>
 if s:in_nix
     inoremap <C-o>p  <C-r><C-o>+
     cnoremap <C-o>p  <C-r><C-o>+
-    nnoremap <C-o>p  "+p
-    nnoremap <C-o>P  "+P
     vnoremap <C-o>y  "+y
     vnoremap <C-o>Y  "+y$
-    nnoremap <C-o>y  "+y
-    nnoremap <C-o>Y  "+y$
 else
     inoremap <C-o>p  <C-r><C-o>*
     cnoremap <C-o>p  <C-r><C-o>*
-    nnoremap <C-o>p  "*p
-    nnoremap <C-o>P  "*P
     vnoremap <C-o>y  "*y
     vnoremap <C-o>Y  "*y$
-    nnoremap <C-o>y  "*y
-    nnoremap <C-o>Y  "*y$
 endif
 " }}}
 

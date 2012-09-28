@@ -20,7 +20,9 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
 
 # misc {{{
-export TERM=xterm-256color
+if [ "$TERM" != "screen-256color" ]; then
+    export TERM="xterm-256color"
+fi
 export EDITOR=vim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
