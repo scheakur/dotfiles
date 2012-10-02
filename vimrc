@@ -158,7 +158,7 @@ set cmdheight=2
 
 " misc {{{
 set autoread
-set nohidden
+set hidden
 set backspace=indent,eol,start
 set clipboard=unnamed
 if has('unnamedplus')
@@ -772,6 +772,7 @@ nmap <Space>/  <Plug>(caw:i:toggle)
 
 let g:quickrun_config = {
 \   '_': {
+\       'runner': 'vimproc',
 \       'outputter/buffer/split': 'aboveleft'
 \   },
 \   'javascript': {
