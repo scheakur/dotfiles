@@ -171,6 +171,7 @@ set virtualedit=all
 set formatoptions=tcroqnlM1
 " show the number of lines of selection
 set showcmd
+set updatetime=1000
 " }}}
 
 " tabpages {{{
@@ -678,6 +679,7 @@ nnoremap # :<C-u>set hlsearch<CR>#
 
 " option {{{
 let g:unite_split_rule = 'aboveleft'
+let g:unite_update_time = 100
 " }}}
 
 " keymap {{{
@@ -773,6 +775,7 @@ nmap <Space>/  <Plug>(caw:i:toggle)
 let g:quickrun_config = {
 \   '_': {
 \       'runner': 'vimproc',
+\       'runner/vimproc/updatetime': 100,
 \       'outputter/buffer/split': 'aboveleft'
 \   },
 \   'javascript': {
