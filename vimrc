@@ -670,6 +670,22 @@ nnoremap * :<C-u>set hlsearch<CR>*
 nnoremap # :<C-u>set hlsearch<CR>#
 " }}}
 
+" insert or append in visual mode {{{
+" ref. http://labs.timedia.co.jp/2012/10/vim-more-useful-blockwise-insertion.html
+vnoremap <expr> I  <SID>force_blockwise_visual('I')
+vnoremap <expr> A  <SID>force_blockwise_visual('A')
+
+function! s:force_blockwise_visual(next_key)
+  if mode() ==# 'v'
+    return "\<C-v>" . a:next_key
+  elseif mode() ==# 'V'
+    return "\<C-v>0o$" . a:next_key
+  else  " mode() ==# "\<C-v>"
+    return a:next_key
+  endif
+endfunction
+" }}}
+
 " /keymap }}}
 
 
