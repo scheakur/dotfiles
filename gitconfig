@@ -12,3 +12,5 @@
 	trustExitCode = true
 [github]
 	user = scheakur
+[alias]
+	revertlocalchange = checkout HEAD --
