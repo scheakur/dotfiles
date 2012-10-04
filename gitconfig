@@ -14,3 +14,5 @@
 	user = scheakur
 [alias]
 	revertlocalchange = checkout HEAD --
+[color]
+	ui = auto
