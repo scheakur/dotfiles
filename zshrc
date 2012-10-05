@@ -38,7 +38,7 @@ function rprompt-git-current-branch {
 }
 
 local COLOR='%F{cyan}'
-local DEFAULT='%F{white}'
+local DEFAULT='%F{default}'
 export PROMPT=$COLOR'%n@%m:%~ `rprompt-git-current-branch`
 %(!.#.$) '$DEFAULT
 export RPROMPT=''
