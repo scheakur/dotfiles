@@ -132,6 +132,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
+if [ -f ~/src/nvm/nvm.sh ]; then
+    . ~/src/nvm/nvm.sh
+fi
+
 
 # Load local configurations.
 if [ -f ~/.bashrc.local ]; then
