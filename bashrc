@@ -76,7 +76,12 @@ unset color_prompt force_color_prompt
 # load config for git
 if [ -f ~/.bash/git-completion.bash ]; then
     . ~/.bash/git-completion.bash
-    PS1="$PS1 \$(__git_ps1)"
+    GIT_PS1_SHOWUNTRACKEDFILES=1
+    GIT_PS1_SHOWSTASHSTATE=1
+    GIT_PS1_SHOWDIRTYSTATE=1
+    git_status='$(__git_ps1 "[%s]")'
+    PS1="$PS1 $git_status"
+    unset git_status
 fi
 PS1="$PS1\n\$ "
 
