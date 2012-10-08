@@ -794,6 +794,9 @@ let g:quickrun_config = {
 \       'runner/vimproc/updatetime': 100,
 \       'outputter/buffer/split': 'aboveleft'
 \   },
+\   'watchdogs_checker/_': {
+\       'hook/close_quickfix/enable_exit': 1,
+\   },
 \   'javascript': {
 \       'command': '$HOME/app/ringo/bin/ringo',
 \       'tempfile': '%{tempname()}.js',
@@ -847,6 +850,14 @@ function! s:get_option(option_name, ...)
 endfunction
 " }}}
 
+" }}}
+
+" watchdogs {{{
+let g:watchdogs_check_BufWritePost_enable = 1
+let g:watchdogs_check_BufWritePost_enables = {
+\   'javascript': 1,
+\   'sass': 0,
+\}
 " }}}
 
 " ambicmd {{{
@@ -907,6 +918,7 @@ autocmd my QuickfixCmdPost make copen
 " finally {{{
 " ------------------------------------------------------------------------
 call s:load_local_vimrc()
+call watchdogs#setup(g:quickrun_config)
 set secure
 " /finally }}}
 
