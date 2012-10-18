@@ -11,8 +11,6 @@ Bundle 'git://github.com/gmarik/vundle.git'
 " vundle list {{{
 Bundle 'git://github.com/jceb/vim-hier.git'
 Bundle 'git://github.com/jnwhiteh/vim-golang'
-Bundle 'git://github.com/h1mesuke/ref-dicts-en.git'
-Bundle 'git://github.com/h1mesuke/textobj-wiw.git'
 Bundle 'git://github.com/h1mesuke/vim-alignta.git'
 Bundle 'git://github.com/kana/vim-operator-user.git'
 Bundle 'git://github.com/kana/vim-operator-replace.git'
