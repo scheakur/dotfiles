@@ -729,38 +729,6 @@ let g:unite_source_alias_aliases = {
 \ }
 " }}}
 
-" static template file {{{
-let read_action = {
-\   'is_selectable' : 1,
-\   'description' : 'Read file contents and write into a current buffer.',
-\ }
-
-function! read_action.func(candidates)
-    for l:candidate in a:candidates
-        " write at current line -1
-        call unite#util#smart_execute_command(':.-1 read', l:candidate.action__path)
-    endfor
-endfunction
-
-call unite#custom_action('file', 'read', read_action)
-
-unlet read_action
-
-function! s:unite_load_template_files()
-    let l:type = (&filetype != '') ? &filetype . '/' : ''
-    let l:dir = expand('~/.vim/template/' . l:type)
-    if !filereadable(l:dir)
-        let l:dir = expand('~/.vim/template/')
-    endif
-    call unite#start(['file_rec'], {
-    \        'input': l:dir,
-    \        'default_action': 'read'
-    \    })
-endfunction
-
-nnoremap [Unite]t  :call <SID>unite_load_template_files()<CR>
-" }}}
-
 " /unite }}}
 
 " caw {{{
