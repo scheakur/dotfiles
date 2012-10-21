@@ -661,22 +661,6 @@ nnoremap * :<C-u>set hlsearch<CR>*
 nnoremap # :<C-u>set hlsearch<CR>#
 " }}}
 
-" insert or append in visual mode {{{
-" ref. http://labs.timedia.co.jp/2012/10/vim-more-useful-blockwise-insertion.html
-vnoremap <expr> I  <SID>force_blockwise_visual('I')
-vnoremap <expr> A  <SID>force_blockwise_visual('A')
-
-function! s:force_blockwise_visual(next_key)
-  if mode() ==# 'v'
-    return "\<C-v>" . a:next_key
-  elseif mode() ==# 'V'
-    return "\<C-v>0o$" . a:next_key
-  else  " mode() ==# "\<C-v>"
-    return a:next_key
-  endif
-endfunction
-" }}}
-
 " /keymap }}}
 
 
@@ -732,38 +716,6 @@ let g:unite_source_alias_aliases = {
 \       'args': ['map', 'map!', 'lmap'],
 \   },
 \ }
-" }}}
-
-" static template file {{{
-let read_action = {
-\   'is_selectable' : 1,
-\   'description' : 'Read file contents and write into a current buffer.',
-\ }
-
-function! read_action.func(candidates)
-    for l:candidate in a:candidates
-        " write at current line -1
-        call unite#util#smart_execute_command(':.-1 read', l:candidate.action__path)
-    endfor
-endfunction
-
-call unite#custom_action('file', 'read', read_action)
-
-unlet read_action
-
-function! s:unite_load_template_files()
-    let l:type = (&filetype != '') ? &filetype . '/' : ''
-    let l:dir = expand('~/.vim/template/' . l:type)
-    if !filereadable(l:dir)
-        let l:dir = expand('~/.vim/template/')
-    endif
-    call unite#start(['file_rec'], {
-    \        'input': l:dir,
-    \        'default_action': 'read'
-    \    })
-endfunction
-
-nnoremap [Unite]t  :call <SID>unite_load_template_files()<CR>
 " }}}
 
 " /unite }}}
@@ -886,6 +838,22 @@ map R  <Plug>(operator-replace)
 
 " surround {{{
 vmap s <Plug>VSurround
+" }}}
+
+" neosnippet {{{
+imap <expr><Tab>  neosnippet#expandable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+smap <expr><Tab>  neosnippet#expandable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+let g:neosnippet#snippets_directory = expand('~/.vim/snippet')
+let g:neosnippet#disable_runtime_snippets = {
+\   '_' : 1,
+\}
+" }}}
+
+" vim-javascript {{{
+let g:html_indent_inctags = 'html,body,head,tbody'
+let g:html_indent_autotags = 'th,td,tr,tfoot,thead'
 " }}}
 
 " /plugin }}}
