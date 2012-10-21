@@ -883,6 +883,22 @@ map R  <Plug>(operator-replace)
 vmap s <Plug>VSurround
 " }}}
 
+" neosnippet {{{
+imap <expr><Tab>  neosnippet#expandable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+smap <expr><Tab>  neosnippet#expandable() ?
+        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+let g:neosnippet#snippets_directory = expand('~/.vim/snippet')
+let g:neosnippet#disable_runtime_snippets = {
+\   '_' : 1,
+\}
+" }}}
+
+" vim-javascript {{{
+let g:html_indent_inctags = 'html,body,head,tbody'
+let g:html_indent_autotags = 'th,td,tr,tfoot,thead'
+" }}}
+
 " /plugin }}}
 
 
