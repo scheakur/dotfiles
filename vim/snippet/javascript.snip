@@ -1,15 +1,41 @@
 snippet f
-    function ${1:func_name}(${2:arguments}) {
+options word
+    function ${1}(${2}) {
         ${0}
     }
 
+
 snippet af
-    function (${1:arguments}) {
+options word
+    function (${1}) {
         ${0}
     }
+
 
 snippet extdef
     Ext.define('${1:class_name}', {
         extend: '${2:parent_class_name}',
         ${0}
     }
+
+
+snippet for
+options word
+    forEach(function (${1:val, idx}) {
+        ${0}
+    });
+
+
+snippet map
+options word
+    map(function (${1:val}) {
+        return ${0};
+    });
+
+
+snippet reduce
+options word
+    reduce(function (${1:acc}, ${2:val}) {
+        return ${0:acc};
+    }, ${3:ini});
+
