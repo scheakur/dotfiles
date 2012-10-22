@@ -845,7 +845,10 @@ imap <expr><Tab>  neosnippet#expandable() ?
         \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 smap <expr><Tab>  neosnippet#expandable() ?
         \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
-let g:neosnippet#snippets_directory = expand('~/.vim/snippet')
+let g:neosnippet#snippets_directory = join([
+\   expand('~/.vim/snippet'),
+\   expand('~/.vim.local/snippet'),
+\], ',')
 let g:neosnippet#disable_runtime_snippets = {
 \   '_' : 1,
 \}

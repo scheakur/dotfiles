@@ -12,6 +12,40 @@ options word
     }
 
 
+snippet for
+    for (var ${1:i} = 0, ${2:iz} = ${3:arr}.length; $1 < $2; $1++) {
+        ${0}
+    }
+
+
+snippet if
+    if (${1}) {
+        ${0}
+    }
+
+
+snippet elif
+    else if (${1}) {
+        ${0}
+    }
+
+
+snippet el
+    else {
+        ${0}
+    }
+
+
+snippet sw
+    switch (${1}) {
+    case ${2}:
+        ${3}
+        break;
+    default:
+        ${0}
+    }
+
+
 snippet extdef
     Ext.define('${1:class_name}', {
         extend: '${2:parent_class_name}',
@@ -19,7 +53,7 @@ snippet extdef
     }
 
 
-snippet for
+snippet fe
 options word
     forEach(function (${1:val, idx}) {
         ${0}
