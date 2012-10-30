@@ -291,25 +291,6 @@ command! -nargs=1 -complete=file Rename f <args>|w|call delete(expand('#'))
 " remove trail ^M
 command! -range RemoveTrailM :setlocal nohlsearch | :<line1>,<line2>s!\r$!!g
 
-" change current directory {{{
-" in tab {{{
-command! -bar -complete=dir -nargs=?
-      \   CdInTab
-      \   execute 'cd' fnameescape(expand(<q-args>))
-      \   | let t:__cwd__ = getcwd()
-
-autocmd my TabEnter *
-      \   if exists('t:__cwd__') && !isdirectory(t:__cwd__)
-      \ |     unlet t:__cwd__
-      \ | endif
-      \ | if !exists('t:__cwd__')
-      \ |   let t:__cwd__ = getcwd()
-      \ | endif
-      \ | execute 'cd' fnameescape(expand(t:__cwd__))
-
-nnoremap <silent> <Leader>cd  :<C-u>CdInTab %:p:h<CR>
-" }}}
-
 " command CD {{{
 command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
 function! s:ChangeCurrentDir(directory, bang)
@@ -691,9 +672,9 @@ nnoremap [Unite]  <Nop>
 nmap <Space>  [Unite]
 
 nnoremap [Unite]<Space>  :<C-u>Unite<Space>
-nnoremap <silent> [Unite]f  :<C-u>Unite buffer file_mru file<CR>
+nnoremap <silent> [Unite]f  :<C-u>Unite buffer_tab file_mru file<CR>
 nnoremap <silent> [Unite]g  :<C-u>UniteWithBufferDir file file_rec<CR>
-nnoremap <silent> [Unite]b  :<C-u>Unite buffer<CR>
+nnoremap <silent> [Unite]b  :<C-u>Unite buffer_tab<CR>
 nnoremap <silent> [Unite]r  :<C-u>Unite register<CR>
 " }}}
 
