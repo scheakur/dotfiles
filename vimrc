@@ -661,6 +661,19 @@ nnoremap * :<C-u>set hlsearch<CR>*
 nnoremap # :<C-u>set hlsearch<CR>#
 " }}}
 
+" completion {{{
+inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
+" }}}
+
+" The Tab Key!! {{{
+imap <expr><Tab>
+        \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+        \ pumvisible() ? "\<C-n>" : "\<Tab>"
+smap <expr><Tab>
+        \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" }}}
+
 " /keymap }}}
 
 
@@ -841,10 +854,6 @@ vmap s <Plug>VSurround
 " }}}
 
 " neosnippet {{{
-imap <expr><Tab>  neosnippet#expandable() ?
-        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
-smap <expr><Tab>  neosnippet#expandable() ?
-        \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 let g:neosnippet#snippets_directory = join([
 \   expand('~/.vim/snippet'),
 \   expand('~/.vim.local/snippet'),
