@@ -209,7 +209,7 @@ function! s:set_tabpage_title(title)
     if !empty(a:title)
         let t:__title__ = a:title
     else
-        let n = tabpagenr('$')
+        let n = tabpagenr()
         let title = input("Tab's title : ", s:tabpage_title(n))
         if !empty(title)
             let t:__title__ = title
