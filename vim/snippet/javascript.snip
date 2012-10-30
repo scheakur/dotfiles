@@ -1,16 +1,16 @@
 snippet f
 options word
-    function ${1}(${2}) {
+    function ${1:#:func_name}(${2:#:args}) {
         ${0}
     }
-
+#
 
 snippet af
 options word
-    function (${1}) {
+    function (${1:#:args}) {
         ${0}
     }
-
+#
 
 snippet for
     for (var ${1:i} = 0, ${2:iz} = ${3:arr}.length; $1 < $2; $1++) {
@@ -22,13 +22,13 @@ snippet if
     if (${1}) {
         ${0}
     }
-
+#
 
 snippet elif
     else if (${1}) {
         ${0}
     }
-
+#
 
 snippet el
     else {
@@ -47,10 +47,10 @@ snippet sw
 
 
 snippet extdef
-    Ext.define('${1:class_name}', {
-        extend: '${2:parent_class_name}',
+    Ext.define('${1:#:MyApp.some.Class}', {
+        extend: '${2:#:MyApp.some.Parent}',
         ${0}
-    }
+    });
 
 
 snippet fe
@@ -69,7 +69,9 @@ options word
 
 snippet reduce
 options word
-    reduce(function (${1:acc}, ${2:val}) {
+    reduce(function (${1:#:acc}, ${2:val}) {
         return ${0:acc};
     }, ${3:ini});
 
+
+# vim: set fo-=t fo-=c fo-=r fo-=o :
