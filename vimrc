@@ -144,7 +144,7 @@ set viminfo='128,<512,s64,h
 
 " invisible characters {{{
 set list
-set listchars=tab:>-,trail:･
+set listchars=tab:»\ ,trail:･
 " highlight column 81
 set colorcolumn=81
 set textwidth=0
