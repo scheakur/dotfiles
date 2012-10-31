@@ -152,7 +152,20 @@ set textwidth=0
 
 " footer (statusline, cmdheight) {{{
 set laststatus=2
-set statusline=%<@%{getcwd()}\|%f\ %y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%m%r%h%w%=%lL\ %2vC\ %3p%%
+set statusline=%!MyStatusLine()
+
+function! MyStatusLine()
+    let st = ''
+    let st .= '%2* %y%h%w '
+    let st .= '%1* %m%r '
+    let st .= '%0* %<%f '
+    let st .= '%='
+    let st .= '%0* %{(&fenc != "") ? &fenc : &enc} '
+    let st .= '%1* %{&ff} '
+    let st .= '%2* %lL %2vC %3p%%'
+    return st
+endfunction
+
 set cmdheight=2
 " }}}
 
@@ -176,9 +189,9 @@ set updatetime=1000
 
 " tabpages {{{
 set showtabline=2
-set tabline=%!MyMakeTabLine()
+set tabline=%!MyTabLine()
 
-function! MyMakeTabLine()
+function! MyTabLine()
     let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
     let tabpages = join(titles, '') . ' ' . '%#TabLineFill#%T'
     let info = fnamemodify(getcwd(), ":~") . ' '
@@ -553,10 +566,14 @@ nmap <Space>wk <SID>(split-to-k)
 nmap <Space>wh <SID>(split-to-h)
 nmap <Space>wl <SID>(split-to-l)
 
-nnoremap <silent> <SID>(split-to-j)  :<C-u>execute 'belowright' (v:count == 0 ? '' : v:count) 'split'<CR>
-nnoremap <silent> <SID>(split-to-k)  :<C-u>execute 'aboveleft'  (v:count == 0 ? '' : v:count) 'split'<CR>
-nnoremap <silent> <SID>(split-to-h)  :<C-u>execute 'topleft'    (v:count == 0 ? '' : v:count) 'vsplit'<CR>
-nnoremap <silent> <SID>(split-to-l)  :<C-u>execute 'botright'   (v:count == 0 ? '' : v:count) 'vsplit'<CR>
+nnoremap <silent> <SID>(split-to-j)
+\   :<C-u>execute 'belowright' (v:count == 0 ? '' : v:count) 'split'<CR>
+nnoremap <silent> <SID>(split-to-k)
+\   :<C-u>execute 'aboveleft' (v:count == 0 ? '' : v:count) 'split'<CR>
+nnoremap <silent> <SID>(split-to-h)
+\   :<C-u>execute 'topleft' (v:count == 0 ? '' : v:count) 'vsplit'<CR>
+nnoremap <silent> <SID>(split-to-l)
+\   :<C-u>execute 'botright' (v:count == 0 ? '' : v:count) 'vsplit'<CR>
 " }}}
 
 " handle tabs and tags {{{

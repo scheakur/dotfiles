@@ -6,3 +6,8 @@ highlight Folded  ctermfg=24 ctermbg=234 gui=underline guifg=#909090 guibg=#2020
 highlight VertSplit  ctermfg=245
 highlight MatchParen  term=NONE cterm=NONE ctermbg=234 ctermfg=141 gui=NONE guifg=bg guibg=#505050
 highlight ColorColumn  ctermbg=235
+
+" for statusline
+highlight User2  term=reverse ctermfg=234 ctermbg=245 guifg=bg guibg=#929292
+highlight User1  term=reverse ctermfg=234 ctermbg=247 guifg=bg guibg=#a2a2a2
+
