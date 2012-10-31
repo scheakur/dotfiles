@@ -151,22 +151,31 @@ set textwidth=0
 " }}}
 
 " footer (statusline, cmdheight) {{{
+set cmdheight=2
 set laststatus=2
-set statusline=%!MyStatusLine()
 
-function! MyStatusLine()
+autocmd my BufLeave,WinLeave * call s:set_statusline_nc()
+autocmd my BufEnter,WinEnter * call s:set_statusline()
+
+function! s:set_statusline_nc()
+    let &l:statusline = s:make_statusline(3, 4)
+endfunction
+
+function! s:set_statusline()
+    let &l:statusline = s:make_statusline(1, 2)
+endfunction
+
+function! s:make_statusline(hi1, hi2)
     let st = ''
-    let st .= '%2* %y%h%w '
-    let st .= '%1* %m%r '
+    let st .= '%' . a:hi2 . '* %{&ft} '
+    let st .= '%' . a:hi1 . '* %h%w%m%r '
     let st .= '%0* %<%f '
     let st .= '%='
     let st .= '%0* %{(&fenc != "") ? &fenc : &enc} '
-    let st .= '%1* %{&ff} '
-    let st .= '%2* %lL %2vC %3p%%'
+    let st .= '%' . a:hi1 . '* %{&ff} '
+    let st .= '%' . a:hi2 . '* %lL %2vC %3p%%'
     return st
 endfunction
-
-set cmdheight=2
 " }}}
 
 " misc {{{
