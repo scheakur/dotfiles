@@ -306,7 +306,6 @@ endfunction
 nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 " }}}
 
-" }}}
 
 " format JSON
 command! -range FormatJson  :<line1>,<line2>!python -m json.tool
@@ -677,6 +676,13 @@ nnoremap <silent> [Unite]g  :<C-u>UniteWithBufferDir file file_rec<CR>
 nnoremap <silent> [Unite]b  :<C-u>Unite buffer_tab<CR>
 nnoremap <silent> [Unite]r  :<C-u>Unite register<CR>
 " }}}
+
+
+" change default action for buffer/buffer_tab {{{
+call unite#custom_default_action('buffer_tab', 'goto')
+call unite#custom_default_action('buffer', 'goto')
+" }}}
+
 
 " unite alias {{{
 let g:unite_source_alias_aliases = {
