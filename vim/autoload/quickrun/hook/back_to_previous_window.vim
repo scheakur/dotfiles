@@ -4,9 +4,9 @@ let s:save_cpo = &cpo
 set cpo&vim
 
 let s:hook = shabadou#make_hook_command({
-\   "config" : {
-\       "hook_command" : ':call',
-\       "hook_args": 'feedkeys("\<C-w>p")'
+\   'config': {
+\       'hook_command': ':call',
+\       'hook_args': 'feedkeys("\<C-w>p")'
 \   }
 \})
 
