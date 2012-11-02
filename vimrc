@@ -278,25 +278,33 @@ command! -range ShrinkSpace
 
 " junk file {{{
 " ref. http://vim-users.jp/2010/11/hack181/
-command! -nargs=0 Junk call s:open_junk_file('txt', 0)
-command! -nargs=0 Junkfile call s:open_junk_file('', 0)
-command! -nargs=0 Junkjs call s:open_junk_file('js', 1)
-command! -nargs=0 Junkhtml call s:open_junk_file('html', 1)
-command! -nargs=0 Junktext call s:open_junk_file('txt', 1)
-command! -nargs=0 Junksql call s:open_junk_file('sql', 1)
-function! s:open_junk_file(ext, immediately)
-    let l:junk_dir = $HOME . '/Dropbox/tmp/junk'. strftime('/%Y/%m')
-    if !isdirectory(l:junk_dir)
-        call mkdir(l:junk_dir, 'p')
+command! -nargs=? Junk call s:open_junk_file('txt', 0, <q-args>)
+command! -nargs=? Junkfile call s:open_junk_file('', 0, <q-args>)
+command! -nargs=? Junkjs call s:open_junk_file('js', 1, <q-args>)
+command! -nargs=? Junkhtml call s:open_junk_file('html', 1, <q-args>)
+command! -nargs=? Junktext call s:open_junk_file('txt', 1, <q-args>)
+command! -nargs=? Junksql call s:open_junk_file('sql', 1, <q-args>)
+command! -nargs=? Junkmarkdown call s:open_junk_file('md', 1, <q-args>)
+command! -nargs=? Junkvim call s:open_junk_file('vim', 1, <q-args>)
+
+function! s:open_junk_file(ext, immediately, suffix)
+    let junk_dir = $HOME . '/Dropbox/tmp/junk'. strftime('/%Y/%m')
+    if !isdirectory(junk_dir)
+        call mkdir(junk_dir, 'p')
     endif
 
-    let l:filename = l:junk_dir.strftime('/%Y-%m-%d-%H%M%S.') . a:ext
+    let filename = junk_dir.strftime('/%Y-%m-%d-%H%M%S')
+    if !empty(a:suffix)
+        let filename .= '-' . a:suffix
+    endif
+    let filename .= '.' . a:ext
+
     if !a:immediately
-        let l:filename = input('Junk File: ', l:filename)
+        let filename = input('Junk File: ', filename)
     endif
 
-    if l:filename != ''
-        execute 'edit ' . l:filename
+    if filename != ''
+        execute 'edit ' . filename
     endif
 endfunction
 "}}}
