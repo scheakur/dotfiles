@@ -765,7 +765,7 @@ let g:quickrun_config = {
 \       'outputter/buffer/split': 'aboveleft',
 \   },
 \   'watchdogs_checker/_': {
-\       'hook/back_to_previous_window/enable_exit': 1,
+\       'hook/back_to_previous_window/enable_failure': 1,
 \       'hook/close_quickfix/enable_exit': 1,
 \   },
 \   'javascript': {
