@@ -52,14 +52,10 @@ syntax enable
 " runtimepath {{{
 filetype off
 
-" vundle {{{
+" bundle {{{
 execute 'source' . expand('~/.vim/bundles.vim')
 " }}}
 
-" rptutil {{{
-call rtputil#bundle('try')
-call rtputil#helptags()
-" }}}
 
 " after bundling, enable filetype
 filetype plugin on

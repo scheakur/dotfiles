@@ -17,8 +17,8 @@ done
 
 
 # Clone vundle.vim for vim.
-if [ -e ~/.vim/bundle/vundle ]; then
-    rm -rf ~/.vim/bundle/vundle
+if [ -e ~/.vim/bundle/neobundle.vim ]; then
+    rm -rf ~/.vim/bundle/neobundle.vim
 fi
-git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
 
