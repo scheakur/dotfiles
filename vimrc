@@ -56,7 +56,6 @@ filetype off
 execute 'source' . expand('~/.vim/bundles.vim')
 " }}}
 
-
 " after bundling, enable filetype
 filetype plugin on
 filetype indent on
