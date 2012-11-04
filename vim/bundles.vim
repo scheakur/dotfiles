@@ -2,55 +2,64 @@
 "     bundles.vim
 " ========================================================================
 
-" vundle {{{
-set runtimepath+=~/.vim/bundle/vundle/
-call vundle#rc()
-" vundle itself
-Bundle 'git://github.com/gmarik/vundle.git'
+" neobundle {{{
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" vundle list {{{
-Bundle 'git://github.com/h1mesuke/vim-alignta.git'
-Bundle 'git://github.com/h1mesuke/unite-outline.git'
-Bundle 'git://github.com/jceb/vim-hier.git'
-Bundle 'git://github.com/jnwhiteh/vim-golang'
-Bundle 'git://github.com/jsx/jsx.vim.git'
-Bundle 'git://github.com/kana/vim-niceblock.git'
-Bundle 'git://github.com/kana/vim-operator-user.git'
-Bundle 'git://github.com/kana/vim-operator-replace.git'
-Bundle 'git://github.com/kana/vim-smartchr.git'
-Bundle 'git://github.com/kana/vim-smartinput.git'
-Bundle 'git://github.com/kana/vim-tabpagecd.git'
-Bundle 'git://github.com/kana/vim-textobj-line.git'
-Bundle 'git://github.com/kana/vim-textobj-user.git'
-Bundle 'git://github.com/kchmck/vim-coffee-script.git'
-Bundle 'git://github.com/osyo-manga/shabadou.vim.git'
-Bundle 'git://github.com/osyo-manga/unite-quickfix.git'
-Bundle 'git://github.com/osyo-manga/vim-watchdogs.git'
-Bundle 'git://github.com/pangloss/vim-javascript.git'
-Bundle 'git://github.com/scheakur/dois.vim.git'
-Bundle 'git://github.com/scheakur/scheakur.vim.git'
-Bundle 'git://github.com/Shougo/neosnippet.git'
-Bundle 'git://github.com/Shougo/vimfiler.git'
-Bundle 'git://github.com/Shougo/vimproc.git'
-Bundle 'git://github.com/Shougo/unite.vim.git'
-Bundle 'git://github.com/t9md/vim-unite-ack.git'
-Bundle 'git://github.com/thinca/vim-ambicmd.git'
-Bundle 'git://github.com/thinca/vim-localrc.git'
-Bundle 'git://github.com/thinca/vim-quickrun.git'
-Bundle 'git://github.com/thinca/vim-ref.git'
-Bundle 'git://github.com/thinca/vim-rtputil.git'
-Bundle 'git://github.com/thinca/vim-textobj-plugins.git'
-Bundle 'git://github.com/tpope/vim-surround.git'
-Bundle 'git://github.com/tyru/caw.vim.git'
-Bundle 'git://github.com/tyru/open-browser.vim.git'
-Bundle 'git://github.com/vim-jp/vimdoc-ja.git'
-Bundle 'git://github.com/vim-scripts/groovyindent'
-Bundle 'git://github.com/vim-scripts/newspaper.vim.git'
-Bundle 'git://github.com/vim-scripts/Lucius.git'
-Bundle 'git://github.com/vim-scripts/sudo.vim.git'
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+
+" neobundle itself
+NeoBundle 'git://github.com/Shougo/neobundle.git'
+
+" neobundle list {{{
+NeoBundle 'git://github.com/h1mesuke/vim-alignta.git'
+NeoBundle 'git://github.com/h1mesuke/unite-outline.git'
+NeoBundle 'git://github.com/jceb/vim-hier.git'
+NeoBundle 'git://github.com/jnwhiteh/vim-golang'
+NeoBundle 'git://github.com/jsx/jsx.vim.git'
+NeoBundle 'git://github.com/kana/vim-niceblock.git'
+NeoBundle 'git://github.com/kana/vim-operator-user.git'
+NeoBundle 'git://github.com/kana/vim-operator-replace.git'
+NeoBundle 'git://github.com/kana/vim-smartchr.git'
+NeoBundle 'git://github.com/kana/vim-smartinput.git'
+NeoBundle 'git://github.com/kana/vim-tabpagecd.git'
+NeoBundle 'git://github.com/kana/vim-textobj-line.git'
+NeoBundle 'git://github.com/kana/vim-textobj-user.git'
+NeoBundle 'git://github.com/kchmck/vim-coffee-script.git'
+NeoBundle 'git://github.com/osyo-manga/shabadou.vim.git'
+NeoBundle 'git://github.com/osyo-manga/unite-quickfix.git'
+NeoBundle 'git://github.com/osyo-manga/vim-watchdogs.git'
+NeoBundle 'git://github.com/pangloss/vim-javascript.git'
+NeoBundle 'git://github.com/scheakur/dois.vim.git'
+NeoBundle 'git://github.com/scheakur/scheakur.vim.git'
+NeoBundle 'git://github.com/Shougo/neosnippet.git'
+NeoBundle 'git://github.com/Shougo/vimfiler.git'
+NeoBundle 'git://github.com/Shougo/vimproc.git'
+NeoBundle 'git://github.com/Shougo/unite.vim.git'
+NeoBundle 'git://github.com/t9md/vim-unite-ack.git'
+NeoBundle 'git://github.com/thinca/vim-ambicmd.git'
+NeoBundle 'git://github.com/thinca/vim-localrc.git'
+NeoBundle 'git://github.com/thinca/vim-quickrun.git'
+NeoBundle 'git://github.com/thinca/vim-ref.git'
+NeoBundle 'git://github.com/thinca/vim-textobj-plugins.git'
+NeoBundle 'git://github.com/tpope/vim-surround.git'
+NeoBundle 'git://github.com/tyru/caw.vim.git'
+NeoBundle 'git://github.com/tyru/open-browser.vim.git'
+NeoBundle 'git://github.com/vim-jp/vimdoc-ja.git'
+NeoBundle 'git://github.com/vim-scripts/groovyindent'
+NeoBundle 'git://github.com/vim-scripts/newspaper.vim.git'
+NeoBundle 'git://github.com/vim-scripts/Lucius.git'
+NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
+" }}}
+
+" try {{{
+NeoBundleLocal ~/.vim/try
 " }}}
 
 " }}}
+
 
 " vim: set foldenable foldmethod=marker :
 " vim: set formatoptions& formatoptions-=ro :
