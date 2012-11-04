@@ -11,7 +11,7 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 
 
 " neobundle itself
-NeoBundle 'git://github.com/Shougo/neobundle.git'
+NeoBundle 'git://github.com/Shougo/neobundle.vim.git'
 
 " neobundle list {{{
 NeoBundle 'git://github.com/h1mesuke/vim-alignta.git'
@@ -48,7 +48,7 @@ NeoBundle 'git://github.com/tpope/vim-surround.git'
 NeoBundle 'git://github.com/tyru/caw.vim.git'
 NeoBundle 'git://github.com/tyru/open-browser.vim.git'
 NeoBundle 'git://github.com/vim-jp/vimdoc-ja.git'
-NeoBundle 'git://github.com/vim-scripts/groovyindent'
+NeoBundle 'git://github.com/vim-scripts/groovyindent.git'
 NeoBundle 'git://github.com/vim-scripts/newspaper.vim.git'
 NeoBundle 'git://github.com/vim-scripts/Lucius.git'
 NeoBundle 'git://github.com/vim-scripts/sudo.vim.git'
