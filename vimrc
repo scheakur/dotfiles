@@ -205,7 +205,8 @@ endfunction
 function! s:tabpage_label(n)
     let title = s:tabpage_title(a:n)
     let bufnrs = tabpagebuflist(a:n)
-    let mod = len(filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')) ? '*' : ''
+    let mods = filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')
+    let mod = len(mods) ? '*' : ''
     let label = ' ' . title . mod . ' '
     let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
     return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
@@ -251,24 +252,33 @@ set wildmode=list:longest,full
 " ------------------------------------------------------------------------------
 
 " file encoding & line feed code {{{
-command! -bang -bar -complete=file -nargs=? Utf8 edit<bang> ++enc=utf-8 <args>
-command! -bang -bar -complete=file -nargs=? Iso2022jp edit<bang> ++enc=iso-2022-jp <args>
-command! -bang -bar -complete=file -nargs=? Cp932 edit<bang> ++enc=cp932 <args>
-command! -bang -bar -complete=file -nargs=? Euc edit<bang> ++enc=euc-jp <args>
-command! -bang -bar -complete=file -nargs=? Utf16 edit<bang> ++enc=ucs-2le <args>
-command! -bang -bar -complete=file -nargs=? Utf16be edit<bang> ++enc=ucs-2 <args>
+command! -bang -bar -complete=file -nargs=?
+\    Utf8 edit<bang> ++enc=utf-8 <args>
+command! -bang -bar -complete=file -nargs=?
+\    Iso2022jp edit<bang> ++enc=iso-2022-jp <args>
+command! -bang -bar -complete=file -nargs=?
+\    Cp932 edit<bang> ++enc=cp932 <args>
+command! -bang -bar -complete=file -nargs=?
+\    Euc edit<bang> ++enc=euc-jp <args>
+command! -bang -bar -complete=file -nargs=?
+\    Utf16 edit<bang> ++enc=ucs-2le <args>
+command! -bang -bar -complete=file -nargs=?
+\    Utf16be edit<bang> ++enc=ucs-2 <args>
 
-command! -bang -bar -complete=file -nargs=? Unix edit<bang> ++fileformat=unix <args>
-command! -bang -bar -complete=file -nargs=? Mac edit<bang> ++fileformat=mac <args>
-command! -bang -bar -complete=file -nargs=? Dos edit<bang> ++fileformat=dos <args>
+command! -bang -bar -complete=file -nargs=?
+\    Unix edit<bang> ++fileformat=unix <args>
+command! -bang -bar -complete=file -nargs=?
+\    Mac edit<bang> ++fileformat=mac <args>
+command! -bang -bar -complete=file -nargs=?
+\    Dos edit<bang> ++fileformat=dos <args>
 " }}}
 
 " remove spaces {{{
 command! -range=% TrimSpace :setlocal nohlsearch | :<line1>,<line2>s!\s*$!!g
 command! -range ShrinkSpace
-            \ :setlocal nohlsearch
-            \ | :<line1>,<line2>s![^ ]\zs\s\{2,}! !g
-            \ | :normal gv
+\      :setlocal nohlsearch
+\      | :<line1>,<line2>s![^ ]\zs\s\{2,}! !g
+\      | :normal gv
 " }}}
 
 " junk file {{{
@@ -306,8 +316,8 @@ endfunction
 
 " insert a blank line every N lines {{{
 command! -range -nargs=1  InsertBlankLineEvery
-            \ :setlocal nohlsearch
-            \ | :<line1>,<line2>s!\v(.*\n){<args>}!&\r
+\   :setlocal nohlsearch
+\   | :<line1>,<line2>s!\v(.*\n){<args>}!&\r
 " }}}
 
 " rename file
@@ -317,8 +327,8 @@ command! -nargs=1 -complete=file Rename f <args>|w|call delete(expand('#'))
 command! -range RemoveTrailM :setlocal nohlsearch | :<line1>,<line2>s!\r$!!g
 
 " command CD {{{
-command! -nargs=? -complete=dir -bang CD  call s:ChangeCurrentDir('<args>', '<bang>')
-function! s:ChangeCurrentDir(directory, bang)
+command! -nargs=? -complete=dir -bang CD  call s:change_dir('<args>', '<bang>')
+function! s:change_dir(directory, bang)
     if a:directory == ''
         lcd %:p:h
     else
@@ -338,30 +348,30 @@ vnoremap <silent> <Leader>fj  :FormatJson<CR>
 
 " format SQL {{{
 let s:sql_keywords = [
-      \ 'union all',
-      \ 'minus',
-      \ 'insert',
-      \ 'delete',
-      \ 'update',
-      \ 'select',
-      \ 'from',
-      \ 'where',
-      \ 'and',
-      \ 'or',
-      \ 'order by',
-      \ 'group by',
-      \ 'having',
-      \ 'inner join',
-      \ 'left outer join',
-      \ 'right outer join',
-      \ 'on',
-      \ 'case',
-      \ 'when',
-      \ 'then',
-      \ 'end',
-      \]
+\   'union all',
+\   'minus',
+\   'insert',
+\   'delete',
+\   'update',
+\   'select',
+\   'from',
+\   'where',
+\   'and',
+\   'or',
+\   'order by',
+\   'group by',
+\   'having',
+\   'inner join',
+\   'left outer join',
+\   'right outer join',
+\   'on',
+\   'case',
+\   'when',
+\   'then',
+\   'end',
+\]
 
-function! s:list2regexp(list) "{{{
+function! s:list2regex(list) "{{{
     let regexp = '\V\ \<\('
     let sep = ''
     for word in a:list
@@ -374,17 +384,14 @@ function! s:list2regexp(list) "{{{
 endfunction "}}}
 
 command! -range FormatSql
-  \ :setlocal nohlsearch
-  \ | :execute ':<line1>,<line2>s!' . <SID>list2regexp(s:sql_keywords) . '!\r&!g'
-  \ | :normal =ip
+\    :setlocal nohlsearch
+\    | :execute ':<line1>,<line2>s!' . <SID>list2regex(s:sql_keywords) . '!\r&!g'
+\    | :normal =ip
 " }}}
 
 " capture outputs of command {{{
 " ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
-command!
-\   -nargs=+ -complete=command
-\   Capture
-\   call s:cmd_capture(<q-args>)
+command! -nargs=+ -complete=command Capture call s:cmd_capture(<q-args>)
 
 function! s:cmd_capture(q_args) "{{{
     redir => output
@@ -637,17 +644,19 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " search with the selected text
 " ref. http://vim-users.jp/2009/11/hack104/
 vnoremap <silent> *  "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')
-                    \<CR><CR>:<C-u>set hlsearch<CR>
+\       <CR><CR>:<C-u>set hlsearch<CR>
 vnoremap <silent> <CR>  "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')
-                       \<CR><CR>:<C-u>set hlsearch<CR>
+\       <CR><CR>:<C-u>set hlsearch<CR>
 
 " identify the syntax highlighting group used at the cursor
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
 function! s:show_hilite()
+    let l = line('.')
+    let c = col('.')
     let hilite = ''
-    let hilite .= 'hilite <' . synIDattr(synID(line('.'), col('.'), 1), 'name') . '>, '
-    let hilite .= 'trans <' . synIDattr(synID(line('.'), col('.'), 0), 'name') . '>, '
-    let hilite .= 'link <' . synIDattr(synIDtrans(synID(line('.'), col('.'), 1)), 'name') . '>'
+    let hilite .= 'hilite <' . synIDattr(synID(l, c, 1), 'name') . '>, '
+    let hilite .= 'trans <' . synIDattr(synID(l, c, 0), 'name') . '>, '
+    let hilite .= 'link <' . synIDattr(synIDtrans(synID(l, c, 1)), 'name') . '>'
     echo hilite
 endfunction
 nnoremap <C-H> :call <SID>show_hilite()<CR>
@@ -676,10 +685,10 @@ inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 
 " The Tab Key!! {{{
 imap <expr><Tab>
-        \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-        \ pumvisible() ? "\<C-n>" : "\<Tab>"
+\   neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+\   pumvisible() ? "\<C-n>" : "\<Tab>"
 smap <expr><Tab>
-        \ neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+\   neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
 " }}}
 
