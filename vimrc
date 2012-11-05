@@ -284,9 +284,9 @@ command! -bang -bar -complete=file -nargs=?
 " remove spaces {{{
 command! -range=% TrimSpace :setlocal nohlsearch | :<line1>,<line2>s!\s*$!!g
 command! -range ShrinkSpace
-\      :setlocal nohlsearch
-\      | :<line1>,<line2>s![^ ]\zs\s\{2,}! !g
-\      | :normal gv
+\   :setlocal nohlsearch
+\   | :<line1>,<line2>s![^ ]\zs\s\{2,}! !g
+\   | :normal gv
 " }}}
 
 " junk file {{{
@@ -392,9 +392,9 @@ function! s:list2regex(list) "{{{
 endfunction "}}}
 
 command! -range FormatSql
-\    :setlocal nohlsearch
-\    | :execute ':<line1>,<line2>s!' . <SID>list2regex(s:sql_keywords) . '!\r&!g'
-\    | :normal =ip
+\   :setlocal nohlsearch
+\   | :execute ':<line1>,<line2>s!' . <SID>list2regex(s:sql_keywords) . '!\r&!g'
+\   | :normal =ip
 " }}}
 
 " capture outputs of command {{{
@@ -421,10 +421,10 @@ endfunction "}}}
 command! -nargs=? Underline call s:underline(<q-args>)
 
 function! s:underline(chars)
-   let chars = empty(a:chars) ? '-' : a:chars
-   let nr_columns = virtcol('$') - 1
-   let uline = repeat(chars, (nr_columns / len(chars)) + 1)
-   put =strpart(uline, 0, nr_columns)
+    let chars = empty(a:chars) ? '-' : a:chars
+    let nr_columns = virtcol('$') - 1
+    let uline = repeat(chars, (nr_columns / len(chars)) + 1)
+    put =strpart(uline, 0, nr_columns)
 endfunction
 " }}}
 
@@ -652,9 +652,9 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " search with the selected text
 " ref. http://vim-users.jp/2009/11/hack104/
 vnoremap <silent> *  "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')
-\       <CR><CR>:<C-u>set hlsearch<CR>
+\   <CR><CR>:<C-u>set hlsearch<CR>
 vnoremap <silent> <CR>  "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')
-\       <CR><CR>:<C-u>set hlsearch<CR>
+\   <CR><CR>:<C-u>set hlsearch<CR>
 
 " identify the syntax highlighting group used at the cursor
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
