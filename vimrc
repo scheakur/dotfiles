@@ -432,6 +432,11 @@ endfunction
 command! Bdelete call s:delete_buffer()
 
 function! s:delete_buffer()
+    if (empty(bufname('%')))
+        " no operation
+        return
+    endif
+
     let curr = bufnr('%')
     let prev = bufnr('#')
 
