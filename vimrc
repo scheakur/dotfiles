@@ -2,6 +2,7 @@
 "                                    vimrc                                     "
 " ============================================================================ "
 
+
 " basic {{{
 " ------------------------------------------------------------------------------
 " encoding {{{
@@ -26,7 +27,7 @@ function! s:load_local_vimrc(...)
     let l:vimrc = expand('~/.vimrc.local' . l:suffix)
     if filereadable(l:vimrc)
         try
-            execute 'source' l:vimrc
+            execute 'source ' l:vimrc
         catch
         " TODO do not ignore errors
         endtry
@@ -53,7 +54,7 @@ syntax enable
 filetype off
 
 " bundle {{{
-execute 'source' . expand('~/.vim/bundles.vim')
+execute 'source ' . expand('~/.vim/bundles.vim')
 " }}}
 
 " after bundling, enable filetype
@@ -66,7 +67,7 @@ filetype indent on
 function! s:load_after_colors()
     let l:color = expand('~/.vim/after/colors/' . g:colors_name . '.vim')
     if filereadable(l:color)
-        execute 'source' l:color
+        execute 'source ' l:color
     endif
 endfunction
 autocmd my ColorScheme * call s:load_after_colors()
