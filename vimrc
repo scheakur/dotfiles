@@ -696,6 +696,7 @@ imap <expr><Tab>
 smap <expr><Tab>
 \   neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
+xmap <Tab> <Plug>(neosnippet_expand_target)
 " }}}
 
 " /keymap }}}
