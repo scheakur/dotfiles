@@ -51,6 +51,11 @@ set guioptions-=T
 set langmenu=none
 " }}}
 
+if has('gui_macvim')
+  set noimdisable
+  set iminsert=2
+endif
+
 " @see :help modeline
 " vim: set foldenable foldmethod=marker :
 " vim: set formatoptions& formatoptions-=ro :
