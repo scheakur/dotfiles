@@ -254,24 +254,24 @@ set wildmode=list:longest,full
 
 " file encoding & line feed code {{{
 command! -bang -bar -complete=file -nargs=?
-\	 Utf8 edit<bang> ++enc=utf-8 <args>
+\	Utf8 edit<bang> ++enc=utf-8 <args>
 command! -bang -bar -complete=file -nargs=?
-\	 Iso2022jp edit<bang> ++enc=iso-2022-jp <args>
+\	Iso2022jp edit<bang> ++enc=iso-2022-jp <args>
 command! -bang -bar -complete=file -nargs=?
-\	 Cp932 edit<bang> ++enc=cp932 <args>
+\	Cp932 edit<bang> ++enc=cp932 <args>
 command! -bang -bar -complete=file -nargs=?
-\	 Euc edit<bang> ++enc=euc-jp <args>
+\	Euc edit<bang> ++enc=euc-jp <args>
 command! -bang -bar -complete=file -nargs=?
-\	 Utf16 edit<bang> ++enc=ucs-2le <args>
+\	Utf16 edit<bang> ++enc=ucs-2le <args>
 command! -bang -bar -complete=file -nargs=?
-\	 Utf16be edit<bang> ++enc=ucs-2 <args>
+\	Utf16be edit<bang> ++enc=ucs-2 <args>
 
 command! -bang -bar -complete=file -nargs=?
-\	 Unix edit<bang> ++fileformat=unix <args>
+\	Unix edit<bang> ++fileformat=unix <args>
 command! -bang -bar -complete=file -nargs=?
-\	 Mac edit<bang> ++fileformat=mac <args>
+\	Mac edit<bang> ++fileformat=mac <args>
 command! -bang -bar -complete=file -nargs=?
-\	 Dos edit<bang> ++fileformat=dos <args>
+\	Dos edit<bang> ++fileformat=dos <args>
 " }}}
 
 " remove spaces {{{
@@ -344,7 +344,7 @@ nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 
 
 " format JSON
-command! -range FormatJson	:<line1>,<line2>!python -m json.tool
+command! -range FormatJson  :<line1>,<line2>!python -m json.tool
 vnoremap <silent> <Leader>fj  :FormatJson<CR>
 
 " format SQL {{{
@@ -450,9 +450,9 @@ endfunction
 " ------------------------------------------------------------------------------
 
 " vimrc {{{
-nnoremap <Space>s.	:<C-u>source $MYVIMRC<CR>
+nnoremap <Space>s.  :<C-u>source $MYVIMRC<CR>
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
-nnoremap <Space>s>	:<C-u>source ~/.gvimrc<CR>
+nnoremap <Space>s>  :<C-u>source ~/.gvimrc<CR>
 nnoremap <Space>>  :<C-u>edit ~/.gvimrc<CR>
 " }}}
 
@@ -463,15 +463,15 @@ noremap '  `
 noremap `  '
 noremap j  gj
 noremap k  gk
-noremap gj	j
-noremap gk	k
-nnoremap J	<C-d>
-nnoremap K	<C-u>
+noremap gj  j
+noremap gk  k
+nnoremap J  <C-d>
+nnoremap K  <C-u>
 noremap H  b
 noremap L  w
-nnoremap Y	y$
-vnoremap <	<gv
-vnoremap >	>gv
+nnoremap Y  y$
+vnoremap <  <gv
+vnoremap >  >gv
 nnoremap <silent> n  :<C-u>set hlsearch<CR>nzz
 nnoremap <silent> N  :<C-u>set hlsearch<CR>Nzz
 
@@ -479,18 +479,18 @@ nnoremap <silent> N  :<C-u>set hlsearch<CR>Nzz
 nnoremap ff  l;
 vnoremap ff  l;
 
-inoremap <C-u>	<C-g>u<C-u>
-inoremap <C-w>	<C-g>u<C-w>
-inoremap <C-d>	<Delete>
-nnoremap <expr> S*	':%s/\<' . expand('<cword>') . '\>//g<Left><Left>'
+inoremap <C-u>  <C-g>u<C-u>
+inoremap <C-w>  <C-g>u<C-w>
+inoremap <C-d>  <Delete>
+nnoremap <expr> S*  ':%s/\<' . expand('<cword>') . '\>//g<Left><Left>'
 nnoremap <silent> O  :<C-u>call append(expand('.'), '')<CR>j
 nnoremap <Space>M  :<C-u>marks<CR>:mark<Space>
 " }}}
 
 " escape {{{
-inoremap <C-j>	<Esc>
-onoremap <C-j>	<Esc>
-cnoremap <C-j>	<C-c>
+inoremap <C-j>  <Esc>
+onoremap <C-j>  <Esc>
+cnoremap <C-j>  <C-c>
 " }}}
 
 " copy(yank) and paste with clipboard {{{
@@ -513,9 +513,9 @@ cnoremap <C-e> <End>
 cnoremap <C-l> <Right>
 cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
-cnoremap <C-p>	<Up>
+cnoremap <C-p>  <Up>
 cnoremap <Up>  <C-p>
-cnoremap <C-n>	<Down>
+cnoremap <C-n>  <Down>
 cnoremap <Down>  <C-n>
 " }}}
 
@@ -531,21 +531,21 @@ nnoremap <silent> <Space>et  :<C-u>call <SID>ToggleOption('expandtab')<CR>
 " }}}
 
 " current date/time {{{
-inoremap <Leader>dF <C-r>=strftime('%Y-%m-%dT%H:%M:%S%z')<CR>
-inoremap <Leader>df <C-r>=strftime('%Y-%m-%d %H:%M:%S')<CR>
-inoremap <Leader>dd <C-r>=strftime('%Y-%m-%d')<CR>
-inoremap <Leader>dm <C-r>=strftime('%Y-%m')<CR>
-inoremap <Leader>dy <C-r>=strftime('%Y')<CR>
-inoremap <Leader>dT <C-r>=strftime('%H:%M:%S')<CR>
-inoremap <Leader>dt <C-r>=strftime
+inoremap <Leader>dF  <C-r>=strftime('%Y-%m-%dT%H:%M:%S%z')<CR>
+inoremap <Leader>df  <C-r>=strftime('%Y-%m-%d %H:%M:%S')<CR>
+inoremap <Leader>dd  <C-r>=strftime('%Y-%m-%d')<CR>
+inoremap <Leader>dm  <C-r>=strftime('%Y-%m')<CR>
+inoremap <Leader>dy  <C-r>=strftime('%Y')<CR>
+inoremap <Leader>dT  <C-r>=strftime('%H:%M:%S')<CR>
+inoremap <Leader>dt  <C-r>=strftime
 
-cnoremap <expr> <C-o>d	strftime('%Y-%m-%d')
-cnoremap <expr> <C-o>t	strftime('%Y-%m-%d-%H%M%S')
+cnoremap <expr> <C-o>d  strftime('%Y-%m-%d')
+cnoremap <expr> <C-o>t  strftime('%Y-%m-%d-%H%M%S')
 " }}}
 
 " completion {{{
-imap <C-Space>	<C-@>
-inoremap <C-@>	<C-n>
+imap <C-Space>  <C-@>
+inoremap <C-@>  <C-n>
 " }}}
 
 " text-objects {{{
@@ -604,13 +604,13 @@ nnoremap <silent> <SID>(split-to-l)
 " handle tabs and tags {{{
 nnoremap [TabTag]  <Nop>
 nmap <C-t>	[TabTag]
-nnoremap [TabTag]<C-t>	<C-]>
-nnoremap [TabTag]<C-j>	:<C-u>tag<CR>
-nnoremap [TabTag]<C-k>	:<C-u>pop<CR>
-nnoremap [TabTag]<C-n> :<C-u>tabnew<CR>
-nnoremap [TabTag]<C-h> :<C-u>tabprevious<CR>
-nnoremap [TabTag]<C-l> :<C-u>tabnext<CR>
-nnoremap [TabTag]<C-w> :<C-u>tabclose<CR>
+nnoremap [TabTag]<C-t>  <C-]>
+nnoremap [TabTag]<C-j>  :<C-u>tag<CR>
+nnoremap [TabTag]<C-k>  :<C-u>pop<CR>
+nnoremap [TabTag]<C-n>  :<C-u>tabnew<CR>
+nnoremap [TabTag]<C-h>  :<C-u>tabprevious<CR>
+nnoremap [TabTag]<C-l>  :<C-u>tabnext<CR>
+nnoremap [TabTag]<C-w>  :<C-u>tabclose<CR>
 " }}}
 
 " yank filename {{{
@@ -625,8 +625,8 @@ endif
 
 " quickfix {{{
 nnoremap [Quickfix]  <Nop>
-nmap q	[Quickfix]
-nnoremap Q	q
+nmap q  [Quickfix]
+nnoremap Q  q
 
 nnoremap <silent> [Quickfix]n  :<C-u>cnext<CR>
 nnoremap <silent> [Quickfix]p  :<C-u>cprevious<CR>
@@ -635,14 +635,14 @@ nnoremap <silent> [Quickfix]k  :<C-u>cprevious<CR>
 nnoremap <silent> [Quickfix]r  :<C-u>crewind<CR>
 nnoremap <silent> [Quickfix]N  :<C-u>cfirst<CR>
 nnoremap <silent> [Quickfix]P  :<C-u>clast<CR>
-nnoremap <silent> [Quickfix]fn	:<C-u>cnfile<CR>
-nnoremap <silent> [Quickfix]fp	:<C-u>cpfile<CR>
+nnoremap <silent> [Quickfix]fn  :<C-u>cnfile<CR>
+nnoremap <silent> [Quickfix]fp  :<C-u>cpfile<CR>
 nnoremap <silent> [Quickfix]l  :<C-u>clist<CR>
 nnoremap <silent> [Quickfix]q  :<C-u>cc<CR>
 nnoremap <silent> [Quickfix]o  :<C-u>copen<CR>
 nnoremap <silent> [Quickfix]c  :<C-u>cclose<CR>
-nnoremap <silent> [Quickfix]en :<C-u>cnewer<CR>
-nnoremap <silent> [Quickfix]ep :<C-u>colder<CR>
+nnoremap <silent> [Quickfix]en  :<C-u>cnewer<CR>
+nnoremap <silent> [Quickfix]ep  :<C-u>colder<CR>
 nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " }}}
 
@@ -651,7 +651,7 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " ref. http://vim-users.jp/2009/11/hack104/
 vnoremap <silent> *  "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')
 \	<CR><CR>:<C-u>set hlsearch<CR>
-vnoremap <silent> <CR>	"vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')
+vnoremap <silent> <CR>  "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')
 \	<CR><CR>:<C-u>set hlsearch<CR>
 
 " identify the syntax highlighting group used at the cursor
@@ -717,11 +717,11 @@ nnoremap [Unite]  <Nop>
 nmap <Space>  [Unite]
 
 nnoremap [Unite]<Space>  :<C-u>Unite<Space>
-nnoremap <silent> [Unite]f	:<C-u>Unite buffer_tab file_mru file<CR>
-nnoremap <silent> [Unite]g	:<C-u>UniteWithBufferDir file file_rec<CR>
-nnoremap <silent> [Unite]b	:<C-u>Unite buffer_tab<CR>
-nnoremap <silent> [Unite]v	:<C-u>Unite buffer<CR>
-nnoremap <silent> [Unite]r	:<C-u>Unite register<CR>
+nnoremap <silent> [Unite]f  :<C-u>Unite buffer_tab file_mru file<CR>
+nnoremap <silent> [Unite]g  :<C-u>UniteWithBufferDir file file_rec<CR>
+nnoremap <silent> [Unite]b  :<C-u>Unite buffer_tab<CR>
+nnoremap <silent> [Unite]v  :<C-u>Unite buffer<CR>
+nnoremap <silent> [Unite]r  :<C-u>Unite register<CR>
 " }}}
 
 
