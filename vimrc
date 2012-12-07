@@ -76,7 +76,7 @@ let g:lucius_style = 'dark'
 colorscheme lucius
 
 autocmd my BufRead,BufNew * match __tab__ /	/
-highlight __tab__ none
+highlight default link __tab__ SpecialKey
 " }}}
 
 

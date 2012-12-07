@@ -4,4 +4,5 @@ highlight User2  ctermfg=252 ctermbg=234 guifg=#dcdcdc guibg=#1a1612
 highlight User3  ctermfg=252 ctermbg=243 guifg=#dcdcdc guibg=#7a7672
 highlight User4  ctermfg=252 ctermbg=243 guifg=#dcdcdc guibg=#7a7672
 
-highlight __tab__ ctermfg=103 ctermbg=232 guifg=#667788 guibg=#e6e6da
+" highlight __tab__ ctermfg=103 ctermbg=232 guifg=#667788 guibg=#e6e6da gui=underline
+highlight __tab__ ctermfg=103 guifg=#667788 gui=underline
