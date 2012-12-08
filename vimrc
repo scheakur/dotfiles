@@ -15,7 +15,7 @@ scriptencoding utf-8
 
 " clear command
 augroup my
-	autocmd!
+	autocmd!   
 augroup end
 
 " user interface in English
