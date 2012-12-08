@@ -74,9 +74,6 @@ autocmd my ColorScheme * call s:load_after_colors()
 " }}}
 let g:lucius_style = 'dark'
 colorscheme lucius
-
-autocmd my BufRead,BufNew * match __tab__ /	/
-highlight default link __tab__ SpecialKey
 " }}}
 
 
@@ -143,7 +140,7 @@ set viminfo='128,<512,s64,h
 
 " invisible characters {{{
 set list
-set listchars=tab:»\ ,trail:･
+set listchars=tab:»_,trail:･
 " highlight column 81
 set colorcolumn=81
 set textwidth=0
@@ -197,7 +194,7 @@ set updatetime=1000
 
 " tabpages {{{
 set showtabline=2
-set tabline=%!MyTabLine()
+set tabline=%!MyTabLine()   
 
 function! MyTabLine()
 	let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
