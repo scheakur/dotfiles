@@ -284,35 +284,8 @@ command! -range ShrinkSpace
 
 " junk file {{{
 " ref. http://vim-users.jp/2010/11/hack181/
-command! -nargs=? Junk call s:open_junk_file('txt', 0, <q-args>)
-command! -nargs=? Junkfile call s:open_junk_file('', 0, <q-args>)
-command! -nargs=? Junkjs call s:open_junk_file('js', 1, <q-args>)
-command! -nargs=? Junkhtml call s:open_junk_file('html', 1, <q-args>)
-command! -nargs=? Junktext call s:open_junk_file('txt', 1, <q-args>)
-command! -nargs=? Junksql call s:open_junk_file('sql', 1, <q-args>)
-command! -nargs=? Junkmarkdown call s:open_junk_file('md', 1, <q-args>)
-command! -nargs=? Junkvim call s:open_junk_file('vim', 1, <q-args>)
-
-function! s:open_junk_file(ext, immediately, suffix)
-	let junk_dir = $HOME . '/Dropbox/tmp/junk'. strftime('/%Y/%m')
-	if !isdirectory(junk_dir)
-		call mkdir(junk_dir, 'p')
-	endif
-
-	let filename = junk_dir.strftime('/%Y-%m-%d-%H%M%S')
-	if !empty(a:suffix)
-		let filename .= '-' . a:suffix
-	endif
-	let filename .= '.' . a:ext
-
-	if !a:immediately
-		let filename = input('Junk File: ', filename)
-	endif
-
-	if filename != ''
-		execute 'edit ' . filename
-	endif
-endfunction
+let g:junk_directory = expand('$HOME/Dropbox/tmp/junk')
+let g:junk_types = ['txt', 'js', 'html', 'xml', 'sql', 'md', 'vim', 'css']
 "}}}
 
 " insert a blank line every N lines {{{
@@ -749,10 +722,6 @@ let g:unite_source_alias_aliases = {
 \	'vim' : {
 \		'source': 'file_rec',
 \		'args': '~/.vim/',
-\	},
-\	'junk' : {
-\		'source': 'file_rec',
-\		'args': '~/Dropbox/tmp/junk/' . strftime('%Y/%m/'),
 \	},
 \	'blog' : {
 \		'source': 'file_rec',
