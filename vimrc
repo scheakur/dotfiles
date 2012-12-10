@@ -282,10 +282,9 @@ command! -range ShrinkSpace
 \	| :normal gv
 " }}}
 
-" junk file {{{
-" ref. http://vim-users.jp/2010/11/hack181/
-let g:junk_directory = expand('$HOME/Dropbox/tmp/junk')
-let g:junk_types = ['txt', 'js', 'html', 'xml', 'sql', 'md', 'vim', 'css']
+" Scrap file {{{
+let g:skrap_directory = expand('$HOME/Dropbox/tmp/skrap')
+let g:skrap_types = ['txt', 'js', 'html', 'xml', 'sql', 'md', 'vim', 'css']
 "}}}
 
 " insert a blank line every N lines {{{
