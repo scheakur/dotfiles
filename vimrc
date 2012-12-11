@@ -282,11 +282,6 @@ command! -range ShrinkSpace
 \	| :normal gv
 " }}}
 
-" Scrap file {{{
-let g:skrap_directory = expand('$HOME/Dropbox/tmp/skrap')
-let g:skrap_types = ['txt', 'js', 'html', 'xml', 'sql', 'md', 'vim', 'css']
-"}}}
-
 " insert a blank line every N lines {{{
 command! -range -nargs=1  InsertBlankLineEvery
 \	:setlocal nohlsearch
@@ -872,6 +867,11 @@ let g:html_indent_inctags = 'html,body,head,tbody'
 let g:html_indent_autotags = 'th,td,tr,tfoot,thead'
 let g:javascript_enable_domhtmlcss = 1
 " }}}
+
+" vim-skrap {{{
+let g:skrap_directory = expand('~/Dropbox/tmp/skrap')
+let g:skrap_types = ['md', 'js', 'txt', 'vim', 'sql', 'xml', 'html', 'css']
+"}}}
 
 " /plugin }}}
 
