@@ -194,7 +194,7 @@ set updatetime=1000
 
 " tabpages {{{
 set showtabline=2
-set tabline=%!MyTabLine()   
+set tabline=%!MyTabLine()
 
 function! MyTabLine()
 	let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
