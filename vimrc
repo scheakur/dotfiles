@@ -265,9 +265,9 @@ command! -bang -bar -complete=file -nargs=?
 command! -bang -bar -complete=file -nargs=?
 \	Euc edit<bang> ++enc=euc-jp <args>
 command! -bang -bar -complete=file -nargs=?
-\	Utf16 edit<bang> ++enc=ucs-2le <args>
+\	Utf16 edit<bang> ++enc=utf-16le <args>
 command! -bang -bar -complete=file -nargs=?
-\	Utf16be edit<bang> ++enc=ucs-2 <args>
+\	Utf16be edit<bang> ++enc=utf-16 <args>
 
 command! -bang -bar -complete=file -nargs=?
 \	Unix edit<bang> ++fileformat=unix <args>
@@ -757,14 +757,15 @@ let g:quickrun_config = {
 \	'javascript': {
 \		'command': '$HOME/app/ringo/bin/ringo',
 \		'tempfile': '%{tempname()}.js',
-\		'exec': '%c %s'
+\		'exec': '%c %s',
 \	},
 \	'sql': {
 \		'command': 'sqlplus',
 \		'cmdopt': '-S',
 \		'args': '%{MyGetOracleConnection("quickrun")}',
 \		'tempfile': '%{tempname()}.sql',
-\		'exec': '%c %o %a \@%s'
+\		'exec': '%c %o %a \@%s',
+\		'outputter/buffer/filetype': 'quickrun.sqloutput',
 \	},
 \	'rst': {
 \		'command': 'rst2html',

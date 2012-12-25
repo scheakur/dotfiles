@@ -1,0 +1,29 @@
+snippet my
+options head
+    conn aqua_b/aqua_b@10.0.100.20/dev
+
+    set pages 1000
+    set lines 120
+#
+
+
+snippet cnt
+options head
+    select count(*) from basedataset where id = '${0}';
+#
+
+snippet index
+options head
+    column index_name format a30
+    column index_type format a30
+    column column_name format a40
+
+    select t.index_name, t.index_type, c.column_name
+    from user_indexes t
+        inner join user_ind_columns c
+        on t.index_name = c.index_name
+    where
+        t.table_name = upper('${0}')
+    order by
+        t.index_name, c.column_position;
+
