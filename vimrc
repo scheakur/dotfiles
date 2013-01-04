@@ -877,6 +877,10 @@ let g:skrap_directory = expand('~/Dropbox/tmp/skrap')
 let g:skrap_types = ['md', 'js', 'txt', 'vim', 'sql', 'xml', 'html', 'css']
 "}}}
 
+" vim-demitas {{{
+let g:demitas_directory = expand('~/Dropbox/tmp/demitas')
+"}}}
+
 " /plugin }}}
 
 
