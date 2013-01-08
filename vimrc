@@ -879,6 +879,14 @@ let g:skrap_types = ['md', 'js', 'txt', 'vim', 'sql', 'xml', 'html', 'css']
 
 " vim-demitas {{{
 let g:demitas_directory = expand('~/Dropbox/tmp/demitas')
+
+call extend(g:unite_source_alias_aliases, {
+\	'demitas' : {
+\		'source': 'file_rec',
+\		'args': g:demitas_directory,
+\		'description': 'my tumblr files',
+\	},
+\})
 "}}}
 
 " /plugin }}}
