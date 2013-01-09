@@ -703,15 +703,6 @@ call unite#custom_default_action('buffer', 'goto')
 
 " unite alias {{{
 let g:unite_source_alias_aliases = {
-\	'memo' : {
-\		'source': 'file_rec',
-\		'args': '~/Dropbox/memo/',
-\		'description': 'my memo files',
-\	},
-\	'tmp' : {
-\		'source': 'file_rec',
-\		'args': '~/Dropbox/tmp/',
-\	},
 \	'opera' : {
 \		'source': 'file_rec',
 \		'args': '~/Dropbox/config/opera/',
@@ -720,13 +711,9 @@ let g:unite_source_alias_aliases = {
 \		'source': 'file_rec',
 \		'args': '~/.vim/',
 \	},
-\	'blog' : {
-\		'source': 'file_rec',
-\		'args': '~/Dropbox/git/octopress-for-blog/source/_posts/',
-\	},
 \	'keymap' : {
 \		'source': 'output',
-\		'args': ['map', 'map!', 'lmap'],
+\		'args': join(['map', 'map!', 'lmap'], '|'),
 \	},
 \ }
 " }}}
