@@ -10,7 +10,7 @@ execute 'source' . expand('~/.vim/bundles.vim')
 
 augroup mysetup
     autocmd!
-    autocmd VimEnter * BundleInstall!
+    autocmd VimEnter * NeoBundleInstall
 augroup end
 
 " vim: set foldenable foldmethod=marker :
