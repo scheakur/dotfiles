@@ -814,11 +814,15 @@ cnoremap <expr><C-CR>  ambicmd#expand("\<CR>")
 " vimfiler {{{
 let g:vimfiler_as_default_explorer = 1
 
-call vimfiler#set_execute_file(
-\	'bat,c,cc,cpp,css,cxx,groovy,gradle,h,hpp,html,'.
-\	'java,js,jsp,log,m,markdown,md,mkd,pl,properties,'.
-\	'py,rb,sh,sql,tag,taskpaper,txt,vim,xml,yaml',
-\	'vim')
+let g:vimfiler_execute_file_list = {}
+for ext in [
+\	'bat', 'c', 'cc', 'cpp', 'css', 'cxx', 'csv', 'groovy', 'gradle',
+\	'h', 'hpp', 'html', 'java', 'js', 'jsp', 'log', 'm',
+\	'markdown', 'md', 'mkd', 'pl', 'properties', 'py', 'rb', 'sh',
+\	'sql', 'tag', 'taskpaper', 'txt', 'vim', 'xml', 'yaml',
+\]
+	let g:vimfiler_execute_file_list[ext] = 'vim'
+endfor
 
 let g:vimfiler_tree_leaf_icon = ' '
 let g:vimfiler_tree_opened_icon = '▾'
