@@ -165,14 +165,15 @@ function! s:set_statusline()
 endfunction
 
 function! s:make_statusline(hi1, hi2)
-	let st = ''
-	let st .= '%' . a:hi2 . '* %{&ft} '
-	let st .= '%' . a:hi1 . '* %h%w%m%r '
-	let st .= '%0* %<%f '
-	let st .= '%='
-	let st .= '%0* %{(&fenc != "") ? &fenc : &enc} '
-	let st .= '%' . a:hi1 . '* %{&ff} '
-	let st .= '%' . a:hi2 . '* %lL %2vC %3p%%'
+	let st = join([
+	\	'%' . a:hi2 . '* %{&ft} ',
+	\	'%' . a:hi1 . '* %h%w%m%r ',
+	\	'%0* %<%f ',
+	\	'%=',
+	\	'%0* %{(&fenc != "") ? &fenc : &enc} ',
+	\	'%' . a:hi1 . '* %{&ff} ',
+	\	'%' . a:hi2 . '* %lL %2vC %3p%%',
+	\], '')
 	return st
 endfunction
 " }}}
@@ -904,6 +905,7 @@ call s:load_local_vimrc()
 call watchdogs#setup(g:quickrun_config)
 set secure
 " /finally }}}
+
 
 " @see :help modeline
 " vim: set noexpandtab :
