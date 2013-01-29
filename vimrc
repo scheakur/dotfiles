@@ -845,7 +845,7 @@ map R  <Plug>(operator-replace)
 " }}}
 
 " surround {{{
-vmap s <Plug>VSurround
+vmap s  <Plug>VSurround
 " }}}
 
 " neosnippet {{{

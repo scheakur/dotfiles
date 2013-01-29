@@ -2,6 +2,8 @@
 "     bundles.vim
 " ========================================================================
 
+set nocompatible
+
 " neobundle {{{
 if has('vim_starting')
     set runtimepath+=~/.vim/bundle/neobundle.vim/
@@ -21,6 +23,8 @@ NeoBundle 'https://github.com/kana/vim-niceblock.git'
 NeoBundle 'https://github.com/kana/vim-operator-user.git'
 NeoBundle 'https://github.com/kana/vim-operator-replace.git'
 NeoBundle 'https://github.com/kana/vim-tabpagecd.git'
+NeoBundle 'https://github.com/kana/vim-textobj-function.git'
+NeoBundle 'https://github.com/kana/vim-textobj-lastpat.git'
 NeoBundle 'https://github.com/kana/vim-textobj-line.git'
 NeoBundle 'https://github.com/kana/vim-textobj-user.git'
 NeoBundle 'https://github.com/kchmck/vim-coffee-script.git'
@@ -43,7 +47,8 @@ NeoBundle 'https://github.com/thinca/vim-ambicmd.git'
 NeoBundle 'https://github.com/thinca/vim-localrc.git'
 NeoBundle 'https://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/thinca/vim-ref.git'
-NeoBundle 'https://github.com/thinca/vim-textobj-plugins.git'
+NeoBundle 'https://github.com/thinca/vim-textobj-between.git'
+NeoBundle 'https://github.com/thinca/vim-textobj-function-javascript.git'
 NeoBundle 'https://github.com/tpope/vim-surround.git'
 NeoBundle 'https://github.com/tpope/vim-repeat.git'
 NeoBundle 'https://github.com/tyru/caw.vim.git'
