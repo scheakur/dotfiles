@@ -551,10 +551,10 @@ omap if  <Plug>(textobj-function-i)
 vmap if  <Plug>(textobj-function-i)
 
 " textobj-between (default f)
-omap av  <Plug>(textobj-between-a)
-vmap av  <Plug>(textobj-between-a)
-omap iv  <Plug>(textobj-between-i)
-vmap iv  <Plug>(textobj-between-i)
+omap a;  <Plug>(textobj-between-a)
+vmap a;  <Plug>(textobj-between-a)
+omap i;  <Plug>(textobj-between-i)
+vmap i;  <Plug>(textobj-between-i)
 " }}}
 
 " handle window {{{
