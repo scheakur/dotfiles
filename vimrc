@@ -891,6 +891,8 @@ call extend(g:unite_source_alias_aliases, {
 \		'description': 'my tumblr files',
 \	},
 \})
+
+call unite#custom_source('demitas', 'sorters', 'sorter_reverse')
 "}}}
 
 " /plugin }}}
