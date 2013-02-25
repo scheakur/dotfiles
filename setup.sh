@@ -8,7 +8,7 @@ do
     target=${target_list[i]}
     if [ -e ~/.$target -o -L ~/.$target ]; then
 	if [ -e ~/.$target.orig.back -o -L ~/.$target.orig.back ]; then
-	    rm -rf ~/.$target.orig.back 
+	    rm -rf ~/.$target.orig.back
 	fi
         mv ~/.$target ~/.$target.orig.back
     fi
