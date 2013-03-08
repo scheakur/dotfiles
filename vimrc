@@ -731,6 +731,11 @@ let g:unite_source_alias_aliases = {
 \ }
 " }}}
 
+let g:unite_source_grep_command = 'ag'
+let g:unite_source_grep_default_opts = '-i --nocolor --nogroup'
+let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_max_candidates = 100
+
 " /unite }}}
 
 " caw {{{
