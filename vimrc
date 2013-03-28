@@ -446,10 +446,6 @@ vnoremap >  >gv
 nnoremap <silent> n  :<C-u>set hlsearch<CR>nzz
 nnoremap <silent> N  :<C-u>set hlsearch<CR>Nzz
 
-" for repeating 't'
-nnoremap ff  l;
-vnoremap ff  l;
-
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-d>  <Delete>
