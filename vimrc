@@ -819,11 +819,6 @@ let g:watchdogs_check_BufWritePost_enables = {
 \}
 " }}}
 
-" ambicmd {{{
-cnoremap <expr><Space>  ambicmd#expand("\<Space>")
-cnoremap <expr><C-CR>  ambicmd#expand("\<CR>")
-" }}}
-
 " vimfiler {{{
 let g:vimfiler_as_default_explorer = 1
 
