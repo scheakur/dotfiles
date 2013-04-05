@@ -121,6 +121,11 @@ bindkey '^S' history-incremental-pattern-search-forward
 # }}}
 
 
+# job {{{
+setopt no_hup
+setopt no_checkjobs
+# }}}
+
 # for root user {{{
 case ${UID} in
 0)
