@@ -446,6 +446,10 @@ vnoremap >  >gv
 nnoremap <silent> n  :<C-u>set hlsearch<CR>nzz
 nnoremap <silent> N  :<C-u>set hlsearch<CR>Nzz
 
+nnoremap gm  `[v`]
+vnoremap gm  :<C-u>normal gm<CR>
+onoremap gm  :<C-u>normal gm<CR>
+
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-d>  <Delete>
