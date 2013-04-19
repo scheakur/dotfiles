@@ -144,6 +144,7 @@ linux-gnu*)
         ;;
 esac
 
+stty -ixon
 
 # finally {{{
 # Load RVM into a shell session *as a function*
