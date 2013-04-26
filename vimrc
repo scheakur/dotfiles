@@ -648,7 +648,7 @@ function! s:show_hilite()
 	let hilite .= 'link <' . synIDattr(synIDtrans(synID(l, c, 1)), 'name') . '>'
 	echo hilite
 endfunction
-nnoremap <C-H> :call <SID>show_hilite()<CR>
+nnoremap <F12> :call <SID>show_hilite()<CR>
 " }}}
 
 " open current file in web browser {{{
@@ -902,15 +902,13 @@ call unite#custom_source('demitas', 'sorters', 'sorter_reverse')
 " ------------------------------------------------------------------------------
 
 " Create non-existing diretories automatically when the file is saved.
-function! s:auto_mkdir(dir, force)
+function! s:auto_mkdir(dir)
 	if isdirectory(a:dir)
 		return
 	endif
-	if a:force || input(printf('mkdir %s? [y/n] ', a:dir), 'y') =~? '^y\%[es]$'
-		call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
-	endif
+	call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
 endfunction
-autocmd my BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'), v:cmdbang)
+autocmd my BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'))
 
 " Open quickfix window after executing make.
 autocmd my QuickfixCmdPost make copen
