@@ -565,10 +565,6 @@ nnoremap <C-w>,  <C-w>3<
 nnoremap <C-w>+  <C-w>=
 
 " split window
-nmap <C-w>sj <SID>(split-to-j)
-nmap <C-w>sk <SID>(split-to-k)
-nmap <C-w>sh <SID>(split-to-h)
-nmap <C-w>sl <SID>(split-to-l)
 nmap <Space>wj <SID>(split-to-j)
 nmap <Space>wk <SID>(split-to-k)
 nmap <Space>wh <SID>(split-to-h)
