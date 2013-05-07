@@ -313,7 +313,6 @@ endfunction
 nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 " }}}
 
-
 " format JSON
 command! -range FormatJson  :<line1>,<line2>!python -m json.tool
 vnoremap <silent> <Leader>fj  :FormatJson<CR>
@@ -379,7 +378,6 @@ function! s:cmd_capture(q_args) "{{{
 endfunction "}}}
 " }}}
 
-
 " draw underline " {{{
 " ref. http://vim.wikia.com/wiki/Underline_using_dashes_automatically
 command! -nargs=? Underline call s:underline(<q-args>)
@@ -392,7 +390,7 @@ function! s:underline(chars)
 endfunction
 " }}}
 
-" Delete buffers without breaking window layout
+" delete buffers without breaking window layout {{{
 command! Bdelete call s:delete_buffer()
 
 function! s:delete_buffer()
@@ -414,13 +412,13 @@ function! s:delete_buffer()
 		execute 'bdelete' . curr
 	endif
 endfunction
+" }}}
 
 " clear location list
 command! Qclear  call setqflist([])
 
 " clear location list
 command! Lclear  call setloclist(0, [])
-
 
 " /command }}}
 
