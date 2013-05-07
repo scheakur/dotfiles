@@ -1,3 +1,3 @@
-syntax keyword javaScriptThis  that self me
+syntax keyword jsThis  that self me
 
-hi link javaScriptThis  Special
+hi link jsThis  Special
