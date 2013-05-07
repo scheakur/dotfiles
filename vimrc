@@ -414,6 +414,14 @@ function! s:delete_buffer()
 		execute 'bdelete' . curr
 	endif
 endfunction
+
+" clear location list
+command! Qclear  call setqflist([])
+
+" clear location list
+command! Lclear  call setloclist(0, [])
+
+
 " /command }}}
 
 
