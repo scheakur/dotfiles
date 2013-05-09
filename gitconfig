@@ -16,3 +16,5 @@
 	revertlocalchange = checkout HEAD --
 [color]
 	ui = auto
+[merge]
+	ff = false
