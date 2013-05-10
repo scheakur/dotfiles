@@ -708,11 +708,11 @@ call unite#custom_default_action('buffer', 'goto')
 let g:unite_source_alias_aliases = {
 \	'opera' : {
 \		'source': 'file_rec',
-\		'args': '~/Dropbox/config/opera/',
+\		'args': expand('~/Dropbox/config/opera/'),
 \	},
 \	'vim' : {
-\		'source': 'file_rec',
-\		'args': '~/.vim/',
+\		'source': 'file_rec/async',
+\		'args': expand('~/.vim/.'),
 \	},
 \	'keymap' : {
 \		'source': 'output',
