@@ -23,11 +23,11 @@ language messages C
 language time C
 
 function! s:load_local_vimrc(...)
-	let l:suffix = (a:0 > 0) ? ('.' . a:1) : ''
-	let l:vimrc = expand('~/.vimrc.local' . l:suffix)
-	if filereadable(l:vimrc)
+	let suffix = (a:0 > 0) ? ('.' . a:1) : ''
+	let vimrc = expand('~/.vimrc.local' . suffix)
+	if filereadable(vimrc)
 		try
-			execute 'source ' l:vimrc
+			execute 'source ' vimrc
 		catch
 		" TODO do not ignore errors
 		endtry
@@ -65,9 +65,9 @@ filetype indent on
 " color {{{
 " auto loading after/colors {{{
 function! s:load_after_colors()
-	let l:color = expand('~/.vim/after/colors/' . g:colors_name . '.vim')
-	if filereadable(l:color)
-		execute 'source ' l:color
+	let color = expand('~/.vim/after/colors/' . g:colors_name . '.vim')
+	if filereadable(color)
+		execute 'source ' color
 	endif
 endfunction
 autocmd my ColorScheme * call s:load_after_colors()
@@ -664,10 +664,10 @@ inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 
 " The Tab Key!! {{{
 imap <expr><Tab>
-\	neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
 \	pumvisible() ? "\<C-n>" : "\<Tab>"
 smap <expr><Tab>
-\	neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
 xmap <Tab> <Plug>(neosnippet_expand_target)
 " }}}
@@ -782,11 +782,11 @@ endif
 
 " to quickrun sql {{{
 function! MyGetOracleConnection(mode)
-	let l:user_pass = s:get_option('oracle_user_pass', 'system/oracle')
-	let l:sid = s:get_option('oracle_sid', 'localhost/xe')
-	let l:sep = (a:mode == 'quickrun') ? '\\\@' : '@'
-	let l:conn = l:user_pass . l:sep . l:sid
-	return l:conn
+	let user_pass = s:get_option('oracle_user_pass', 'system/oracle')
+	let sid = s:get_option('oracle_sid', 'localhost/xe')
+	let sep = (a:mode == 'quickrun') ? '\\\@' : '@'
+	let conn = user_pass . sep . sid
+	return conn
 endfunction
 
 function! s:get_option(option_name, ...)
