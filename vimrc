@@ -586,18 +586,6 @@ nnoremap <silent> <SID>(split-to-l)
 \	:<C-u>execute 'botright' (v:count == 0 ? '' : v:count) 'vsplit'<CR>
 " }}}
 
-" handle tabs and tags {{{
-nnoremap [TabTag]  <Nop>
-nmap <C-t>	[TabTag]
-nnoremap [TabTag]<C-t>  <C-]>
-nnoremap [TabTag]<C-j>  :<C-u>tag<CR>
-nnoremap [TabTag]<C-k>  :<C-u>pop<CR>
-nnoremap [TabTag]<C-n>  :<C-u>tabnew<CR>
-nnoremap [TabTag]<C-h>  :<C-u>tabprevious<CR>
-nnoremap [TabTag]<C-l>  :<C-u>tabnext<CR>
-nnoremap [TabTag]<C-w>  :<C-u>tabclose<CR>
-" }}}
-
 " yank filename {{{
 if s:in_mac
 	nnoremap <silent> <Space>yf  :let @*=expand("%:p")<CR>
