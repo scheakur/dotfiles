@@ -134,6 +134,11 @@ case ${UID} in
 esac
 # }}}
 
+# development {{{
+alias v=vim
+alias g=git
+# }}}
+
 # OS dependent
 case "${OSTYPE}" in
 darwin*)

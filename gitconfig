@@ -14,5 +14,12 @@
 	user = scheakur
 [alias]
 	revertlocalchange = checkout HEAD --
+	svnup = svn rebase
+	ch = checkout
+	st = status
+	co = commit -a
+	di = diff
+	br = branch
 [color]
 	ui = auto
+
