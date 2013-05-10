@@ -15,11 +15,14 @@
 [alias]
 	revertlocalchange = checkout HEAD --
 	svnup = svn rebase
-	ch = checkout
+	svnci = svn dcommit
+	co = checkout
 	st = status
-	co = commit -a
+	ci = commit
+	cia = commit -a
+	ciav = commit -av
 	di = diff
+	dic = diff --cached
 	br = branch
 [color]
 	ui = auto
-
