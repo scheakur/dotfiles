@@ -5,6 +5,7 @@ highlight VertSplit  ctermfg=249 ctermbg=249 guifg=#b2b2b2 guibg=#b2b2b2
 highlight MatchParen  term=NONE cterm=NONE ctermbg=234 ctermfg=141 gui=NONE guifg=bg guibg=#505050
 highlight ColorColumn  ctermbg=235
 highlight TabLineSel  guibg=#303030
+highlight SpellBad  ctermfg=203
 
 " for statusline
 highlight StatusLine  term=reverse cterm=NONE ctermfg=234 gui=NONE
