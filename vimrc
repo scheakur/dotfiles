@@ -807,10 +807,8 @@ endfunction
 " }}}
 
 " watchdogs {{{
-let g:watchdogs_check_BufWritePost_enable = 1
 let g:watchdogs_check_BufWritePost_enables = {
 \	'javascript': 1,
-\	'sass': 0,
 \}
 " }}}
 
