@@ -451,6 +451,8 @@ vnoremap <  <gv
 vnoremap >  >gv
 nnoremap <silent> n  :<C-u>set hlsearch<CR>nzz
 nnoremap <silent> N  :<C-u>set hlsearch<CR>Nzz
+nnoremap <C-o>  <C-o>zz
+nnoremap <C-i>  <C-i>zz
 
 nnoremap gm  `[v`]
 vnoremap gm  :<C-u>normal gm<CR>
@@ -459,7 +461,6 @@ onoremap gm  :<C-u>normal gm<CR>
 inoremap <C-u>  <C-g>u<C-u>
 inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-d>  <Delete>
-nnoremap <expr> S*  ':%s/\<' . expand('<cword>') . '\>//g<Left><Left>'
 nnoremap <silent> O  :<C-u>call append(expand('.'), '')<CR>j
 nnoremap <Space>M  :<C-u>marks<CR>:mark<Space>
 " }}}
@@ -843,7 +844,8 @@ nmap <C-CR>  <Plug>(dois:n:add-daily-task)
 " }}}
 
 " operator-replace {{{
-map R  <Plug>(operator-replace)
+nmap s  <Plug>(operator-replace)
+nmap S  <Plug>(operator-replace)$<C-o>x
 " }}}
 
 " surround {{{
