@@ -342,7 +342,7 @@ let s:sql_keywords = [
 \	'end',
 \]
 
-function! s:list2regex(list) "{{{
+function! s:list2regex(list) " {{{
 	let regexp = '\V\ \<\('
 	let sep = ''
 	for word in a:list
@@ -352,7 +352,7 @@ function! s:list2regex(list) "{{{
 	endfor
 	let regexp .= '\)\>'
 	return regexp
-endfunction "}}}
+endfunction " }}}
 
 command! -range FormatSql
 \	:setlocal nohlsearch
@@ -364,7 +364,7 @@ command! -range FormatSql
 " ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
 command! -nargs=+ -complete=command Capture call s:cmd_capture(<q-args>)
 
-function! s:cmd_capture(q_args) "{{{
+function! s:cmd_capture(q_args) " {{{
 	redir => output
 	silent execute a:q_args
 	redir END
@@ -375,7 +375,7 @@ function! s:cmd_capture(q_args) "{{{
 	silent file `=printf('[Capture: %s]', a:q_args)`
 	setlocal buftype=nofile bufhidden=unload noswapfile nobuflisted
 	call setline(1, split(output, '\n'))
-endfunction "}}}
+endfunction " }}}
 " }}}
 
 " draw underline " {{{
@@ -869,7 +869,7 @@ let g:javascript_enable_domhtmlcss = 1
 " vim-skrap {{{
 let g:skrap_directory = expand('~/Dropbox/tmp/skrap')
 let g:skrap_types = ['md', 'js', 'txt', 'vim', 'sql', 'xml', 'html', 'css']
-"}}}
+" }}}
 
 " vim-demitas {{{
 let g:demitas_directory = expand('~/Dropbox/tmp/demitas')
@@ -883,7 +883,7 @@ call extend(g:unite_source_alias_aliases, {
 \})
 
 call unite#custom_source('demitas', 'sorters', 'sorter_reverse')
-"}}}
+" }}}
 
 " vim-markdown {{{
 let g:vim_markdown_folding_disabled = 1
