@@ -771,7 +771,7 @@ let g:quickrun_config = {
 
 if (s:in_mac)
 	call extend(g:quickrun_config, {
-	\	'markdown' : {
+	\	'mkd' : {
 	\		'command': 'open',
 	\		'cmdopt': '-a',
 	\		'tempfile': '%{tempname()}.md',
