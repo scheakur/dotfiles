@@ -885,6 +885,10 @@ call extend(g:unite_source_alias_aliases, {
 call unite#custom_source('demitas', 'sorters', 'sorter_reverse')
 "}}}
 
+" vim-markdown {{{
+let g:vim_markdown_folding_disabled = 1
+" }}}
+
 " /plugin }}}
 
 
