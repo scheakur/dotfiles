@@ -747,8 +747,11 @@ let g:quickrun_config = {
 \		'outputter/buffer/split': 'aboveleft',
 \	},
 \	'watchdogs_checker/_': {
-\		'hook/back_to_previous_window/enable_failure': 1,
 \		'hook/close_quickfix/enable_exit': 1,
+\		'hook/back_tabpage/enable_exit' : 1,
+\		'hook/back_tabpage/priority_exit' : -2000,
+\		'hook/back_window/enable_exit' : 1,
+\		'hook/back_window/priority_exit' : -1000,
 \	},
 \	'javascript': {
 \		'command': '$HOME/app/ringo/bin/ringo',
