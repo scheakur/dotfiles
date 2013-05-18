@@ -639,7 +639,9 @@ function! s:show_hilite()
 	let hilite .= 'link <' . synIDattr(synIDtrans(synID(l, c, 1)), 'name') . '>'
 	echo hilite
 endfunction
-nnoremap <F12> :call <SID>show_hilite()<CR>
+
+command! ShowHilite  call s:show_hilite()
+nnoremap <A-F12>  :<C-u>ShowHilite<CR>
 " }}}
 
 " open current file in web browser {{{
