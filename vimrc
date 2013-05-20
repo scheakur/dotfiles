@@ -644,15 +644,6 @@ command! ShowHilite  call s:show_hilite()
 nnoremap <A-F12>  :<C-u>ShowHilite<CR>
 " }}}
 
-" open current file in web browser {{{
-if s:in_nix
-	" I'm sorry for not using Opera.
-	nnoremap <silent> <Space>O :!google-chrome %<CR><CR>
-elseif s:in_mac
-	nnoremap <silent> <Space>O :!open %<CR><CR>
-endif
-" }}}
-
 " hlsearch (search and highlight) {{{
 nnoremap <Esc><Esc> :<C-u>set nohlsearch<CR>
 nnoremap / :<C-u>set hlsearch<CR>/
