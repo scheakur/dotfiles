@@ -27,7 +27,7 @@ function! s:load_local_vimrc(...)
 	let vimrc = expand('~/.vimrc.local' . suffix)
 	if filereadable(vimrc)
 		try
-			execute 'source ' vimrc
+			execute 'source' vimrc
 		catch
 		" TODO do not ignore errors
 		endtry
@@ -54,7 +54,7 @@ syntax enable
 filetype off
 
 " bundle {{{
-execute 'source ' . expand('~/.vim/bundles.vim')
+execute 'source' expand('~/.vim/bundles.vim')
 " }}}
 
 " after bundling, enable filetype
@@ -67,7 +67,7 @@ filetype indent on
 function! s:load_after_colors()
 	let color = expand('~/.vim/after/colors/' . g:colors_name . '.vim')
 	if filereadable(color)
-		execute 'source ' color
+		execute 'source' color
 	endif
 endfunction
 autocmd my ColorScheme * call s:load_after_colors()
@@ -279,24 +279,24 @@ command! -bang -bar -complete=file -nargs=?
 " }}}
 
 " remove spaces {{{
-command! -range=% TrimSpace :setlocal nohlsearch | :<line1>,<line2>s!\s*$!!g
+command! -range=% TrimSpace  setlocal nohlsearch | <line1>,<line2>s!\s*$!!g
 command! -range ShrinkSpace
-\	:setlocal nohlsearch
-\	| :<line1>,<line2>s![^ ]\zs\s\{2,}! !g
-\	| :normal gv
+\	setlocal nohlsearch
+\	| <line1>,<line2>s![^ ]\zs\s\{2,}! !g
+\	| normal gv
 " }}}
 
 " insert a blank line every N lines {{{
 command! -range -nargs=1  InsertBlankLineEvery
-\	:setlocal nohlsearch
-\	| :<line1>,<line2>s!\v(.*\n){<args>}!&\r
+\	setlocal nohlsearch
+\	| <line1>,<line2>s!\v(.*\n){<args>}!&\r
 " }}}
 
 " rename file
-command! -nargs=1 -complete=file Rename f <args>|w|call delete(expand('#'))
+command! -nargs=1 -complete=file Rename  f <args>|w|call delete(expand('#'))
 
 " remove trail ^M
-command! -range RemoveTrailM :setlocal nohlsearch | :<line1>,<line2>s!\r$!!g
+command! -range RemoveTrailM  setlocal nohlsearch | <line1>,<line2>s!\r$!!g
 
 " command CD {{{
 command! -nargs=? -complete=dir -bang CD  call s:change_dir('<args>', '<bang>')
@@ -304,7 +304,7 @@ function! s:change_dir(directory, bang)
 	if a:directory == ''
 		lcd %:p:h
 	else
-		execute 'lcd' . a:directory
+		execute 'lcd' a:directory
 	endif
 	if a:bang == ''
 		pwd
@@ -314,7 +314,7 @@ nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 " }}}
 
 " format JSON
-command! -range FormatJson  :<line1>,<line2>!python -m json.tool
+command! -range FormatJson  <line1>,<line2>!python -m json.tool
 vnoremap <silent> <Leader>fj  :FormatJson<CR>
 
 " format SQL {{{
@@ -355,14 +355,14 @@ function! s:list2regex(list) " {{{
 endfunction " }}}
 
 command! -range FormatSql
-\	:setlocal nohlsearch
-\	| :execute ':<line1>,<line2>s!' . <SID>list2regex(s:sql_keywords) . '!\r&!g'
-\	| :normal =ip
+\	setlocal nohlsearch
+\	| execute '<line1>,<line2>s!' . <SID>list2regex(s:sql_keywords) . '!\r&!g'
+\	| normal =ip
 " }}}
 
 " capture outputs of command {{{
 " ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
-command! -nargs=+ -complete=command Capture call s:cmd_capture(<q-args>)
+command! -nargs=+ -complete=command Capture  call s:cmd_capture(<q-args>)
 
 function! s:cmd_capture(q_args) " {{{
 	redir => output
@@ -403,13 +403,13 @@ function! s:delete_buffer()
 	let prev = bufnr('#')
 
 	if (prev > 0 && buflisted(prev) && curr != prev)
-		execute 'buffer' . prev
+		execute 'buffer' prev
 	else
 		enew
 	endif
 
 	if (curr && buflisted(curr))
-		execute 'bdelete' . curr
+		execute 'bdelete' curr
 	endif
 endfunction
 " }}}
@@ -499,8 +499,8 @@ cnoremap <Down>  <C-n>
 
 " toggle option {{{
 function! s:ToggleOption(option_name)
-	execute 'setlocal ' . a:option_name . '!'
-	execute 'setlocal ' . a:option_name . '?'
+	execute 'setlocal' a:option_name . '!'
+	execute 'setlocal' a:option_name . '?'
 endfunction
 nnoremap <silent> <Space>ow  :<C-u>call <SID>ToggleOption('wrap')<CR>
 nnoremap <silent> <Space>nu  :<C-u>call <SID>ToggleOption('number')<CR>
