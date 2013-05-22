@@ -1,4 +1,5 @@
 " ============================================================================ "
+
 "                                    vimrc                                     "
 " ============================================================================ "
 
@@ -840,6 +841,7 @@ nmap <C-CR>  <Plug>(dois:n:add-daily-task)
 " operator-replace {{{
 nmap s  <Plug>(operator-replace)
 nmap S  <Plug>(operator-replace)$<C-o>x
+nmap ss  <Plug>(operator-replace)<Plug>(textobj-line-a)<C-o>x
 " }}}
 
 " surround {{{
