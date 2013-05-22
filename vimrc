@@ -486,9 +486,9 @@ endif
 " }}}
 
 " command line mode {{{
-cnoremap <C-a> <Home>
-cnoremap <C-e> <End>
-cnoremap <C-l> <Right>
+cnoremap <C-a>  <Home>
+cnoremap <C-e>  <End>
+cnoremap <C-l>  <Right>
 cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
 cnoremap <C-p>  <Up>
@@ -572,10 +572,10 @@ nnoremap <C-w>,  <C-w>3<
 nnoremap <C-w>+  <C-w>=
 
 " split window
-nmap <Space>wj <SID>(split-to-j)
-nmap <Space>wk <SID>(split-to-k)
-nmap <Space>wh <SID>(split-to-h)
-nmap <Space>wl <SID>(split-to-l)
+nmap <Space>wj  <SID>(split-to-j)
+nmap <Space>wk  <SID>(split-to-k)
+nmap <Space>wh  <SID>(split-to-h)
+nmap <Space>wl  <SID>(split-to-l)
 
 nnoremap <silent> <SID>(split-to-j)
 \	:<C-u>execute 'belowright' (v:count == 0 ? '' : v:count) 'split'<CR>
@@ -645,11 +645,11 @@ nnoremap <A-F12>  :<C-u>ShowHilite<CR>
 " }}}
 
 " hlsearch (search and highlight) {{{
-nnoremap <Esc><Esc> :<C-u>set nohlsearch<CR>
-nnoremap / :<C-u>set hlsearch<CR>/
-nnoremap ? :<C-u>set hlsearch<CR>?
-nnoremap * :<C-u>set hlsearch<CR>*
-nnoremap # :<C-u>set hlsearch<CR>#
+nnoremap <Esc><Esc>  :<C-u>set nohlsearch<CR>
+nnoremap /  :<C-u>set hlsearch<CR>/
+nnoremap ?  :<C-u>set hlsearch<CR>?
+nnoremap *  :<C-u>set hlsearch<CR>*
+nnoremap #  :<C-u>set hlsearch<CR>#
 " }}}
 
 " completion {{{
@@ -663,7 +663,7 @@ imap <expr><Tab>
 smap <expr><Tab>
 \	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
-xmap <Tab> <Plug>(neosnippet_expand_target)
+xmap <Tab>  <Plug>(neosnippet_expand_target)
 " }}}
 
 " /keymap }}}
