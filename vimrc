@@ -623,10 +623,10 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " misc {{{
 " search with the selected text
 " ref. http://vim-users.jp/2009/11/hack104/
-vnoremap <Plug>(search-with-selected-text)
+vnoremap <SID>(search-with-selected-text)
 \	"vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>:<C-u>set hlsearch<CR>
-vmap <silent> *  <Plug>(search-with-selected-text)
-vmap <silent> <CR>  <Plug>(search-with-selected-text)
+vmap <silent> *  <SID>(search-with-selected-text)
+vmap <silent> <CR>  <SID>(search-with-selected-text)
 
 " identify the syntax highlighting group used at the cursor
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
