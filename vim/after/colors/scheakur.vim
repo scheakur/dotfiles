@@ -5,8 +5,8 @@ if &statusline == 'light'
 	highlight User3  ctermfg=252 ctermbg=243 guifg=#dcdcdc guibg=#7a7672
 	highlight User4  ctermfg=252 ctermbg=243 guifg=#dcdcdc guibg=#7a7672
 else
-	highlight User1  ctermfg=252 ctermbg=236 guifg=#002516 guibg=#7ca790
-	highlight User2  ctermfg=252 ctermbg=234 guifg=#002516 guibg=#619077
+	highlight User1  ctermfg=252 ctermbg=236 guifg=#002516 guibg=#8cb29d
+	highlight User2  ctermfg=252 ctermbg=234 guifg=#002516 guibg=#6d9d83
 	highlight User3  ctermfg=252 ctermbg=243 guifg=#002516 guibg=#4c715d
 	highlight User4  ctermfg=252 ctermbg=243 guifg=#002516 guibg=#4c715d
 endif
