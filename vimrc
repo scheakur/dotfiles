@@ -317,49 +317,6 @@ nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 command! -range FormatJson  <line1>,<line2>!python -m json.tool
 vnoremap <silent> <Leader>fj  :FormatJson<CR>
 
-" format SQL {{{
-let s:sql_keywords = [
-\	'union all',
-\	'minus',
-\	'insert',
-\	'delete',
-\	'update',
-\	'select',
-\	'from',
-\	'where',
-\	'and',
-\	'or',
-\	'order by',
-\	'group by',
-\	'having',
-\	'inner join',
-\	'left outer join',
-\	'right outer join',
-\	'on',
-\	'case',
-\	'when',
-\	'then',
-\	'end',
-\]
-
-function! s:list2regex(list) " {{{
-	let regexp = '\V\ \<\('
-	let sep = ''
-	for word in a:list
-		let escaped = substitute(word, '\ ', '\\ ', '')
-		let regexp .= sep . escaped
-		let sep = '\|'
-	endfor
-	let regexp .= '\)\>'
-	return regexp
-endfunction " }}}
-
-command! -range FormatSql
-\	setlocal nohlsearch
-\	| execute '<line1>,<line2>s!' . <SID>list2regex(s:sql_keywords) . '!\r&!g'
-\	| normal =ip
-" }}}
-
 " capture outputs of command {{{
 " ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
 command! -nargs=+ -complete=command Capture  call s:cmd_capture(<q-args>)
