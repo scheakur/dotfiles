@@ -703,11 +703,6 @@ let g:quickrun_config = {
 \		'hook/back_window/enable_exit' : 1,
 \		'hook/back_window/priority_exit' : -1000,
 \	},
-\	'javascript': {
-\		'command': '$HOME/app/ringo/bin/ringo',
-\		'tempfile': '%{tempname()}.js',
-\		'exec': '%c %s',
-\	},
 \	'sql': {
 \		'command': 'sqlplus',
 \		'cmdopt': '-S',
