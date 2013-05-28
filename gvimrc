@@ -13,7 +13,7 @@ let s:in_mac = has('mac') || has('macunix')
 let s:in_nix = !s:in_mac && has('unix')
 " }}}
 
-set background=light
+set background=dark
 colorscheme scheakur
 " }}}
 
