@@ -598,7 +598,7 @@ function! s:show_hilite()
 endfunction
 
 command! ShowHilite  call s:show_hilite()
-nnoremap <A-F12>  :<C-u>ShowHilite<CR>
+nnoremap <M-F12>  :<C-u>ShowHilite<CR>
 " }}}
 
 " hlsearch (search and highlight) {{{
