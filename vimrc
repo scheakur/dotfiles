@@ -424,6 +424,8 @@ inoremap <C-d>  <Delete>
 nnoremap <silent> O  :<C-u>call append(expand('.'), '')<CR>j
 nnoremap <Space>M  :<C-u>marks<CR>:mark<Space>
 nnoremap <C-w>.  :<C-u>edit %:h<CR>
+nnoremap g/  :global//print<CR>
+vnoremap g/  :global//print<CR>
 " }}}
 
 " escape {{{
