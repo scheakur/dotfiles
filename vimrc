@@ -423,6 +423,7 @@ inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-d>  <Delete>
 nnoremap <silent> O  :<C-u>call append(expand('.'), '')<CR>j
 nnoremap <Space>M  :<C-u>marks<CR>:mark<Space>
+nnoremap <C-w>.  :<C-u>edit %:h<CR>
 " }}}
 
 " escape {{{
@@ -527,8 +528,8 @@ vmap i;  <Plug>(textobj-between-i)
 " handle window {{{
 nnoremap <C-w>=  <C-w>3+
 nnoremap <C-w>-  <C-w>3-
-nnoremap <C-w>.  <C-w>3>
-nnoremap <C-w>,  <C-w>3<
+nnoremap <C-w>>  <C-w>3>
+nnoremap <C-w><  <C-w>3<
 nnoremap <C-w>+  <C-w>=
 
 " split window
