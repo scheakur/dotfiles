@@ -55,6 +55,9 @@ filetype off
 
 " bundle {{{
 execute 'source' expand('~/.vim/bundles.vim')
+" golang
+set runtimepath+=$GOROOT/misc/vim
+set runtimepath+=$GOPATH/src/github.com/nsf/gocode/vim
 " }}}
 
 " after bundling, enable filetype
