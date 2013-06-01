@@ -7,10 +7,11 @@
 " ------------------------------------------------------------------------------
 " encoding {{{
 " `set encoding=utf8` *must* be before `scriptencoding utf8`
-" because `scriptencoding utf8` converts source string
-" from its argument encoding to current &encoding.
+" because `scriptencoding utf-8` converts source string
+" from its argument encoding to current `&encoding`.
 set encoding=utf-8
 scriptencoding utf-8
+set fileencodings=ucs-bom,iso-2022-jp,euc-jp,cp932,utf-8,utf-16le,utf-16
 " }}}
 
 " clear command
