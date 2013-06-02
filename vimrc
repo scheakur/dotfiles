@@ -11,7 +11,7 @@
 " from its argument encoding to current `&encoding`.
 set encoding=utf-8
 scriptencoding utf-8
-set fileencodings=ucs-bom,iso-2022-jp,euc-jp,cp932,utf-8,utf-16le,utf-16
+set fileencodings=ucs-bom,iso-2022-jp,euc-jp,utf-8,cp932,utf-16le,utf-16
 " }}}
 
 " clear command
