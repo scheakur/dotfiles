@@ -853,6 +853,15 @@ nmap gx  <Plug>(openbrowser-smart-search)
 vmap gx  <Plug>(openbrowser-smart-search)
 " }}}
 
+" YouCompleteMe {{{
+let g:ycm_filetype_blacklist = {
+\	'unite': 1,
+\	'mkd': 1,
+\	'text': 1,
+\	'unvoice': 1,
+\}
+" }}}
+
 " /plugin }}}
 
 
