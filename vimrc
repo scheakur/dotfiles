@@ -620,16 +620,6 @@ nnoremap #  :<C-u>set hlsearch<CR>#
 inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 " }}}
 
-" The Tab Key!! {{{
-imap <expr><Tab>
-\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-\	pumvisible() ? "\<C-n>" : "\<Tab>"
-smap <expr><Tab>
-\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
-inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
-xmap <Tab>  <Plug>(neosnippet_expand_target)
-" }}}
-
 " /keymap }}}
 
 
@@ -814,6 +804,11 @@ let g:neosnippet#snippets_directory = join([
 let g:neosnippet#disable_runtime_snippets = {
 \	'_' : 1,
 \}
+
+imap <M-\>  <Plug>(neosnippet_jump_or_expand)
+smap <M-\>  <Plug>(neosnippet_jump_or_expand)
+nmap <M-\>  a<M-\>
+xmap <M-\>  <Plug>(neosnippet_expand_target)
 " }}}
 
 " vim-javascript {{{
