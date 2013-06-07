@@ -9,7 +9,7 @@ function! MakeXMLFoldingLabelWithStartLineAndNumbersOfFoldedLines()
         let line = substitute(line, '/\*\*\?\zs\s*', '', '')
         let line .= ' ' . next
     endif
-    let line .= ' // +' . (v:foldend - v:foldstart) . ' lines'
+    let line .= ' // ' . (v:foldend - v:foldstart + 1) . ' lines'
     return line
 endfunction
 
