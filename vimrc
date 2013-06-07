@@ -805,10 +805,13 @@ let g:neosnippet#disable_runtime_snippets = {
 \	'_' : 1,
 \}
 
-imap <M-\>  <Plug>(neosnippet_jump_or_expand)
-smap <M-\>  <Plug>(neosnippet_jump_or_expand)
-nmap <M-\>  a<M-\>
-xmap <M-\>  <Plug>(neosnippet_expand_target)
+imap <expr><Tab>
+\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+\	pumvisible() ? "\<C-n>" : "\<Tab>"
+smap <expr><Tab>
+\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
+xmap <Tab>  <Plug>(neosnippet_expand_target)
 " }}}
 
 " vim-javascript {{{
@@ -855,6 +858,9 @@ let g:ycm_filetype_blacklist = {
 \	'text': 1,
 \	'unvoice': 1,
 \}
+
+let g:ycm_key_list_select_completion = ['<Down>']
+let g:ycm_key_list_previous_completion = ['<Up>']
 " }}}
 
 " /plugin }}}
