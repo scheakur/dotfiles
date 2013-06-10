@@ -183,7 +183,6 @@ endfunction
 " }}}
 
 " misc {{{
-set autoread
 set hidden
 set backspace=indent,eol,start
 set clipboard=unnamed
@@ -879,6 +878,9 @@ function! s:ignore_invalid_file(file)
 endfunction
 autocmd my BufWriteCmd *; call s:ignore_invalid_file(expand('<afile>'))
 
+" Reload a file on WinEnter if the file has been modified
+set autoread
+autocmd my WinEnter *  checktime
 " }}}
 
 
