@@ -79,8 +79,8 @@ autocmd my ColorScheme * call s:load_after_colors()
 let g:lucius_style = 'dark'
 colorscheme lucius
 
-autocmd my ColorScheme * highlight link FullWidthSpace Error
-autocmd my Syntax * syntax match FullWidthSpace containedin=ALL /　/
+autocmd my ColorScheme *  highlight link FullWidthSpace SpellBad
+autocmd my Syntax *  syntax match FullWidthSpace containedin=ALL /　/
 " }}}
 
 
