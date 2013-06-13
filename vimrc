@@ -244,7 +244,7 @@ function! s:set_tabpage_title(title)
 	redraw!
 endfunction
 
-command! -nargs=? SetTabTitle call s:set_tabpage_title(<q-args>)
+command! -nargs=? SetTabTitle  call s:set_tabpage_title(<q-args>)
 " }}}
 
 " completion {{{
@@ -260,25 +260,25 @@ set wildmode=list:longest,full
 " ------------------------------------------------------------------------------
 
 " file encoding & line feed code {{{
-command! -bang -bar -complete=file -nargs=?
-\	Utf8 edit<bang> ++enc=utf-8 <args>
-command! -bang -bar -complete=file -nargs=?
-\	Iso2022jp edit<bang> ++enc=iso-2022-jp <args>
-command! -bang -bar -complete=file -nargs=?
-\	Cp932 edit<bang> ++enc=cp932 <args>
-command! -bang -bar -complete=file -nargs=?
-\	Euc edit<bang> ++enc=euc-jp <args>
-command! -bang -bar -complete=file -nargs=?
-\	Utf16 edit<bang> ++enc=utf-16le <args>
-command! -bang -bar -complete=file -nargs=?
-\	Utf16be edit<bang> ++enc=utf-16 <args>
+command! -bang -bar -complete=file -nargs=? Utf8
+\	edit<bang> ++enc=utf-8 <args>
+command! -bang -bar -complete=file -nargs=? Iso2022jp
+\	edit<bang> ++enc=iso-2022-jp <args>
+command! -bang -bar -complete=file -nargs=? Cp932
+\	edit<bang> ++enc=cp932 <args>
+command! -bang -bar -complete=file -nargs=? Euc
+\	edit<bang> ++enc=euc-jp <args>
+command! -bang -bar -complete=file -nargs=? Utf16
+\	edit<bang> ++enc=utf-16le <args>
+command! -bang -bar -complete=file -nargs=? Utf16be
+\	edit<bang> ++enc=utf-16 <args>
 
-command! -bang -bar -complete=file -nargs=?
-\	Unix edit<bang> ++fileformat=unix <args>
-command! -bang -bar -complete=file -nargs=?
-\	Mac edit<bang> ++fileformat=mac <args>
-command! -bang -bar -complete=file -nargs=?
-\	Dos edit<bang> ++fileformat=dos <args>
+command! -bang -bar -complete=file -nargs=? Unix
+\	edit<bang> ++fileformat=unix <args>
+command! -bang -bar -complete=file -nargs=? Mac
+\	edit<bang> ++fileformat=mac <args>
+command! -bang -bar -complete=file -nargs=? Dos
+\	edit<bang> ++fileformat=dos <args>
 " }}}
 
 " remove spaces {{{
@@ -290,7 +290,7 @@ command! -range ShrinkSpace
 " }}}
 
 " insert a blank line every N lines {{{
-command! -range -nargs=1  InsertBlankLineEvery
+command! -range -nargs=1 InsertBlankLineEvery
 \	setlocal nohlsearch
 \	| <line1>,<line2>s!\v(.*\n){<args>}!&\r
 " }}}
@@ -340,7 +340,7 @@ endfunction " }}}
 
 " draw underline " {{{
 " ref. http://vim.wikia.com/wiki/Underline_using_dashes_automatically
-command! -nargs=? Underline call s:underline(<q-args>)
+command! -nargs=? Underline  call s:underline(<q-args>)
 
 function! s:underline(chars)
 	let chars = empty(a:chars) ? '-' : a:chars
@@ -351,7 +351,7 @@ endfunction
 " }}}
 
 " delete buffers without breaking window layout {{{
-command! Bdelete call s:delete_buffer()
+command! Bdelete  call s:delete_buffer()
 
 function! s:delete_buffer()
 	if (empty(bufname('%')))
@@ -685,10 +685,10 @@ let g:quickrun_config = {
 \	},
 \	'watchdogs_checker/_': {
 \		'hook/close_quickfix/enable_exit': 1,
-\		'hook/back_tabpage/enable_exit' : 1,
-\		'hook/back_tabpage/priority_exit' : -2000,
-\		'hook/back_window/enable_exit' : 1,
-\		'hook/back_window/priority_exit' : -1000,
+\		'hook/back_tabpage/enable_exit': 1,
+\		'hook/back_tabpage/priority_exit': -2000,
+\		'hook/back_window/enable_exit': 1,
+\		'hook/back_window/priority_exit': -1000,
 \	},
 \	'sql': {
 \		'command': 'sqlplus',
@@ -866,17 +866,17 @@ function! s:auto_mkdir(dir)
 	endif
 	call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
 endfunction
-autocmd my BufWritePre * call s:auto_mkdir(expand('<afile>:p:h'))
+autocmd my BufWritePre *  call s:auto_mkdir(expand('<afile>:p:h'))
 
 " Open quickfix window after executing make.
-autocmd my QuickfixCmdPost make copen
+autocmd my QuickfixCmdPost  make copen
 
 " Avoid saving files with keyboard misstroke
 " ref. http://d.hatena.ne.jp/tyru/20130419/avoid_tyop
 function! s:ignore_invalid_file(file)
 	echomsg 'Invalid file name: "' . a:file . '"'
 endfunction
-autocmd my BufWriteCmd *; call s:ignore_invalid_file(expand('<afile>'))
+autocmd my BufWriteCmd *;  call s:ignore_invalid_file(expand('<afile>'))
 
 " Reload a file on WinEnter if the file has been modified
 set autoread

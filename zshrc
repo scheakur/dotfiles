@@ -152,8 +152,6 @@ esac
 stty -ixon
 
 # finally {{{
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 # }}}
