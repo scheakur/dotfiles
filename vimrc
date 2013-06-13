@@ -621,6 +621,7 @@ inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 " option {{{
 let g:unite_split_rule = 'aboveleft'
 let g:unite_update_time = 100
+let g:unite_source_file_mru_time_format = '(%Y-%m-%d %H:%M) '
 " }}}
 
 " keymap {{{
