@@ -59,11 +59,13 @@ NeoBundle 'https://github.com/tyru/caw.vim.git'
 NeoBundle 'https://github.com/tyru/open-browser.vim.git'
 NeoBundle 'https://github.com/Valloric/YouCompleteMe.git'
 NeoBundle 'https://github.com/vim-jp/vimdoc-ja.git'
+NeoBundle 'https://github.com/vim-jp/vital.vim.git'
 NeoBundle 'https://github.com/vim-ruby/vim-ruby.git'
 NeoBundle 'https://github.com/vim-scripts/groovyindent.git'
 NeoBundle 'https://github.com/vim-scripts/Lucius.git'
 NeoBundle 'https://github.com/vim-scripts/newspaper.vim.git'
 NeoBundle 'https://github.com/vim-scripts/sudo.vim.git'
+
 
 NeoBundle 'vcscommand.vim'
 " }}}
