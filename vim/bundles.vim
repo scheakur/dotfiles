@@ -16,8 +16,8 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
 
 " neobundle list {{{
+NeoBundle 'https://github.com/cohama/vim-hier.git'
 NeoBundle 'https://github.com/h1mesuke/vim-alignta.git'
-NeoBundle 'https://github.com/jceb/vim-hier.git'
 NeoBundle 'https://github.com/jnwhiteh/vim-golang'
 NeoBundle 'https://github.com/kana/vim-niceblock.git'
 NeoBundle 'https://github.com/kana/vim-operator-replace.git'
