@@ -407,8 +407,6 @@ nnoremap K  <C-u>
 noremap H  b
 noremap L  w
 nnoremap Y  y$
-vnoremap <  <gv
-vnoremap >  >gv
 nnoremap <silent> n  :<C-u>set hlsearch<CR>nzz
 nnoremap <silent> N  :<C-u>set hlsearch<CR>Nzz
 nnoremap <C-o>  <C-o>zz
