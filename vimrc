@@ -882,11 +882,15 @@ set autoread
 autocmd my WinEnter *  checktime
 
 " key mapping in vimdiff
-autocmd my FilterWritePre *
-\	if &diff
-\	|	nnoremap <C-k>  [c
-\	|	nnoremap <C-j>  ]c
-\	| endif
+function! s:config_in_diff_mode()
+	if !&diff
+		return
+	endif
+	nnoremap <C-k>  [c
+	nnoremap <C-j>  ]c
+endfunction
+
+autocmd my FilterWritePre *  call s:config_in_diff_mode()
 " }}}
 
 
