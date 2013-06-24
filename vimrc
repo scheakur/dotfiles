@@ -886,8 +886,8 @@ function! s:config_in_diff_mode()
 	if !&diff
 		return
 	endif
-	nnoremap <C-k>  [c
-	nnoremap <C-j>  ]c
+	nnoremap <buffer> <C-k>  [c
+	nnoremap <buffer> <C-j>  ]c
 endfunction
 
 autocmd my FilterWritePre *  call s:config_in_diff_mode()
