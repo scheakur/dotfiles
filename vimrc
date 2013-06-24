@@ -880,6 +880,13 @@ autocmd my BufWriteCmd *;  call s:ignore_invalid_file(expand('<afile>'))
 " Reload a file on WinEnter if the file has been modified
 set autoread
 autocmd my WinEnter *  checktime
+
+" key mapping in vimdiff
+autocmd my FilterWritePre *
+\	if &diff
+\	|	nnoremap <C-k>  [c
+\	|	nnoremap <C-j>  ]c
+\	| endif
 " }}}
 
 
