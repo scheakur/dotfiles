@@ -43,10 +43,17 @@ NeoBundle 'https://github.com/scheakur/vim-jsdocy.git'
 NeoBundle 'https://github.com/scheakur/vim-scheakur.git'
 NeoBundle 'https://github.com/scheakur/vim-skrap.git'
 NeoBundle 'https://github.com/scheakur/vim-unvoice.git'
-NeoBundle 'https://github.com/Shougo/neosnippet.git'
+NeoBundle 'https://github.com/Shougo/neosnippet.vim.git'
 NeoBundle 'https://github.com/Shougo/unite.vim.git'
-NeoBundle 'https://github.com/Shougo/vimfiler.git'
-NeoBundle 'https://github.com/Shougo/vimproc.git'
+NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
+NeoBundle 'https://github.com/Shougo/vimproc.vim.git', {
+\	'build' : {
+\		'windows': 'make -f make_mingw32.mak',
+\		'cygwin': 'make -f make_cygwin.mak',
+\		'mac': 'make -f make_mac.mak',
+\		'unix': 'make -f make_unix.mak',
+\	},
+\}
 NeoBundle 'https://github.com/thinca/vim-localrc.git'
 NeoBundle 'https://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/thinca/vim-ref.git'
