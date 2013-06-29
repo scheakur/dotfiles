@@ -318,7 +318,6 @@ nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 
 " format JSON
 command! -range FormatJson  <line1>,<line2>!python -m json.tool
-vnoremap <silent> <Leader>fj  :FormatJson<CR>
 
 " capture outputs of command {{{
 " ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
