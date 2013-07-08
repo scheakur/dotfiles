@@ -795,14 +795,6 @@ let g:neosnippet#snippets_directory = join([
 let g:neosnippet#disable_runtime_snippets = {
 \	'_' : 1,
 \}
-
-imap <expr><Tab>
-\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
-\	pumvisible() ? "\<C-n>" : "\<Tab>"
-smap <expr><Tab>
-\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
-inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
-xmap <Tab>  <Plug>(neosnippet_expand_target)
 " }}}
 
 " vim-javascript {{{
@@ -852,6 +844,62 @@ let g:ycm_filetype_blacklist = {
 
 let g:ycm_key_list_select_completion = ['<Down>']
 let g:ycm_key_list_previous_completion = ['<Up>']
+
+
+" }}}
+
+" neocomplete {{{
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+" Plugin key-mappings.
+inoremap <expr> <C-g>     neocomplete#undo_completion()
+inoremap <expr> <C-l>     neocomplete#complete_common_string()
+
+inoremap <silent> <CR>  <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+	return neocomplete#smart_close_popup() . "\<CR>"
+endfunction
+
+inoremap <expr> <C-h>  neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr> <BS>  neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr> <C-y>  neocomplete#close_popup()
+inoremap <expr> <C-e>  neocomplete#cancel_popup()
+
+let g:neocomplete#disable_auto_complete = 1
+
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+" }}}
+
+" the tab key {{{
+function! s:i_tab_key()
+	if neosnippet#expandable_or_jumpable()
+		return "\<Plug>(neosnippet_expand_or_jump)"
+	endif
+	if pumvisible()
+		return "\<C-n>"
+	endif
+	return "\<Tab>"
+endfunction
+
+imap <expr> <Tab>  <SID>i_tab_key()
+imap <C-Tab>  <C-x><C-u>
+
+function! s:s_tab_key()
+	if neosnippet#expandable_or_jumpable()
+		return "\<Plug>(neosnippet_expand_or_jump)"
+	endif
+	return "\<Tab>"
+endfunction
+smap <expr> <Tab>  <SID>s_tab_key()
+
+inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
+xmap <Tab>  <Plug>(neosnippet_expand_target)
 " }}}
 
 " /plugin }}}

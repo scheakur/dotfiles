@@ -53,7 +53,6 @@ set langmenu=none
 
 if has('gui_macvim')
   set noimdisable
-  set imdisableactivate
   set iminsert=2
 endif
 
