@@ -10,7 +10,7 @@ autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 setopt prompt_subst
 
 function rprompt-git-current-branch {
-    local name st color gitdir action
+    local name st color gitdir action user
     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
         return
     fi
@@ -33,7 +33,9 @@ function rprompt-git-current-branch {
         color=%F{red}
     fi
 
-    echo "$color$name$action%f%b "
+    user=`git config --get user.name 2> /dev/null` && user="@$user"
+
+    echo "$color$name$action$user%f%b "
 }
 
 local COLOR='%F{cyan}'
