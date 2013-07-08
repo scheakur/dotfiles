@@ -850,6 +850,7 @@ let g:ycm_key_list_previous_completion = ['<Up>']
 
 " neocomplete {{{
 let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#disable_auto_complete = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
@@ -866,14 +867,6 @@ inoremap <expr> <C-h>  neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr> <BS>  neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr> <C-y>  neocomplete#close_popup()
 inoremap <expr> <C-e>  neocomplete#cancel_popup()
-
-let g:neocomplete#disable_auto_complete = 1
-
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 " }}}
 
 " the tab key {{{
