@@ -855,8 +855,8 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
 " Plugin key-mappings.
-inoremap <expr> <C-g>     neocomplete#undo_completion()
-inoremap <expr> <C-l>     neocomplete#complete_common_string()
+inoremap <expr> <C-g>  neocomplete#undo_completion()
+inoremap <expr> <C-l>  neocomplete#complete_common_string()
 
 inoremap <silent> <CR>  <C-r>=<SID>my_cr_function()<CR>
 function! s:my_cr_function()
@@ -870,27 +870,14 @@ inoremap <expr> <C-e>  neocomplete#cancel_popup()
 " }}}
 
 " the tab key {{{
-function! s:i_tab_key()
-	if neosnippet#expandable_or_jumpable()
-		return "\<Plug>(neosnippet_expand_or_jump)"
-	endif
-	if pumvisible()
-		return "\<C-n>"
-	endif
-	return "\<Tab>"
-endfunction
-
-imap <expr> <Tab>  <SID>i_tab_key()
 imap <C-Tab>  <C-x><C-u>
-
-function! s:s_tab_key()
-	if neosnippet#expandable_or_jumpable()
-		return "\<Plug>(neosnippet_expand_or_jump)"
-	endif
-	return "\<Tab>"
-endfunction
-smap <expr> <Tab>  <SID>s_tab_key()
-
+imap <expr> <Tab>
+\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+\	pumvisible() ? "\<C-n>" :
+\	"\<Tab>"
+smap <expr> <Tab>
+\	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
+\	"\<Tab>"
 inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
 xmap <Tab>  <Plug>(neosnippet_expand_target)
 " }}}
