@@ -10,5 +10,5 @@ setlocal cinoptions=l1,:0,j1,J1
 command! -buffer FormatJavaScript  :%!js-beautify --jslint-happy true --indent-size 2 %
 command! -buffer FormatJavaScript4  :%!js-beautify --jslint-happy true --indent-size 4 %
 
-nmap <buffer> <C-j>  <Plug>(jsdocker-add-jsdoc)
-inoremap <buffer> /<CR>  <C-r>=jsdocker#make_jsdoc(1)<CR><ESC>dd
+nmap <buffer> <C-j>  <Plug>(jsdocy-add-jsdoc)
+inoremap <buffer> /<CR>  <C-r>=jsdocy#make_jsdoc(1)<CR><ESC>dd
