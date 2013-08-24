@@ -76,11 +76,11 @@ function! s:load_after_colors()
 endfunction
 autocmd my ColorScheme * call s:load_after_colors()
 " }}}
-set background=dark
-colorscheme scheakur
-
 autocmd my ColorScheme *  highlight link FullWidthSpace SpellBad
 autocmd my Syntax *  syntax match FullWidthSpace containedin=ALL /　/
+
+set background=dark
+colorscheme scheakur
 " }}}
 
 
@@ -601,7 +601,7 @@ nnoremap <M-F12>  :<C-u>ShowHilite<CR>
 nnoremap <Esc><Esc>  :<C-u>set nohlsearch<CR>
 nnoremap /  :<C-u>set hlsearch<CR>/
 nnoremap ?  :<C-u>set hlsearch<CR>?
-nnoremap *  :<C-u>set hlsearch<CR>*
+nnoremap *  :<C-u>set hlsearch<CR>*Nzz
 nnoremap #  :<C-u>set hlsearch<CR>#
 " }}}
 
@@ -667,9 +667,10 @@ let g:unite_source_grep_max_candidates = 100
 
 " /unite }}}
 
-" caw {{{
-vmap <Space>/  <Plug>(caw:i:toggle)
-nmap <Space>/  <Plug>(caw:i:toggle)
+" commentary {{{
+;
+vmap <Space>/  <Plug>Commentary
+nmap <Space>/  <Plug>CommentaryLine
 " }}}
 
 " matchit {{{
