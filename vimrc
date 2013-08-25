@@ -577,7 +577,7 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " search with the selected text
 " ref. http://vim-users.jp/2009/11/hack104/
 vnoremap <SID>(search-with-selected-text)
-\	"vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>:<C-u>set hlsearch<CR>
+\	"vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>:<C-u>set hlsearch<CR>Nzz
 vmap <silent> *  <SID>(search-with-selected-text)
 vmap <silent> <CR>  <SID>(search-with-selected-text)
 
