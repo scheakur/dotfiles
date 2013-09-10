@@ -870,6 +870,11 @@ inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
 xmap <Tab>  <Plug>(neosnippet_expand_target)
 " }}}
 
+
+" operator-camerize {{{
+map <Leader>_  <Plug>(operator-camelize-toggle)
+" }}}
+
 " /plugin }}}
 
 
