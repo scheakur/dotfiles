@@ -197,6 +197,7 @@ set formatoptions=tcroqnlM1
 " show the number of lines of selection
 set showcmd
 set updatetime=1000
+set maxfuncdepth=256
 " }}}
 
 " tabpages {{{
