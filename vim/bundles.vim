@@ -48,7 +48,6 @@ NeoBundle 'https://github.com/scheakur/vim-unvoice.git'
 NeoBundle 'https://github.com/Shougo/neocomplete.vim.git'
 NeoBundle 'https://github.com/Shougo/neosnippet.vim.git'
 NeoBundle 'https://github.com/Shougo/unite.vim.git'
-NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
 NeoBundle 'https://github.com/Shougo/vimproc.vim.git', {
 \	'build' : {
 \		'windows': 'make -f make_mingw32.mak',
@@ -74,7 +73,6 @@ NeoBundle 'https://github.com/vim-ruby/vim-ruby.git'
 NeoBundle 'https://github.com/vim-scripts/groovyindent.git'
 NeoBundle 'https://github.com/vim-scripts/Lucius.git'
 NeoBundle 'https://github.com/vim-scripts/newspaper.vim.git'
-NeoBundle 'https://github.com/vim-scripts/sudo.vim.git'
 
 
 NeoBundle 'vcscommand.vim'
