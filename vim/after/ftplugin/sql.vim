@@ -1,3 +1,5 @@
+setlocal commentstring=--\ %s
+
 " format SQL {{{
 let s:sql_keywords = [
 \	'union all',
