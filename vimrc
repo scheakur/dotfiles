@@ -750,29 +750,6 @@ let g:watchdogs_check_BufWritePost_enables = {
 \}
 " }}}
 
-" vimfiler {{{
-let g:vimfiler_as_default_explorer = 1
-
-let g:vimfiler_execute_file_list = {}
-for ext in [
-\	'bat', 'c', 'cc', 'cpp', 'css', 'cxx', 'csv', 'groovy', 'gradle',
-\	'h', 'hpp', 'html', 'java', 'js', 'jsp', 'log', 'm',
-\	'markdown', 'md', 'mkd', 'pl', 'properties', 'py', 'rb', 'sh',
-\	'sql', 'tag', 'taskpaper', 'txt', 'vim', 'xml', 'yaml',
-\]
-	let g:vimfiler_execute_file_list[ext] = 'vim'
-endfor
-
-let g:vimfiler_tree_leaf_icon = ' '
-let g:vimfiler_tree_opened_icon = '▾'
-let g:vimfiler_tree_closed_icon = '▸'
-let g:vimfiler_file_icon = ' '
-let g:vimfiler_marked_file_icon = '*'
-
-
-nnoremap [Unite]v  :<C-u>VimFiler -split -no-quit<CR>
-" }}}
-
 " dois.vim {{{
 let g:dois_file = $HOME . '/Dropbox/tmp/doinglist.taskpaper'
 let g:dois_dir = $HOME . '/Dropbox/tmp/doinglist'
@@ -837,27 +814,6 @@ nmap gx  <Plug>(openbrowser-smart-search)
 vmap gx  <Plug>(openbrowser-smart-search)
 " }}}
 
-" neocomplete {{{
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#disable_auto_complete = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-" Plugin key-mappings.
-inoremap <expr> <C-g>  neocomplete#undo_completion()
-inoremap <expr> <C-l>  neocomplete#complete_common_string()
-
-inoremap <silent> <CR>  <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-	return neocomplete#smart_close_popup() . "\<CR>"
-endfunction
-
-inoremap <expr> <C-h>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr> <BS>  neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr> <C-y>  neocomplete#close_popup()
-inoremap <expr> <C-e>  neocomplete#cancel_popup()
-" }}}
-
 " the tab key {{{
 imap <C-Tab>  <C-x><C-u>
 imap <expr> <Tab>
@@ -870,7 +826,6 @@ smap <expr> <Tab>
 inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
 xmap <Tab>  <Plug>(neosnippet_expand_target)
 " }}}
-
 
 " operator-camerize {{{
 map <Leader>_  <Plug>(operator-camelize-toggle)
