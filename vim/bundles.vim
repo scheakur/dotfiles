@@ -44,7 +44,6 @@ NeoBundle 'https://github.com/scheakur/vim-jsdocy.git'
 NeoBundle 'https://github.com/scheakur/vim-scheakur.git'
 NeoBundle 'https://github.com/scheakur/vim-skrap.git'
 NeoBundle 'https://github.com/scheakur/vim-unvoice.git'
-NeoBundle 'https://github.com/Shougo/neocomplete.vim.git'
 NeoBundle 'https://github.com/Shougo/neosnippet.vim.git'
 NeoBundle 'https://github.com/Shougo/unite.vim.git'
 NeoBundle 'https://github.com/Shougo/vimproc.vim.git', {
