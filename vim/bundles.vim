@@ -29,7 +29,6 @@ NeoBundle 'https://github.com/kana/vim-textobj-function.git'
 NeoBundle 'https://github.com/kana/vim-textobj-lastpat.git'
 NeoBundle 'https://github.com/kana/vim-textobj-line.git'
 NeoBundle 'https://github.com/kana/vim-textobj-user.git'
-NeoBundle 'https://github.com/marijnh/tern_for_vim.git'
 NeoBundle 'https://github.com/mattn/gist-vim.git'
 NeoBundle 'https://github.com/mattn/vim-textobj-url.git'
 NeoBundle 'https://github.com/mattn/webapi-vim.git'
@@ -56,6 +55,7 @@ NeoBundle 'https://github.com/Shougo/vimproc.vim.git', {
 \		'unix': 'make -f make_unix.mak',
 \	},
 \}
+NeoBundle 'https://github.com/thinca/vim-fontzoom.git'
 NeoBundle 'https://github.com/thinca/vim-localrc.git'
 NeoBundle 'https://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/thinca/vim-ref.git'
