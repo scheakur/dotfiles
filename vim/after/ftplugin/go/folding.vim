@@ -1,4 +1,5 @@
 setlocal foldmethod=syntax
+setlocal foldminlines=5
 setlocal foldtext=MakeGoFoldingLabelWithStartLineAndNumbersOfFoldedLines()
 
 function! MakeGoFoldingLabelWithStartLineAndNumbersOfFoldedLines()
