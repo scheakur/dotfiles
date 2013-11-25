@@ -831,6 +831,10 @@ xmap <Tab>  <Plug>(neosnippet_expand_target)
 map <Leader>_  <Plug>(operator-camelize-toggle)
 " }}}
 
+" godef {{{
+let g:godef_split = 0
+" }}}
+
 " /plugin }}}
 
 
