@@ -1,5 +1,5 @@
 " ========================================================================
-"     gvimrc
+"	  gvimrc
 " ========================================================================
 
 " basic {{{
@@ -19,36 +19,36 @@ colorscheme scheakur
 
 " font {{{
 if s:in_mac
-  set guifontwide=Monaco:h14
-  set guifont=Monaco:h14
-  set linespace=1
-  let $PATH='/opt/local/bin:'.$PATH
-  set fuoptions=maxvert,maxhorz
+	set guifontwide=Monaco:h14
+	set guifont=Monaco:h14
+	set linespace=1
+	let $PATH='/opt/local/bin:'.$PATH
+	set fuoptions=maxvert,maxhorz
 elseif s:in_nix
-  set guifont=Ricty\ 12
-  set guifontwide=Ricty\ 12
+	set guifont=Ricty\ 12
+	set guifontwide=Ricty\ 12
 else
-  set guifont=VL\ Gothic:h12
-  set guifontwide=VL\ Gothic:h12
+	set guifont=VL\ Gothic:h12
+	set guifontwide=VL\ Gothic:h12
 endif
 " }}}
 
 " window size {{{
 if s:in_mac
-  set lines=48
-  set columns=100
+	set lines=48
+	set columns=100
 elseif s:in_nix
-  if &diff
-    set lines=999
-    set columns=999
-  else
-    set lines=40
-    set columns=100
-    winpos 400 90
-  endif
+	if &diff
+		set lines=999
+		set columns=999
+	else
+		set lines=40
+		set columns=100
+		winpos 400 90
+	endif
 else
-  set lines=40
-  set columns=100
+	set lines=40
+	set columns=100
 endif
 " }}}
 
@@ -64,8 +64,8 @@ set langmenu=none
 " }}}
 
 if has('gui_macvim')
-  set noimdisable
-  set iminsert=2
+	set noimdisable
+	set iminsert=2
 endif
 
 " @see :help modeline
