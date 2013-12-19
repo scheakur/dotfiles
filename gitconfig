@@ -24,5 +24,8 @@
 	di = diff
 	dic = diff --cached
 	br = branch
+    div = difftool --gui --no-prompt
 [color]
 	ui = auto
+[diff]
+	guitool = gvimdiff

@@ -23,18 +23,30 @@ if s:in_mac
   set guifont=Monaco:h14
   set linespace=1
   let $PATH='/opt/local/bin:'.$PATH
-  set lines=48
-  set columns=100
   set fuoptions=maxvert,maxhorz
 elseif s:in_nix
   set guifont=Ricty\ 12
   set guifontwide=Ricty\ 12
-  set lines=40
-  set columns=100
-  winpos 400 90
 else
   set guifont=VL\ Gothic:h12
   set guifontwide=VL\ Gothic:h12
+endif
+" }}}
+
+" window size {{{
+if s:in_mac
+  set lines=48
+  set columns=100
+elseif s:in_nix
+  if &diff
+    set lines=999
+    set columns=999
+  else
+    set lines=40
+    set columns=100
+    winpos 400 90
+  endif
+else
   set lines=40
   set columns=100
 endif

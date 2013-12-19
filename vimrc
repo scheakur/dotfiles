@@ -519,11 +519,10 @@ vmap i;  <Plug>(textobj-between-i)
 " }}}
 
 " handle window {{{
-nnoremap <C-w>=  <C-w>3+
 nnoremap <C-w>-  <C-w>3-
 nnoremap <C-w>>  <C-w>3>
 nnoremap <C-w><  <C-w>3<
-nnoremap <C-w>+  <C-w>=
+nnoremap <C-w>+  <C-w>3+
 
 " split window
 nmap <Space>wj  <SID>(split-to-j)
