@@ -834,6 +834,11 @@ map <Leader>_  <Plug>(operator-camelize-toggle)
 let g:godef_split = 0
 " }}}
 
+" altr {{{
+nmap <F2>  <Plug>(altr-forward)
+nmap <S-F2>  <Plug>(altr-back)
+" }}}
+
 " /plugin }}}
 
 
