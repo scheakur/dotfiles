@@ -1,6 +1,7 @@
 setlocal iskeyword-=#
-
 setlocal noexpandtab
+setlocal formatoptions-=r
+setlocal formatoptions-=o
 
 setlocal foldtext=MakeVimFoldingLabelWithStartLineAndNumbersOfFoldedLines()
 function! MakeVimFoldingLabelWithStartLineAndNumbersOfFoldedLines()
