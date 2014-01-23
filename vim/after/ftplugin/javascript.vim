@@ -2,6 +2,8 @@ setlocal expandtab
 setlocal shiftwidth=2
 setlocal tabstop=2
 setlocal softtabstop=2
+setlocal comments-=://
+setlocal comments+=f://
 
 " If vim-javascript is active, this config means nothing.
 setlocal cinoptions=l1,:0,j1,J1
