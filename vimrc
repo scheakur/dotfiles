@@ -169,9 +169,10 @@ function! s:set_statusline()
 endfunction
 
 function! s:make_statusline(hi1, hi2)
+	let cwd = fnamemodify(getcwd(), ':~')
 	let st = join([
 	\	'%' . a:hi2 . '* %{&ft} ',
-	\	'%' . a:hi1 . '* %h%w%m%r ',
+	\	'%' . a:hi1 . '* %h%w%m%r[' . cwd . '] ',
 	\	'%0* %<%f ',
 	\	'%=',
 	\	'%0* %{(&fenc != "") ? &fenc : &enc} ',
@@ -671,13 +672,12 @@ let g:unite_source_grep_max_candidates = 100
 " /unite }}}
 
 " commentary {{{
-;
 vmap <Space>/  <Plug>Commentary
 nmap <Space>/  <Plug>CommentaryLine
 " }}}
 
 " matchit {{{
-:source $VIMRUNTIME/macros/matchit.vim
+source $VIMRUNTIME/macros/matchit.vim
 " }}}
 
 " quickrun {{{
