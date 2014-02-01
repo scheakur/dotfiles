@@ -3,7 +3,7 @@ function! s:complete_log(findstart, base)
 		return col('.')
 	endif
 
-	let logs = split(system('git log --oneline --author=`git config user.name` -30 | cut -d " " -f 2-'), '\n')
+	let logs = split(system('git log --pretty=format:%s --author=`git config user.name` -30'), '\n')
 	return logs
 endfunction
 
