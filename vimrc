@@ -169,10 +169,9 @@ function! s:set_statusline()
 endfunction
 
 function! s:make_statusline(hi1, hi2)
-	let cwd = fnamemodify(getcwd(), ':~')
 	let st = join([
 	\	'%' . a:hi2 . '* %{&ft} ',
-	\	'%' . a:hi1 . '* %h%w%m%r[' . cwd . '] ',
+	\	'%' . a:hi1 . '* %h%w%m%r ',
 	\	'%0* %<%f ',
 	\	'%=',
 	\	'%0* %{(&fenc != "") ? &fenc : &enc} ',
