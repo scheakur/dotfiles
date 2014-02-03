@@ -442,9 +442,10 @@ endif
 " command line mode {{{
 cnoremap <C-a>  <Home>
 cnoremap <C-e>  <End>
-cnoremap <C-l>  <Right>
-cnoremap <expr> /  getcmdtype() == '/' ? '\/' : '/'
-cnoremap <expr> ?  getcmdtype() == '?' ? '\?' : '?'
+cnoremap <M-l>  <Right>
+cnoremap <M-h>  <Left>
+cnoremap <expr> /  (getcmdtype() == '/') ? '\/' : '/'
+cnoremap <expr> ?  (getcmdtype() == '?') ? '\?' : '?'
 cnoremap <C-p>  <Up>
 cnoremap <Up>  <C-p>
 cnoremap <C-n>  <Down>
@@ -452,14 +453,14 @@ cnoremap <Down>  <C-n>
 " }}}
 
 " toggle option {{{
-function! s:ToggleOption(option_name)
+function! s:toggle_option(option_name)
 	execute 'setlocal' a:option_name . '!'
 	execute 'setlocal' a:option_name . '?'
 endfunction
-nnoremap <silent> <Space>ow  :<C-u>call <SID>ToggleOption('wrap')<CR>
-nnoremap <silent> <Space>nu  :<C-u>call <SID>ToggleOption('number')<CR>
-nnoremap <silent> <Space>hl  :<C-u>call <SID>ToggleOption('hlsearch')<CR>
-nnoremap <silent> <Space>et  :<C-u>call <SID>ToggleOption('expandtab')<CR>
+nnoremap <silent> <Space>ow  :<C-u>call <SID>toggle_option('wrap')<CR>
+nnoremap <silent> <Space>nu  :<C-u>call <SID>toggle_option('number')<CR>
+nnoremap <silent> <Space>hl  :<C-u>call <SID>toggle_option('hlsearch')<CR>
+nnoremap <silent> <Space>et  :<C-u>call <SID>toggle_option('expandtab')<CR>
 " }}}
 
 " current date/time {{{
