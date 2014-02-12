@@ -283,24 +283,25 @@ command! -bang -bar -complete=file -nargs=? Dos
 " }}}
 
 " remove spaces {{{
-command! -range=% TrimSpace  setlocal nohlsearch | <line1>,<line2>s!\s*$!!g
+command! -range=% TrimSpace  <line1>,<line2>s!\s*$!!g | nohlsearch
+
 command! -range ShrinkSpace
-\	setlocal nohlsearch
-\	| <line1>,<line2>s![^ ]\zs\s\{2,}! !g
+\	<line1>,<line2>s![^ ]\zs\s\{2,}! !g
 \	| normal gv
+\	| nohlsearch
 " }}}
 
 " insert a blank line every N lines {{{
 command! -range -nargs=1 InsertBlankLineEvery
-\	setlocal nohlsearch
-\	| <line1>,<line2>s!\v(.*\n){<args>}!&\r
+\	<line1>,<line2>s!\v(.*\n){<args>}!&\r
+\	| nohlsearch
 " }}}
 
 " rename file
 command! -nargs=1 -complete=file Rename  f <args>|w|call delete(expand('#'))
 
 " remove trail ^M
-command! -range RemoveTrailM  setlocal nohlsearch | <line1>,<line2>s!\r$!!g
+command! -range=% RemoveTrailM  <line1>,<line2>s!\r$!!g | nohlsearch
 
 " command CD {{{
 command! -nargs=? -complete=dir -bang CD  call s:change_dir('<args>', '<bang>')
@@ -409,8 +410,9 @@ nnoremap <Space>k  16k
 noremap H  b
 noremap L  w
 nnoremap Y  y$
-nnoremap <silent> n  :<C-u>set hlsearch<CR>nzz
-nnoremap <silent> N  :<C-u>set hlsearch<CR>Nzz
+nnoremap <silent> n  nzz
+nnoremap <silent> N  Nzz
+nnoremap <silent> *  *Nzz
 nnoremap <C-o>  <C-o>zz
 nnoremap <C-i>  <C-i>zz
 
@@ -578,7 +580,7 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " search with the selected text
 " ref. http://vim-users.jp/2009/11/hack104/
 vnoremap <SID>(search-with-selected-text)
-\	"vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>:<C-u>set hlsearch<CR>Nzz
+\	"vy/\V<C-r>=substitute(escape(@v, '\/'), "\n", '\\n', 'g')<CR><CR>Nzz
 vmap <silent> *  <SID>(search-with-selected-text)
 vmap <silent> <CR>  <SID>(search-with-selected-text)
 
@@ -599,11 +601,7 @@ nnoremap <M-F12>  :<C-u>ShowHilite<CR>
 " }}}
 
 " hlsearch (search and highlight) {{{
-nnoremap <Esc><Esc>  :<C-u>set nohlsearch<CR>
-nnoremap /  :<C-u>set hlsearch<CR>/
-nnoremap ?  :<C-u>set hlsearch<CR>?
-nnoremap *  :<C-u>set hlsearch<CR>*Nzz
-nnoremap #  :<C-u>set hlsearch<CR>#
+nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
 " }}}
 
 " completion {{{
