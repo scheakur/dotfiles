@@ -375,7 +375,7 @@ function! s:delete_buffer()
 endfunction
 " }}}
 
-" clear location list
+" clear quickfix list
 command! Qclear  call setqflist([])
 
 " clear location list
