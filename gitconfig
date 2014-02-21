@@ -24,7 +24,8 @@
 	di = diff
 	dic = diff --cached
 	br = branch
-    div = difftool --gui --no-prompt
+	div = difftool --gui --no-prompt
+	svn-ref = "!f() { ret=''; for rev in $@; do ret=${ret}' '`git log --grep "git-svn-id.*@${rev}" --pretty=%H;`; done; echo $ret; }; f"
 [color]
 	ui = auto
 [diff]
