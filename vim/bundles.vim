@@ -58,7 +58,6 @@ NeoBundle 'https://github.com/Shougo/vimproc.vim.git', {
 \		'unix': 'make -f make_unix.mak',
 \	},
 \}
-NeoBundle 'https://github.com/thinca/vim-fontzoom.git'
 NeoBundle 'https://github.com/thinca/vim-localrc.git'
 NeoBundle 'https://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/thinca/vim-ref.git'
