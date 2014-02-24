@@ -30,3 +30,6 @@
 	ui = auto
 [diff]
 	guitool = gvimdiff
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
