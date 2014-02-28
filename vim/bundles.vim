@@ -59,6 +59,7 @@ NeoBundle 'https://github.com/Shougo/vimproc.vim.git', {
 \	},
 \}
 NeoBundle 'https://github.com/thinca/vim-localrc.git'
+NeoBundle 'https://github.com/thinca/vim-qfreplace.git'
 NeoBundle 'https://github.com/thinca/vim-quickrun.git'
 NeoBundle 'https://github.com/thinca/vim-ref.git'
 NeoBundle 'https://github.com/thinca/vim-textobj-between.git'
