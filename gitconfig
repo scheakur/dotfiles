@@ -17,6 +17,7 @@
 	svnup = svn rebase
 	svnci = svn dcommit
 	co = checkout
+	s = status -s
 	st = status
 	ci = commit
 	cia = commit -a
