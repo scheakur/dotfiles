@@ -619,7 +619,6 @@ inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 " option {{{
 let g:unite_split_rule = 'aboveleft'
 let g:unite_update_time = 100
-let g:unite_source_file_mru_time_format = '(%m/%d %H:%M) '
 " }}}
 
 " keymap {{{
@@ -838,6 +837,10 @@ let g:godef_split = 0
 " altr {{{
 nmap <F2>  <Plug>(altr-forward)
 nmap <S-F2>  <Plug>(altr-back)
+" }}}
+
+" neomru {{{
+let g:neomru#time_format = '(%m/%d %H:%M) '
 " }}}
 
 " /plugin }}}
