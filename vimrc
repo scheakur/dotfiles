@@ -761,10 +761,6 @@ nmap S  <Plug>(operator-replace)$<C-o>x
 nmap ss  <Plug>(operator-replace)<Plug>(textobj-line-a)<C-o>x
 " }}}
 
-" surround {{{
-vmap s  <Plug>VSurround
-" }}}
-
 " neosnippet {{{
 let g:neosnippet#snippets_directory = join([
 \	expand('~/.vim/snippet'),
@@ -848,6 +844,12 @@ nmap <Leader>i  <Plug>(operator-insert-i)
 nmap <Leader>a  <Plug>(operator-insert-a)
 vmap <Leader>i  <Plug>(operator-insert-i)
 vmap <Leader>a  <Plug>(operator-insert-a)
+" }}}
+
+" operator-surround {{{
+map <silent> <Leader>sa <Plug>(operator-surround-append)
+map <silent> <Leader>sd <Plug>(operator-surround-delete)
+map <silent> <Leader>sr <Plug>(operator-surround-replace)
 " }}}
 
 " /plugin }}}
