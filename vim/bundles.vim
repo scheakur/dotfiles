@@ -17,6 +17,7 @@ NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
 
 " neobundle list {{{
 NeoBundle 'https://github.com/cohama/vim-hier.git'
+NeoBundle 'https://github.com/deris/vim-operator-insert.git'
 NeoBundle 'https://github.com/dgryski/vim-godef'
 NeoBundle 'https://github.com/fuenor/JpFormat.vim.git'
 NeoBundle 'https://github.com/gregsexton/gitv.git'

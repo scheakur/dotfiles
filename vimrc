@@ -843,6 +843,13 @@ nmap <S-F2>  <Plug>(altr-back)
 let g:neomru#time_format = '(%m/%d %H:%M) '
 " }}}
 
+" operator-insert {{{
+nmap <Leader>i  <Plug>(operator-insert-i)
+nmap <Leader>a  <Plug>(operator-insert-a)
+vmap <Leader>i  <Plug>(operator-insert-i)
+vmap <Leader>a  <Plug>(operator-insert-a)
+" }}}
+
 " /plugin }}}
 
 
