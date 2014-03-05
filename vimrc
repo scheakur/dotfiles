@@ -412,7 +412,6 @@ noremap L  w
 nnoremap Y  y$
 nnoremap <silent> n  nzz
 nnoremap <silent> N  Nzz
-nnoremap <silent> *  *Nzz
 nnoremap <C-o>  <C-o>zz
 nnoremap <C-i>  <C-i>zz
 
@@ -577,6 +576,13 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " }}}
 
 " misc {{{
+function! s:search_without_move()
+	let @/ = '\<' . expand('<cword>') . '\>'
+	call histadd('/', @/)
+endfunction
+
+nnoremap <silent> *  :<C-u>call <SID>search_without_move()<CR>:set hlsearch<CR>
+
 " search with the selected text
 " ref. http://vim-users.jp/2009/11/hack104/
 function! s:get_selected_text()
