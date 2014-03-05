@@ -15,3 +15,6 @@ endfunction
 
 
 execute 'setlocal omnifunc=' . s:fname('complete_log')
+
+setlocal formatoptions-=t
+setlocal colorcolumn=73
