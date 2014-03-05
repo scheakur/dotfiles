@@ -581,7 +581,8 @@ function! s:search_without_move()
 	call histadd('/', @/)
 endfunction
 
-nnoremap <silent> *  :<C-u>call <SID>search_without_move()<CR>zz:<C-u>set hlsearch<CR>
+nnoremap <silent> *
+\	:<C-u>call <SID>search_without_move()<CR>zz:<C-u>set hlsearch<CR>
 
 " search with the selected text
 " ref. http://vim-users.jp/2009/11/hack104/
