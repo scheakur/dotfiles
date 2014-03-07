@@ -602,7 +602,8 @@ endfunction
 
 vnoremap <silent> *
 \	:<C-u>call <SID>search_with_selected_text()<CR>zz:<C-u>set hlsearch<CR>
-
+vnoremap <silent> <CR>
+\	:<C-u>call <SID>search_with_selected_text()<CR>zz:<C-u>set hlsearch<CR>
 
 " identify the syntax highlighting group used at the cursor
 " http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
