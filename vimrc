@@ -198,6 +198,8 @@ set formatoptions=tcroqnlM1
 set showcmd
 set updatetime=1000
 set maxfuncdepth=256
+" show preview window at the bottom
+set splitbelow
 " }}}
 
 " tabpages {{{
