@@ -912,10 +912,6 @@ function! s:config_in_diff_mode()
 endfunction
 
 autocmd my FilterWritePre *  call s:config_in_diff_mode()
-
-" for codic.vim
-" use JpFormat.vim
-autocmd! my BufEnter =Codic\ Result= setlocal nolist | JpFormatAll
 " }}}
 
 
