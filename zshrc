@@ -106,6 +106,10 @@ zle -N cdup
 # bindkey '\^' cdup
 # }}}
 
+# util {{{
+autoload -Uz zmv
+alias zmv='noglob zmv -W'
+# }}}
 
 # history {{{
 export HISTFILE=~/.zsh_history
