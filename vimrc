@@ -23,6 +23,8 @@ augroup end
 language messages C
 language time C
 
+let g:did_install_default_menus = 1
+
 function! s:load_local_vimrc(...)
 	let suffix = (a:0 > 0) ? ('.' . a:1) : ''
 	let vimrc = expand('~/.vimrc.local' . suffix)
