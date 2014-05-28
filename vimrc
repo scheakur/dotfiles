@@ -383,6 +383,25 @@ command! Qclear  call setqflist([])
 " clear location list
 command! Lclear  call setloclist(0, [])
 
+
+command! -nargs=0 RandomString call s:random_string(8)
+
+function! s:rand(n)
+	" http://vim-users.jp/2009/11/hack98/
+	let match_end = matchend(reltimestr(reltime()), '\d\+\.') + 1
+	return reltimestr(reltime())[match_end : ] % (a:n + 1)
+endfunction
+
+function! s:random_string(n)
+	let s = []
+	let chars = split('0123456789abcdefghijklmnopqrstuvwxyz', '\ze')
+	let max = len(chars) - 1
+	for x in range(a:n)
+		call add(s, (chars[s:rand(max)]))
+	endfor
+	let @+ = join(s, '')
+endfunction
+
 " /command }}}
 
 
