@@ -37,3 +37,5 @@
 	smudge = git-media-smudge %f
 [ghq]
 	root = ~/src
+[push]
+	default = simple
