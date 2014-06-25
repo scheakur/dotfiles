@@ -104,6 +104,21 @@ function cdup() {
 }
 zle -N cdup
 # bindkey '\^' cdup
+
+function exists { which $1 &> /dev/null }
+
+if exists peco && exists ghq; then
+    function cd-ghq-peco() {
+        local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+        if [ -n "$selected_dir" ]; then
+            BUFFER="cd ${selected_dir}"
+            zle accept-line
+        fi
+        zle clear-screen
+    }
+    zle -N cd-ghq-peco
+    bindkey '^ ' cd-ghq-peco
+fi
 # }}}
 
 # util {{{
