@@ -4,6 +4,7 @@
     "C-k": "peco.SelectPrevious"
   },
   "Style": {
-    "Selected": ["on_magenta", "white"]
+    "Selected": ["on_magenta", "white"],
+    "Query": ["white"]
   }
 }
