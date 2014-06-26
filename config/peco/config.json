@@ -1,0 +1,6 @@
+{
+  "Keymap": {
+    "C-j": "peco.SelectNext",
+    "C-k": "peco.SelectPrevious"
+  }
+}
