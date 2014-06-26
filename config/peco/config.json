@@ -2,5 +2,8 @@
   "Keymap": {
     "C-j": "peco.SelectNext",
     "C-k": "peco.SelectPrevious"
+  },
+  "Style": {
+    "Selected": ["on_magenta", "white"]
   }
 }
