@@ -1,8 +1,12 @@
 #!/bin/bash
 
+if [ ! -d ~/.config ]; then
+    mkdir ~/.config
+fi
+
 # Make symbolic links.
 path=$(pwd)
-target_list=(vimrc vim gvimrc tmux.conf vrapperrc gitconfig gitignore zshrc)
+target_list=(vimrc vim gvimrc tmux.conf vrapperrc gitconfig gitignore zshrc config/peco)
 for (( i = 0; i < ${#target_list[@]}; i++ ))
 do
     target=${target_list[i]}
