@@ -68,5 +68,3 @@ export PATH
 
 # rbenv
 eval "$(rbenv init -)"
-
-export __DOT_PROFILE_IS_LOADED__=1
