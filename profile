@@ -1,9 +1,12 @@
-if [ "$__DOT_PROFILE_IS_LOADED__" = "1" ]; then
+if [ "$__DOT_PROFILE_IS_LOADED__" = "yes" ]; then
     return
 fi
 
-export __DOT_PROFILE_IS_LOADED__=1
+export __DOT_PROFILE_IS_LOADED__=yes
 
+PATH=/sbin:$PATH
+PATH=/usr/sbin:$PATH
+PATH=/usr/local/sbin:$PATH
 
 PATH=/usr/local/bin:$PATH
 
@@ -59,6 +62,9 @@ export PATH
 
 # nvm
 [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" # This loads nvm
+
+# added by travis gem
+[ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # rbenv
 eval "$(rbenv init -)"
