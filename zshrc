@@ -156,18 +156,30 @@ alias g=git
 # peco {{{
 function exists { which $1 &> /dev/null }
 
-if exists peco && exists ghq; then
-    function cd-ghq-peco() {
-        local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-        if [ -n "$selected_dir" ]; then
-            BUFFER="cd ${selected_dir}"
-            zle accept-line
-        fi
+if exists peco; then
+    if exists ghq; then
+        function peco-ghq-cd() {
+            local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+            if [ -n "$selected_dir" ]; then
+                BUFFER="cd ${selected_dir}"
+                zle accept-line
+            fi
+            zle clear-screen
+        }
+        zle -N peco-ghq-cd
+        bindkey '^ ' peco-ghq-cd
+    fi
+
+    function peco-mysnippets() {
+        local f=~/.config/peco/mysnippets.sh
+        BUFFER=$(cat $f | grep -v '^#' | grep -v '^$'| peco --query "$LBUFFER")
         zle clear-screen
     }
-    zle -N cd-ghq-peco
-    bindkey '^ ' cd-ghq-peco
+    zle -N peco-mysnippets
+    bindkey '^x^s' peco-mysnippets
 fi
+
+
 # }}}
 
 
