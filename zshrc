@@ -104,27 +104,14 @@ function cdup() {
 }
 zle -N cdup
 # bindkey '\^' cdup
-
-function exists { which $1 &> /dev/null }
-
-if exists peco && exists ghq; then
-    function cd-ghq-peco() {
-        local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-        if [ -n "$selected_dir" ]; then
-            BUFFER="cd ${selected_dir}"
-            zle accept-line
-        fi
-        zle clear-screen
-    }
-    zle -N cd-ghq-peco
-    bindkey '^ ' cd-ghq-peco
-fi
 # }}}
+
 
 # util {{{
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
 # }}}
+
 
 # history {{{
 export HISTFILE=~/.zsh_history
@@ -150,6 +137,7 @@ setopt no_hup
 setopt no_checkjobs
 # }}}
 
+
 # for root user {{{
 case ${UID} in
 0)
@@ -158,12 +146,32 @@ case ${UID} in
 esac
 # }}}
 
+
 # development {{{
 alias v=vim
 alias g=git
 # }}}
 
-# OS dependent
+
+# peco {{{
+function exists { which $1 &> /dev/null }
+
+if exists peco && exists ghq; then
+    function cd-ghq-peco() {
+        local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+        if [ -n "$selected_dir" ]; then
+            BUFFER="cd ${selected_dir}"
+            zle accept-line
+        fi
+        zle clear-screen
+    }
+    zle -N cd-ghq-peco
+    bindkey '^ ' cd-ghq-peco
+fi
+# }}}
+
+
+# OS dependent {{{
 case "${OSTYPE}" in
 darwin*)
         alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
@@ -172,10 +180,11 @@ linux-gnu*)
         alias pbcopy='xsel --clipboard --input'
         ;;
 esac
+# }}}
 
-stty -ixon
 
 # finally {{{
+stty -ixon
 [[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 # }}}
