@@ -12,3 +12,5 @@ git svn info | grep -E '^Revision: ' | sed 's/Revision: /r/' | xsel -ib #copyrev
 sshfs user@hostname: ~/mnt
 fusermount -u ~/mnt
 
+## git
+git clean -d -f --dry-run # remove untracked files and dirs (dry run)
