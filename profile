@@ -50,7 +50,11 @@ PATH=$ELIXIR_HOME/bin:$PATH
 export NLS_LANG=English_Japan.AL32UTF8
 
 # golang
-export GOROOT=$HOME/app/go
+if [ -s "$HOME/app/go" ]; then
+    export GOROOT=$HOME/app/go
+else
+    export GOROOT=/usr/local/go
+fi
 PATH=$GOROOT/bin:$PATH
 export GOPATH=$HOME
 PATH=$GOPATH/bin:$PATH
