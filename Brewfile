@@ -1,6 +1,9 @@
 update
 upgrade
 
+tap caskroom/homebrew-cask
+install brew-cask
+
 install autoconf
 install automake
 install closure-compiler
@@ -26,3 +29,6 @@ install tmux
 install tree
 install wget
 install zsh --disable-etcdir
+
+cask install virtualbox
+cask install vagrant
