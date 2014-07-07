@@ -187,10 +187,12 @@ if exists peco; then
     zle -N peco-mysnippets
     bindkey '^x^s' peco-mysnippets
 fi
-
-
 # }}}
 
+
+# tmux {{{
+[[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
+# }}}
 
 # OS dependent {{{
 case "${OSTYPE}" in
