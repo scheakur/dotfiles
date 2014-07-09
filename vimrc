@@ -682,6 +682,10 @@ nnoremap <silent> [Unite]q  :<C-u>Unite quickfix<CR>
 " change default action for buffer/buffer_tab {{{
 call unite#custom_default_action('buffer_tab', 'goto')
 call unite#custom_default_action('buffer', 'goto')
+
+call unite#custom#profile('default', 'context', {
+\	'no_split': 1
+\})
 " }}}
 
 
