@@ -1,9 +1,8 @@
 # common
-.*.swp
 .DS_Store
 *~
+.*.swp
 tags
-
 
 # eclipse
 .classpath
@@ -19,3 +18,6 @@ tags
 .tern-port
 bower_components
 node_modules
+
+# py
+*.pyc
