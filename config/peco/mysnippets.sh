@@ -17,3 +17,7 @@ git clean -d -f --dry-run # remove untracked files and dirs (dry run)
 
 ## ssh
 ssh-keygen -t rsa -C "you@example.com"
+
+## ps with first 100 chars
+ps aux | grep PAT | cut -c -100
+ps aux | grep PAT | sed -e 's/\(^.\{100\}\).*/\1/'
