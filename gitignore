@@ -14,6 +14,9 @@ tags
 *.ipr
 *.iws
 
+# gradle
+.gradle
+
 # js
 .tern-port
 bower_components
@@ -21,3 +24,4 @@ node_modules
 
 # py
 *.pyc
+
