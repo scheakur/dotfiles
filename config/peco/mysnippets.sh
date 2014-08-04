@@ -14,6 +14,7 @@ fusermount -u ~/mnt
 
 ## git
 git clean -d -f --dry-run # remove untracked files and dirs (dry run)
+git remote -v # show remote settings
 
 ## ssh
 ssh-keygen -t rsa -C "you@example.com"
