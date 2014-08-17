@@ -895,6 +895,10 @@ map <silent> <Leader>sd <Plug>(operator-surround-delete)
 map <silent> <Leader>sr <Plug>(operator-surround-replace)
 " }}}
 
+" vim-repautocd {{{
+let g:repautocd_markers = ['.git', '.hg', '.svn', '.gitignore']
+" }}}
+
 " /plugin }}}
 
 
