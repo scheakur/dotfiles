@@ -896,7 +896,7 @@ map <silent> <Leader>sr <Plug>(operator-surround-replace)
 " }}}
 
 " vim-repautocd {{{
-let g:repautocd_markers = ['.git', '.hg', '.svn', '.gitignore']
+let g:repautocd_markers = ['.git', '.hg', '.svn', '.gitignore', '.project']
 " }}}
 
 " /plugin }}}
