@@ -767,7 +767,7 @@ endif
 function! MyGetOracleConnection(mode)
 	let user_pass = s:get_option('oracle_user_pass', 'system/oracle')
 	let sid = s:get_option('oracle_sid', 'localhost/xe')
-	let sep = (a:mode == 'quickrun') ? '\\\@' : '@'
+	let sep = (a:mode == 'quickrun') ? '\@' : '@'
 	let conn = user_pass . sep . sid
 	return conn
 endfunction
