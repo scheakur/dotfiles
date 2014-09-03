@@ -884,11 +884,6 @@ nmap <S-F2>  <Plug>(altr-back)
 let g:neomru#time_format = '(%m/%d %H:%M) '
 " }}}
 
-" operator-insert {{{
-map <Leader>i  <Plug>(operator-insert-i)
-map <Leader>a  <Plug>(operator-insert-a)
-" }}}
-
 " operator-surround {{{
 map <silent> <Leader>sa <Plug>(operator-surround-append)
 map <silent> <Leader>sd <Plug>(operator-surround-delete)
