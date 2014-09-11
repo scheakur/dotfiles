@@ -784,6 +784,8 @@ function! s:get_option(option_name, ...)
 		return a:1
 	endif
 endfunction
+
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 " }}}
 
 " }}}
