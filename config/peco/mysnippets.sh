@@ -26,3 +26,7 @@ ps aux | grep PAT | sed -e 's/\(^.\{100\}\).*/\1/'
 
 ## byteman
 $BYTEMAN_HOME/bin/bminstall.sh $(jps | grep Bootstrap | cut -d ' ' -f 1) # need $BYTEMAN_HOME
+
+
+## etc
+sudo tcpdump ip proto \\icmp  ## log ping request
