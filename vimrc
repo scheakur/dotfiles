@@ -607,10 +607,10 @@ nnoremap <silent> *
 " search with the selected text
 " ref. http://vim-users.jp/2009/11/hack104/
 function! s:get_selected_text()
-	let tmp = @@
-	silent normal! gvy
-	let selected = @@
-	let @@ = tmp
+	let tmp = @v
+	silent normal! gv"vy
+	let selected = @v
+	let @v = tmp
 	return selected
 endfunction
 
