@@ -386,7 +386,7 @@ command! Lclear  call setloclist(0, [])
 command! -nargs=0 RandomString call s:random_string(8)
 
 function! s:rand(n)
-	" http://vim-users.jp/2009/11/hack98/
+	" http://vim-jp.org/vim-users-jp/2009/11/05/Hack-98.html
 	let match_end = matchend(reltimestr(reltime()), '\d\+\.') + 1
 	return reltimestr(reltime())[match_end : ] % (a:n + 1)
 endfunction
@@ -605,7 +605,7 @@ nnoremap <silent> *
 \	:<C-u>call <SID>search_without_move()<CR>zz:<C-u>set hlsearch<CR>
 
 " search with the selected text
-" ref. http://vim-users.jp/2009/11/hack104/
+" ref. http://vim-jp.org/vim-users-jp/2009/11/25/Hack-104.html
 function! s:get_selected_text()
 	let tmp = @v
 	silent normal! gv"vy
