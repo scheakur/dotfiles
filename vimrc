@@ -887,9 +887,9 @@ let g:neomru#time_format = '(%m/%d %H:%M) '
 " }}}
 
 " operator-surround {{{
-map <silent> <Leader>sa <Plug>(operator-surround-append)
-map <silent> <Leader>sd <Plug>(operator-surround-delete)
-map <silent> <Leader>sr <Plug>(operator-surround-replace)
+map <silent> ys  <Plug>(operator-surround-append)
+map <silent> ds  <Plug>(operator-surround-delete)
+map <silent> cs  <Plug>(operator-surround-replace)
 " }}}
 
 " vim-repautocd {{{
