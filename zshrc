@@ -9,8 +9,8 @@ autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 setopt prompt_subst
 
-function rprompt-git-current-branch {
-    local name st color gitdir action user
+function prompt-git-info {
+    local name st color gitdir action user num_stash
     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
         return
     fi
@@ -21,6 +21,8 @@ function rprompt-git-current-branch {
 
     gitdir=`git rev-parse --git-dir 2> /dev/null`
     action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+
+    num_stash=`git stash list 2>/dev/null | wc -l | tr -d ' '`
 
     st=`git status 2> /dev/null`
     if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
@@ -35,12 +37,12 @@ function rprompt-git-current-branch {
 
     user=`git config --get user.name 2> /dev/null` && user="@$user"
 
-    echo "$color$name$action$user%f%b "
+    echo "$color$name$action$user#$num_stash%f%b"
 }
 
 local COLOR='%F{cyan}'
 local DEFAULT='%F{default}'
-export PROMPT='%F{blue}[%D{%m/%d %H:%M}]$COLOR %n@%m:%~ `rprompt-git-current-branch`
+export PROMPT='%F{blue}[%D{%m/%d %H:%M}]$COLOR %n@%m:%~ `prompt-git-info`
 %(!.#.$) '$DEFAULT
 export RPROMPT=''
 # }}}
