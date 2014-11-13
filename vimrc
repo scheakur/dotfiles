@@ -25,6 +25,8 @@ language time C
 
 let g:did_install_default_menus = 1
 
+let s:error = []
+
 function! s:load_local_vimrc(...)
 	let suffix = (a:0 > 0) ? ('.' . a:1) : ''
 	let vimrc = expand('~/.vimrc.local' . suffix)
@@ -32,8 +34,22 @@ function! s:load_local_vimrc(...)
 		try
 			execute 'source' vimrc
 		catch
-		" TODO do not ignore errors
+			call s:err('an error occurred in ' . vimrc)
+			" call s:err(v:exception) " This might be slow
 		endtry
+	endif
+endfunction
+
+function! s:err(msg)
+	echomsg a:msg
+	call add(s:error, a:msg)
+endfunction
+
+function! s:print_error_in_splash()
+	if argc() == 0 && bufnr('$') == 1
+		for err in s:error
+			call append(line('$'), err)
+		endfor
 	endif
 endfunction
 
@@ -943,6 +959,7 @@ autocmd my FilterWritePre *  call s:config_in_diff_mode()
 " finally {{{
 " ------------------------------------------------------------------------------
 call s:load_local_vimrc()
+call s:print_error_in_splash()
 call watchdogs#setup(g:quickrun_config)
 set secure
 " /finally }}}
