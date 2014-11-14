@@ -25,6 +25,7 @@ language time C
 
 let g:did_install_default_menus = 1
 
+" handle environment-specific vimrc {{{
 let s:error = []
 
 function! s:load_local_vimrc(...)
@@ -52,6 +53,7 @@ function! s:print_error_in_splash()
 		endfor
 	endif
 endfunction
+" }}}
 
 " load local config
 call s:load_local_vimrc('prepare')
