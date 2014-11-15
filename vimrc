@@ -961,8 +961,8 @@ autocmd my FilterWritePre *  call s:config_in_diff_mode()
 " finally {{{
 " ------------------------------------------------------------------------------
 call s:load_local_vimrc()
-call s:print_error_in_splash()
 call watchdogs#setup(g:quickrun_config)
+call s:print_error_in_splash()
 set secure
 " /finally }}}
 
