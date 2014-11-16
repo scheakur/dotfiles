@@ -749,6 +749,7 @@ let g:quickrun_config = {
 \		'runner': 'vimproc',
 \		'runner/vimproc/updatetime': 100,
 \		'outputter/buffer/split': 'aboveleft',
+\		'hook/repautocd_pause/enable': 1,
 \	},
 \	'watchdogs_checker/_': {
 \		'hook/close_quickfix/enable_exit': 1,
