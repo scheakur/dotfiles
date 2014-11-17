@@ -917,6 +917,10 @@ map <silent> <Leader>sc  <Plug>(operator-surround-replace)
 let g:repautocd_markers = ['.git', '.hg', '.svn', '.gitignore', '.project']
 " }}}
 
+" sonictemplate-vim {{{
+let g:sonictemplate_vim_template_dir = '$HOME/.vim.local/template'
+" }}}
+
 " /plugin }}}
 
 
