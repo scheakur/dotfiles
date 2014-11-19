@@ -16,7 +16,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
 
 " neobundle list {{{
-NeoBundle 'https://bitbucket.org/teramako/jscomplete-vim.git'
 NeoBundle 'https://github.com/cohama/agit.vim.git'
 NeoBundle 'https://github.com/cohama/vim-hier.git'
 NeoBundle 'https://github.com/google/vim-ft-go.git'
