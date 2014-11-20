@@ -68,6 +68,7 @@ export LC_CTYPE=en_US.UTF-8
 bindkey -e
 
 # export GREP_OPTIONS='-Ein --color=auto'
+alias grep='grep -Ein --color=auto'
 export GREP_COLORS='fn=01;34:mt=00;33'
 # }}}
 
