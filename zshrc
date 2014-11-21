@@ -197,6 +197,12 @@ fi
 [[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
 # }}}
 
+
+# other {{{
+alias hexdump='od -A x -t x1z -v'
+# }}}
+
+
 # OS dependent {{{
 case "${OSTYPE}" in
 darwin*)
