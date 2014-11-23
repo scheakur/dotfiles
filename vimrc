@@ -960,6 +960,17 @@ function! s:config_in_diff_mode()
 endfunction
 
 autocmd my FilterWritePre *  call s:config_in_diff_mode()
+
+
+" Maximize help window
+function! s:maximize_winheight_in_help()
+	if &filetype != 'help'
+		return
+	endif
+	call feedkeys("\<C-w>_", 'n')
+endfunction
+
+autocmd my BufWinEnter *  call s:maximize_winheight_in_help()
 " }}}
 
 
