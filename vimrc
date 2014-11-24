@@ -942,7 +942,7 @@ autocmd my QuickfixCmdPost  make copen
 " Avoid saving files with keyboard misstroke
 " ref. http://d.hatena.ne.jp/tyru/20130419/avoid_tyop
 function! s:ignore_invalid_file(file)
-	echomsg 'Invalid file name: "' . a:file . '"'
+	echoerr 'Invalid file name: "' . a:file . '"'
 endfunction
 autocmd my BufWriteCmd *;  call s:ignore_invalid_file(expand('<afile>'))
 
@@ -960,7 +960,6 @@ function! s:config_in_diff_mode()
 endfunction
 
 autocmd my FilterWritePre *  call s:config_in_diff_mode()
-
 
 " Maximize help window
 function! s:maximize_winheight_in_help()
