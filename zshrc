@@ -184,7 +184,7 @@ if exists peco; then
 
     function peco-mysnippets() {
         local f=~/.config/peco/mysnippets.sh
-        BUFFER=$(cat $f | grep -v '^#' | grep -v '^$'| peco --query "$LBUFFER")
+        BUFFER=$(cat $f | \grep -v '^#' | \grep -v '^$'| peco --query "$LBUFFER")
         zle clear-screen
     }
     zle -N peco-mysnippets
