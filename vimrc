@@ -65,8 +65,8 @@ let s:in_nix = !s:in_mac && has('unix')
 " }}}
 
 " map leader {{{
-let mapleader = ','
-let maplocalleader = '\'
+let g:mapleader = ','
+let g:maplocalleader = '\'
 " }}}
 
 syntax enable
