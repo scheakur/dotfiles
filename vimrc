@@ -774,11 +774,11 @@ let g:quickrun_config = {
 
 if (s:in_mac)
 	call extend(g:quickrun_config, {
-	\	'mkd' : {
+	\	'markdown' : {
 	\		'command': 'open',
 	\		'cmdopt': '-a',
 	\		'tempfile': '%{tempname()}.md',
-	\		'exec': '%c %s %o /Applications/Marked.app',
+	\		'exec': '%c %s %o /Applications/Marked\ 2.app',
 	\		'outputter': 'null',
 	\	},
 	\})
