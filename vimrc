@@ -86,6 +86,9 @@ filetype indent on
 " color {{{
 " auto loading after/colors {{{
 function! s:load_after_colors()
+	if empty(get(g:, 'colors_name', ''))
+		return
+	endif
 	let color = expand('~/.vim/after/colors/' . g:colors_name . '.vim')
 	if filereadable(color)
 		execute 'source' color
