@@ -23,7 +23,15 @@ augroup end
 language messages C
 language time C
 
-let g:did_install_default_menus = 1
+" environment {{{
+let s:in_win = has('win32') || has('win64')
+let s:in_mac = has('mac') || has('macunix')
+let s:in_nix = !s:in_mac && has('unix')
+" }}}
+
+if !s:in_mac
+	let g:did_install_default_menus = 1
+endif
 
 " handle environment-specific vimrc {{{
 let s:error = []
@@ -57,12 +65,6 @@ endfunction
 
 " load local config
 call s:load_local_vimrc('prepare')
-
-" environment {{{
-let s:in_win = has('win32') || has('win64')
-let s:in_mac = has('mac') || has('macunix')
-let s:in_nix = !s:in_mac && has('unix')
-" }}}
 
 " map leader {{{
 let g:mapleader = ','
