@@ -70,6 +70,11 @@ bindkey -e
 # export GREP_OPTIONS='-Ein --color=auto'
 alias grep='grep -Ein --color=auto'
 export GREP_COLORS='fn=01;34:mt=00;33'
+
+# edit command in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
 # }}}
 
 
