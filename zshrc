@@ -193,7 +193,7 @@ if exists peco; then
         zle clear-screen
     }
     zle -N peco-mysnippets
-    bindkey '^x^s' peco-mysnippets
+    bindkey '^xs' peco-mysnippets
 fi
 # }}}
 
