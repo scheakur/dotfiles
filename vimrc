@@ -710,6 +710,7 @@ call unite#custom#profile('default', 'context', {
 \})
 " }}}
 
+let g:unite_source_buffer_time_format = '(%H:%M) '
 
 " unite alias {{{
 let g:unite_source_alias_aliases = {
