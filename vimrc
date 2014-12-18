@@ -496,6 +496,25 @@ cnoremap <C-p>  <Up>
 cnoremap <Up>  <C-p>
 cnoremap <C-n>  <Down>
 cnoremap <Down>  <C-n>
+
+function! s:remove_path_element()
+	let sep = '/' " TODO support windows
+	let parts = split(getcmdline(), sep)
+	if len(parts) > 2 " may be path string
+		call remove(parts, -1)
+		return join(parts, sep) . sep
+	endif
+
+	call feedkeys("\<C-w>", 'n')
+	return getcmdline()
+endfunction
+
+function! s:fname(name)
+	let sid = matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_fname$')
+	return printf('<SNR>%s_%s', sid, a:name)
+endfunction
+
+execute 'cnoremap <C-w>  <C-\>e' . s:fname('remove_path_element') . '()<CR>'
 " }}}
 
 " toggle option {{{
