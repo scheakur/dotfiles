@@ -507,16 +507,26 @@ cnoremap <Up>  <C-p>
 cnoremap <C-n>  <Down>
 cnoremap <Down>  <C-n>
 
+" remove last element if a string in command line is like path string {{{
+function! s:do_original_c_w()
+	call feedkeys("\<C-w>", 'n')
+	return getcmdline()
+endfunction
+
 function! s:remove_path_element()
+	if getcmdtype() != ':'
+		return s:do_original_c_w()
+	endif
+
 	let sep = '/' " TODO support windows
 	let parts = split(getcmdline(), sep)
-	if len(parts) > 2 " may be path string
+
+	if len(parts) > 1 " may be path string
 		call remove(parts, -1)
 		return join(parts, sep) . sep
 	endif
 
-	call feedkeys("\<C-w>", 'n')
-	return getcmdline()
+	return s:do_original_c_w()
 endfunction
 
 function! s:fname(name)
@@ -525,6 +535,8 @@ function! s:fname(name)
 endfunction
 
 execute 'cnoremap <C-w>  <C-\>e' . s:fname('remove_path_element') . '()<CR>'
+" }}}
+
 " }}}
 
 " toggle option {{{
