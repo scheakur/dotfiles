@@ -426,6 +426,16 @@ function! s:random_string(n)
 	let @+ = join(s, '')
 endfunction
 
+" clear messages {{{
+function! s:clear_messages()
+	for n in range(200)
+		echomsg ''
+	endfor
+endfunction
+
+command! ClearMessages  call s:clear_messages()
+" }}}
+
 " /command }}}
 
 
