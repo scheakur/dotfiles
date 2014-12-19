@@ -524,6 +524,9 @@ function! s:remove_path_element()
 	if getcmdtype() != ':'
 		return s:do_original_c_w()
 	endif
+	if getcmdpos() != len(getcmdline()) + 1 " cursor position is not end of line
+		return s:do_original_c_w()
+	endif
 
 	let sep = '/' " TODO support windows
 	let parts = split(getcmdline(), sep)
