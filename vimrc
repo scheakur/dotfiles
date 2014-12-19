@@ -105,6 +105,12 @@ set background=dark
 colorscheme scheakur
 " }}}
 
+" util {{{
+function! s:fname(name)
+	let sid = matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_fname$')
+	return printf('<SNR>%s_%s', sid, a:name)
+endfunction
+" }}}
 
 " /basic }}}
 
@@ -407,7 +413,7 @@ command! Qclear  call setqflist([])
 " clear location list
 command! Lclear  call setloclist(0, [])
 
-
+" generate random string {{{
 command! -nargs=0 RandomString call s:random_string(8)
 
 function! s:rand(n)
@@ -425,6 +431,7 @@ function! s:random_string(n)
 	endfor
 	let @+ = join(s, '')
 endfunction
+" }}}
 
 " clear messages {{{
 function! s:clear_messages()
@@ -527,11 +534,6 @@ function! s:remove_path_element()
 	endif
 
 	return s:do_original_c_w()
-endfunction
-
-function! s:fname(name)
-	let sid = matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_fname$')
-	return printf('<SNR>%s_%s', sid, a:name)
 endfunction
 
 execute 'cnoremap <C-w>  <C-\>e' . s:fname('remove_path_element') . '()<CR>'
