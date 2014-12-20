@@ -1,4 +1,6 @@
-# vim: set foldmethod=marker :
+" ============================================================================ "
+"                                    zshrc                                     "
+" ============================================================================ "
 
 
 # prompt {{{
@@ -226,3 +228,5 @@ stty -ixon
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
 # }}}
 
+# vim: set foldmethod=marker :
+# vim: set formatoptions& formatoptions-=ro :
