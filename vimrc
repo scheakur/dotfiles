@@ -756,6 +756,28 @@ call unite#custom#default_action('buffer', 'goto')
 call unite#custom#profile('default', 'context', {
 \	'no_split': 1
 \})
+
+let s:ignore_pattern = '\M' . join([
+\	'/tmp/',
+\	'/bak/',
+\	'/build/',
+\	'/.git/',
+\	'/.hg/',
+\	'/.svn/',
+\	'/.gradle/',
+\	'/.m2/',
+\	'.DS_Store$',
+\	'.o$',
+\	'.exe$',
+\	'.zip$',
+\	'.class$',
+\	'.jar$',
+\], '\|')
+
+call unite#custom#source('file_rec', 'ignore_pattern', s:ignore_pattern)
+call unite#custom#source('file_rec/async', 'ignore_pattern', s:ignore_pattern)
+
+unlet s:ignore_pattern
 " }}}
 
 let g:unite_source_buffer_time_format = '(%H:%M) '
