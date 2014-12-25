@@ -230,6 +230,8 @@ set maxfuncdepth=256
 set splitbelow
 " hide intro message
 set shortmess+=I
+" show text as much as possible even if the last line is too long
+set display=lastline
 " }}}
 
 " tabpages {{{
