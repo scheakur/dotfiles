@@ -1024,6 +1024,10 @@ function! s:maximize_winheight_in_help()
 endfunction
 
 autocmd my BufWinEnter *  call s:maximize_winheight_in_help()
+
+" select readonly as swapchoice automatically
+autocmd my SwapExists *  let v:swapchoice = 'o'
+
 " }}}
 
 
