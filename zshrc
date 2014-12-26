@@ -169,6 +169,8 @@ function git() {
         command git $@
     fi
 }
+
+alias vimp='vim $(find . | peco)'
 # }}}
 
 
