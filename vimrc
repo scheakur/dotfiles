@@ -776,6 +776,7 @@ let s:ignore_pattern = '\M' . join([
 
 call unite#custom#source('file_rec', 'ignore_pattern', s:ignore_pattern)
 call unite#custom#source('file_rec/async', 'ignore_pattern', s:ignore_pattern)
+call unite#custom#source('find', 'ignore_pattern', s:ignore_pattern)
 
 unlet s:ignore_pattern
 " }}}
