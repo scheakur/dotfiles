@@ -1,6 +1,6 @@
 #!/bin/bash
 
-target_list=(vimrc vim gvimrc tmux.conf vrapperrc gitconfig gitignore profile zshrc zshenv config/peco)
+target_list=(vimrc vim gvimrc tmux.conf vrapperrc gitconfig gitignore profile zshrc zshenv config/peco npmrc)
 for (( i = 0; i < ${#target_list[@]}; i++ ))
 do
     target=${target_list[i]}
