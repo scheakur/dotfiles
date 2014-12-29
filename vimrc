@@ -991,7 +991,14 @@ map <silent> <Leader>sc  <Plug>(operator-surround-replace)
 " }}}
 
 " vim-repautocd {{{
-let g:repautocd_markers = ['.git', '.hg', '.svn', '.gitignore', '.project']
+let g:repautocd_markers = [
+\	'.git',
+\	'.hg',
+\	'.svn',
+\	'.gitignore',
+\	'.project',
+\	'package.json',
+\]
 " }}}
 
 " sonictemplate-vim {{{
