@@ -758,7 +758,6 @@ call unite#custom#profile('default', 'context', {
 \})
 
 let s:ignore_pattern = '\M' . join([
-\	'/tmp/',
 \	'/bak/',
 \	'/build/',
 \	'/.git/',
@@ -785,10 +784,6 @@ let g:unite_source_buffer_time_format = '(%H:%M) '
 
 " unite alias {{{
 let g:unite_source_alias_aliases = {
-\	'opera' : {
-\		'source': 'file_rec',
-\		'args': expand('~/Dropbox/config/opera/'),
-\	},
 \	'vim' : {
 \		'source': 'file_rec/async',
 \		'args': expand('~/.vim/.'),
