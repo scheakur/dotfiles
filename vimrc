@@ -241,7 +241,7 @@ set tabline=%!MyTabLine()
 function! MyTabLine()
 	let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
 	let tabpages = join(titles, '') . ' ' . '%#TabLineFill#%T'
-	let info = fnamemodify(getcwd(), ":~") . ' '
+	let info = fnamemodify(getcwd(), ':~') . ' '
 	return tabpages . '%=' . info
 endfunction
 
@@ -637,11 +637,11 @@ nnoremap <silent> <SID>(split-to-l)
 
 " yank filename {{{
 if s:in_mac
-	nnoremap <silent> <Space>yf  :let @*=expand("%:p")<CR>
-	nnoremap <silent> <Space>yy  :let @*=expand("%")<CR>
+	nnoremap <silent> <Space>yf  :let @*=expand('%:p')<CR>
+	nnoremap <silent> <Space>yy  :let @*=expand('%')<CR>
 else
-	nnoremap <silent> <Space>yf  :let @+=expand("%:p")<CR>
-	nnoremap <silent> <Space>yy  :let @+=expand("%")<CR>
+	nnoremap <silent> <Space>yf  :let @+=expand('%:p')<CR>
+	nnoremap <silent> <Space>yy  :let @+=expand('%')<CR>
 endif
 " }}}
 
