@@ -236,9 +236,9 @@ set display=lastline
 
 " tabpages {{{
 set showtabline=2
-set tabline=%!MyTabLine()
+execute 'set tabline=%!' . s:fname('tabline') . '()'
 
-function! MyTabLine()
+function! s:tabline()
 	let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
 	let tabpages = join(titles, '') . ' ' . '%#TabLineFill#%T'
 	let info = fnamemodify(getcwd(), ':~') . ' '
@@ -833,7 +833,7 @@ let g:quickrun_config = {
 \	'sql': {
 \		'command': 'sqlplus',
 \		'cmdopt': '-S',
-\		'args': '%{MyGetOracleConnection("quickrun")}',
+\		'args': '%{' . s:fname('get_oracle_conn') . '("quickrun")}',
 \		'tempfile': '%{tempname()}.sql',
 \		'exec': '%c %o %a \@%s',
 \		'outputter/buffer/filetype': 'quickrun.sqloutput',
@@ -857,7 +857,7 @@ if (s:in_mac)
 endif
 
 " to quickrun sql {{{
-function! MyGetOracleConnection(mode)
+function! s:get_oracle_conn(mode)
 	let user_pass = s:get_option('oracle_user_pass', 'system/oracle')
 	let sid = s:get_option('oracle_sid', 'localhost/xe')
 	let sep = (a:mode == 'quickrun') ? '\@' : '@'
