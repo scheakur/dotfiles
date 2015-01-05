@@ -783,7 +783,7 @@ unlet s:ignore_pattern
 
 " shorten path {{{
 let s:converter = {
-\	'name' : 'converter_short_path',
+\	'name': 'converter_short_path',
 \}
 
 function! s:converter.filter(candidates, context)
