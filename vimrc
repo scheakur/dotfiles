@@ -757,6 +757,7 @@ call unite#custom#profile('default', 'context', {
 \	'no_split': 1
 \})
 
+" ignore_pattern {{{
 let s:ignore_pattern = '\M' . join([
 \	'/bak/',
 \	'/build/',
@@ -778,6 +779,45 @@ call unite#custom#source('file_rec/async', 'ignore_pattern', s:ignore_pattern)
 call unite#custom#source('find', 'ignore_pattern', s:ignore_pattern)
 
 unlet s:ignore_pattern
+" }}}
+
+" shorten path {{{
+let s:converter = {
+\	'name' : 'converter_short_path',
+\}
+
+function! s:converter.filter(candidates, context)
+	let home = expand('~')
+	let sep = '/'
+
+	for candidate in a:candidates
+		let path = candidate.word
+
+		if path =~# '^' . home . sep
+			let path = fnamemodify(path, ':~')
+		endif
+
+		let parts = split(path, sep, 1)
+		let n = len(parts)
+		if n > 5
+			" shorten middle path elements
+			let path = join(parts[0:2], sep)
+			\	. sep . pathshorten(join(parts[3:n-3], sep))
+			\	. sep . join(parts[n-2:], sep)
+		endif
+
+		let candidate.abbr = path
+	endfor
+	return a:candidates
+endfunction
+
+call unite#define_filter(s:converter)
+unlet s:converter
+
+call unite#custom#source('file_mru', 'converters', ['converter_short_path'])
+call unite#custom#source('file', 'converters', ['converter_short_path'])
+" }}}
+
 " }}}
 
 let g:unite_source_buffer_time_format = '(%H:%M) '
