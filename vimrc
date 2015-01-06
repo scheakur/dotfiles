@@ -541,7 +541,7 @@ function! s:remove_path_element()
 	return s:do_original_c_w()
 endfunction
 
-execute 'cnoremap <C-w>  <C-\>e' . s:func_name('remove_path_element') . '()<CR>'
+cnoremap <C-w>  <C-\>e<SID>remove_path_element()<CR>
 " }}}
 
 " }}}
