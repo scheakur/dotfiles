@@ -106,8 +106,8 @@ colorscheme scheakur
 " }}}
 
 " util {{{
-function! s:fname(name)
-	let sid = matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_fname$')
+function! s:func_name(name)
+	let sid = matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_func_name$')
 	return printf('<SNR>%s_%s', sid, a:name)
 endfunction
 " }}}
@@ -236,7 +236,7 @@ set display=lastline
 
 " tabpages {{{
 set showtabline=2
-execute 'set tabline=%!' . s:fname('tabline') . '()'
+execute 'set tabline=%!' . s:func_name('tabline') . '()'
 
 function! s:tabline()
 	let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
@@ -541,7 +541,7 @@ function! s:remove_path_element()
 	return s:do_original_c_w()
 endfunction
 
-execute 'cnoremap <C-w>  <C-\>e' . s:fname('remove_path_element') . '()<CR>'
+execute 'cnoremap <C-w>  <C-\>e' . s:func_name('remove_path_element') . '()<CR>'
 " }}}
 
 " }}}
@@ -873,7 +873,7 @@ let g:quickrun_config = {
 \	'sql': {
 \		'command': 'sqlplus',
 \		'cmdopt': '-S',
-\		'args': '%{' . s:fname('get_oracle_conn') . '("quickrun")}',
+\		'args': '%{' . s:func_name('get_oracle_conn') . '("quickrun")}',
 \		'tempfile': '%{tempname()}.sql',
 \		'exec': '%c %o %a \@%s',
 \		'outputter/buffer/filetype': 'quickrun.sqloutput',
