@@ -445,6 +445,21 @@ endfunction
 command! ClearMessages  call s:clear_messages()
 " }}}
 
+" copy messages {{{
+function! s:copy_messages()
+	redir @*>
+	silent messages
+	redir END
+	call s:copy_register('*', '+')
+endfunction
+
+function! s:copy_register(from, to)
+	call setreg(a:to, getreg(a:from, 1), getregtype(a:from))
+endfunction
+
+command! CopyMessages call s:copy_messages()
+" }}}
+
 " /command }}}
 
 
