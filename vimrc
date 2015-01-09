@@ -424,13 +424,18 @@ function! s:rand(n)
 	return reltimestr(reltime())[match_end : ] % (a:n + 1)
 endfunction
 
-function! s:random_string(n)
-	let s = []
-	let chars = split('0123456789abcdefghijklmnopqrstuvwxyz', '\ze')
+function! s:random_char_array(chars, n)
+	let arr = []
+	let chars = split(a:chars, '\ze')
 	let max = len(chars) - 1
 	for x in range(a:n)
-		call add(s, (chars[s:rand(max)]))
+		call add(arr, (chars[s:rand(max)]))
 	endfor
+	return arr
+endfunction
+
+function! s:random_string(n)
+	let s = s:random_char_array('0123456789abcdefghijklmnopqrstuvwxyz', a:n)
 	let @+ = join(s, '')
 endfunction
 " }}}
@@ -440,12 +445,7 @@ endfunction
 command! -nargs=0 UUID  call s:uuid()
 
 function! s:uuid()
-	let s = []
-	let chars = split('0123456789abcdef', '\ze')
-	let max = len(chars) - 1
-	for x in range(31)
-		call add(s, (chars[s:rand(max)]))
-	endfor
+	let s = s:random_char_array('0123456789abcdef', 31)
 
 	let p0 = join(s[:7], '')
 	let p1 = join(s[8:11], '')
