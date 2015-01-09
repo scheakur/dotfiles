@@ -416,7 +416,7 @@ command! Qclear  call setqflist([])
 command! Lclear  call setloclist(0, [])
 
 " generate random string {{{
-command! -nargs=0 RandomString call s:random_string(8)
+command! -nargs=0 RandomString  call s:random_string(8)
 
 function! s:rand(n)
 	" http://vim-jp.org/vim-users-jp/2009/11/05/Hack-98.html
@@ -432,6 +432,28 @@ function! s:random_string(n)
 		call add(s, (chars[s:rand(max)]))
 	endfor
 	let @+ = join(s, '')
+endfunction
+" }}}
+
+
+" generate UUID {{{
+command! -nargs=0 UUID  call s:uuid()
+
+function! s:uuid()
+	let s = []
+	let chars = split('0123456789abcdef', '\ze')
+	let max = len(chars) - 1
+	for x in range(31)
+		call add(s, (chars[s:rand(max)]))
+	endfor
+
+	let p0 = join(s[:7], '')
+	let p1 = join(s[8:11], '')
+	let p2 = join(s[12:14], '')
+	let p3 = join(s[15:18], '')
+	let p4 = join(s[19:], '')
+
+	let @+ = printf('%s-%s-4%s-%s-%s', p0, p1, p2, p3, p4)
 endfunction
 " }}}
 
