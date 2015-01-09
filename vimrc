@@ -441,7 +441,7 @@ endfunction
 " }}}
 
 
-" generate UUID {{{
+" generate UUID version 4 {{{
 command! -nargs=0 UUID  call s:uuid()
 
 function! s:uuid()
