@@ -830,7 +830,7 @@ call unite#define_filter(s:converter)
 unlet s:converter
 
 call unite#custom#source('file_mru', 'converters', ['converter_short_path'])
-call unite#custom#source('file', 'converters', ['converter_short_path'])
+call unite#custom#source('file_rec', 'converters', ['converter_short_path'])
 " }}}
 
 " }}}
