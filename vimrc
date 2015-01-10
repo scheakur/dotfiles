@@ -66,13 +66,6 @@ set background=dark
 colorscheme scheakur
 " }}}
 
-" util {{{
-function! s:func_name(name)
-	let sid = matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_func_name$')
-	return printf('<SNR>%s_%s', sid, a:name)
-endfunction
-" }}}
-
 " /basic }}}
 
 
