@@ -33,38 +33,8 @@ if !s:in_mac
 	let g:did_install_default_menus = 1
 endif
 
-" handle environment-specific vimrc {{{
-let s:error = []
-
-function! s:load_local_vimrc(...)
-	let suffix = (a:0 > 0) ? ('.' . a:1) : ''
-	let vimrc = expand('~/.vimrc.local' . suffix)
-	if filereadable(vimrc)
-		try
-			execute 'source' vimrc
-		catch
-			call s:err('an error occurred in ' . vimrc)
-			" call s:err(v:exception) " This might be slow
-		endtry
-	endif
-endfunction
-
-function! s:err(msg)
-	echomsg a:msg
-	call add(s:error, a:msg)
-endfunction
-
-function! s:print_error_in_splash()
-	if argc() == 0 && bufnr('$') == 1
-		for err in s:error
-			call append(line('$'), err)
-		endfor
-	endif
-endfunction
-" }}}
-
 " load local config
-call s:load_local_vimrc('prepare')
+call vimrc#load_local_vimrc('prepare')
 
 " map leader {{{
 let g:mapleader = ','
@@ -87,16 +57,7 @@ filetype indent on
 
 " color {{{
 " auto loading after/colors {{{
-function! s:load_after_colors()
-	if empty(get(g:, 'colors_name', ''))
-		return
-	endif
-	let color = expand('~/.vim/after/colors/' . g:colors_name . '.vim')
-	if filereadable(color)
-		execute 'source' color
-	endif
-endfunction
-autocmd my ColorScheme * call s:load_after_colors()
+autocmd my ColorScheme *  call vimrc#load_after_colors()
 " }}}
 autocmd my ColorScheme *  highlight link FullWidthSpace SpellBad
 autocmd my Syntax *  syntax match FullWidthSpace containedin=ALL /　/
@@ -185,29 +146,8 @@ set textwidth=0
 set cmdheight=2
 set laststatus=2
 
-autocmd my BufLeave,WinLeave * call s:set_statusline_nc()
-autocmd my BufEnter,WinEnter * call s:set_statusline()
-
-function! s:set_statusline_nc()
-	let &l:statusline = s:make_statusline(3, 4)
-endfunction
-
-function! s:set_statusline()
-	let &l:statusline = s:make_statusline(1, 2)
-endfunction
-
-function! s:make_statusline(hi1, hi2)
-	let st = join([
-	\	'%' . a:hi2 . '* %{&ft} ',
-	\	'%' . a:hi1 . '* %h%w%m%r ',
-	\	'%0* %<%f ',
-	\	'%=',
-	\	'%0* %{(&fenc != "") ? &fenc : &enc} ',
-	\	'%' . a:hi1 . '* %{&ff} ',
-	\	'%' . a:hi2 . '* %lL %2vC %3p%%',
-	\], '')
-	return st
-endfunction
+autocmd my BufLeave,WinLeave *  call vimrc#set_statusline_nc()
+autocmd my BufEnter,WinEnter *  call vimrc#set_statusline()
 " }}}
 
 " misc {{{
@@ -236,50 +176,8 @@ set display=lastline
 
 " tabpages {{{
 set showtabline=2
-execute 'set tabline=%!' . s:func_name('tabline') . '()'
-
-function! s:tabline()
-	let titles = map(range(1, tabpagenr('$')), 's:tabpage_label(v:val)')
-	let tabpages = join(titles, '') . ' ' . '%#TabLineFill#%T'
-	let info = fnamemodify(getcwd(), ':~') . ' '
-	return tabpages . '%=' . info
-endfunction
-
-function! s:tabpage_label(n)
-	let title = s:tabpage_title(a:n)
-	let bufnrs = tabpagebuflist(a:n)
-	let mods = filter(copy(bufnrs), 'getbufvar(v:val, "&modified")')
-	let mod = len(mods) ? '*' : ''
-	let label = ' ' . title . mod . ' '
-	let hi = a:n is tabpagenr() ? '%#TabLineSel#' : '%#TabLine#'
-	return '%' . a:n . 'T' . hi . label . '%T%#TabLineFill#'
-endfunction
-
-function! s:tabpage_title(n)
-	let bufnrs = tabpagebuflist(a:n)
-	let title = gettabvar(a:n, '__title__')
-	if !len(title)
-		let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]
-		let title = fnamemodify(bufname(curbufnr), ':t')
-		let title = len(title) ? title : '[No Name]'
-	endif
-	return title
-endfunction
-
-function! s:set_tabpage_title(title)
-	if !empty(a:title)
-		let t:__title__ = a:title
-	else
-		let n = tabpagenr()
-		let title = input("Tab's title : ", s:tabpage_title(n))
-		if !empty(title)
-			let t:__title__ = title
-		endif
-	endif
-	redraw!
-endfunction
-
-command! -nargs=? SetTabTitle  call s:set_tabpage_title(<q-args>)
+set tabline=%!vimrc#tabline()
+command! -nargs=? SetTabTitle  call vimrc#set_tabpage_title(<q-args>)
 " }}}
 
 " completion {{{
@@ -337,77 +235,23 @@ command! -nargs=1 -complete=file Rename  f <args>|w|call delete(expand('#'))
 " remove trail ^M
 command! -range=% RemoveTrailM  <line1>,<line2>s!\r$!!g | nohlsearch
 
-" command CD {{{
-command! -nargs=? -complete=dir -bang CD  call s:change_dir('<args>', '<bang>')
-function! s:change_dir(directory, bang)
-	if a:directory == ''
-		lcd %:p:h
-	else
-		execute 'lcd' a:directory
-	endif
-	if a:bang == ''
-		pwd
-	endif
-endfunction
+" command CD
+command! -nargs=? -complete=dir -bang CD  call vimrc#change_dir('<args>', '<bang>')
 nnoremap <silent> <Space>cd  :<C-u>CD<CR>
-" }}}
 
 " format JSON
 command! -range FormatJson  <line1>,<line2>!python -m json.tool
 
-" capture outputs of command {{{
+" capture outputs of command
 " ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
-command! -nargs=+ -complete=command Capture  call s:cmd_capture(<q-args>)
+command! -nargs=+ -complete=command Capture  call vimrc#cmd_capture(<q-args>)
 
-function! s:cmd_capture(q_args) " {{{
-	redir => output
-	silent execute a:q_args
-	redir END
-	let output = substitute(output, '^\n\+', '', '')
-
-	belowright new
-
-	silent file `=printf('[Capture: %s]', a:q_args)`
-	setlocal buftype=nofile bufhidden=unload noswapfile nobuflisted
-	call setline(1, split(output, '\n'))
-endfunction " }}}
-" }}}
-
-" draw underline " {{{
+" draw underline
 " ref. http://vim.wikia.com/wiki/Underline_using_dashes_automatically
-command! -nargs=? Underline  call s:underline(<q-args>)
+command! -nargs=? Underline  call vimrc#underline(<q-args>)
 
-function! s:underline(chars)
-	let chars = empty(a:chars) ? '-' : a:chars
-	let nr_columns = virtcol('$') - 1
-	let uline = repeat(chars, (nr_columns / len(chars)) + 1)
-	put =strpart(uline, 0, nr_columns)
-endfunction
-" }}}
-
-" delete buffers without breaking window layout {{{
-command! Bdelete  call s:delete_buffer()
-
-function! s:delete_buffer()
-	if (empty(bufname('%')))
-		" no operation
-		return
-	endif
-
-	let curr = bufnr('%')
-	let prev = bufnr('#')
-
-	if (prev > 0 && buflisted(prev) && curr != prev)
-		execute 'buffer' prev
-	else
-		enew
-	endif
-
-	if (curr && buflisted(curr))
-		execute 'bdelete' curr
-	endif
-endfunction
-" }}}
+" delete buffers without breaking window layout
+command! Bdelete  call vimrc#delete_buffer()
 
 " clear quickfix list
 command! Qclear  call setqflist([])
@@ -415,72 +259,14 @@ command! Qclear  call setqflist([])
 " clear location list
 command! Lclear  call setloclist(0, [])
 
-" generate random string {{{
-command! -nargs=0 RandomString  call s:random_string(8)
+" generate random string
+command! -nargs=0 RandomString  call vimrc#random_string(8)
 
-function! s:rand(n)
-	" http://vim-jp.org/vim-users-jp/2009/11/05/Hack-98.html
-	let match_end = matchend(reltimestr(reltime()), '\d\+\.') + 1
-	return reltimestr(reltime())[match_end : ] % (a:n + 1)
-endfunction
+" generate UUID version 4
+command! -nargs=0 UUID  call vimrc#uuid()
 
-function! s:random_char_array(chars, n)
-	let arr = []
-	let chars = split(a:chars, '\ze')
-	let max = len(chars) - 1
-	for x in range(a:n)
-		call add(arr, (chars[s:rand(max)]))
-	endfor
-	return arr
-endfunction
-
-function! s:random_string(n)
-	let s = s:random_char_array('0123456789abcdefghijklmnopqrstuvwxyz', a:n)
-	let @+ = join(s, '')
-endfunction
-" }}}
-
-
-" generate UUID version 4 {{{
-command! -nargs=0 UUID  call s:uuid()
-
-function! s:uuid()
-	let s = s:random_char_array('0123456789abcdef', 31)
-
-	let p0 = join(s[:7], '')
-	let p1 = join(s[8:11], '')
-	let p2 = join(s[12:14], '')
-	let p3 = join(s[15:18], '')
-	let p4 = join(s[19:], '')
-
-	let @+ = printf('%s-%s-4%s-%s-%s', p0, p1, p2, p3, p4)
-endfunction
-" }}}
-
-" clear messages {{{
-function! s:clear_messages()
-	for n in range(200)
-		echomsg ''
-	endfor
-endfunction
-
-command! ClearMessages  call s:clear_messages()
-" }}}
-
-" copy messages {{{
-function! s:copy_messages()
-	redir @*>
-	silent messages
-	redir END
-	call s:copy_register('*', '+')
-endfunction
-
-function! s:copy_register(from, to)
-	call setreg(a:to, getreg(a:from, 1), getregtype(a:from))
-endfunction
-
-command! CopyMessages call s:copy_messages()
-" }}}
+command! ClearMessages  call vimrc#clear_messages()
+command! CopyMessages call vimrc#copy_messages()
 
 " /command }}}
 
@@ -554,31 +340,7 @@ cnoremap <C-n>  <Down>
 cnoremap <Down>  <C-n>
 
 " remove last element if a string in command line is like path string {{{
-function! s:do_original_c_w()
-	call feedkeys("\<C-w>", 'n')
-	return getcmdline()
-endfunction
-
-function! s:remove_path_element()
-	if getcmdtype() != ':'
-		return s:do_original_c_w()
-	endif
-	if getcmdpos() != len(getcmdline()) + 1 " cursor position is not end of line
-		return s:do_original_c_w()
-	endif
-
-	let sep = '/' " TODO support windows
-	let parts = split(getcmdline(), sep)
-
-	if len(parts) > 1 " may be path string
-		call remove(parts, -1)
-		return join(parts, sep) . sep
-	endif
-
-	return s:do_original_c_w()
-endfunction
-
-cnoremap <C-w>  <C-\>e<SID>remove_path_element()<CR>
+cnoremap <C-w>  <C-\>evimrc#remove_path_element()<CR>
 " }}}
 
 " }}}
@@ -706,56 +468,23 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 " }}}
 
 " misc {{{
-function! s:search_without_move()
-	let @/ = '\<' . expand('<cword>') . '\>'
-	call histadd('/', @/)
-endfunction
-
 nnoremap <silent> *
 \	:<C-u>call <SID>search_without_move()<CR>zz:<C-u>set hlsearch<CR>
 
 " search with the selected text
-" ref. http://vim-jp.org/vim-users-jp/2009/11/25/Hack-104.html
-function! s:get_selected_text()
-	let tmp = @v
-	silent normal! gv"vy
-	let selected = @v
-	let @v = tmp
-	return selected
-endfunction
-
-function! s:search_with_selected_text()
-	let text = s:get_selected_text()
-	let @/ = '\V' . substitute(escape(text, '\/'), "\n", '\\n', 'g')
-	call histadd('/', @/)
-endfunction
-
 vnoremap <silent> *
-\	:<C-u>call <SID>search_with_selected_text()<CR>zz:<C-u>set hlsearch<CR>
+\	:<C-u>call vimrc#search_with_selected_text()<CR>zz:<C-u>set hlsearch<CR>
 vnoremap <silent> <CR>
-\	:<C-u>call <SID>search_with_selected_text()<CR>zz:<C-u>set hlsearch<CR>
+\	:<C-u>call vimrc#search_with_selected_text()<CR>zz:<C-u>set hlsearch<CR>
 
 " identify the syntax highlighting group used at the cursor
-" http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
-function! s:show_hilite()
-	let l = line('.')
-	let c = col('.')
-	let hilite = ''
-	let hilite .= 'hilite <' . synIDattr(synID(l, c, 1), 'name') . '>, '
-	let hilite .= 'trans <' . synIDattr(synID(l, c, 0), 'name') . '>, '
-	let hilite .= 'link <' . synIDattr(synIDtrans(synID(l, c, 1)), 'name') . '>'
-	echo hilite
-endfunction
-
-command! ShowHilite  call s:show_hilite()
+command! ShowHilite  call vimrc#show_hilite()
 nnoremap <M-F12>  :<C-u>ShowHilite<CR>
-" }}}
 
-" hlsearch (search and highlight) {{{
+" hlsearch (search and highlight)
 nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
-" }}}
 
-" completion {{{
+" completion
 inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 " }}}
 
@@ -819,37 +548,10 @@ unlet s:ignore_pattern
 " }}}
 
 " shorten path {{{
-let s:converter = {
+call unite#define_filter({
 \	'name': 'converter_short_path',
-\}
-
-function! s:converter.filter(candidates, context)
-	let home = expand('~')
-	let sep = '/'
-
-	for candidate in a:candidates
-		let path = candidate.word
-
-		if path =~# '^' . home . sep
-			let path = fnamemodify(path, ':~')
-		endif
-
-		let parts = split(path, sep, 1)
-		let n = len(parts)
-		if n > 5
-			" shorten middle path elements
-			let path = join(parts[0:2], sep)
-			\	. sep . pathshorten(join(parts[3:n-3], sep))
-			\	. sep . join(parts[n-2:], sep)
-		endif
-
-		let candidate.abbr = path
-	endfor
-	return a:candidates
-endfunction
-
-call unite#define_filter(s:converter)
-unlet s:converter
+\	'filter': function('vimrc#unite_converter_short_path'),
+\})
 
 call unite#custom#source('file_mru', 'converters', ['converter_short_path'])
 call unite#custom#source('file_rec', 'converters', ['converter_short_path'])
@@ -910,7 +612,7 @@ let g:quickrun_config = {
 \	'sql': {
 \		'command': 'sqlplus',
 \		'cmdopt': '-S',
-\		'args': '%{' . s:func_name('get_oracle_conn') . '("quickrun")}',
+\		'args': '%{vimrc#get_oracle_conn("quickrun")}',
 \		'tempfile': '%{tempname()}.sql',
 \		'exec': '%c %o %a \@%s',
 \		'outputter/buffer/filetype': 'quickrun.sqloutput',
@@ -934,27 +636,6 @@ if (s:in_mac)
 endif
 
 " to quickrun sql {{{
-function! s:get_oracle_conn(mode)
-	let user_pass = s:get_option('oracle_user_pass', 'system/oracle')
-	let sid = s:get_option('oracle_sid', 'localhost/xe')
-	let sep = (a:mode == 'quickrun') ? '\@' : '@'
-	let conn = user_pass . sep . sid
-	return conn
-endfunction
-
-function! s:get_option(option_name, ...)
-	if exists('b:' . a:option_name)
-		return eval('b:' . a:option_name)
-	endif
-	if exists('g:' . a:option_name)
-		return eval('g:' . a:option_name)
-	endif
-	if a:0 > 0
-		" default value
-		return a:1
-	endif
-endfunction
-
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 " }}}
 
@@ -1084,60 +765,35 @@ let g:sonictemplate_vim_template_dir = '$HOME/.vim.local/template'
 " ------------------------------------------------------------------------------
 
 " Create non-existing diretories automatically when the file is saved.
-function! s:auto_mkdir(dir)
-	if isdirectory(a:dir)
-		return
-	endif
-	call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
-endfunction
-autocmd my BufWritePre *  call s:auto_mkdir(expand('<afile>:p:h'))
+autocmd my BufWritePre *  call vimrc#auto_mkdir(expand('<afile>:p:h'))
 
 " Open quickfix window after executing make.
 autocmd my QuickfixCmdPost  make copen
 
 " Avoid saving files with keyboard misstroke
 " ref. http://d.hatena.ne.jp/tyru/20130419/avoid_tyop
-function! s:ignore_invalid_file(file)
-	echoerr 'Invalid file name: "' . a:file . '"'
-endfunction
-autocmd my BufWriteCmd *;  call s:ignore_invalid_file(expand('<afile>'))
+autocmd my BufWriteCmd *;  call vimrc#ignore_invalid_file(expand('<afile>'))
 
 " Reload a file on WinEnter if the file has been modified
 set autoread
 autocmd my WinEnter *  checktime
 
 " key mapping in vimdiff
-function! s:config_in_diff_mode()
-	if !&diff
-		return
-	endif
-	nnoremap <buffer> <C-k>  [c
-	nnoremap <buffer> <C-j>  ]c
-endfunction
-
-autocmd my FilterWritePre *  call s:config_in_diff_mode()
+autocmd my FilterWritePre *  call vimrc#config_in_diff_mode()
 
 " Maximize help window
-function! s:maximize_winheight_in_help()
-	if &filetype != 'help'
-		return
-	endif
-	call feedkeys("\<C-w>_", 'n')
-endfunction
-
-autocmd my BufWinEnter *  call s:maximize_winheight_in_help()
+autocmd my BufWinEnter *  call vimrc#maximize_winheight_in_help()
 
 " select readonly as swapchoice automatically
 autocmd my SwapExists *  let v:swapchoice = 'o'
-
 " }}}
 
 
 " finally {{{
 " ------------------------------------------------------------------------------
-call s:load_local_vimrc()
+call vimrc#load_local_vimrc()
 call watchdogs#setup(g:quickrun_config)
-call s:print_error_in_splash()
+call vimrc#print_error_in_splash()
 set secure
 " /finally }}}
 
