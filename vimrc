@@ -56,9 +56,10 @@ filetype indent on
 " /runtimepath }}}
 
 " color {{{
-" auto loading after/colors {{{
+" auto loading after/colors
 autocmd my ColorScheme *  call vimrc#load_after_colors()
-" }}}
+
+" highlight full width space as bad
 autocmd my ColorScheme *  highlight link FullWidthSpace SpellBad
 autocmd my Syntax *  syntax match FullWidthSpace containedin=ALL /　/
 

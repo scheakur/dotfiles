@@ -1,3 +1,7 @@
+" ============================================================================ "
+"                             functions for vimrc                              "
+" ============================================================================ "
+
 " handle environment-specific vimrc {{{
 let s:error = []
 
@@ -386,3 +390,8 @@ function! s:ignore_invalid_file(file)
 	echoerr 'Invalid file name: "' . a:file . '"'
 endfunction
 " }}}
+
+
+" vim: set noexpandtab :
+" vim: set foldenable foldmethod=marker :
+" vim: set formatoptions& formatoptions-=ro :
