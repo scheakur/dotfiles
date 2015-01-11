@@ -321,6 +321,12 @@ endfunction
 
 
 " misc. {{{
+function! vimrc#toggle_option(option_name)
+	execute 'setlocal' a:option_name . '!'
+	execute 'setlocal' a:option_name . '?'
+endfunction
+
+
 function! vimrc#change_dir(directory, bang)
 	if a:directory == ''
 		lcd %:p:h
@@ -386,7 +392,7 @@ function! vimrc#config_in_diff_mode()
 endfunction
 
 
-function! s:ignore_invalid_file(file)
+function! vimrc#ignore_invalid_file(file)
 	echoerr 'Invalid file name: "' . a:file . '"'
 endfunction
 " }}}

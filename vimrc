@@ -343,14 +343,10 @@ cnoremap <C-w>  <C-\>evimrc#remove_path_element()<CR>
 " }}}
 
 " toggle option {{{
-function! s:toggle_option(option_name)
-	execute 'setlocal' a:option_name . '!'
-	execute 'setlocal' a:option_name . '?'
-endfunction
-nnoremap <silent> <Space>ow  :<C-u>call <SID>toggle_option('wrap')<CR>
-nnoremap <silent> <Space>nu  :<C-u>call <SID>toggle_option('number')<CR>
-nnoremap <silent> <Space>hl  :<C-u>call <SID>toggle_option('hlsearch')<CR>
-nnoremap <silent> <Space>et  :<C-u>call <SID>toggle_option('expandtab')<CR>
+nnoremap <silent> <Space>ow  :<C-u>call vimrc#toggle_option('wrap')<CR>
+nnoremap <silent> <Space>nu  :<C-u>call vimrc#toggle_option('number')<CR>
+nnoremap <silent> <Space>hl  :<C-u>call vimrc#toggle_option('hlsearch')<CR>
+nnoremap <silent> <Space>et  :<C-u>call vimrc#toggle_option('expandtab')<CR>
 " }}}
 
 " current date/time {{{
