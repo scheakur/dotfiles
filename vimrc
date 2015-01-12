@@ -5,6 +5,7 @@
 
 " basic {{{
 " ------------------------------------------------------------------------------
+
 " encoding {{{
 " `set encoding=utf8` *must* be before `scriptencoding utf8`
 " because `scriptencoding utf-8` converts source string
@@ -75,6 +76,7 @@ colorscheme scheakur
 
 " option {{{
 " ------------------------------------------------------------------------------
+
 " search {{{
 set ignorecase
 set smartcase
@@ -587,7 +589,6 @@ source $VIMRUNTIME/macros/matchit.vim
 " }}}
 
 " quickrun {{{
-
 let g:quickrun_config = {
 \	'_': {
 \		'runner': 'vimproc',
@@ -628,10 +629,7 @@ if (s:in_mac)
 	\})
 endif
 
-" to quickrun sql {{{
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
-" }}}
-
 " }}}
 
 " watchdogs {{{
@@ -779,15 +777,18 @@ autocmd vimrc BufWinEnter *  call vimrc#maximize_winheight_in_help()
 
 " select readonly as swapchoice automatically
 autocmd vimrc SwapExists *  let v:swapchoice = 'o'
+
 " }}}
 
 
 " finally {{{
 " ------------------------------------------------------------------------------
+
 call vimrc#load_local_vimrc()
 call watchdogs#setup(g:quickrun_config)
 call vimrc#print_error_in_splash()
 set secure
+
 " /finally }}}
 
 
