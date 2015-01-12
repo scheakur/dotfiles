@@ -18,7 +18,7 @@ set fileencodings=ucs-bom,iso-2022-jp,euc-jp,utf-8,cp932,utf-16le,utf-16
 source $HOME/.vim/autoload/vimrc.vim
 
 " clear command
-augroup my
+augroup vimrc
 	autocmd!
 augroup end
 
@@ -60,11 +60,11 @@ filetype indent on
 
 " color {{{
 " auto loading after/colors
-autocmd my ColorScheme *  call vimrc#load_after_colors()
+autocmd vimrc ColorScheme *  call vimrc#load_after_colors()
 
 " highlight full width space as bad
-autocmd my ColorScheme *  highlight link FullWidthSpace SpellBad
-autocmd my Syntax *  syntax match FullWidthSpace containedin=ALL /　/
+autocmd vimrc ColorScheme *  highlight link FullWidthSpace SpellBad
+autocmd vimrc Syntax *  syntax match FullWidthSpace containedin=ALL /　/
 
 set background=dark
 colorscheme scheakur
@@ -143,8 +143,8 @@ set textwidth=0
 set cmdheight=2
 set laststatus=2
 
-autocmd my BufLeave,WinLeave *  call vimrc#set_statusline_nc()
-autocmd my BufEnter,WinEnter *  call vimrc#set_statusline()
+autocmd vimrc BufLeave,WinLeave *  call vimrc#set_statusline_nc()
+autocmd vimrc BufEnter,WinEnter *  call vimrc#set_statusline()
 " }}}
 
 " misc {{{
@@ -758,27 +758,27 @@ let g:sonictemplate_vim_template_dir = expand('~/.vim.local/template')
 " ------------------------------------------------------------------------------
 
 " Create non-existing diretories automatically when the file is saved.
-autocmd my BufWritePre *  call vimrc#auto_mkdir(expand('<afile>:p:h'))
+autocmd vimrc BufWritePre *  call vimrc#auto_mkdir(expand('<afile>:p:h'))
 
 " Open quickfix window after executing make.
-autocmd my QuickfixCmdPost  make copen
+autocmd vimrc QuickfixCmdPost  make copen
 
 " Avoid saving files with keyboard misstroke
 " ref. http://d.hatena.ne.jp/tyru/20130419/avoid_tyop
-autocmd my BufWriteCmd *;  call vimrc#ignore_invalid_file(expand('<afile>'))
+autocmd vimrc BufWriteCmd *;  call vimrc#ignore_invalid_file(expand('<afile>'))
 
 " Reload a file on WinEnter if the file has been modified
 set autoread
-autocmd my WinEnter *  checktime
+autocmd vimrc WinEnter *  checktime
 
 " key mapping in vimdiff
-autocmd my FilterWritePre *  call vimrc#config_in_diff_mode()
+autocmd vimrc FilterWritePre *  call vimrc#config_in_diff_mode()
 
 " Maximize help window
-autocmd my BufWinEnter *  call vimrc#maximize_winheight_in_help()
+autocmd vimrc BufWinEnter *  call vimrc#maximize_winheight_in_help()
 
 " select readonly as swapchoice automatically
-autocmd my SwapExists *  let v:swapchoice = 'o'
+autocmd vimrc SwapExists *  let v:swapchoice = 'o'
 " }}}
 
 
