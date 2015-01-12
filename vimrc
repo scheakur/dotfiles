@@ -15,7 +15,7 @@ set fileencodings=ucs-bom,iso-2022-jp,euc-jp,utf-8,cp932,utf-16le,utf-16
 " }}}
 
 " make vimrc reloadable
-execute 'source' expand('~/.vim/autoload/vimrc.vim')
+source $HOME/.vim/autoload/vimrc.vim
 
 " clear command
 augroup my
@@ -50,7 +50,7 @@ syntax enable
 filetype off
 
 " bundle {{{
-execute 'source' expand('~/.vim/bundles.vim')
+source $HOME/.vim/bundles.vim
 " }}}
 
 " after bundling, enable filetype
@@ -120,12 +120,12 @@ let g:xml_syntax_folding = 1
 set nowritebackup
 set nobackup
 set directory-=.
-let &directory = $HOME . '/tmp/vim,' . &directory
+let &directory = expand('~/tmp/vim,') . &directory
 set undofile
-let &undodir = $HOME . '/tmp/vim/undo,' . &directory
+let &undodir = expand('~/tmp/vim/undo,') . &directory
 " make tmp directory
-if !isdirectory($HOME . '/tmp/vim/undo')
-	call mkdir($HOME . '/tmp/vim/undo', 'p')
+if !isdirectory(expand('~/tmp/vim/undo'))
+	call mkdir(expand('~/tmp/vim/undo'), 'p')
 endif
 set history=1024
 set viminfo='128,<512,s64,h
@@ -274,8 +274,8 @@ command! CopyMessages call vimrc#copy_messages()
 " vimrc {{{
 nnoremap <Space>s.  :<C-u>source $MYVIMRC<CR>
 nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
-nnoremap <Space>s>  :<C-u>source ~/.gvimrc<CR>
-nnoremap <Space>>  :<C-u>edit ~/.gvimrc<CR>
+nnoremap <Space>s>  :<C-u>source $HOME/.gvimrc<CR>
+nnoremap <Space>>  :<C-u>edit $HOME/.gvimrc<CR>
 " }}}
 
 " basic {{{
@@ -641,8 +641,8 @@ let g:watchdogs_check_BufWritePost_enables = {
 " }}}
 
 " dois.vim {{{
-let g:dois_file = $HOME . '/Dropbox/tmp/doinglist.taskpaper'
-let g:dois_dir = $HOME . '/Dropbox/tmp/doinglist'
+let g:dois_file = expand('~/Dropbox/tmp/doinglist.taskpaper')
+let g:dois_dir = expand('~/Dropbox/tmp/doinglist')
 nmap <C-CR>  <Plug>(dois:n:add-daily-task)
 " }}}
 
@@ -748,7 +748,7 @@ let g:repautocd_markers = [
 " }}}
 
 " sonictemplate-vim {{{
-let g:sonictemplate_vim_template_dir = '$HOME/.vim.local/template'
+let g:sonictemplate_vim_template_dir = expand('~/.vim.local/template')
 " }}}
 
 " /plugin }}}
