@@ -265,7 +265,7 @@ command! RandomString  call vimrc#random_string(8)
 command! UUID  call vimrc#uuid()
 
 command! ClearMessages  call vimrc#clear_messages()
-command! CopyMessages call vimrc#copy_messages()
+command! CopyMessages  call vimrc#copy_messages()
 
 " /command }}}
 
@@ -617,7 +617,7 @@ let g:quickrun_config = {
 \	},
 \}
 
-if (s:in_mac)
+if s:in_mac
 	call extend(g:quickrun_config, {
 	\	'markdown' : {
 	\		'command': 'open',
