@@ -259,10 +259,10 @@ command! Qclear  call setqflist([])
 command! Lclear  call setloclist(0, [])
 
 " generate random string
-command! -nargs=0 RandomString  call vimrc#random_string(8)
+command! RandomString  call vimrc#random_string(8)
 
 " generate UUID version 4
-command! -nargs=0 UUID  call vimrc#uuid()
+command! UUID  call vimrc#uuid()
 
 command! ClearMessages  call vimrc#clear_messages()
 command! CopyMessages call vimrc#copy_messages()
