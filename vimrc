@@ -253,10 +253,10 @@ command! -nargs=? Underline  call vimrc#underline(<q-args>)
 command! Bdelete  call vimrc#delete_buffer()
 
 " clear quickfix list
-command! Qclear  call setqflist([])
+command! ClearQuickfix  call setqflist([])
 
 " clear location list
-command! Lclear  call setloclist(0, [])
+command! ClearLocationList  call setloclist(0, [])
 
 " generate random string
 command! RandomString  call vimrc#random_string(8)
@@ -264,6 +264,7 @@ command! RandomString  call vimrc#random_string(8)
 " generate UUID version 4
 command! UUID  call vimrc#uuid()
 
+" messages
 command! ClearMessages  call vimrc#clear_messages()
 command! CopyMessages  call vimrc#copy_messages()
 
