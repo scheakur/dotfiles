@@ -149,15 +149,21 @@ endfunction
 
 " generate UUID version 4 {{{
 function! vimrc#uuid()
-	let s = s:random_char_array('0123456789abcdef', 31)
+	return split(s:uuid(), '\n')[0]
+endfunction
 
-	let p0 = join(s[:7], '')
-	let p1 = join(s[8:11], '')
-	let p2 = join(s[12:14], '')
-	let p3 = join(s[15:18], '')
-	let p4 = join(s[19:], '')
 
-	return printf('%s-%s-4%s-%s-%s', p0, p1, p2, p3, p4)
+function! s:uuid()
+	if executable('uuidgen')
+		return system('uuidgen')
+	endif
+	if executable('python')
+		return system("python -c 'import uuid;print uuid.uuid4()'")
+	endif
+	if executable('groovy')
+		return system("groovy -e 'println UUID.randomUUID().toString()'")
+	endif
+	echoerr 'Need uuidgen or python or groovy'
 endfunction
 " }}}
 
