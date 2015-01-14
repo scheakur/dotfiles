@@ -259,10 +259,10 @@ command! ClearQuickfix  call setqflist([])
 command! ClearLocationList  call setloclist(0, [])
 
 " generate random string
-command! RandomString  call vimrc#random_string(8)
+command! RandomString  let @+ = vimrc#random_string(8)
 
 " generate UUID version 4
-command! UUID  call vimrc#uuid()
+command! UUID  let @+ = vimrc#uuid()
 
 " messages
 command! ClearMessages  call vimrc#clear_messages()

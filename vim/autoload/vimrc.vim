@@ -142,7 +142,7 @@ endfunction
 
 function! vimrc#random_string(n)
 	let s = s:random_char_array('0123456789abcdefghijklmnopqrstuvwxyz', a:n)
-	let @+ = join(s, '')
+	return join(s, '')
 endfunction
 " }}}
 
@@ -157,7 +157,7 @@ function! vimrc#uuid()
 	let p3 = join(s[15:18], '')
 	let p4 = join(s[19:], '')
 
-	let @+ = printf('%s-%s-4%s-%s-%s', p0, p1, p2, p3, p4)
+	return printf('%s-%s-4%s-%s-%s', p0, p1, p2, p3, p4)
 endfunction
 " }}}
 
