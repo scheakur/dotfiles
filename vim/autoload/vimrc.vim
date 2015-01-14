@@ -2,6 +2,13 @@
 "                             functions for vimrc                              "
 " ============================================================================ "
 
+if exists('vimrc#loading') && vimrc#loading
+	finish
+endif
+
+let vimrc#loading = 1
+
+
 " handle environment-specific vimrc {{{
 let s:error = []
 
@@ -403,6 +410,8 @@ function! vimrc#ignore_invalid_file(file)
 endfunction
 " }}}
 
+
+let vimrc#loading = 0
 
 " vim: set noexpandtab :
 " vim: set foldenable foldmethod=marker :
