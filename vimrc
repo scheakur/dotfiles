@@ -465,7 +465,7 @@ nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
 
 " misc {{{
 nnoremap <silent> *
-\	:<C-u>call <SID>search_without_move()<CR>zz:<C-u>set hlsearch<CR>
+\	:<C-u>call vimrc#search_without_move()<CR>zz:<C-u>set hlsearch<CR>
 
 " search with the selected text
 vnoremap <silent> *
