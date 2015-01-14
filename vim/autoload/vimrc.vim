@@ -13,7 +13,7 @@ function! vimrc#load_local_vimrc(...)
 			execute 'source' vimrc
 		catch
 			call s:err('an error occurred in ' . vimrc)
-			" call s:err(v:exception) " This might be slow
+			call s:err(v:exception) " This might be slow
 		endtry
 	endif
 endfunction
