@@ -578,6 +578,12 @@ endif
 
 let g:unite_source_grep_max_candidates = 100
 
+" highlight for status line of unite
+highlight link uniteStatusHead uniteStatusNormal
+highlight link uniteStatusLineNR uniteStatusNormal
+highlight link uniteStatusMessage uniteStatusNormal
+highlight link uniteStatusSourceCandidates uniteStatusNormal
+highlight link uniteStatusSourceNames uniteStatusNormal
 " /unite }}}
 
 " commentary {{{
