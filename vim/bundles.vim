@@ -55,6 +55,7 @@ NeoBundle 'https://github.com/scheakur/vim-unvoice.git'
 NeoBundle 'https://github.com/scheakur/vim-winput.git'
 NeoBundle 'https://github.com/Shougo/neomru.vim.git'
 NeoBundle 'https://github.com/Shougo/neosnippet.vim.git'
+NeoBundle 'https://github.com/Shougo/tabpagebuffer.vim.git'
 NeoBundle 'https://github.com/Shougo/unite.vim.git'
 NeoBundle 'https://github.com/Shougo/vimproc.vim.git', {
 \	'build' : {
