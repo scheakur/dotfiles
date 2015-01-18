@@ -770,7 +770,7 @@ autocmd vimrc QuickfixCmdPost  make copen
 
 " Avoid saving files with keyboard misstroke
 " ref. http://d.hatena.ne.jp/tyru/20130419/avoid_tyop
-autocmd vimrc BufWriteCmd *;  call vimrc#ignore_invalid_file(expand('<afile>'))
+autocmd vimrc BufWriteCmd *;*  call vimrc#ignore_invalid_file(expand('<afile>'))
 
 " Reload a file on WinEnter if the file has been modified
 set autoread
