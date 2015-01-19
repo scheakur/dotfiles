@@ -156,7 +156,7 @@ endfunction
 
 " generate UUID version 4 {{{
 function! vimrc#uuid()
-	return split(s:uuid(), '\n')[0]
+	return substitute(s:uuid(), '\n', '', 'g')
 endfunction
 
 
