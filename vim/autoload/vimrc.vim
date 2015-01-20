@@ -380,7 +380,7 @@ function! vimrc#search_without_move()
 endfunction
 
 
-function! vimrc#auto_mkdir(dir)
+function! vimrc#mkdir(dir)
 	if isdirectory(a:dir)
 		return
 	endif

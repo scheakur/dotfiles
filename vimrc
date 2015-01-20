@@ -18,7 +18,7 @@ set fileencodings=utf-8,ucs-bom,iso-2022-jp,euc-jp,cp932,utf-16le,utf-16
 " make vimrc reloadable
 source $HOME/.vim/autoload/vimrc.vim
 
-" clear command
+" clear autocmd
 augroup vimrc
 	autocmd!
 augroup end
@@ -124,11 +124,8 @@ set nobackup
 set directory-=.
 let &directory = expand('~/tmp/vim,') . &directory
 set undofile
+call vimrc#mkdir(expand('~/tmp/vim/undo'))
 let &undodir = expand('~/tmp/vim/undo,') . &directory
-" make tmp directory
-if !isdirectory(expand('~/tmp/vim/undo'))
-	call mkdir(expand('~/tmp/vim/undo'), 'p')
-endif
 set history=1024
 set viminfo='128,<512,s64,h
 " }}}
@@ -763,7 +760,7 @@ let g:sonictemplate_vim_template_dir = expand('~/.vim.local/template')
 " ------------------------------------------------------------------------------
 
 " Create non-existing diretories automatically when the file is saved.
-autocmd vimrc BufWritePre *  call vimrc#auto_mkdir(expand('<afile>:p:h'))
+autocmd vimrc BufWritePre *  call vimrc#mkdir(expand('<afile>:p:h'))
 
 " Open quickfix window after executing make.
 autocmd vimrc QuickfixCmdPost  make copen
