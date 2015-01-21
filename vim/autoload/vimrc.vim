@@ -339,9 +339,7 @@ function! vimrc#greprep(grep_args)
 		echoerr 'Need https://github.com/thinca/vim-qfreplace'
 	endif
 	silent execute 'grep' a:grep_args
-	copen
 	Qfreplace
-	cclose
 endfunction
 " }}}
 
