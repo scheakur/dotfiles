@@ -336,7 +336,8 @@ endfunction
 " greprep {{{
 function! vimrc#greprep(grep_args)
 	if !exists(':Qfreplace')
-		echoerr 'Need https://github.com/thinca/vim-qfreplace'
+		echoerr 'Need :Qfreplace (https://github.com/thinca/vim-qfreplace)'
+		return
 	endif
 	silent execute 'grep' a:grep_args
 	Qfreplace
