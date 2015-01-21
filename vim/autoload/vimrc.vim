@@ -333,6 +333,19 @@ endfunction
 " }}}
 
 
+" greprep {{{
+function! vimrc#greprep(grep_args)
+	if !exists(':Qfreplace')
+		echoerr 'Need https://github.com/thinca/vim-qfreplace'
+	endif
+	silent execute 'grep' a:grep_args
+	copen
+	Qfreplace
+	cclose
+endfunction
+" }}}
+
+
 " misc. {{{
 function! vimrc#toggle_option(option_name)
 	execute 'setlocal' a:option_name . '!'

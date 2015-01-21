@@ -265,6 +265,9 @@ command! UUID  let @+ = vimrc#uuid()
 command! ClearMessages  call vimrc#clear_messages()
 command! CopyMessages  call vimrc#copy_messages()
 
+" grep and qfreplace
+command! -nargs=+ -complete=file Greprep  call vimrc#greprep(<q-args>)
+
 " /command }}}
 
 
