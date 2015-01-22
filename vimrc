@@ -618,7 +618,7 @@ let g:quickrun_config = {
 \		'outputter/buffer/filetype': 'quickrun.sqloutput',
 \	},
 \	'rst': {
-\		'command': 'rst2html',
+\		'command': 'pandoc',
 \		'outputter': 'browser',
 \	},
 \}
