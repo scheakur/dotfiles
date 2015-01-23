@@ -27,11 +27,9 @@ if s:in_mac
 elseif s:in_nix
 	set guifont=Ricty\ 12
 	set guifontwide=Ricty\ 12
-else
-	set guifont=VL\ Gothic:h12
-	set guifontwide=VL\ Gothic:h12
 endif
 " }}}
+
 
 " window size {{{
 if s:in_mac
@@ -46,9 +44,6 @@ elseif s:in_nix
 		set columns=100
 		winpos 400 90
 	endif
-else
-	set lines=40
-	set columns=100
 endif
 " }}}
 
@@ -63,10 +58,13 @@ set guioptions-=T
 set langmenu=none
 " }}}
 
+
+" macvim {{{
 if has('gui_macvim')
 	set noimdisable
 	set iminsert=2
 endif
+" }}}
 
 " @see :help modeline
 " vim: set foldenable foldmethod=marker :
