@@ -340,6 +340,8 @@ cnoremap <Down>  <C-n>
 
 " remove last element if a string in command line is like path string {{{
 cnoremap <C-w>  <C-\>evimrc#remove_path_element()<CR>
+
+cnoremap <expr> <CR>  (vimrc#help_with_trailing_atmark()) ? "en\<CR>" : "\<CR>"
 " }}}
 
 " }}}
