@@ -345,6 +345,36 @@ endfunction
 " }}}
 
 
+" handle E149: Sorry, no help for xxx {{{
+function! vimrc#help_with_trailing_atmark()
+	if getcmdtype() != ':'
+		return 0
+	endif
+	return s:is_invalid_help_arg(getcmdline())
+endfunction
+
+
+function! s:is_invalid_help_arg(cmd)
+	let re = '^\s*h\%[elp]\s\+.*@\s*$'
+	if a:cmd !~# re
+		return 0
+	endif
+
+	let arg = split(a:cmd, '\s', 0)[1]
+	if arg =~# '[^g:@\-]@$'
+		return 1
+	endif
+
+	for s in ['viminfo-@@', 'let-@@', 'i_CTRL-@@', 'g@@', '@@@', ':@@@']
+		if s ==? arg
+			return 1
+		endif
+	endfor
+
+	return 0
+endfunction
+" }}}
+
 " misc. {{{
 function! vimrc#toggle_option(option_name)
 	execute 'setlocal' a:option_name . '!'
@@ -419,27 +449,6 @@ endfunction
 
 function! vimrc#ignore_invalid_file(file)
 	echoerr 'Invalid file name: "' . a:file . '"'
-endfunction
-
-
-function! vimrc#help_with_trailing_atmark()
-	if getcmdtype() != ':'
-		return 0
-	endif
-	return s:is_invalid_help_arg(getcmdline())
-endfunction
-
-
-function! s:is_invalid_help_arg(cmd)
-	let re = '^\s*h\%[elp]\s\+.*@\s*$'
-	if a:cmd !~? re
-		return 0
-	endif
-	let arg = split(a:cmd, '\s', 0)[1]
-	if arg =~? '[^g:@\-]@$'
-		return 1
-	endif
-	return index(['viminfo-@@', 'let-@@', 'i_CTRL-@@', 'g@@', '@@@', ':@@@'], arg) > -1
 endfunction
 " }}}
 
