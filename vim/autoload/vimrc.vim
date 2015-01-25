@@ -365,7 +365,7 @@ function! s:is_invalid_help_arg(cmd)
 		return 1
 	endif
 
-	for s in ['viminfo-@@', 'let-@@', 'i_CTRL-@@', 'g@@', '@@@', ':@@@']
+	for s in ['viminfo-@@', 'let-@@', ':let-@@', 'i_CTRL-@@', 'g@@', '@@@', ':@@@']
 		if s ==? arg
 			return 1
 		endif
