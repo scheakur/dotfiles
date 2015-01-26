@@ -375,6 +375,7 @@ function! s:is_invalid_help_arg(cmd)
 endfunction
 " }}}
 
+
 " misc. {{{
 function! vimrc#toggle_option(option_name)
 	execute 'setlocal' a:option_name . '!'
