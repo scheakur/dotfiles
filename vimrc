@@ -483,6 +483,8 @@ nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
 
 " completion
 inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
+
+nnoremap <C-]>  g<C-]>
 " }}}
 
 " /keymap }}}
