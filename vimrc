@@ -587,6 +587,9 @@ highlight link uniteStatusLineNR uniteStatusNormal
 highlight link uniteStatusMessage uniteStatusNormal
 highlight link uniteStatusSourceCandidates uniteStatusNormal
 highlight link uniteStatusSourceNames uniteStatusNormal
+
+" initialize unite menu
+let g:unite_source_menu_menus = {}
 " /unite }}}
 
 " commentary {{{
