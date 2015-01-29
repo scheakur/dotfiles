@@ -590,6 +590,17 @@ highlight link uniteStatusSourceNames uniteStatusNormal
 
 " initialize unite menu
 let g:unite_source_menu_menus = {}
+
+let g:unite_source_menu_menus.vim = {
+\	'description': 'Vim'
+\}
+
+let g:unite_source_menu_menus.vim.command_candidates = [
+\	['Diff on these two', 'diffthis | wincmd p | diffthis'],
+\	['Diff off these two', 'diffoff | wincmd p | diffoff'],
+\	['Diff agenst original file', 'vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis'],
+\]
+
 " /unite }}}
 
 " commentary {{{
