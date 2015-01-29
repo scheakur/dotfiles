@@ -383,7 +383,7 @@ function! vimrc#toggle_option(option_name)
 endfunction
 
 
-function! vimrc#change_dir(directory, bang)
+function! vimrc#cd(directory, bang)
 	if a:directory == ''
 		lcd %:p:h
 	else

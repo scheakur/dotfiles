@@ -231,7 +231,7 @@ command! -nargs=1 -complete=file Rename  f <args>|w|call delete(expand('#'))
 command! -range=% RemoveTrailM  <line1>,<line2>s!\r$!!g | nohlsearch
 
 " command CD
-command! -nargs=? -complete=dir -bang CD  call vimrc#change_dir('<args>', '<bang>')
+command! -nargs=? -complete=dir -bang CD  call vimrc#cd('<args>', '<bang>')
 nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 
 " format JSON
@@ -598,7 +598,7 @@ let g:unite_source_menu_menus.vim = {
 let g:unite_source_menu_menus.vim.command_candidates = [
 \	['Diff on these two', 'diffthis | wincmd p | diffthis'],
 \	['Diff off these two', 'diffoff | wincmd p | diffoff'],
-\	['Diff agenst original file', 'vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis'],
+\	['Diff against original file', 'vert new | set bt=nofile | r ++edit # | 0d_ | diffthis | wincmd p | diffthis'],
 \]
 
 " /unite }}}
