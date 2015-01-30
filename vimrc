@@ -203,7 +203,7 @@ command! -bang -bar -complete=file -nargs=? Dos   edit<bang> ++fileformat=dos <a
 " remove spaces {{{
 command! -range=% TrimSpace  <line1>,<line2>s!\s*$!!g | nohlsearch
 
-command! -range ShrinkSpace <line1>,<line2>s![^ ]\zs\s\{2,}! !g | normal gv | nohlsearch
+command! -range ShrinkSpace  <line1>,<line2>s![^ ]\zs\s\+! !g | nohlsearch | normal gv
 " }}}
 
 " insert a blank line every N lines {{{
