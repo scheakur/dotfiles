@@ -261,9 +261,9 @@ command! -nargs=+ -complete=file Greprep  call vimrc#greprep(<q-args>)
 
 " vimrc {{{
 nnoremap <Space>s.  :<C-u>source $MYVIMRC<CR>
-nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR>
+nnoremap <Space>.   :<C-u>edit $MYVIMRC<CR>
 nnoremap <Space>s>  :<C-u>source $HOME/.gvimrc<CR>
-nnoremap <Space>>  :<C-u>edit $HOME/.gvimrc<CR>
+nnoremap <Space>>   :<C-u>edit $HOME/.gvimrc<CR>
 " }}}
 
 " basic {{{
@@ -432,22 +432,22 @@ nnoremap [Quickfix]  <Nop>
 nmap q  [Quickfix]
 nnoremap Q  q
 
-nnoremap <silent> [Quickfix]n  :<C-u>cnext<CR>
-nnoremap <silent> [Quickfix]p  :<C-u>cprevious<CR>
-nnoremap <silent> [Quickfix]j  :<C-u>cnext<CR>
-nnoremap <silent> [Quickfix]k  :<C-u>cprevious<CR>
-nnoremap <silent> [Quickfix]r  :<C-u>crewind<CR>
-nnoremap <silent> [Quickfix]N  :<C-u>cfirst<CR>
-nnoremap <silent> [Quickfix]P  :<C-u>clast<CR>
+nnoremap <silent> [Quickfix]n   :<C-u>cnext<CR>
+nnoremap <silent> [Quickfix]p   :<C-u>cprevious<CR>
+nnoremap <silent> [Quickfix]j   :<C-u>cnext<CR>
+nnoremap <silent> [Quickfix]k   :<C-u>cprevious<CR>
+nnoremap <silent> [Quickfix]r   :<C-u>crewind<CR>
+nnoremap <silent> [Quickfix]N   :<C-u>cfirst<CR>
+nnoremap <silent> [Quickfix]P   :<C-u>clast<CR>
 nnoremap <silent> [Quickfix]fn  :<C-u>cnfile<CR>
 nnoremap <silent> [Quickfix]fp  :<C-u>cpfile<CR>
-nnoremap <silent> [Quickfix]l  :<C-u>clist<CR>
-nnoremap <silent> [Quickfix]q  :<C-u>cc<CR>
-nnoremap <silent> [Quickfix]o  :<C-u>copen<CR>
-nnoremap <silent> [Quickfix]c  :<C-u>cclose<CR>
+nnoremap <silent> [Quickfix]l   :<C-u>clist<CR>
+nnoremap <silent> [Quickfix]q   :<C-u>cc<CR>
+nnoremap <silent> [Quickfix]o   :<C-u>copen<CR>
+nnoremap <silent> [Quickfix]c   :<C-u>cclose<CR>
 nnoremap <silent> [Quickfix]en  :<C-u>cnewer<CR>
 nnoremap <silent> [Quickfix]ep  :<C-u>colder<CR>
-nnoremap <silent> [Quickfix]m  :<C-u>make<CR>
+nnoremap <silent> [Quickfix]m   :<C-u>make<CR>
 " }}}
 
 " misc {{{
