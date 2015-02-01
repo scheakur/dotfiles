@@ -261,9 +261,9 @@ command! -nargs=+ -complete=file Greprep  call vimrc#greprep(<q-args>)
 
 " vimrc {{{
 nnoremap <Space>s.  :<C-u>source $MYVIMRC<CR>
-nnoremap <Space>.   :<C-u>edit $MYVIMRC<CR>
+nnoremap <Space>.   :<C-u>edit   $MYVIMRC<CR>
 nnoremap <Space>s>  :<C-u>source $HOME/.gvimrc<CR>
-nnoremap <Space>>   :<C-u>edit $HOME/.gvimrc<CR>
+nnoremap <Space>>   :<C-u>edit   $HOME/.gvimrc<CR>
 " }}}
 
 " basic {{{
