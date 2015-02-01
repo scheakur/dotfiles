@@ -657,7 +657,7 @@ if s:in_mac
 	\})
 endif
 
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+nnoremap <expr><silent> <C-c>  quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 " }}}
 
 " watchdogs {{{
