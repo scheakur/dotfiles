@@ -330,6 +330,8 @@ cnoremap <C-w>  <C-\>evimrc#remove_path_element()<CR>
 cnoremap <expr> <CR>  (vimrc#help_with_trailing_atmark()) ? "en\<CR>" : "\<CR>"
 " }}}
 
+" sudo write
+cnoremap w!!  w !sudo tee > /dev/null %
 " }}}
 
 " toggle option {{{
@@ -396,10 +398,16 @@ vmap i;  <Plug>(textobj-between-i)
 " }}}
 
 " handle window {{{
-nnoremap <C-w>-  <C-w>3-
-nnoremap <C-w>>  <C-w>3>
-nnoremap <C-w><  <C-w>3<
-nnoremap <C-w>+  <C-w>3+
+" key repeat for window sizing ( <C-w>+++ = <C-w>+<C-w>+<C-w>+ )
+nmap <C-w>+  <C-w>+<SID>(window-size)
+nmap <C-w>-  <C-w>-<SID>(window-size)
+nmap <C-w>>  <C-w>><SID>(window-size)
+nmap <C-w><  <C-w><<SID>(window-size)
+nnoremap <script> <SID>(window-size)+  <C-w>+<SID>(window-size)
+nnoremap <script> <SID>(window-size)-  <C-w>-<SID>(window-size)
+nnoremap <script> <SID>(window-size)>  <C-w>><SID>(window-size)
+nnoremap <script> <SID>(window-size)<  <C-w><<SID>(window-size)
+nmap <SID>(window-size)  <Nop>
 
 " split window
 nmap <Space>wj  <SID>(split-to-j)
