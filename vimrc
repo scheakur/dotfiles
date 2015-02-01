@@ -373,16 +373,26 @@ onoremap ir  i]
 vnoremap ir  i]
 
 " 'quote'
-onoremap aq  a'
-vnoremap aq  a'
+onoremap aq  2i'
+vnoremap aq  2i'
 onoremap iq  i'
 vnoremap iq  i'
 
+onoremap a'  2i'
+vnoremap a'  2i'
+
 " "double quote"
-onoremap ad  a"
-vnoremap ad  a"
+onoremap ad  2i"
+vnoremap ad  2i"
 onoremap id  i"
 vnoremap id  i"
+
+onoremap a"  2i"
+vnoremap a"  2i"
+
+" backquote
+onoremap a`  2i`
+vnoremap a`  2i`
 
 " textobj-function (default f)
 omap af  <Plug>(textobj-function-a)
