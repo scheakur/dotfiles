@@ -649,6 +649,10 @@ let g:quickrun_config = {
 \		'command': 'pandoc',
 \		'outputter': 'browser',
 \	},
+\	'javascript.es6' : {
+\		'tempfile': '%{tempname()}.js',
+\		'exec': 'iojs --harmony %s',
+\	},
 \}
 
 if s:in_mac
