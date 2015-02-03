@@ -296,6 +296,10 @@ inoremap <C-w>  <C-g>u<C-w>
 inoremap <C-d>  <Delete>
 nnoremap <silent> O  :<C-u>call append(expand('.'), '')<CR>j
 nnoremap <Space>M  :<C-u>marks<CR>:mark<Space>
+
+" paste yank register
+nnoremap zp  "0p
+nnoremap zP  "0P
 " }}}
 
 " copy(yank) and paste with clipboard {{{
