@@ -781,6 +781,8 @@ let g:repautocd_markers = [
 
 " sonictemplate-vim {{{
 let g:sonictemplate_vim_template_dir = expand('~/.vim.local/template')
+
+inoremap <C-t>  <Esc>diw:Template<Space><C-r>-<C-l><CR>
 " }}}
 
 " /plugin }}}
