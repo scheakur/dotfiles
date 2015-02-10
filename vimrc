@@ -253,6 +253,9 @@ command! CopyMessages  call vimrc#copy_messages()
 " grep and qfreplace
 command! -nargs=+ -complete=file Greprep  call vimrc#greprep(<q-args>)
 
+" sudo write
+command! SudoWrite  w !sudo tee > /dev/null %
+
 " /command }}}
 
 
@@ -336,8 +339,6 @@ cnoremap <C-w>  <C-\>evimrc#remove_path_element()<CR>
 cnoremap <expr> <CR>  (vimrc#help_with_trailing_atmark()) ? "en\<CR>" : "\<CR>"
 " }}}
 
-" sudo write
-cnoremap w!!  w !sudo tee > /dev/null %
 " }}}
 
 " toggle option {{{
@@ -817,6 +818,9 @@ autocmd vimrc BufWinEnter *  call vimrc#maximize_winheight_in_help()
 
 " select readonly as swapchoice automatically
 autocmd vimrc SwapExists *  let v:swapchoice = 'o'
+
+" select reload as fcs_choice automatically
+autocmd vimrc FileChangedShell *  let v:fcs_choice = 'reload'
 
 " }}}
 
