@@ -15,7 +15,7 @@ function! s:fname(name)
 endfunction
 
 function! s:jsbeautify(indent_size)
-	execute 'silent! %!js-beautify -f - --jslint-happy true --indent-size' a:indent_size
+	execute 'silent! %!js-beautify -f - --indent-size' a:indent_size
 endfunction
 
 execute 'command! -buffer FormatJavaScript  :call' s:fname('jsbeautify') '(2)'
