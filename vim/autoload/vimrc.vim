@@ -376,13 +376,7 @@ endfunction
 " }}}
 
 
-" misc. {{{
-function! vimrc#toggle_option(option_name)
-	execute 'setlocal' a:option_name . '!'
-	execute 'setlocal' a:option_name . '?'
-endfunction
-
-
+" directory {{{
 function! vimrc#cd(directory, bang)
 	if a:directory == ''
 		lcd %:p:h
@@ -392,6 +386,22 @@ function! vimrc#cd(directory, bang)
 	if a:bang == ''
 		pwd
 	endif
+endfunction
+
+
+function! vimrc#mkdir(dir)
+	if isdirectory(a:dir)
+		return
+	endif
+	call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
+endfunction
+" }}}
+
+
+" misc. {{{
+function! vimrc#toggle_option(option_name)
+	execute 'setlocal' a:option_name . '!'
+	execute 'setlocal' a:option_name . '?'
 endfunction
 
 
@@ -420,14 +430,6 @@ endfunction
 function! vimrc#search_without_move()
 	let @/ = '\<' . expand('<cword>') . '\>'
 	call histadd('/', @/)
-endfunction
-
-
-function! vimrc#mkdir(dir)
-	if isdirectory(a:dir)
-		return
-	endif
-	call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
 endfunction
 
 
