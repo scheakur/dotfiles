@@ -290,6 +290,7 @@ function! vimrc#get_oracle_conn(mode)
 	return conn
 endfunction
 
+
 function! s:get_option(option_name, ...)
 	if exists('b:' . a:option_name)
 		return eval('b:' . a:option_name)
