@@ -487,7 +487,7 @@ vnoremap <silent> <CR>
 
 " identify the syntax highlighting group used at the cursor
 command! ShowHilite  call vimrc#show_hilite()
-nnoremap <M-F12>  :<C-u>ShowHilite<CR>
+nnoremap <C-F12>  :<C-u>ShowHilite<CR>
 
 " hlsearch (search and highlight)
 nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
