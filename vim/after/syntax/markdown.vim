@@ -10,8 +10,6 @@ function! s:set_syntax()
 	let n = len(marks)
 	for i in range(n)
 		execute 'syntax match markdownListItem' . i s:list_syntax(i, n) 'conceal cchar=' . marks[i]
-	endfor
-	for i in range(n)
 		execute 'highlight link markdownListItem' . i 'Identifier'
 	endfor
 endfunction
