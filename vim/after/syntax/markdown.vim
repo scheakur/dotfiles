@@ -6,7 +6,7 @@ function! s:list_syntax(start, cycle)
 endfunction
 
 function! s:set_syntax()
-	let marks = ['￭', '►', '∙', '⎕', '⊳', '￮', '⋆']
+	let marks = ['￭', '▸', '∙', '▹', '￮', '⋆']
 	let n = len(marks)
 	for i in range(n)
 		execute 'syntax match markdownListItem' . i s:list_syntax(i, n) 'conceal cchar=' . marks[i]
