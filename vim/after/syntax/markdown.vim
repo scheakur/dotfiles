@@ -1,6 +1,3 @@
-setlocal conceallevel=2
-setlocal concealcursor=ni
-
 function! s:list_syntax(start, cycle)
 	return printf('"\v^\s{%s}(\s{%s})*\zs[-+*]\ze\s+"', &shiftwidth * a:start, &shiftwidth * a:cycle)
 endfunction
