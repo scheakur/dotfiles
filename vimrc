@@ -790,6 +790,12 @@ let g:sonictemplate_vim_template_dir = expand('~/.vim.local/template')
 inoremap <C-e>  <Esc>diw:Template<Space><C-r>-<C-l><CR>i
 " }}}
 
+" vim-submode {{{
+" open fold
+call submode#enter_with('fold', 'n', '', 'zo', 'zozj')
+call submode#map('fold', 'n', '', 'o', 'zozj')
+" }}}
+
 " /plugin }}}
 
 
