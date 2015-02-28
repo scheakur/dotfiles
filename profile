@@ -59,6 +59,10 @@ PATH=$GOROOT/bin:$PATH
 export GOPATH=$HOME
 PATH=$GOPATH/bin:$PATH
 
+
+# node
+PATH=$HOME/.nodebrew/current/bin:$PATH
+
 # local bin
 PATH=$HOME/local/bin:$HOME/bin:$PATH
 
