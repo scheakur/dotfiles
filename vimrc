@@ -496,6 +496,9 @@ nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
 inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 
 nnoremap <C-]>  g<C-]>
+
+" paste and increment and yank
+nnoremap <F8>  P<C-a>yy
 " }}}
 
 " /keymap }}}
@@ -793,7 +796,7 @@ inoremap <C-e>  <Esc>diw:Template<Space><C-r>-<C-l><CR>i
 " vim-submode {{{
 let g:submode_keep_leaving_key = 1
 
-" open fold
+" fold
 call submode#enter_with('foldopen', 'n', '', 'zo', 'zozj')
 call submode#map('foldopen', 'n', '', 'o', 'zozj')
 call submode#enter_with('foldclose', 'n', '', 'zc', 'zczj')
