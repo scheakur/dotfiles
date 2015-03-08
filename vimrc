@@ -712,7 +712,7 @@ let g:javascript_enable_domhtmlcss = 1
 " vim-skrap {{{
 let g:skrap_directory = expand('~/Dropbox/tmp/skrap')
 let g:skrap_types = [
-\	'md', 'js', 'txt', 'vim', 'sql', 'xml', 'html', 'css', 'go'
+\	'md', 'js', 'txt', 'vim', 'sql', 'xml', 'html', 'css', 'go', 'groovy'
 \]
 " }}}
 
