@@ -498,7 +498,7 @@ inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
 nnoremap <C-]>  g<C-]>
 
 " paste and increment and yank
-nnoremap <F8>  "0P<C-a>yy
+nnoremap <F4>  "0P<C-a>yy
 " }}}
 
 " /keymap }}}
