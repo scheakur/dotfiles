@@ -30,3 +30,7 @@ $BYTEMAN_HOME/bin/bminstall.sh $(jps | grep Bootstrap | cut -d ' ' -f 1) # need 
 
 ## etc
 sudo tcpdump ip proto \\icmp  ## log ping request
+
+
+## split path
+echo $PATH | tr -s ':' '\n'
