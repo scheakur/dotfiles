@@ -809,8 +809,10 @@ call submode#map('changetab', 'n', '', 't', 'gt')
 call submode#map('changetab', 'n', '', 'T', 'gT')
 
 " window
-call submode#enter_with('wincycle', 'n', '', '<C-w><C-w>', '<C-w><C-w>')
-call submode#map('wincycle', 'n', '', '<C-w>', '<C-w><C-w>')
+call submode#enter_with('wincycle', 'n', '', '<C-w><C-w>', '<C-w>w')
+call submode#enter_with('wincycle', 'n', '', '<C-w>w', '<C-w>w')
+call submode#map('wincycle', 'n', '', '<C-w>', '<C-w>w')
+call submode#map('wincycle', 'n', '', 'w', '<C-w>w')
 " }}}
 
 " /plugin }}}
