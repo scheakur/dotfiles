@@ -797,10 +797,10 @@ inoremap <C-e>  <Esc>diw:Template<Space><C-r>-<C-l><CR>i
 let g:submode_keep_leaving_key = 1
 
 " fold
-call submode#enter_with('foldopen', 'n', '', 'zo', 'zozj')
-call submode#map('foldopen', 'n', '', 'o', 'zozj')
-call submode#enter_with('foldclose', 'n', '', 'zc', 'zczj')
-call submode#map('foldclose', 'n', '', 'c', 'zczj')
+call submode#enter_with('foldopen', 'n', '', 'zo', 'zo')
+call submode#map('foldopen', 'n', '', 'o', 'zjzozz')
+call submode#enter_with('foldclose', 'n', '', 'zc', 'zc')
+call submode#map('foldclose', 'n', '', 'c', 'zjzczz')
 
 " change tab
 call submode#enter_with('changetab', 'n', '', 'gt', 'gt')
