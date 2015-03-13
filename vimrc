@@ -280,8 +280,6 @@ noremap gj  j
 noremap gk  k
 nnoremap J  <C-d>
 nnoremap K  <C-u>
-nnoremap <Space>j  16j
-nnoremap <Space>k  16k
 noremap H  b
 noremap L  w
 nnoremap Y  y$
