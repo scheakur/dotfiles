@@ -1,15 +1,42 @@
 # remove duplicate path
 typeset -U path PATH
 
+path=(
+    /usr/local/bin
+    /usr/bin
+    /bin
+    /usr/local/sbin
+    /usr/sbin
+    /sbin
+    $path
+)
+
 export JAVA_HOME=$HOME/app/java
+path=($JAVA_HOME/bin $path)
+
 export MAVEN_HOME=$HOME/app/maven
+path=($MAVEN_HOME/bin $path)
+
 export ANT_HOME=$HOME/app/ant
+path=($ANT_HOME/bin $path)
+
 export IVY_HOME=$HOME/app/ivy
+path=($IVY_HOME/bin $path)
+
 export FINDBUGS_HOME=$HOME/app/findbugs
+path=($FINDBUGS_HOME/bin $path)
+
 export GRADLE_HOME=$HOME/app/gradle
+path=($GRADLE_HOME/bin $path)
+
 export SCALA_HOME=$HOME/app/scala
+path=($SCALA_HOME/bin $path)
+
 export PLAY_HOME=$HOME/app/play
+path=($PLAY_HOME/bin $path)
+
 export ELIXIR_HOME=$HOME/app/elixir
+path=($ELIXIR_HOME/bin $path)
 
 # oracle
 export NLS_LANG=English_Japan.AL32UTF8
@@ -21,32 +48,13 @@ else
     export GOROOT=/usr/local/go
 fi
 export GOPATH=$HOME
+path=($GOPATH/bin $GOROOT/bin $path)
 
+# nodebrew
+path=($HOME/.nodebrew/current/bin $path)
 
-path=(
-    $HOME/local/bin
-    $HOME/bin
-    $JAVA_HOME/bin
-    $MAVEN_HOME/bin
-    $ANT_HOME/bin
-    $IVY_HOME/bin
-    $FINDBUGS_HOME/bin
-    $GRADLE_HOME/bin
-    $SCALA_HOME/bin
-    $PLAY_HOME/bin
-    $ELIXIR_HOME/bin
-    $GOPATH/bin
-    $GOROOT/bin
-    $HOME/.nodebrew/current/bin
-    /usr/local/heroku/bin
-    /usr/local/bin
-    /usr/bin
-    /bin
-    /usr/local/sbin
-    /usr/sbin
-    /sbin
-    $path
-)
+# heroku toolbelt
+path=(/usr/local/heroku/bin  $path)
 
 # nvm
 [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" # This loads nvm
@@ -57,6 +65,9 @@ path=(
 # rbenv
 eval "$(rbenv init -)"
 
+path=($HOME/local/bin $HOME/bin $path)
+
+# remove nil directory
 path=(${^path}(N-/^W))
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
