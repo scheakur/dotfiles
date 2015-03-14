@@ -1,5 +1,5 @@
 # remove duplicate path
-typeset -U path PATH
+typeset -U path cdpath fpath manpath
 
 path=(
     /usr/local/bin
