@@ -20,12 +20,6 @@ function prompt-git-info { # {{{
     if [[ -z $branch ]]; then
         return
     fi
-    branch="@$branch"
-
-    gitdir=$(git rev-parse --git-dir 2> /dev/null)
-    action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
-
-    stash=$(git stash list 2>/dev/null | wc -l | tr -d ' ') && stash=" [$stash]"
 
     st=$(git status 2> /dev/null)
     if [[ -n $(echo "$st" | grep "^nothing to") ]]; then
@@ -39,8 +33,11 @@ function prompt-git-info { # {{{
     fi
 
     user=$(git config --get user.name 2> /dev/null)
+    gitdir=$(git rev-parse --git-dir 2> /dev/null)
+    action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
+    stash=$(git stash list 2>/dev/null | wc -l | tr -d ' ') && stash=" [$stash]"
 
-    echo "$color$user$action$branch$stash%f%b"
+    echo "$color$user$action@$branch$stash%f%b"
 } # }}}
 
 local COLOR='%F{cyan}'
