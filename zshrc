@@ -35,7 +35,7 @@ function prompt-git-info { # {{{
     user=$(git config --get user.name 2> /dev/null)
     gitdir=$(git rev-parse --git-dir 2> /dev/null)
     action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
-    stash=$(git stash list 2>/dev/null | wc -l | tr -d ' ') && stash=" [$stash]"
+    stash=$(git stash list 2>/dev/null | wc -l | tr -d ' ') && stash="[$stash]"
 
     echo "$color$user$action@$branch$stash%f%b"
 } # }}}
