@@ -221,6 +221,7 @@ darwin*)
         ;;
 linux-gnu*)
         alias pbcopy='xsel --clipboard --input'
+        alias pbpaste='xsel --clipboard --output'
         ;;
 esac
 # }}}
