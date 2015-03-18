@@ -2,6 +2,9 @@
 #                                    zshrc                                     #
 # ============================================================================ #
 
+# basic {{{
+autoload -Uz add-zsh-hook
+# }}}
 
 # prompt {{{
 # Git settings
@@ -11,7 +14,7 @@ autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 setopt prompt_subst
 
-function prompt-git-info { # {{{
+function zshrc-prompt-git-info { # {{{
     local branch st color gitdir action user stash
     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
         return
@@ -42,7 +45,7 @@ function prompt-git-info { # {{{
 
 local COLOR='%F{cyan}'
 local DEFAULT='%F{default}'
-export PROMPT='%F{blue}[%D{%m/%d %H:%M}]$COLOR %n@%m:%~ $(prompt-git-info)
+export PROMPT='%F{blue}[%D{%m/%d %H:%M}]$COLOR %n@%m:%~ $(zshrc-prompt-git-info)
 %(!.#.$) '$DEFAULT
 export RPROMPT=''
 # }}}
@@ -105,17 +108,10 @@ export LSCOLORS=ExFxCxdxBxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
-function chpwd() {
+function zshrc-chpwd() {
     ls
 }
-
-function cdup() {
-    echo
-    cd ..
-    zle reset-prompt
-}
-zle -N cdup
-# bindkey '\^' cdup
+add-zsh-hook chpwd zshrc-chpwd
 # }}}
 
 
@@ -177,29 +173,33 @@ alias vimp='vim $(find . | peco)'
 
 
 # peco {{{
-function exists { which $1 &> /dev/null }
+function zshrc-exists() {
+    which $1 &> /dev/null
+}
 
-if exists peco; then
-    if exists ghq; then
-        function peco-ghq-cd() {
-            local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-            if [ -n "$selected_dir" ]; then
-                BUFFER="cd ${selected_dir}"
-                zle accept-line
-            fi
-            zle clear-screen
-        }
-        zle -N peco-ghq-cd
-        bindkey '^ ' peco-ghq-cd
+function zshrc-peco-ghq-cd() {
+    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+
+function zshrc-peco-mysnippets() {
+    local f=~/.config/peco/mysnippets.sh
+    BUFFER=$(cat $f | \grep -v '^#' | \grep -v '^$'| peco --query "$LBUFFER")
+    zle clear-screen
+}
+
+if zshrc-exists peco; then
+    if zshrc-exists ghq; then
+        zle -N zshrc-peco-ghq-cd
+        bindkey '^ ' zshrc-peco-ghq-cd
     fi
 
-    function peco-mysnippets() {
-        local f=~/.config/peco/mysnippets.sh
-        BUFFER=$(cat $f | \grep -v '^#' | \grep -v '^$'| peco --query "$LBUFFER")
-        zle clear-screen
-    }
-    zle -N peco-mysnippets
-    bindkey '^xs' peco-mysnippets
+    zle -N zshrc-peco-mysnippets
+    bindkey '^xs' zshrc-peco-mysnippets
 fi
 # }}}
 
