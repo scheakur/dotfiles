@@ -117,8 +117,12 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 setopt append_history
-setopt hist_ignore_dups
+setopt inc_append_history
+setopt hist_ignore_all_dups
 setopt share_history
+setopt hist_reduce_blanks
+setopt hist_no_store
+setopt hist_no_functions
 setopt interactive_comments
 
 autoload -U history-search-end
