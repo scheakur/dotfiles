@@ -6,6 +6,7 @@
 autoload -Uz add-zsh-hook
 # }}}
 
+
 # prompt {{{
 # Git settings
 # http://d.hatena.ne.jp/uasi/20091017/1255712789
@@ -90,19 +91,9 @@ setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 
-case "${OSTYPE}" in
-darwin*)
-        alias ls='ls -GFv'
-        ;;
-linux-gnu*)
-        alias ls='ls --color -Fv'
-        ;;
-esac
-
 alias ll='ls -l'
 alias la='ls -al'
 alias dir='ls'
-
 
 export LSCOLORS=ExFxCxdxBxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
@@ -143,15 +134,6 @@ bindkey '^S' history-incremental-pattern-search-forward
 # job {{{
 setopt no_hup
 setopt no_checkjobs
-# }}}
-
-
-# for root user {{{
-case ${UID} in
-0)
-    # TBD
-    ;;
-esac
 # }}}
 
 
@@ -217,9 +199,11 @@ alias hexdump='od -A x -t x1z -v'
 # OS dependent {{{
 case "${OSTYPE}" in
 darwin*)
+        alias ls='ls -GFv'
         alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
         ;;
 linux-gnu*)
+        alias ls='ls --color -Fv'
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
         ;;
