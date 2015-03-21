@@ -4,6 +4,23 @@
 
 # basic {{{
 autoload -Uz add-zsh-hook
+
+setopt extended_glob
+# }}}
+
+
+# OS dependent {{{
+case "${OSTYPE}" in
+darwin*)
+        alias ls='ls -GFv'
+        alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
+        ;;
+linux-gnu*)
+        alias ls='ls --color -Fv'
+        alias pbcopy='xsel --clipboard --input'
+        alias pbpaste='xsel --clipboard --output'
+        ;;
+esac
 # }}}
 
 
@@ -199,21 +216,6 @@ fi
 
 # other {{{
 alias hexdump='od -A x -t x1z -v'
-# }}}
-
-
-# OS dependent {{{
-case "${OSTYPE}" in
-darwin*)
-        alias ls='ls -GFv'
-        alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
-        ;;
-linux-gnu*)
-        alias ls='ls --color -Fv'
-        alias pbcopy='xsel --clipboard --input'
-        alias pbpaste='xsel --clipboard --output'
-        ;;
-esac
 # }}}
 
 
