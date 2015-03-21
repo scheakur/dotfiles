@@ -100,6 +100,7 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' verbose true
+zstyle ':completion:*:processes' command "ps -u $USER -o pid,command"
 
 fpath=(
     $HOME/src/github.com/zsh-users/zsh-completions
