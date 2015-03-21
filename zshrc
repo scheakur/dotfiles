@@ -133,7 +133,8 @@ hash -d bb=$HOME/src/bitbucket.org/scheakur
 
 # util {{{
 autoload -Uz zmv
-alias zmv='noglob zmv -W'
+alias zmv='noglob zmv -W -n'
+alias zmv!='noglob zmv -W'
 # }}}
 
 
