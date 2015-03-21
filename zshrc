@@ -27,13 +27,13 @@ function zshrc-prompt-git-info { # {{{
 
     st=$(git status 2> /dev/null)
     if [[ -n $(echo "$st" | grep "^nothing to") ]]; then
-        color=%F{green}
+        color=green
     elif [[ -n $(echo "$st" | grep "^no changes added") ]]; then
-        color=%F{yellow}
+        color=yellow
     elif [[ -n $(echo "$st" | grep "^Changes to be committed") ]]; then
-        color=%F{red}
+        color=red
     else
-        color=%F{blue}
+        color=blue
     fi
 
     user=$(git config --get user.name 2> /dev/null)
@@ -41,13 +41,11 @@ function zshrc-prompt-git-info { # {{{
     action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
     stash=$(git stash list 2>/dev/null | wc -l | tr -d ' ') && stash="[$stash]"
 
-    echo "$color$user$action@$branch$stash%f%b"
+    echo "%F{$color}$user$action@$branch$stash%f"
 } # }}}
 
-local COLOR='%F{cyan}'
-local DEFAULT='%F{default}'
-export PROMPT='%F{blue}[%D{%m/%d %H:%M}]$COLOR %n@%m:%~ $(zshrc-prompt-git-info)
-%(!.#.$) '$DEFAULT
+export PROMPT='%F{blue}[%D{%m/%d %H:%M}]%f %F{cyan}%n@%m:%~%f $(zshrc-prompt-git-info)
+%F{cyan}%(!.#.$)%f '
 export RPROMPT=''
 # }}}
 
