@@ -28,7 +28,7 @@ esac
 # Git settings
 # http://d.hatena.ne.jp/uasi/20091017/1255712789
 # http://gist.github.com/214109
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+autoload -Uz VCS_INFO_get_data_git && VCS_INFO_get_data_git 2> /dev/null
 
 setopt prompt_subst
 
@@ -37,7 +37,7 @@ function zshrc-prompt-git-info { # {{{
     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
         return
     fi
-    branch=$(git rev-parse --abbrev-ref=loose HEAD 2> /dev/null)
+    branch=$(basename "$(git symbolic-ref HEAD 2> /dev/null)")
     if [[ -z $branch ]]; then
         return
     fi
@@ -68,8 +68,7 @@ export RPROMPT=''
 
 
 # complete {{{
-autoload -U compinit
-compinit
+autoload -U compinit && compinit
 
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
