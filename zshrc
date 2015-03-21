@@ -64,15 +64,16 @@ setopt prompt_subst
 
 function zshrc-prompt-git-info { # {{{
     local branch st color gitdir action user stash
-    if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+    if [[ $(command git rev-parse --is-inside-work-tree 2> /dev/null) != 'true' ]]; then
         return
     fi
-    branch=$(basename "$(git symbolic-ref HEAD 2> /dev/null)")
+
+    branch=$(basename "$(command git symbolic-ref HEAD 2> /dev/null)")
     if [[ -z $branch ]]; then
         return
     fi
 
-    st=$(git status 2> /dev/null)
+    st=$(command git status 2> /dev/null)
     if [[ -n $(echo "$st" | grep '^nothing to') ]]; then
         color=green
     elif [[ -n $(echo "$st" | grep '^no changes added') ]]; then
@@ -83,10 +84,10 @@ function zshrc-prompt-git-info { # {{{
         color=blue
     fi
 
-    user=$(git config --get user.name 2> /dev/null)
-    gitdir=$(git rev-parse --git-dir 2> /dev/null)
+    user=$(command git config --get user.name 2> /dev/null)
+    gitdir=$(command git rev-parse --git-dir 2> /dev/null)
     action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
-    stash=$(git stash list 2>/dev/null | wc -l | tr -d ' ') && stash="[$stash]"
+    stash=$(command git stash list 2>/dev/null | wc -l | tr -d ' ') && stash="[$stash]"
 
     echo "%F{$color}$user$action@$branch$stash%f"
 } # }}}
