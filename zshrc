@@ -117,6 +117,9 @@ function zshrc-chpwd() {
     ls
 }
 add-zsh-hook chpwd zshrc-chpwd
+
+hash -d gh=$HOME/src/github.com/scheakur
+hash -d bb=$HOME/src/bitbucket.org/scheakur
 # }}}
 
 
