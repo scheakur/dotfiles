@@ -5,7 +5,26 @@
 # basic {{{
 autoload -Uz add-zsh-hook
 setopt extended_glob
+
+export EDITOR=vim
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export LOCALE=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+bindkey -e
+
 disable r
+
+if [ "$TERM" != 'screen-256color' ]; then
+    export TERM='xterm-256color'
+fi
+
+# edit command in editor
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 # }}}
 
 
@@ -19,6 +38,7 @@ linux-gnu*)
         alias ls='ls --color -Fv'
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
+        alias open='xdg-open'
         ;;
 esac
 # }}}
@@ -70,33 +90,21 @@ export RPROMPT=''
 # complete {{{
 autoload -U compinit && compinit
 
+zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 
-if [ -e /usr/local/share/zsh-completions ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
-fi
+fpath=(
+    $HOME/src/github.com/zsh-users/zsh-completions
+    /usr/local/share/zsh-completions
+    $fpath
+)
+fpath=(${^fpath}(N-/^W))
 # }}}
 
 
 # misc {{{
-if [ "$TERM" != 'screen-256color' ]; then
-    export TERM='xterm-256color'
-fi
-export EDITOR=vim
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export LOCALE=en_US.UTF-8
-export LC_CTYPE=en_US.UTF-8
-bindkey -e
-
-# export GREP_OPTIONS='-Ein --color=auto'
 alias grep='grep -Ei --color=auto'
 export GREP_COLORS='fn=01;34:mt=00;33'
-
-# edit command in editor
-autoload -Uz edit-command-line
-zle -N edit-command-line
-bindkey '^xe' edit-command-line
 # }}}
 
 
