@@ -28,6 +28,9 @@ export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 bindkey $terminfo[kRIT] forward-word
 bindkey $terminfo[kLFT] backward-word
+
+export LSCOLORS=ExFxCxdxBxegedabagacad
+export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
 # }}}
 
 
@@ -91,10 +94,12 @@ export RPROMPT=''
 
 
 # complete {{{
-autoload -U compinit && compinit
+autoload -Uz compinit && compinit
 
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' verbose true
 
 fpath=(
     $HOME/src/github.com/zsh-users/zsh-completions
@@ -119,10 +124,6 @@ setopt pushd_ignore_dups
 alias ll='ls -l'
 alias la='ls -al'
 alias dir='ls'
-
-export LSCOLORS=ExFxCxdxBxegedabagacad
-export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
 function zshrc-chpwd() {
     ls
