@@ -4,8 +4,8 @@
 
 # basic {{{
 autoload -Uz add-zsh-hook
-
 setopt extended_glob
+disable r
 # }}}
 
 
