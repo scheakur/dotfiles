@@ -25,6 +25,9 @@ zle -N edit-command-line
 bindkey '^xe' edit-command-line
 
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
+bindkey $terminfo[kRIT] forward-word
+bindkey $terminfo[kLFT] backward-word
 # }}}
 
 
