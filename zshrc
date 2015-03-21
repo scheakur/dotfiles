@@ -116,6 +116,7 @@ export HISTSIZE=1000000
 export SAVEHIST=1000000
 setopt append_history
 setopt inc_append_history
+setopt hist_ignore_space
 setopt hist_ignore_all_dups
 setopt share_history
 setopt hist_reduce_blanks
@@ -130,6 +131,9 @@ bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
+
+# vim -(^z)-> terminal -(^z)-> vim
+bindkey -s '^z' '^[q fg^m'
 # }}}
 
 
