@@ -43,11 +43,11 @@ function zshrc-prompt-git-info { # {{{
     fi
 
     st=$(git status 2> /dev/null)
-    if [[ -n $(echo "$st" | grep "^nothing to") ]]; then
+    if [[ -n $(echo "$st" | grep '^nothing to') ]]; then
         color=green
-    elif [[ -n $(echo "$st" | grep "^no changes added") ]]; then
+    elif [[ -n $(echo "$st" | grep '^no changes added') ]]; then
         color=yellow
-    elif [[ -n $(echo "$st" | grep "^Changes to be committed") ]]; then
+    elif [[ -n $(echo "$st" | grep '^Changes to be committed') ]]; then
         color=red
     else
         color=blue
@@ -79,8 +79,8 @@ fi
 
 
 # misc {{{
-if [ "$TERM" != "screen-256color" ]; then
-    export TERM="xterm-256color"
+if [ "$TERM" != 'screen-256color' ]; then
+    export TERM='xterm-256color'
 fi
 export EDITOR=vim
 export LANG=en_US.UTF-8
