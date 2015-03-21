@@ -30,10 +30,10 @@ function zshrc-prompt-git-info { # {{{
         color=%F{green}
     elif [[ -n $(echo "$st" | grep "^no changes added") ]]; then
         color=%F{yellow}
-    elif [[ -n $(echo "$st" | grep "^# Changes to be committed") ]]; then
-        color=%B%F{red}
-    else
+    elif [[ -n $(echo "$st" | grep "^Changes to be committed") ]]; then
         color=%F{red}
+    else
+        color=%F{blue}
     fi
 
     user=$(git config --get user.name 2> /dev/null)
