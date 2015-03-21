@@ -4,13 +4,17 @@
 
 # basic {{{
 autoload -Uz add-zsh-hook
+
 setopt extended_glob
+setopt no_hup
+setopt no_checkjobs
 
 export EDITOR=vim
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export LOCALE=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
+
 bindkey -e
 
 disable r
@@ -111,12 +115,6 @@ fpath=(${^fpath}(N-/^W))
 # }}}
 
 
-# misc {{{
-alias grep='grep -Ei --color=auto'
-export GREP_COLORS='fn=01;34:mt=00;33'
-# }}}
-
-
 # directory {{{
 setopt auto_cd
 setopt auto_pushd
@@ -133,13 +131,6 @@ add-zsh-hook chpwd zshrc-chpwd
 
 hash -d gh=$HOME/src/github.com/scheakur
 hash -d bb=$HOME/src/bitbucket.org/scheakur
-# }}}
-
-
-# util {{{
-autoload -Uz zmv
-alias zmv='noglob zmv -W -n'
-alias zmv!='noglob zmv -W'
 # }}}
 
 
@@ -164,32 +155,6 @@ bindkey '^P' history-beginning-search-backward-end
 bindkey '^N' history-beginning-search-forward-end
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
-
-# vim -(^z)-> terminal -(^z)-> vim
-bindkey -s '^z' '^[q fg^m'
-# }}}
-
-
-# job {{{
-setopt no_hup
-setopt no_checkjobs
-# }}}
-
-
-# development {{{
-alias v=vim
-alias g=git
-
-function git() {
-    if [[ $1 == "clone" ]]; then
-        shift
-        ghq get $@
-    else
-        command git $@
-    fi
-}
-
-alias vimp='vim $(find . | peco)'
 # }}}
 
 
@@ -225,12 +190,33 @@ fi
 # }}}
 
 
-# tmux {{{
+# misc {{{
+alias grep='grep -Ei --color=auto'
+export GREP_COLORS='fn=01;34:mt=00;33'
+
+autoload -Uz zmv
+alias zmv='noglob zmv -W -n'
+alias zmv!='noglob zmv -W'
+
+# vim -(^z)-> terminal -(^z)-> vim
+bindkey -s '^z' '^[q fg^m'
+
+alias v=vim
+alias g=git
+
+function git() {
+    if [[ $1 == "clone" ]]; then
+        shift
+        ghq get $@
+    else
+        command git $@
+    fi
+}
+
+alias vimp='vim $(find . | peco)'
+
 [[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
-# }}}
 
-
-# other {{{
 alias hexdump='od -A x -t x1z -v'
 # }}}
 
