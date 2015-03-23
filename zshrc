@@ -46,10 +46,8 @@ darwin*)
         ;;
 linux-gnu*)
         alias ls='ls --color -Fv'
-        # alias pbcopy='xsel --clipboard --input'
-        # alias pbpaste='xsel --clipboard --output'
-        alias pbcopy='xclip -selection clipboard'
-        alias pbpaste='xclip -selection clipboard -o'
+        alias pbcopy='xsel --clipboard --input'
+        alias pbpaste='xsel --clipboard --output'
         alias open='xdg-open'
         ;;
 esac

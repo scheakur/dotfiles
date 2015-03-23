@@ -6,7 +6,7 @@ fi
 
 # Make symbolic links.
 path=$(pwd)
-target_list=(vimrc vim gvimrc tmux.conf vrapperrc gitconfig gitignore profile zshrc zshenv config/peco npmrc)
+target_list=(vimrc vim gvimrc tmux.conf tmux vrapperrc gitconfig gitignore profile zshrc zshenv config/peco npmrc)
 for (( i = 0; i < ${#target_list[@]}; i++ ))
 do
     target=${target_list[i]}

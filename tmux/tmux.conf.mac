@@ -1,0 +1,5 @@
+# Copy and paste with clipboard.
+bind-key C-c run "tmux save-buffer - | pbcopy"
+bind-key C-v run "pbpaste | tmux load-buffer - && tmux paste-buffer"
+
+# vim: filetype=tmux
