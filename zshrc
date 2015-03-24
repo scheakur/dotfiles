@@ -214,8 +214,6 @@ function git() {
     fi
 }
 
-alias vimp='vim $(find . | peco)'
-
 [[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
 
 alias hexdump='od -A x -t x1z -v'
