@@ -68,6 +68,10 @@ autocmd vimrc Syntax *  syntax match FullWidthSpace containedin=ALL /　/
 
 set background=dark
 colorscheme scheakur
+
+" to keep background in terminal clean
+set t_ut=
+set t_Co=256
 " }}}
 
 " /basic }}}
