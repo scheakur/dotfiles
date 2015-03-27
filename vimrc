@@ -171,6 +171,9 @@ set splitbelow
 set shortmess+=I
 " show text as much as possible even if the last line is too long
 set display=lastline
+" hide mode to disable redraw when leaving submode
+" see. help g:submode_always_show_submode
+set noshowmode
 " }}}
 
 " tabpages {{{
