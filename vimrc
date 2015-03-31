@@ -520,16 +520,9 @@ let g:unite_update_time = 100
 " }}}
 
 " keymap {{{
-nnoremap [Unite]  <Nop>
-nmap <Space>  [Unite]
-
-nnoremap [Unite]<Space>  :<C-u>Unite<Space>
-nnoremap <silent> [Unite]f  :<C-u>Unite buffer_tab file_mru file<CR>
-nnoremap <silent> [Unite]g  :<C-u>UniteWithBufferDir file file_rec<CR>
-nnoremap <silent> [Unite]b  :<C-u>Unite buffer_tab<CR>
-nnoremap <silent> [Unite]v  :<C-u>Unite buffer<CR>
-nnoremap <silent> [Unite]r  :<C-u>Unite register<CR>
-nnoremap <silent> [Unite]q  :<C-u>Unite quickfix<CR>
+nnoremap <Space><Space>  :<C-u>Unite<Space>
+nnoremap <silent> <Space>f  :<C-u>Unite buffer_tab file_mru file<CR>
+nnoremap <silent> <Space>b  :<C-u>Unite buffer_tab<CR>
 " }}}
 
 
