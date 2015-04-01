@@ -744,15 +744,18 @@ vmap gx  <Plug>(openbrowser-smart-search)
 " }}}
 
 " the tab key {{{
-imap <C-Tab>  <C-x><C-u>
+inoremap <C-Tab>  <C-x><C-u>
+inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 imap <expr> <Tab>
 \	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
 \	pumvisible() ? "\<C-n>" :
 \	"\<Tab>"
+
 smap <expr> <Tab>
 \	neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" :
 \	"\<Tab>"
-inoremap <expr> <S-Tab>  pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
 xmap <Tab>  <Plug>(neosnippet_expand_target)
 " }}}
 
