@@ -535,6 +535,12 @@ call unite#custom#profile('default', 'context', {
 \	'no_empty': 1,
 \})
 
+call unite#custom#profile('source/grep', 'context', {
+\	'no_quit': 1,
+\	'keep_focus': 1,
+\	'auto_preview': 1,
+\})
+
 " ignore_pattern {{{
 let s:ignore_pattern = '\M' . join([
 \	'/bak/',
