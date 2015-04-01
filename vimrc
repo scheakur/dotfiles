@@ -531,7 +531,8 @@ call unite#custom#default_action('buffer_tab', 'goto')
 call unite#custom#default_action('buffer', 'goto')
 
 call unite#custom#profile('default', 'context', {
-\	'no_split': 1
+\	'no_split': 1,
+\	'no_empty': 1,
 \})
 
 " ignore_pattern {{{
