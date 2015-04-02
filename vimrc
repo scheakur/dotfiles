@@ -599,7 +599,7 @@ if executable('ag')
 elseif executable('pt')
 	" https://github.com/monochromegane/the_platinum_searcher
 	let g:unite_source_grep_command = 'pt'
-	let g:unite_source_grep_default_opts = '--nogroup --nocolor'
+	let g:unite_source_grep_default_opts = '-S --nogroup --nocolor'
 	let g:unite_source_grep_recursive_opt = ''
 endif
 
