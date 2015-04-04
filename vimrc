@@ -796,6 +796,7 @@ let g:repautocd_markers = [
 \	'.svn',
 \	'.gitignore',
 \	'.project',
+\	'.idea',
 \	'package.json',
 \]
 " }}}
