@@ -16,6 +16,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
 
 " neobundle list {{{
+NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
 NeoBundle 'https://github.com/cohama/agit.vim.git'
 NeoBundle 'https://github.com/cohama/vim-hier.git'
 NeoBundle 'https://github.com/google/vim-ft-go.git'
@@ -35,6 +36,7 @@ NeoBundle 'https://github.com/kana/vim-textobj-lastpat.git'
 NeoBundle 'https://github.com/kana/vim-textobj-line.git'
 NeoBundle 'https://github.com/kana/vim-textobj-user.git'
 NeoBundle 'https://github.com/kchmck/vim-coffee-script.git'
+NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
 NeoBundle 'https://github.com/mattn/gist-vim.git'
 NeoBundle 'https://github.com/mattn/sonictemplate-vim.git'
 NeoBundle 'https://github.com/mattn/vim-textobj-url.git'
