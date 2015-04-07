@@ -23,7 +23,6 @@ NeoBundle 'https://github.com/google/vim-ft-go.git'
 NeoBundle 'https://github.com/gregsexton/gitv.git'
 NeoBundle 'https://github.com/h1mesuke/vim-alignta.git'
 NeoBundle 'https://github.com/JuliaLang/julia-vim.git'
-NeoBundle 'https://github.com/justinmk/vim-dirvish.git'
 NeoBundle 'https://github.com/kana/vim-altr.git'
 NeoBundle 'https://github.com/kana/vim-grex.git'
 NeoBundle 'https://github.com/kana/vim-niceblock.git'
@@ -62,6 +61,7 @@ NeoBundle 'https://github.com/Shougo/neomru.vim.git'
 NeoBundle 'https://github.com/Shougo/neosnippet.vim.git'
 NeoBundle 'https://github.com/Shougo/tabpagebuffer.vim.git'
 NeoBundle 'https://github.com/Shougo/unite.vim.git'
+NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
 NeoBundle 'https://github.com/Shougo/vimproc.vim.git', {
 \	'build' : {
 \		'windows': 'make -f make_mingw32.mak',
