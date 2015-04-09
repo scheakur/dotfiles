@@ -633,8 +633,9 @@ let g:vimfiler_tree_leaf_icon = ''
 let g:vimfiler_tree_indentation = 2
 call vimfiler#custom#profile('default', 'context', {
 \	'split': 1,
-\	'winwidth': 40,
+\	'winwidth': 64,
 \	'create': 1,
+\	'force_quit': 1,
 \	'explorer': 1,
 \})
 
