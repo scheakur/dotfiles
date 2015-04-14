@@ -639,7 +639,7 @@ call vimfiler#custom#profile('default', 'context', {
 \	'explorer': 1,
 \})
 
-nnoremap <Leader>f  :VimFiler<CR>
+nnoremap <expr> <Leader>f  ':VimFiler ' . expand('%:h') . "\<CR>"
 " }}}
 
 " commentary {{{
