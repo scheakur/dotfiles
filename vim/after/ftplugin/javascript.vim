@@ -4,6 +4,7 @@ setlocal tabstop=2
 setlocal softtabstop=2
 setlocal comments-=://
 setlocal comments+=f://
+setlocal dictionary=$HOME/.vim/dict/javascript.dict
 
 " If vim-javascript is active, this config means nothing.
 setlocal cinoptions=l1,:0,j1,J1
