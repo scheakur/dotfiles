@@ -186,6 +186,10 @@ command! -nargs=? SetTabTitle  call vimrc#set_tabpage_title(<q-args>)
 set wildignore& wildignore+=.git,.svn,*.class
 set nowildmenu
 set wildmode=list:longest,full
+
+" use dictionary by default
+set complete&
+let &complete = 'k,' . &complete
 " }}}
 
 " /option }}}
