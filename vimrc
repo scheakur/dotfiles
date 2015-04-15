@@ -508,6 +508,9 @@ nnoremap <C-]>  g<C-]>
 
 " paste and increment and yank
 nnoremap <F4>  "0P<C-a>yy
+
+" complete by dictionary
+inoremap <C-k>  <C-x><C-k>
 " }}}
 
 " /keymap }}}
