@@ -34,3 +34,7 @@ sudo tcpdump ip proto \\icmp  ## log ping request
 
 ## split path
 echo $PATH | tr -s ':' '\n'
+
+
+## netstat
+netstat -apn
