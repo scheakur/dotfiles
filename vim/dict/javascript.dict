@@ -1,8 +1,11 @@
+addEventListener
 break
+body
 class
 case
 catch
 continue
+document
 default
 delete
 debugger
@@ -36,6 +39,7 @@ try
 throw
 var
 void
+window
 while
 with
 yield
