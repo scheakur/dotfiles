@@ -830,12 +830,12 @@ let g:submode_keep_leaving_key = 1
 
 " fold
 call submode#enter_with('foldopen', 'n', '', 'zo', 'zo')
-call submode#map('foldopen', 'n', '', 'j', 'zjzozz')
-call submode#map('foldopen', 'n', '', 'k', 'zkzczz')
+call submode#map('foldopen', 'n', '', 'o', 'zjzozz')
+call submode#map('foldopen', 'n', '', 'u', 'zkzczz')
 
 call submode#enter_with('foldclose', 'n', '', 'zc', 'zc')
-call submode#map('foldclose', 'n', '', 'j', 'zjzczz')
-call submode#map('foldclose', 'n', '', 'k', 'zkzozz')
+call submode#map('foldclose', 'n', '', 'c', 'zjzczz')
+call submode#map('foldclose', 'n', '', 'u', 'zkzozz')
 
 " change tab
 call submode#enter_with('changetab', 'n', '', 'gt', 'gt')
