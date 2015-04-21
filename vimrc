@@ -189,7 +189,7 @@ set wildmode=list:longest,full
 
 " use dictionary by default
 set complete&
-let &complete = 'k,' . &complete
+set complete+=k
 " }}}
 
 " /option }}}
