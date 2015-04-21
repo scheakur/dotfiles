@@ -275,9 +275,9 @@ command! SudoWrite  w !sudo tee > /dev/null %
 
 " vimrc {{{
 nnoremap <Space>s.  :<C-u>source $MYVIMRC<CR>
-nnoremap <Space>.   :<C-u>edit   $MYVIMRC<CR>
+nnoremap <Space>.   :<C-u>edit $MYVIMRC<CR>
 nnoremap <Space>s>  :<C-u>source $HOME/.gvimrc<CR>
-nnoremap <Space>>   :<C-u>edit   $HOME/.gvimrc<CR>
+nnoremap <Space>>   :<C-u>edit $HOME/.gvimrc<CR>
 " }}}
 
 " basic {{{
@@ -640,7 +640,7 @@ let g:vimfiler_tree_leaf_icon = ''
 let g:vimfiler_tree_indentation = 2
 call vimfiler#custom#profile('default', 'context', {
 \	'split': 1,
-\	'winwidth': 64,
+\	'winwidth': 48,
 \	'create': 1,
 \	'force_quit': 1,
 \	'explorer': 1,
