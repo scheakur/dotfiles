@@ -897,6 +897,6 @@ set secure
 
 
 " @see :help modeline
-" vim: set noexpandtab :
-" vim: set foldenable foldmethod=marker :
-" vim: set formatoptions& formatoptions-=ro :
+" vim: noexpandtab
+" vim: foldenable foldmethod=marker
+" vim: formatoptions& formatoptions-=ro
