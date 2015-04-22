@@ -802,9 +802,15 @@ let g:neomru#time_format = '(%m/%d %H:%M) '
 " }}}
 
 " operator-surround {{{
-map <silent> <Leader>sy  <Plug>(operator-surround-append)
-map <silent> <Leader>sd  <Plug>(operator-surround-delete)
-map <silent> <Leader>sc  <Plug>(operator-surround-replace)
+map <silent> <Leader><Leader>sy  <Plug>(operator-surround-append)
+map <silent> <Leader><Leader>sd  <Plug>(operator-surround-delete)
+map <silent> <Leader><Leader>sc  <Plug>(operator-surround-replace)
+" }}}
+
+" operator-siege {{{
+nmap <Leader>sa  <Plug>(operator-siege-add)
+nmap <Leader>sc  <Plug>(operator-siege-change)
+nmap <Leader>sd  <Plug>(operator-siege-delete)
 " }}}
 
 " vim-repautocd {{{
