@@ -399,6 +399,27 @@ endfunction
 " }}}
 
 
+" operator {{{
+function! vimrc#operator_replace_do(motionwise)
+	return s:virtualedit_friendly(function('operator#replace#do'), a:motionwise)
+endfunction
+
+
+function! vimrc#operator_siege_add(motionwise)
+	return s:virtualedit_friendly(function('operator#siege#add'), a:motionwise)
+endfunction
+
+
+function! s:virtualedit_friendly(fn, motionwise)
+	let saved = &virtualedit
+	set virtualedit&
+	let ret = a:fn(a:motionwise)
+	let &virtualedit = saved
+	return ret
+endfunction
+" }}}
+
+
 " misc. {{{
 function! vimrc#toggle_option(option_name)
 	execute 'setlocal' a:option_name . '!'
