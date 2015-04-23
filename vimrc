@@ -717,7 +717,7 @@ nmap <C-CR>  <Plug>(dois:n:add-daily-task)
 " operator-replace {{{
 call operator#user#define('my-replace', 'vimrc#operator_replace_do')
 
-nmap s  <Plug>(operator-replace)
+nmap s  <Plug>(operator-my-replace)
 nmap S  <Plug>(operator-my-replace)$
 nmap ss  <Plug>(operator-my-replace)<Plug>(textobj-line-a)
 " }}}
@@ -811,7 +811,7 @@ map <silent> <Leader><Leader>sc  <Plug>(operator-surround-replace)
 
 " operator-siege {{{
 call operator#user#define('my-siege-add', 'vimrc#operator_siege_add',
-\                         'call operator#siege#prepare_to_add(0)')
+\	'call operator#siege#prepare_to_add(0)')
 
 nmap <Leader>sa  <Plug>(operator-my-siege-add)
 nmap <Leader>sc  <Plug>(operator-siege-change)
