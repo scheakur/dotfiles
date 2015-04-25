@@ -787,7 +787,7 @@ xmap <Tab>  <Plug>(neosnippet_expand_target)
 " }}}
 
 " operator-camerize {{{
-map <Leader>_  <Plug>(operator-camelize-toggle)
+map <Leader>c  <Plug>(operator-camelize-toggle)
 " }}}
 
 " godef {{{
