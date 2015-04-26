@@ -228,7 +228,7 @@ command! -nargs=1 -complete=file Rename  f <args>|w|call delete(expand('#'))
 command! -range=% RemoveTrailM  <line1>,<line2>s!\r$!!g | nohlsearch
 
 " command CD
-command! -nargs=? -complete=dir -bang CD  call vimrc#cd('<args>', '<bang>')
+command! -nargs=? -complete=dir CD  call vimrc#cd('<args>')
 nnoremap <silent> <Space>cd  :<C-u>CD<CR>
 
 " format JSON

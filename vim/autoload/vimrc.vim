@@ -378,14 +378,11 @@ endfunction
 
 
 " directory {{{
-function! vimrc#cd(directory, bang)
+function! vimrc#cd(directory)
 	if a:directory == ''
 		lcd %:p:h
 	else
 		execute 'lcd' a:directory
-	endif
-	if a:bang == ''
-		pwd
 	endif
 endfunction
 
