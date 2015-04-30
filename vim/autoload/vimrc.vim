@@ -407,6 +407,17 @@ function! vimrc#operator_siege_add(motionwise)
 endfunction
 
 
+function! vimrc#operator_siege_change(motionwise)
+	return s:virtualedit_friendly(function('operator#siege#change'), a:motionwise)
+endfunction
+
+
+function! vimrc#operator_siege_prepare_to_change()
+	let ret = operator#siege#prepare_to_change()
+	return substitute(ret, '(operator-siege-%change)', '(operator-my-siege-%change)', '')
+endfunction
+
+
 function! s:virtualedit_friendly(fn, motionwise)
 	let saved = &virtualedit
 	set virtualedit&

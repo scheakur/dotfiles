@@ -814,7 +814,13 @@ call operator#user#define('my-siege-add', 'vimrc#operator_siege_add',
 \	'call operator#siege#prepare_to_add(0)')
 
 nmap sa  <Plug>(operator-my-siege-add)
-nmap sc  <Plug>(operator-siege-change)
+
+call operator#user#define('my-siege-%change', 'vimrc#operator_siege_change')
+nmap <expr> <Plug>(operator-my-siege-change)  vimrc#operator_siege_prepare_to_change()
+vnoremap <Plug>(operator-my-siege-change)  <Nop>
+onoremap <Plug>(operator-my-siege-change)  <Nop>
+
+nmap sc  <Plug>(operator-my-siege-change)
 nmap sd  <Plug>(operator-siege-delete)
 " }}}
 
