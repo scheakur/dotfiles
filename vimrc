@@ -803,12 +803,6 @@ nmap <S-F2>  <Plug>(altr-back)
 let g:neomru#time_format = '(%m/%d %H:%M) '
 " }}}
 
-" operator-surround {{{
-map <silent> <Leader>sa  <Plug>(operator-surround-append)
-map <silent> <Leader>sd  <Plug>(operator-surround-delete)
-map <silent> <Leader>sc  <Plug>(operator-surround-replace)
-" }}}
-
 " operator-siege {{{
 call operator#user#define('my-siege-add', 'vimrc#operator_siege_add',
 \	'call operator#siege#prepare_to_add(0)')
