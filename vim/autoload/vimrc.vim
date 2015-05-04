@@ -402,8 +402,22 @@ function! vimrc#operator_replace_do(motionwise)
 endfunction
 
 
+function! vimrc#define_operator_my_siege_add()
+	call operator#user#define('my-siege-add', 'vimrc#operator_siege_add',
+	\	'call operator#siege#prepare_to_add(0)')
+endfunction
+
+
 function! vimrc#operator_siege_add(motionwise)
 	return s:virtualedit_friendly(function('operator#siege#add'), a:motionwise)
+endfunction
+
+
+function! vimrc#define_operator_my_siege_change()
+	call operator#user#define('my-siege-%change', 'vimrc#operator_siege_change')
+	nmap <expr> <Plug>(operator-my-siege-change)  vimrc#operator_siege_prepare_to_change()
+	vnoremap <Plug>(operator-my-siege-change)  <Nop>
+	onoremap <Plug>(operator-my-siege-change)  <Nop>
 endfunction
 
 
