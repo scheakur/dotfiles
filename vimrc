@@ -856,6 +856,13 @@ call submode#map('wincycle', 'n', '', '<C-w>', '<C-w>w')
 call submode#map('wincycle', 'n', '', 'w', '<C-w>w')
 " }}}
 
+" vim-operator-jump_side {{{
+nmap <Leader>h <Plug>(operator-jump-head-out)
+nmap <Leader>l <Plug>(operator-jump-tail-out)
+nmap <Leader>H <Plug>(operator-jump-head)
+nmap <Leader>L <Plug>(operator-jump-tail)
+" }}}
+
 " /plugin }}}
 
 
