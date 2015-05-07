@@ -497,6 +497,14 @@ endfunction
 function! vimrc#ignore_invalid_file(file)
 	echoerr 'Invalid file name: "' . a:file . '"'
 endfunction
+
+
+function! vimrc#sort_lines(bang) range
+	let range = a:firstline . ',' . a:lastline
+	silent execute range . 's/^\(.*\)$/\=strdisplaywidth(submatch(0)) . " " . submatch(0)/'
+	silent execute range . 'sort' . a:bang . ' n'
+	silent execute range . 's/^\d\+ //'
+endfunction
 " }}}
 
 
