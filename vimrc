@@ -356,7 +356,6 @@ cnoremap <expr> <CR>  (vimrc#help_with_trailing_atmark()) ? "en\<CR>" : "\<CR>"
 " toggle option {{{
 nnoremap <silent> <Space>ow  :<C-u>call vimrc#toggle_option('wrap')<CR>
 nnoremap <silent> <Space>nu  :<C-u>call vimrc#toggle_option('number')<CR>
-nnoremap <silent> <Space>hl  :<C-u>call vimrc#toggle_option('hlsearch')<CR>
 nnoremap <silent> <Space>et  :<C-u>call vimrc#toggle_option('expandtab')<CR>
 " }}}
 
@@ -860,10 +859,10 @@ call submode#map('wincycle', 'n', '', 'w', '<C-w>w')
 " }}}
 
 " vim-operator-jump_side {{{
-nmap <Leader>h <Plug>(operator-jump-head-out)
-nmap <Leader>l <Plug>(operator-jump-tail-out)
-nmap <Leader>H <Plug>(operator-jump-head)
-nmap <Leader>L <Plug>(operator-jump-tail)
+nmap <Space>h <Plug>(operator-jump-head-out)
+nmap <Space>l <Plug>(operator-jump-tail-out)
+nmap <Space>H <Plug>(operator-jump-head)
+nmap <Space>L <Plug>(operator-jump-tail)
 " }}}
 
 " /plugin }}}
