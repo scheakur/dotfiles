@@ -183,7 +183,7 @@ command! -nargs=? SetTabTitle  call vimrc#set_tabpage_title(<q-args>)
 " }}}
 
 " completion {{{
-set wildignore& wildignore+=.git,.svn,*.class
+set wildignore& wildignore+=.git,.hg,.svn,*.jar,*.class
 set nowildmenu
 set wildmode=list:longest,full
 
