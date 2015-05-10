@@ -188,8 +188,7 @@ set nowildmenu
 set wildmode=list:longest,full
 
 " use dictionary by default
-set complete&
-set complete+=k
+set complete& complete+=k
 " }}}
 
 " /option }}}
