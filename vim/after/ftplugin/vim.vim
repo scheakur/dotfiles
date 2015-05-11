@@ -2,6 +2,7 @@ setlocal iskeyword-=#
 setlocal noexpandtab
 setlocal formatoptions-=r
 setlocal formatoptions-=o
+setlocal dictionary=$HOME/.vim/dict/vim.dict
 
 setlocal foldtext=MakeVimFoldingLabelWithStartLineAndNumbersOfFoldedLines()
 function! MakeVimFoldingLabelWithStartLineAndNumbersOfFoldedLines()
