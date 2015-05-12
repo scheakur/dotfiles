@@ -102,7 +102,7 @@ set softtabstop&
 set shiftround
 
 " for Vim script. see help: ft-vim-indent
-let g:vim_indent_cont=0
+let g:vim_indent_cont = 0
 " }}}
 
 " matching parenthesis {{{
