@@ -157,7 +157,7 @@ if has('unnamedplus')
 	set clipboard+=unnamedplus
 endif
 set modeline
-" Do not increase/decrease as octal number or hexadecimal number
+" do not increase/decrease as octal number or hexadecimal number
 set nrformats& nrformats-=octal,hex
 set virtualedit=all
 set formatoptions=tcroqnlM1
