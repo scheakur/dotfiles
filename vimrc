@@ -636,7 +636,6 @@ let g:unite_source_menu_menus.vim.command_candidates = [
 " /unite }}}
 
 " vimfiler {{{
-let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_tree_leaf_icon = ''
 let g:vimfiler_tree_indentation = 2
 call vimfiler#custom#profile('default', 'context', {
