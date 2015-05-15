@@ -505,6 +505,35 @@ function! vimrc#sort_lines(bang) range
 	silent execute range . 'sort' . a:bang . ' n'
 	silent execute range . 's/^\d\+ //'
 endfunction
+
+
+function! vimrc#urlencode(str)
+	let encoded = []
+
+	let len = strlen(a:str)
+	let i = 0
+	while i < len
+		let hex = s:nr2hex(char2nr(a:str[i]))
+		let pad = (strlen(hex) < 2) ? '0' : ''
+		call add(encoded, '%' . pad . hex)
+		let i += 1
+	endwhile
+
+	return join(encoded, '')
+endfunction
+
+
+function! s:nr2hex(nr)
+	let hex = []
+
+	let n = a:nr
+	while n != 0
+		call add(hex, '0123456789ABCDEF'[n % 16])
+		let n = n / 16
+	endwhile
+
+	return join(hex, '')
+endfunction
 " }}}
 
 
