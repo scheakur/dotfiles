@@ -524,15 +524,15 @@ endfunction
 
 
 function! s:nr2hex(nr)
-	let hex = []
+	let hex = ''
 
 	let n = a:nr
 	while n != 0
-		call add(hex, '0123456789ABCDEF'[n % 16])
+		let hex = '0123456789ABCDEF'[n % 16] . hex
 		let n = n / 16
 	endwhile
 
-	return join(hex, '')
+	return hex
 endfunction
 " }}}
 
