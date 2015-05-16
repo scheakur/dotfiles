@@ -507,6 +507,11 @@ function! vimrc#sort_lines(bang) range
 endfunction
 
 
+function! vimrc#urldecode(str)
+	return eval('"' . substitute(a:str, '%', '\\x', 'g') . '"')
+endfunction
+
+
 function! vimrc#urlencode(str)
 	let encoded = []
 
