@@ -221,7 +221,7 @@ command! -range -nargs=1 InsertBlankLineEvery  <line1>,<line2>s!\v(.*\n){<args>}
 " }}}
 
 " rename file
-command! -nargs=1 -complete=file Rename  f <args>|w|call delete(expand('#'))
+command! -nargs=1 -complete=file Rename  file <args> | write | call delete(expand('#'))
 
 " remove trail ^M
 command! -range=% RemoveTrailM  <line1>,<line2>s!\r$!!g | nohlsearch
@@ -267,7 +267,11 @@ command! -nargs=+ -complete=file Greprep  call vimrc#greprep(<q-args>)
 command! SudoWrite  w !sudo tee > /dev/null %
 
 " sort lines
-command!  -bang -range=% SortLines  <line1>,<line2>call vimrc#sort_lines('<bang>')
+command! -bang -range=% SortLines  <line1>,<line2>call vimrc#sort_lines('<bang>')
+
+" urlencode/urldecode
+command! -nargs=1 UrlEncode  let @+ = vimrc#urlencode(<q-args>) | echo @+
+command! -nargs=1 UrlDecode  let @+ = vimrc#urldecode(<q-args>) | echo @+
 
 " /command }}}
 
