@@ -5,3 +5,4 @@ setlocal softtabstop=4
 setlocal commentstring=//\ %s
 setlocal comments-=://
 setlocal comments+=f://
+setlocal dictionary=$HOME/.vim/dict/groovy.dict
