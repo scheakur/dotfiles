@@ -513,6 +513,7 @@ nnoremap <C-]>  g<C-]>
 
 " paste and increment and yank
 nnoremap <F4>  "0P<C-a>yy
+nnoremap <S-F4>  "0p<C-a>yy
 
 " complete by dictionary
 inoremap <C-k>  <C-x><C-k>
