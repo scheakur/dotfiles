@@ -874,24 +874,24 @@ nmap <Space>L <Plug>(operator-jump-tail)
 " autocmd {{{
 " ------------------------------------------------------------------------------
 
-" Create non-existing diretories automatically when the file is saved.
+" create non-existing diretories automatically when the file is saved
 autocmd vimrc BufWritePre *  call vimrc#mkdir(expand('<afile>:p:h'))
 
-" Open quickfix window after executing make.
+" open quickfix window after executing make
 autocmd vimrc QuickfixCmdPost  make copen
 
-" Avoid saving files with keyboard misstroke
+" avoid saving files with keyboard misstroke
 " ref. http://d.hatena.ne.jp/tyru/20130419/avoid_tyop
 autocmd vimrc BufWriteCmd *;*  call vimrc#ignore_invalid_file(expand('<afile>'))
 
-" Reload a file on WinEnter if the file has been modified
+" reload a file on WinEnter if the file has been modified
 set autoread
 autocmd vimrc WinEnter *  checktime
 
 " key mapping in vimdiff
 autocmd vimrc FilterWritePre *  call vimrc#config_in_diff_mode()
 
-" Maximize help window
+" maximize help window
 autocmd vimrc BufWinEnter *  call vimrc#maximize_winheight_in_help()
 
 " select readonly as swapchoice automatically
