@@ -227,8 +227,8 @@ command! -nargs=1 -complete=file Rename  file <args> | write | call delete(expan
 command! -range=% RemoveTrailM  <line1>,<line2>s!\r$!!g | nohlsearch
 
 " command CD
-command! -nargs=? -complete=dir CD  call vimrc#cd('<args>')
-nnoremap <silent> <Space>cd  :<C-u>CD<CR>
+command! -nargs=? -complete=dir Cd  call vimrc#cd('<args>')
+nnoremap <silent> <Space>cd  :<C-u>Cd<CR>
 
 " format JSON
 command! -range FormatJson  <line1>,<line2>!python -m json.tool
@@ -254,7 +254,7 @@ command! ClearLocationList  call setloclist(0, [])
 command! RandomString  let @+ = vimrc#random_string(8)
 
 " generate UUID version 4
-command! UUID  let @+ = vimrc#uuid()
+command! Uuid  let @+ = vimrc#uuid()
 
 " messages
 command! ClearMessages  call vimrc#clear_messages()
