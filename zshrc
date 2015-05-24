@@ -40,11 +40,11 @@ export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30
 
 # OS dependent {{{
 case "${OSTYPE}" in
-darwin*)
+    darwin*)
         alias ls='ls -GFv'
         alias vim=/Applications/MacVim.app/Contents/MacOS/Vim
         ;;
-linux-gnu*)
+    linux-gnu*)
         alias ls='ls --color -Fv'
         alias pbcopy='xsel --clipboard --input'
         alias pbpaste='xsel --clipboard --output'
