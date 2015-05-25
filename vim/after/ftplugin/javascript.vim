@@ -8,6 +8,7 @@ setlocal dictionary=$HOME/.vim/dict/javascript.dict
 
 " If vim-javascript is active, this config means nothing.
 setlocal cinoptions=l1,:0,j1,J1
+setlocal cinkeys=0{,0},0),:,!^F,o,O,e,0]
 
 " format javascirpt by js-beautify (node.js)
 function! s:jsbeautify(indent_size)
