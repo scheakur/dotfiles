@@ -213,11 +213,11 @@ command! -bang -bar -complete=file -nargs=? Dos   edit<bang> ++fileformat=dos  <
 " remove spaces {{{
 command! -range=% TrimSpace  <line1>,<line2>s!\s*$!!g | nohlsearch
 
-command! -range ShrinkSpace  <line1>,<line2>s![^ ]\zs\s\+! !g | nohlsearch | normal gv
+command! -range=% ShrinkSpace  <line1>,<line2>s![^ ]\zs\s\+! !g | nohlsearch | normal gv
 " }}}
 
 " insert a blank line every N lines {{{
-command! -range -nargs=1 InsertBlankLineEvery  <line1>,<line2>s!\v(.*\n){<args>}!&\r! | nohlsearch
+command! -range=% -nargs=1 InsertBlankLineEvery  <line1>,<line2>s!\v(.*\n){<args>}!&\r! | nohlsearch
 " }}}
 
 " rename file
@@ -231,7 +231,7 @@ command! -nargs=? -complete=dir Cd  call vimrc#cd('<args>')
 nnoremap <silent> <Space>cd  :<C-u>Cd<CR>
 
 " format JSON
-command! -range FormatJson  <line1>,<line2>!python -m json.tool
+command! -range=% FormatJson  <line1>,<line2>!python -m json.tool
 
 " capture outputs of command
 " ref. http://d.hatena.ne.jp/tyru/20100427/vim_capture_command
