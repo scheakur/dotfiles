@@ -39,7 +39,7 @@ function! s:list2regex(list) " {{{
 	return regexp
 endfunction " }}}
 
-command! -buffer -range FormatSql
+command! -buffer -range=% FormatSql
 \	setlocal nohlsearch
 \	| execute '<line1>,<line2>s!' . <SID>list2regex(s:sql_keywords) . '!\r&!g'
 \	| normal =ip
