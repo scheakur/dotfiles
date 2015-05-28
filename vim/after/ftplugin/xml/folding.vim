@@ -1,7 +1,6 @@
 setlocal foldmethod=syntax
-setlocal foldtext=MakeXMLFoldingLabelByConcatenatingNextLine()
 
-function! MakeXMLFoldingLabelByConcatenatingNextLine()
+function! s:make_folding_label()
     if getline(v:foldstart) !~# '^\s*<propert\(y\|ies\)\s\+name="[^"]\+"'
       return foldtext()
     endif
@@ -16,3 +15,8 @@ function! s:shorten(line)
     return l:rv
 endfunction
 
+function! s:fname(name)
+	return vimrc#fname(a:name, expand('<sfile>'))
+endfunction
+
+execute 'setlocal foldtext=' . s:fname('make_folding_label') . '()'
