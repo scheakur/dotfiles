@@ -219,6 +219,9 @@ command! -range=% ShrinkSpace  <line1>,<line2>s![^ ]\zs\s\+! !g | nohlsearch | n
 " insert a blank line every N lines
 command! -range=% -nargs=1 InsertBlankLineEvery  <line1>,<line2>s!\v(.*\n){<args>}!&\r! | nohlsearch
 
+" remove blank lines
+command! -range=% RemoveBlankLines  silent <line1>,<line2>g/^\s*$/d | nohlsearch
+
 " rename file
 command! -nargs=1 -complete=file Rename  file <args> | write | call delete(expand('#'))
 
