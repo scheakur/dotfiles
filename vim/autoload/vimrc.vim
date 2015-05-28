@@ -541,6 +541,12 @@ function! vimrc#sort_lines(bang) range
 	silent execute range . 'sort' . a:bang . ' n'
 	silent execute range . 's/^\d\+ //'
 endfunction
+
+
+function! vimrc#fname(name, sfile)
+	let sid = matchstr(a:sfile, '<SNR>\zs\d\+\ze_.\+$')
+	return printf('<SNR>%s_%s', sid, a:name)
+endfunction
 " }}}
 
 
