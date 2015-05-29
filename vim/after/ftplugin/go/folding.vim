@@ -1,8 +1,7 @@
 setlocal foldmethod=syntax
 setlocal foldminlines=5
-setlocal foldtext=MakeGoFoldingLabelWithStartLineAndNumbersOfFoldedLines()
 
-function! MakeGoFoldingLabelWithStartLineAndNumbersOfFoldedLines()
+function! s:make_folding_label()
 	let line = getline(v:foldstart)
 	if (line =~# '/\*\*\?\s*')
 		let next = getline(v:foldstart + 1)
@@ -15,3 +14,9 @@ function! MakeGoFoldingLabelWithStartLineAndNumbersOfFoldedLines()
 	let line .= ' // ' . (v:foldend - v:foldstart + 1) . ' lines'
 	return line
 endfunction
+
+function! s:fname(name)
+	return vimrc#fname(a:name, expand('<sfile>'))
+endfunction
+
+execute 'setlocal foldtext=' . s:fname('make_folding_label') . '()'
