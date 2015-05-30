@@ -5,9 +5,9 @@ setlocal formatoptions-=o
 setlocal dictionary=$HOME/.vim/dict/vim.dict
 
 function! s:make_folding_label()
-    let line = getline(v:foldstart)
-    let line .= ' " ' . (v:foldend - v:foldstart + 1) . ' lines'
-    return line
+	let line = getline(v:foldstart)
+	let line .= ' " ' . (v:foldend - v:foldstart + 1) . ' lines'
+	return line
 endfunction
 
 function! s:fname(name)
