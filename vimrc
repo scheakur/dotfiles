@@ -101,8 +101,7 @@ set shiftwidth=4
 set softtabstop&
 set shiftround
 set breakindent
-set breakindentopt=sbr
-let &showbreak = '> '
+let &showbreak = '･･･ '
 
 " for Vim script. see help: ft-vim-indent
 let g:vim_indent_cont = 0
