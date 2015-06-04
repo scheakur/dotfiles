@@ -694,6 +694,14 @@ let g:quickrun_config = {
 \		'command': 'pandoc',
 \		'outputter': 'browser',
 \	},
+\	'markdown': {
+\		'__help__': 'go get https://github.com/russross/blackfriday-tool',
+\		'command': 'blackfriday-tool',
+\		'cmdopt': '-page=true',
+\		'tempfile': '%{tempname()}.md',
+\		'exec': '%c %o %a %s',
+\		'outputter': 'browser',
+\	},
 \}
 
 if s:in_mac
