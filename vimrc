@@ -101,7 +101,8 @@ set shiftwidth=4
 set softtabstop&
 set shiftround
 set breakindent
-let &showbreak = '･･･ '
+set breakindentopt=shift:-1
+let &showbreak = '␣'
 
 " for Vim script. see help: ft-vim-indent
 let g:vim_indent_cont = 0
@@ -137,7 +138,7 @@ set viminfo='128,<512,s64,h
 
 " invisible characters {{{
 set list
-set listchars=tab:»_,trail:･
+set listchars=tab:»_,trail:･,extends:>,precedes:<
 " highlight column 81
 set colorcolumn=81
 set textwidth=0
