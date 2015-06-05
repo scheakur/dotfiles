@@ -698,7 +698,15 @@ let g:quickrun_config = {
 \	'markdown': {
 \		'__help__': 'go get https://github.com/russross/blackfriday-tool',
 \		'command': 'blackfriday-tool',
-\		'cmdopt': '-page=true',
+\		'cmdopt': '-css=' . $HOME . '/Dropbox/config/marked/nice.css',
+\		'tempfile': '%{tempname()}.md',
+\		'exec': '%c %o %a %s',
+\		'outputter': 'browser',
+\	},
+\	'presen': {
+\		'__help__': 'go get https://github.com/russross/blackfriday-tool',
+\		'command': 'blackfriday-tool',
+\		'cmdopt': '-css=' . $HOME .  '/Dropbox/config/marked/presentation.css',
 \		'tempfile': '%{tempname()}.md',
 \		'exec': '%c %o %a %s',
 \		'outputter': 'browser',
