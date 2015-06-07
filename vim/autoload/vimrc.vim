@@ -547,6 +547,18 @@ function! vimrc#fname(name, sfile)
 	let sid = matchstr(a:sfile, '<SNR>\zs\d\+\ze_.\+$')
 	return printf('<SNR>%s_%s', sid, a:name)
 endfunction
+
+
+function! vimrc#quickrun_config_for_markdown(css)
+	return {
+	\	'__setup__': 'go get github.com/russross/blackfriday-tool',
+	\	'command': 'blackfriday-tool',
+	\	'cmdopt': '-css=' . $HOME . '/Dropbox/config/marked/' . a:css,
+	\	'tempfile': '%{tempname()}.md',
+	\	'exec': '%c %o %a %s',
+	\	'outputter': 'browser',
+	\}
+endfunction
 " }}}
 
 

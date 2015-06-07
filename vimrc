@@ -695,22 +695,8 @@ let g:quickrun_config = {
 \		'command': 'pandoc',
 \		'outputter': 'browser',
 \	},
-\	'markdown': {
-\		'__setup__': 'go get github.com/russross/blackfriday-tool',
-\		'command': 'blackfriday-tool',
-\		'cmdopt': '-css=' . $HOME . '/Dropbox/config/marked/nice.css',
-\		'tempfile': '%{tempname()}.md',
-\		'exec': '%c %o %a %s',
-\		'outputter': 'browser',
-\	},
-\	'presen': {
-\		'__setup__': 'go get github.com/russross/blackfriday-tool',
-\		'command': 'blackfriday-tool',
-\		'cmdopt': '-css=' . $HOME .  '/Dropbox/config/marked/presentation.css',
-\		'tempfile': '%{tempname()}.md',
-\		'exec': '%c %o %a %s',
-\		'outputter': 'browser',
-\	},
+\	'markdown': vimrc#quickrun_config_for_markdown('nice.css'),
+\	'presen': vimrc#quickrun_config_for_markdown('presentation.css'),
 \}
 
 if s:in_mac
