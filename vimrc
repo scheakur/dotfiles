@@ -435,6 +435,7 @@ vmap i;  <Plug>(textobj-between-i)
 
 " handle window {{{
 " key repeat for window sizing ( <C-w>+++ = <C-w>+<C-w>+<C-w>+ )
+" XXX this can be replaced with vim-submode
 nmap <C-w>+  <C-w>+<SID>(window-size)
 nmap <C-w>-  <C-w>-<SID>(window-size)
 nmap <C-w>>  <C-w>><SID>(window-size)
