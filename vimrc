@@ -100,8 +100,10 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop&
 set shiftround
-set breakindent
-set breakindentopt=shift:-1
+if exists('&breakindent')
+	set breakindent
+	set breakindentopt=shift:-1
+endif
 let &showbreak = '␣'
 
 " for Vim script. see help: ft-vim-indent
