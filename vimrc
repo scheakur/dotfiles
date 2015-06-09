@@ -271,7 +271,7 @@ command! CopyMessages  call vimrc#copy_messages()
 command! -nargs=+ -complete=file Greprep  call vimrc#greprep(<q-args>)
 
 " sudo write
-command! SudoWrite  w !sudo tee > /dev/null %
+command! SudoWrite  write !sudo tee > /dev/null %
 
 " sort lines
 command! -bang -range=% SortLines  <line1>,<line2>call vimrc#sort_lines('<bang>')
