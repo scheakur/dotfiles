@@ -8,8 +8,8 @@ scriptencoding utf-8
 language messages C
 
 " environment {{{
-let s:in_mac = has('mac') || has('macunix')
-let s:in_nix = !s:in_mac && has('unix')
+let s:mac = has('mac') || has('macunix')
+let s:nix = !s:mac && has('unix')
 " }}}
 
 set background=light
@@ -18,13 +18,13 @@ colorscheme scheakur
 
 
 " font {{{
-if s:in_mac
+if s:mac
 	set guifontwide=Monaco:h14
 	set guifont=Monaco:h14
 	set linespace=1
 	let $PATH='/opt/local/bin:'.$PATH
 	set fuoptions=maxvert,maxhorz
-elseif s:in_nix
+elseif s:nix
 	set guifont=Ricty\ 12
 	set guifontwide=Ricty\ 12
 endif
@@ -32,10 +32,10 @@ endif
 
 
 " window size {{{
-if s:in_mac
+if s:mac
 	set lines=48
 	set columns=100
-elseif s:in_nix
+elseif s:nix
 	if &diff
 		set lines=999
 		set columns=999

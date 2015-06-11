@@ -28,11 +28,11 @@ language messages C
 language time C
 
 " environment {{{
-let s:in_mac = has('mac') || has('macunix')
-let s:in_nix = !s:in_mac && has('unix')
+let s:mac = has('mac') || has('macunix')
+let s:nix = !s:mac && has('unix')
 " }}}
 
-if !s:in_mac
+if !s:mac
 	let g:did_install_default_menus = 1
 endif
 
@@ -330,7 +330,7 @@ vnoremap zP  "0P
 " }}}
 
 " copy(yank) and paste with clipboard {{{
-if s:in_nix
+if s:nix
 	inoremap <C-o>p  <C-r><C-o>+
 	cnoremap <C-o>p  <C-r><C-o>+
 	vnoremap <C-o>y  "+y
@@ -465,7 +465,7 @@ nnoremap <silent> <SID>(split-to-l)
 " }}}
 
 " yank filename {{{
-if s:in_mac
+if s:mac
 	nnoremap <silent> <Space>yf  :let @*=expand('%:p')<CR>
 	nnoremap <silent> <Space>yy  :let @*=expand('%')<CR>
 else
@@ -702,7 +702,7 @@ let g:quickrun_config = {
 \	'presen': vimrc#quickrun_config_for_markdown('presentation.css'),
 \}
 
-if s:in_mac
+if s:mac
 	call extend(g:quickrun_config, {
 	\	'markdown' : {
 	\		'command': 'open',
