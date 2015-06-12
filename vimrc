@@ -100,11 +100,12 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop&
 set shiftround
+
+let &showbreak = '␣'
 if exists('&breakindent')
 	set breakindent
 	set breakindentopt=shift:-1
 endif
-let &showbreak = '␣'
 
 " for Vim script. see help: ft-vim-indent
 let g:vim_indent_cont = 0
@@ -130,10 +131,10 @@ let g:xml_syntax_folding = 1
 set nowritebackup
 set nobackup
 set directory-=.
-let &directory = expand('~/tmp/vim,') . &directory
+let &directory = vimrc#tmp_dir . ',' . &directory
 set undofile
-call vimrc#mkdir(expand('~/tmp/vim/undo'))
-let &undodir = expand('~/tmp/vim/undo,') . &directory
+call vimrc#mkdir(vimrc#tmp_dir . '/undo')
+let &undodir = vimrc#tmp_dir . '/undo,' . &directory
 set history=1024
 set viminfo='128,<512,s64,h
 " }}}

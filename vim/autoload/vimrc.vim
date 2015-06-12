@@ -559,6 +559,9 @@ function! vimrc#quickrun_config_for_markdown(css)
 	\	'outputter': 'browser',
 	\}
 endfunction
+
+
+let vimrc#tmp_dir = expand('~/vim/tmp')
 " }}}
 
 
