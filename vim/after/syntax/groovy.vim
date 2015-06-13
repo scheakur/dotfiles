@@ -1,1 +1,1 @@
-syn sync fromstart
+syntax sync fromstart

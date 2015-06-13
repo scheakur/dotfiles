@@ -1,2 +1,2 @@
-hi! def link VimFilerCurrentDirectory Identifier
+highlight! def link VimFilerCurrentDirectory Identifier
 

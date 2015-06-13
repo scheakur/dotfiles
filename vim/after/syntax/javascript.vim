@@ -1,3 +1,3 @@
 syntax keyword jsThis  that self me
 
-hi link jsThis  Special
+highlight link jsThis  Special

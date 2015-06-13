@@ -1,1 +1,1 @@
-synta keyword sqlKeyword case when
+syntax keyword sqlKeyword case when

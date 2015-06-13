@@ -1,0 +1,6 @@
+" highlight for status line of unite
+highlight link uniteStatusHead uniteStatusNormal
+highlight link uniteStatusLineNR uniteStatusNormal
+highlight link uniteStatusMessage uniteStatusNormal
+highlight link uniteStatusSourceCandidates uniteStatusNormal
+highlight link uniteStatusSourceNames uniteStatusNormal
