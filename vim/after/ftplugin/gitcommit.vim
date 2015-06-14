@@ -9,8 +9,7 @@ endfunction
 
 
 function! s:fname(name)
-	let sid = matchstr(expand('<sfile>'), '<SNR>\zs\d\+\ze_fname$')
-	return printf('<SNR>%s_%s', sid, a:name)
+	return vimrc#fname(a:name, expand('<sfile>'))
 endfunction
 
 
