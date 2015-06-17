@@ -186,3 +186,7 @@ toString
 unshift
 values
 iterator
+@@iterator
+@@unscopables
+@@toStringTag
+@@isConcatSpreadable 
