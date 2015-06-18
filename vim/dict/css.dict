@@ -194,4 +194,7 @@ word-spacing
 word-wrap
 writing-mode
 z-index
-
+auto
+initial
+none
+inherit

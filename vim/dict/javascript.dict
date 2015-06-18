@@ -189,4 +189,4 @@ iterator
 @@iterator
 @@unscopables
 @@toStringTag
-@@isConcatSpreadable 
+@@isConcatSpreadable
