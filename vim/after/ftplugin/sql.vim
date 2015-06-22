@@ -1,6 +1,7 @@
 setlocal commentstring=--\ %s
 setlocal formatoptions-=r
 setlocal formatoptions-=o
+setlocal dictionary=$HOME/.vim/dict/sql.dict
 
 " format SQL {{{
 let s:sql_keywords = [
