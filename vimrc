@@ -269,6 +269,7 @@ command! ClearMessages  call vimrc#clear_messages()
 command! CopyMessages  call vimrc#copy_messages()
 
 " grep and qfreplace
+" ex) :Greprep foo src/**/*.vim
 command! -nargs=+ -complete=file Greprep  call vimrc#greprep(<q-args>)
 
 " sudo write
