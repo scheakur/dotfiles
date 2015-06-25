@@ -329,10 +329,10 @@ vnoremap <silent> p  p`]
 nnoremap <silent> p  p`]
 
 " paste yank register
-nnoremap zp  "0p
-vnoremap zp  "0p
-nnoremap zP  "0P
-vnoremap zP  "0P
+nnoremap zp  "0p`]
+vnoremap zp  "0p`]
+nnoremap zP  "0P`]
+vnoremap zP  "0P`]
 " }}}
 
 " copy(yank) and paste with clipboard {{{
