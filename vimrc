@@ -324,6 +324,10 @@ inoremap <C-d>  <Delete>
 nnoremap <silent> O  :<C-u>call append(expand('.'), '')<CR>j
 nnoremap <Space>M  :<C-u>marks<CR>:mark<Space>
 
+vnoremap <silent> y  y`]
+vnoremap <silent> p  p`]
+nnoremap <silent> p  p`]
+
 " paste yank register
 nnoremap zp  "0p
 vnoremap zp  "0p
@@ -871,6 +875,11 @@ nmap <Space>h <Plug>(operator-jump-head-out)
 nmap <Space>l <Plug>(operator-jump-tail-out)
 nmap <Space>H <Plug>(operator-jump-head)
 nmap <Space>L <Plug>(operator-jump-tail)
+" }}}
+
+" vim-expand-region {{{
+vmap v  <Plug>(expand_region_expand)
+vmap <C-v>  <Plug>(expand_region_shrink)
 " }}}
 
 " /plugin }}}
