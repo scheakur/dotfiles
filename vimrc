@@ -893,6 +893,8 @@ let g:expand_region_text_objects = {
 \	'ab'  :1,
 \	'iB'  :1,
 \	'aB'  :1,
+\	'if'  :1,
+\	'af'  :1,
 \	'il'  :0,
 \	'ip'  :0,
 \	'ie'  :0,
