@@ -887,6 +887,8 @@ let g:expand_region_text_objects = {
 \	'a"' :0,
 \	"i'" :0,
 \	"a'" :0,
+\	'i`' :0,
+\	'a`' :0,
 \	'i]' :1,
 \	'a]' :1,
 \	'i)' :1,
