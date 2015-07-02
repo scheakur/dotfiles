@@ -66,8 +66,11 @@ autocmd vimrc ColorScheme *  call vimrc#load_after_colors()
 autocmd vimrc ColorScheme *  highlight link FullWidthSpace SpellBad
 autocmd vimrc Syntax *  syntax match FullWidthSpace containedin=ALL /　/
 
-set background=dark
-colorscheme scheakur
+
+if !has('gui_running')
+	set background=dark
+	colorscheme scheakur
+endif
 
 " to keep background in terminal clean
 set t_ut=
