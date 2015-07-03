@@ -42,7 +42,6 @@ elseif s:nix
 	else
 		set lines=40
 		set columns=100
-		winpos 400 90
 	endif
 endif
 " }}}
