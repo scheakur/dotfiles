@@ -22,8 +22,6 @@ if s:mac
 	set guifontwide=Monaco:h14
 	set guifont=Monaco:h14
 	set linespace=1
-	let $PATH='/opt/local/bin:'.$PATH
-	set fuoptions=maxvert,maxhorz
 elseif s:nix
 	set guifont=Ricty\ 12
 	set guifontwide=Ricty\ 12
