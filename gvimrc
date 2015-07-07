@@ -2,6 +2,7 @@
 "                                   gvimrc                                     "
 " ============================================================================ "
 
+
 " basic {{{
 set encoding=utf-8
 scriptencoding utf-8
@@ -33,7 +34,9 @@ endif
 if s:mac
 	set lines=48
 	set columns=100
-elseif s:nix
+endif
+
+if s:nix
 	if &diff
 		set lines=999
 		set columns=999
@@ -62,6 +65,7 @@ if has('gui_macvim')
 	set iminsert=2
 endif
 " }}}
+
 
 " @see :help modeline
 " vim: set foldenable foldmethod=marker :
