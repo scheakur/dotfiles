@@ -27,10 +27,10 @@ for (( i = 0; i < ${#target_list[@]}; i++ ))
 do
     target=${target_list[i]}
     if [ -e ~/.$target -o -L ~/.$target ]; then
-        if [ -e ~/.$target.orig.back -o -L ~/.$target.orig.back ]; then
-            rm -rf ~/.$target.orig.back
+        if [ -e ~/.$target.bak -o -L ~/.$target.bak ]; then
+            rm -rf ~/.$target.bak
         fi
-        mv ~/.$target ~/.$target.orig.back
+        mv ~/.$target ~/.$target.bak
     fi
     ln -s $path/$target ~/.$target
 done
