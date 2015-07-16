@@ -613,7 +613,11 @@ let g:unite_source_buffer_time_format = '(%H:%M) '
 let g:unite_source_alias_aliases = {
 \	'vim' : {
 \		'source': 'file_rec/async',
-\		'args': expand('~/.vim/.'),
+\		'args': expand('~/.vim'),
+\	},
+\	'sandbox' : {
+\		'source': 'file_rec/async',
+\		'args': expand('~/src/github.com/scheakur/sandbox'),
 \	},
 \	'keymap' : {
 \		'source': 'output',
