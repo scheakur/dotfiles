@@ -63,6 +63,7 @@ path=(/usr/local/heroku/bin  $path)
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # rbenv
+path=($HOME/.rbenv/bin $path)
 eval "$(rbenv init -)"
 
 path=($HOME/local/bin $HOME/bin $path)
