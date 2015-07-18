@@ -438,10 +438,9 @@ omap if  <Plug>(textobj-function-i)
 vmap if  <Plug>(textobj-function-i)
 
 " textobj-between (default f)
-omap a;  <Plug>(textobj-between-a)
-vmap a;  <Plug>(textobj-between-a)
-omap i;  <Plug>(textobj-between-i)
-vmap i;  <Plug>(textobj-between-i)
+let g:textobj_between_no_default_key_mappings = 1
+map a;  <Plug>(textobj-between-a)
+map i;  <Plug>(textobj-between-i)
 " }}}
 
 " handle window {{{
