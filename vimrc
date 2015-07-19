@@ -431,12 +431,6 @@ vnoremap a"  2i"
 onoremap a`  2i`
 vnoremap a`  2i`
 
-" textobj-function (default f)
-omap af  <Plug>(textobj-function-a)
-vmap af  <Plug>(textobj-function-a)
-omap if  <Plug>(textobj-function-i)
-vmap if  <Plug>(textobj-function-i)
-
 " textobj-between (default f)
 let g:textobj_between_no_default_key_mappings = 1
 map a;  <Plug>(textobj-between-a)
