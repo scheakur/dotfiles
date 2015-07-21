@@ -433,8 +433,10 @@ vnoremap a`  2i`
 
 " textobj-between (default f)
 let g:textobj_between_no_default_key_mappings = 1
-map a;  <Plug>(textobj-between-a)
-map i;  <Plug>(textobj-between-i)
+omap a;  <Plug>(textobj-between-a)
+omap i;  <Plug>(textobj-between-i)
+vmap a;  <Plug>(textobj-between-a)
+vmap i;  <Plug>(textobj-between-i)
 " }}}
 
 " handle window {{{
