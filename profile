@@ -1,4 +1,4 @@
-PATH=/usr/local/bin:/usr/bin /bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
 
 export JAVA_HOME=$HOME/app/java
 PATH=$JAVA_HOME/bin:$PATH
@@ -37,13 +37,13 @@ else
     export GOROOT=/usr/local/go
 fi
 export GOPATH=$HOME
-PATH=$GOPATH/bin $GOROOT/bin:$PATH
+PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # nodebrew
 PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # heroku toolbelt
-PATH=/usr/local/heroku/bin :$PATH
+PATH=/usr/local/heroku/bin:$PATH
 
 # nvm
 [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" # This loads nvm
@@ -55,7 +55,7 @@ PATH=/usr/local/heroku/bin :$PATH
 PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
-PATH=$HOME/local/bin $HOME/bin:$PATH
+PATH=$HOME/local/bin:$HOME/bin:$PATH
 
 export PATH
 
