@@ -1,4 +1,4 @@
-PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:$PATH
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 export JAVA_HOME=$HOME/app/java
 PATH=$JAVA_HOME/bin:$PATH
