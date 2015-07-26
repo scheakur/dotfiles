@@ -14,6 +14,7 @@ target_list=(
     zshenv
     config/peco
     npmrc
+    gemrc
 )
 
 for (( i = 0; i < ${#target_list[@]}; i++ ))
