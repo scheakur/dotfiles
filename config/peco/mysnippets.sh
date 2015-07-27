@@ -8,6 +8,9 @@ cd ~/app/addon-sdk-1.17/; source bin/activate; cd - #addon
 svn info | grep -E '^Revision: ' | sed 's/Revision: /r/' | xsel -ib #copyrevision
 git svn info | grep -E '^Revision: ' | sed 's/Revision: /r/' | xsel -ib #copyrevision
 
+# svn ignore
+svn propset --recursive svn:ignore *.zip ./src
+
 ## sshfs
 sshfs user@hostname: ~/mnt
 fusermount -u ~/mnt
