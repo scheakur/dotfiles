@@ -62,4 +62,7 @@ export PATH
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
 
+# load environment specific .profile
+[[ -s "$HOME/.profile.local" ]] && source "$HOME/.profile.local"
+
 # vim: ft=sh
