@@ -1,3 +1,7 @@
+# ============================================================================ #
+#                                   profile                                    #
+# ============================================================================ #
+
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
 export JAVA_HOME=$HOME/app/java
@@ -39,11 +43,11 @@ fi
 export GOPATH=$HOME
 PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-# nodebrew
-PATH=$HOME/.nodebrew/current/bin:$PATH
-
 # heroku toolbelt
 PATH=/usr/local/heroku/bin:$PATH
+
+# nodebrew
+PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # nvm
 [ -s "$HOME/.nvm/nvm.sh" ] && . "$HOME/.nvm/nvm.sh" # This loads nvm
