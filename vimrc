@@ -820,6 +820,11 @@ let g:neomru#time_format = '(%m/%d %H:%M) '
 " }}}
 
 " operator-siege {{{
+let g:operator_siege_decos = [
+\	{'chars': [' ', ' '], 'keys': [' ']},
+\	{'chars': ['/', '/'], 'keys': ['/']},
+\ ]
+
 call vimrc#define_operator_my_siege_add()
 map sa  <Plug>(operator-my-siege-add)
 
