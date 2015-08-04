@@ -331,6 +331,14 @@ function! vimrc#unite_converter_short_path(candidates, context)
 	endfor
 	return a:candidates
 endfunction
+
+
+function! vimrc#unite_grep(...)
+	let dir = (a:0 > 0) ? a:1 : ''
+	let ext = (a:0 > 1) ? ('.' . a:2) : ''
+	let pat = (a:0 > 2) ? a:3 : ''
+	execute printf('Unite grep:%s:-r\\ --include=*%s:%s', dir, ext, pat)
+endfunction
 " }}}
 
 

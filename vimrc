@@ -621,18 +621,9 @@ let g:unite_source_alias_aliases = {
 \ }
 " }}}
 
-if executable('ag')
-	let g:unite_source_grep_command = 'ag'
-	let g:unite_source_grep_default_opts = '-i --nocolor --nogroup'
-	let g:unite_source_grep_recursive_opt = ''
-elseif executable('pt')
-	" https://github.com/monochromegane/the_platinum_searcher
-	let g:unite_source_grep_command = 'pt'
-	let g:unite_source_grep_default_opts = '-S --nogroup --nocolor'
-	let g:unite_source_grep_recursive_opt = ''
-endif
-
 let g:unite_source_grep_max_candidates = 100
+
+command! -nargs=* -complete=dir Grep  call vimrc#unite_grep(<f-args>)
 
 " initialize unite menu
 let g:unite_source_menu_menus = {}
