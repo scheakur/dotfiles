@@ -836,6 +836,7 @@ let g:repautocd_markers = [
 \	'.project',
 \	'.idea',
 \	'package.json',
+\	'Gemfile',
 \]
 " }}}
 
