@@ -41,3 +41,8 @@ echo $PATH | tr -s ':' '\n'
 
 ## netstat
 netstat -apn
+
+
+## nkf
+find . -name "*.csv" | xargs nkf -w --overwrite
+nkf --guess *.csv
