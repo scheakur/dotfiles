@@ -883,14 +883,16 @@ vmap v  <Plug>(expand_region_expand)
 vmap <C-v>  <Plug>(expand_region_shrink)
 
 let g:expand_region_text_objects = {
-\	'i;/' :0,
-\	'a;/' :0,
-\	'i]'  :1,
-\	'a]'  :1,
-\	'i)'  :1,
-\	'a)'  :1,
-\	'i}'  :1,
-\	'a}'  :1,
+\	'i;/': 0,
+\	'a;/': 0,
+\	'i]' : 1,
+\	'a]' : 1,
+\	'i)' : 1,
+\	'a)' : 1,
+\	'i}' : 1,
+\	'a}' : 1,
+\	'il' : 0,
+\	'al' : 0,
 \}
 " }}}
 
