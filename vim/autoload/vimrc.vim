@@ -569,6 +569,48 @@ function! vimrc#quickrun_config_for_markdown(css)
 endfunction
 
 
+function! vimrc#apply_template()
+	let pos = getpos('.')
+	let line = getline('.')
+	let name_hint = s:extrace_name_hint(line, pos)
+	let names = sonictemplate#complete(name_hint, '', 0)
+	if len(names) != 1
+		call feedkeys("\<Esc>:Template " . name_hint . "\<C-l>", 'n')
+		return
+	endif
+	execute 'Template ' . names[0]
+endfunction
+
+
+function! s:extrace_name_hint(line, pos)
+	let col = a:pos[2]
+	let hint = []
+	for i in range(col)
+		let char = a:line[col - i - 1]
+		if char !~# '[0-9a-zA-Z_-]'
+			let i -= 1
+			break
+		endif
+		call add(hint, char)
+	endfor
+
+	let new_line = ''
+	if col - i - 2 >= 0
+		let new_line .= a:line[0 : col - i - 2]
+	endif
+	if col <= len(a:line) - 1
+		let new_line .= a:line[col : len(a:line) - 1]
+	endif
+	call setline('.', new_line)
+
+	let new_pos = a:pos
+	let new_pos[2] = col - i
+	call setpos('.', new_pos)
+
+	return join(reverse(hint), '')
+endfunction
+
+
 let vimrc#tmp_dir = expand('~/vim/tmp')
 " }}}
 
