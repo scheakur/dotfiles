@@ -594,20 +594,16 @@ function! s:extrace_name_hint(line, pos)
 		call add(hint, char)
 	endfor
 
-	let new_line = ''
-	if col - i - 2 >= 0
-		let new_line .= a:line[0 : col - i - 2]
-	endif
-	if col <= len(a:line) - 1
-		let new_line .= a:line[col : len(a:line) - 1]
-	endif
-	call setline('.', new_line)
-
-	let new_pos = a:pos
-	let new_pos[2] = col - i
-	call setpos('.', new_pos)
+	call s:remove_name_hint(col, i)
 
 	return join(reverse(hint), '')
+endfunction
+
+
+function! s:remove_name_hint(col, i)
+	let begin = a:col - a:i
+	let end = a:col + 1
+	execute 's/\%' . begin . 'c.*\%' . end . 'c//'
 endfunction
 
 
