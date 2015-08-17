@@ -486,6 +486,46 @@ endfunction
 " }}}
 
 
+" sonictemplate {{{
+function! vimrc#apply_template()
+	let pos = getpos('.')
+	let line = getline('.')
+	let name_hint = s:extrace_name_hint(line, pos)
+	let names = sonictemplate#complete(name_hint, '', 0)
+	if len(names) != 1
+		call feedkeys("\<Esc>:Template " . name_hint . "\<C-l>", 'n')
+		return
+	endif
+	execute 'Template ' . names[0]
+endfunction
+
+
+function! s:extrace_name_hint(line, pos)
+	let col = a:pos[2]
+	let hint = []
+	for i in range(col)
+		let char = a:line[col - i - 1]
+		if char !~# '[0-9a-zA-Z_-]'
+			let i -= 1
+			break
+		endif
+		call add(hint, char)
+	endfor
+
+	call s:remove_name_hint(col, i)
+
+	return join(reverse(hint), '')
+endfunction
+
+
+function! s:remove_name_hint(col, i)
+	let begin = a:col - a:i
+	let end = a:col + 1
+	execute 's/\%' . begin . 'c.*\%' . end . 'c//'
+endfunction
+" }}}
+
+
 " misc. {{{
 function! vimrc#toggle_option(option_name)
 	execute 'setlocal' a:option_name . '!'
@@ -566,44 +606,6 @@ function! vimrc#quickrun_config_for_markdown(css)
 	\	'exec': '%c %o %a %s',
 	\	'outputter': 'browser',
 	\}
-endfunction
-
-
-function! vimrc#apply_template()
-	let pos = getpos('.')
-	let line = getline('.')
-	let name_hint = s:extrace_name_hint(line, pos)
-	let names = sonictemplate#complete(name_hint, '', 0)
-	if len(names) != 1
-		call feedkeys("\<Esc>:Template " . name_hint . "\<C-l>", 'n')
-		return
-	endif
-	execute 'Template ' . names[0]
-endfunction
-
-
-function! s:extrace_name_hint(line, pos)
-	let col = a:pos[2]
-	let hint = []
-	for i in range(col)
-		let char = a:line[col - i - 1]
-		if char !~# '[0-9a-zA-Z_-]'
-			let i -= 1
-			break
-		endif
-		call add(hint, char)
-	endfor
-
-	call s:remove_name_hint(col, i)
-
-	return join(reverse(hint), '')
-endfunction
-
-
-function! s:remove_name_hint(col, i)
-	let begin = a:col - a:i
-	let end = a:col + 1
-	execute 's/\%' . begin . 'c.*\%' . end . 'c//'
 endfunction
 
 
