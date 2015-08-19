@@ -20,7 +20,7 @@ bindkey -e
 disable r
 
 if [ "$TERM" != 'screen-256color' ]; then
-    export TERM='xterm-256color'
+	export TERM='xterm-256color'
 fi
 
 # edit command in editor
@@ -40,16 +40,16 @@ export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30
 
 # OS dependent {{{
 case "${OSTYPE}" in
-    darwin*)
-        alias ls='ls -GFv'
-        alias vim='open -a /Applications/MacVim.app'
-        ;;
-    linux-gnu*)
-        alias ls='ls --color -Fv'
-        alias pbcopy='xsel --clipboard --input'
-        alias pbpaste='xsel --clipboard --output'
-        alias open='xdg-open'
-        ;;
+	darwin*)
+		alias ls='ls -GFv'
+		alias vim='open -a /Applications/MacVim.app'
+		;;
+	linux-gnu*)
+		alias ls='ls --color -Fv'
+		alias pbcopy='xsel --clipboard --input'
+		alias pbpaste='xsel --clipboard --output'
+		alias open='xdg-open'
+		;;
 esac
 # }}}
 
@@ -63,33 +63,33 @@ autoload -Uz VCS_INFO_get_data_git && VCS_INFO_get_data_git 2> /dev/null
 setopt prompt_subst
 
 function zshrc-prompt-git-info { # {{{
-    local branch st color gitdir action user stash
-    if [[ $(command git rev-parse --is-inside-work-tree 2> /dev/null) != 'true' ]]; then
-        return
-    fi
+	local branch st color gitdir action user stash
+	if [[ $(command git rev-parse --is-inside-work-tree 2> /dev/null) != 'true' ]]; then
+		return
+	fi
 
-    branch=$(basename "$(command git symbolic-ref HEAD 2> /dev/null)")
-    if [[ -z $branch ]]; then
-        return
-    fi
+	branch=$(basename "$(command git symbolic-ref HEAD 2> /dev/null)")
+	if [[ -z $branch ]]; then
+		return
+	fi
 
-    st=$(command git status 2> /dev/null)
-    if [[ -n $(echo "$st" | grep '^nothing to') ]]; then
-        color=green
-    elif [[ -n $(echo "$st" | grep '^no changes added') ]]; then
-        color=yellow
-    elif [[ -n $(echo "$st" | grep '^Changes to be committed') ]]; then
-        color=red
-    else
-        color=blue
-    fi
+	st=$(command git status 2> /dev/null)
+	if [[ -n $(echo "$st" | grep '^nothing to') ]]; then
+		color=green
+	elif [[ -n $(echo "$st" | grep '^no changes added') ]]; then
+		color=yellow
+	elif [[ -n $(echo "$st" | grep '^Changes to be committed') ]]; then
+		color=red
+	else
+		color=blue
+	fi
 
-    user=$(command git config --get user.name 2> /dev/null)
-    gitdir=$(command git rev-parse --git-dir 2> /dev/null)
-    action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
-    stash=$(command git stash list 2>/dev/null | wc -l | tr -d ' ') && stash="[$stash]"
+	user=$(command git config --get user.name 2> /dev/null)
+	gitdir=$(command git rev-parse --git-dir 2> /dev/null)
+	action=$(VCS_INFO_git_getaction "$gitdir") && action="($action)"
+	stash=$(command git stash list 2>/dev/null | wc -l | tr -d ' ') && stash="[$stash]"
 
-    echo "%F{$color}$user$action@$branch$stash%f"
+	echo "%F{$color}$user$action@$branch$stash%f"
 } # }}}
 
 export PROMPT='%F{blue}[%D{%m/%d %H:%M}]%f %F{cyan}%n@%m:%~%f $(zshrc-prompt-git-info)
@@ -108,9 +108,9 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:processes' command "ps -u $USER -o pid,command"
 
 fpath=(
-    $HOME/src/github.com/zsh-users/zsh-completions
-    /usr/local/share/zsh-completions
-    $fpath
+	$HOME/src/github.com/zsh-users/zsh-completions
+	/usr/local/share/zsh-completions
+	$fpath
 )
 fpath=(${^fpath}(N-/^W))
 # }}}
@@ -126,7 +126,7 @@ alias la='ls -al'
 alias dir='ls'
 
 function zshrc-chpwd() {
-    ls
+	ls
 }
 add-zsh-hook chpwd zshrc-chpwd
 
@@ -161,32 +161,32 @@ bindkey '^S' history-incremental-pattern-search-forward
 
 # peco {{{
 function zshrc-exists() {
-    which $1 &> /dev/null
+	which $1 &> /dev/null
 }
 
 function zshrc-peco-ghq-cd() {
-    local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${selected_dir}"
-        zle accept-line
-    fi
-    zle clear-screen
+	local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
+	if [ -n "$selected_dir" ]; then
+		BUFFER="cd ${selected_dir}"
+		zle accept-line
+	fi
+	zle clear-screen
 }
 
 function zshrc-peco-mysnippets() {
-    local f=~/.config/peco/mysnippets.sh
-    BUFFER=$(cat $f | \grep -v '^#' | \grep -v '^$'| peco --query "$LBUFFER")
-    zle clear-screen
+	local f=~/.config/peco/mysnippets.sh
+	BUFFER=$(cat $f | \grep -v '^#' | \grep -v '^$'| peco --query "$LBUFFER")
+	zle clear-screen
 }
 
 if zshrc-exists peco; then
-    if zshrc-exists ghq; then
-        zle -N zshrc-peco-ghq-cd
-        bindkey '^ ' zshrc-peco-ghq-cd
-    fi
+	if zshrc-exists ghq; then
+		zle -N zshrc-peco-ghq-cd
+		bindkey '^ ' zshrc-peco-ghq-cd
+	fi
 
-    zle -N zshrc-peco-mysnippets
-    bindkey '^xs' zshrc-peco-mysnippets
+	zle -N zshrc-peco-mysnippets
+	bindkey '^xs' zshrc-peco-mysnippets
 fi
 # }}}
 
@@ -206,12 +206,12 @@ alias v=vim
 alias g=git
 
 function git() {
-    if [[ $1 == "clone" ]]; then
-        shift
-        ghq get $@
-    else
-        command git $@
-    fi
+	if [[ $1 == "clone" ]]; then
+		shift
+		ghq get $@
+	else
+		command git $@
+	fi
 }
 
 [[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
@@ -228,3 +228,4 @@ stty -ixon
 
 # vim: set foldmethod=marker :
 # vim: set formatoptions& formatoptions-=ro :
+# vim: set noexpandtab :
