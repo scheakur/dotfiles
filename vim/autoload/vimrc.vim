@@ -33,11 +33,16 @@ endfunction
 
 
 function! vimrc#print_error_in_splash() abort
-	if argc() == 0 && bufnr('$') == 1
+	if vimrc#is_in_splash()
 		for err in s:error
 			call append(line('$'), err)
 		endfor
 	endif
+endfunction
+
+
+function! vimrc#is_in_splash() abort
+	return argc() == 0 && bufnr('$') == 1
 endfunction
 " }}}
 
