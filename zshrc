@@ -214,16 +214,19 @@ function git() {
 	fi
 }
 
-[[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
-
 alias hexdump='od -A x -t x1z -v'
+# }}}
+
+
+# others {{{
+[[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
+[[ -f $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 # }}}
 
 
 # finally {{{
 stty -ixon
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && source "$HOME/.pythonbrew/etc/bashrc"
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+[[ -f $HOME/.zshrc.local ]] && source $HOME/.zshrc.local
 # }}}
 
 # vim: set foldmethod=marker :
