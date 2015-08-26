@@ -1,6 +1,6 @@
 setlocal foldmethod=syntax
 
-function! s:make_folding_label()
+function! s:make_folding_label() abort
 	if getline(v:foldstart) !~# '^\s*<propert\(y\|ies\)\s\+name="[^"]\+"'
 		return foldtext()
 	endif

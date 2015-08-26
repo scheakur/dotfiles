@@ -1,6 +1,6 @@
 setlocal foldmethod=syntax
 
-function! s:make_folding_label()
+function! s:make_folding_label() abort
 	let line = getline(v:foldstart)
 	if (line =~# '/\*\*\?\s*')
 		let next = getline(v:foldstart + 1)

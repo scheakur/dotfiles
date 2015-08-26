@@ -4,7 +4,7 @@ setlocal formatoptions-=r
 setlocal formatoptions-=o
 setlocal dictionary=$HOME/.vim/dict/vim.dict
 
-function! s:make_folding_label()
+function! s:make_folding_label() abort
 	let line = getline(v:foldstart)
 	let line .= ' " ' . (v:foldend - v:foldstart + 1) . ' lines'
 	return line

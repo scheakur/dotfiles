@@ -11,14 +11,14 @@ if exists('*s:undo_entry')
 	finish
 endif
 
-function! s:undo_entry()
+function! s:undo_entry() abort
 	let history = get(w:, 'qf_history', [])
 	if !empty(history)
 		call setqflist(remove(history, -1), 'r')
 	endif
 endfunction
 
-function! s:del_entry() range
+function! s:del_entry() range abort
 	let qf = getqflist()
 	let history = get(w:, 'qf_history', [])
 	call add(history, copy(qf))
