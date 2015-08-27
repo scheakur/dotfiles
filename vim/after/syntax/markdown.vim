@@ -1,8 +1,8 @@
-function! s:list_syntax(start, cycle)
+function! s:list_syntax(start, cycle) abort
 	return printf('"\v^\s{%s}(\s{%s})*\zs[-+*]\ze\s+"', &shiftwidth * a:start, &shiftwidth * a:cycle)
 endfunction
 
-function! s:set_syntax()
+function! s:set_syntax() abort
 	let marks = ['￭', '▸', '∙', '▹', '￮', '⋆']
 	let n = len(marks)
 	for i in range(n)
