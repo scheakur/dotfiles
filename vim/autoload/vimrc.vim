@@ -615,6 +615,7 @@ endfunction
 
 
 let vimrc#tmp_dir = expand('~/vim/tmp')
+let vimrc#undo_dir = vimrc#tmp_dir . '/undo'
 " }}}
 
 

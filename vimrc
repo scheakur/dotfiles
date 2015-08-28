@@ -136,8 +136,8 @@ set nobackup
 set directory-=.
 let &directory = vimrc#tmp_dir . ',' . &directory
 set undofile
-call vimrc#mkdir(vimrc#tmp_dir . '/undo')
-let &undodir = vimrc#tmp_dir . '/undo,' . &directory
+call vimrc#mkdir(vimrc#undo_dir)
+let &undodir = vimrc#undo_dir . ',' . &directory
 set history=1024
 set viminfo='128,<512,s64,h
 " }}}
