@@ -896,6 +896,10 @@ let g:expand_region_text_objects = {
 \}
 " }}}
 
+" agit {{{
+let g:agit_enable_auto_show_commit = 0
+" }}}
+
 " /plugin }}}
 
 
