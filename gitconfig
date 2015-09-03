@@ -27,7 +27,7 @@
 	br = branch
 	div = difftool --gui --no-prompt
 	svn-ref = "!f() { ret=''; for rev in $@; do ret=${ret}' '`git log --grep "git-svn-id.*@${rev}" --pretty=%H;`; done; echo $ret; }; f"
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cd) -%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --date=iso --abbrev-commit
 	update-remote = remote update --prune
 [color]
 	ui = auto
