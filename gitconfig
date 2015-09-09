@@ -14,7 +14,8 @@
 	user = scheakur
 [alias]
 	revertlocalchange = checkout HEAD --
-	svnup = svn rebase
+	svnco = svn clone --localtime
+	svnup = !git svn fetch --localtime && git svn rebase --local
 	svnci = svn dcommit
 	co = checkout
 	s = status -s
