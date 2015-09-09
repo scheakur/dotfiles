@@ -15,7 +15,7 @@
 [alias]
 	revertlocalchange = checkout HEAD --
 	svnco = svn clone --localtime
-	svnup = !git svn fetch --localtime && git svn rebase --local
+	svnup = !git stash && git svn fetch --localtime && git svn rebase --local && git stash pop
 	svnci = svn dcommit
 	co = checkout
 	s = status -s
