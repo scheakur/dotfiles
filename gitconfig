@@ -16,7 +16,7 @@
 	revertlocalchange = checkout HEAD --
 	svnco = svn clone --localtime
 	svnup = !git stash && git svn fetch --localtime && git svn rebase --local && git stash pop
-	svnci = svn dcommit
+	svnci = !git svn fetch --localtime && git svn rebase --local && git svn dcommit --no-rebase
 	co = checkout
 	s = status -s
 	st = status
@@ -28,7 +28,7 @@
 	br = branch
 	div = difftool --gui --no-prompt
 	svn-ref = "!f() { ret=''; for rev in $@; do ret=${ret}' '`git log --grep "git-svn-id.*@${rev}" --pretty=%H;`; done; echo $ret; }; f"
-	lg = log --color --graph --pretty=format:'%C(green)%h%Creset %C(cyan)(%cd) -%C(yellow)%d%Creset %s %C(blue)<%an>%Creset' --date=iso --abbrev-commit
+	lg = log --color --graph --pretty=format:'%C(green)%h%Creset %C(cyan)(%cd) -%C(yellow)%d%Creset %s %C(blue)<%an>%Creset' --date=local --abbrev-commit
 	update-remote = remote update --prune
 [color]
 	ui = auto
