@@ -1,9 +1,9 @@
 [user]
 	name = scheakur
 	email = scheakur@gmail.com
-
 [core]
 	excludesfile = ~/.gitignore
+	editor = vim --noplugin
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
