@@ -23,6 +23,9 @@
 	dic = diff -w --cached
 	div = difftool --gui --no-prompt
 	lg = log --color --graph --pretty=format:'%C(green)%h%Creset %C(cyan)(%cd) %Creset%C(blue)<%an>%Creset%C(yellow)%d%Creset %s' --date=local --abbrev-commit
+	# transfer git repository
+	transfer-from = clone --mirror
+	transfer-to = push --mirror
 	s = status -s
 	st = status
 	svn-ref = "!f() { ret=''; for rev in $@; do ret=${ret}' '`git log --grep "git-svn-id.*@${rev}" --pretty=%H;`; done; echo $ret; }; f"
