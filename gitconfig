@@ -28,9 +28,9 @@
 	transfer-to = push --mirror
 	s = status -s
 	st = status
-	svn-ref = "!f() { ret=''; for rev in $@; do ret=${ret}' '`git log --grep "git-svn-id.*@${rev}" --pretty=%H;`; done; echo $ret; }; f"
 	svnci = !git svn fetch --localtime && git svn rebase --local && git svn dcommit --no-rebase
 	svnco = svn clone --localtime
+	svnref = "!f() { ret=''; for rev in $@; do ret=${ret}' '`git log --grep "git-svn-id.*@${rev}" --pretty=%H;`; done; echo $ret; }; f"
 	svnup = !git stash && git svn fetch --localtime && git svn rebase --local && git stash pop
 	update-remote = remote update --prune
 [color]
