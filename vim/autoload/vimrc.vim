@@ -342,7 +342,7 @@ function! vimrc#unite_grep(...) abort
 	let dir = get(a:, 1, '')
 	let inc = get(a:, 2, '*')
 	let pat = get(a:, 3, '')
-	execute printf('Unite grep:%s:-r\\ --include=%s:%s', dir, inc, pat)
+	execute printf('Unite grep:%s:-r\\ --include=%s:%s -no-auto-preview', dir, inc, pat)
 endfunction
 " }}}
 
