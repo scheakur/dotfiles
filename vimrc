@@ -566,6 +566,8 @@ call unite#custom#profile('source/grep', 'context', {
 \	'auto_preview': 1,
 \})
 
+call unite#custom#default_action('grep', 'persist_open')
+
 " ignore_pattern {{{
 let s:ignore_pattern = '\M' . join([
 \	'/bak/',
