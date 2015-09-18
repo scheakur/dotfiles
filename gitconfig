@@ -19,6 +19,7 @@
 	ciav = commit -av
 	civ = commit -v
 	co = checkout
+	d = diff -w --word-diff
 	di = diff -w
 	dic = diff -w --cached
 	div = difftool --gui --no-prompt
