@@ -193,8 +193,10 @@ command! -nargs=? SetTabTitle  call vimrc#set_tabpage_title(<q-args>)
 
 " completion {{{
 set wildignore&
-set wildignore+=.git,.hg,.svn,*.jar,*.class
-set wildignore+=.gradle,.m2,.DS_Store,*.o,*.exe,*.zip
+set wildignore+=.git,.hg,.svn
+set wildignore+=*.o,*.exe,*.zip
+set wildignore+=.gradle,.m2,*.jar,*.class
+set wildignore+=.DS_Store
 set nowildmenu
 set wildmode=list:longest,full
 
