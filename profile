@@ -69,4 +69,7 @@ export PATH
 # load environment specific .profile
 [[ -s "$HOME/.profile.local" ]] && source "$HOME/.profile.local"
 
+# pythonz
+[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+
 # vim: ft=sh
