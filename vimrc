@@ -340,6 +340,9 @@ nnoremap zp  "0p`]
 vnoremap zp  "0p`]
 nnoremap zP  "0P`]
 vnoremap zP  "0P`]
+
+" don't quit vim
+nnoremap ZQ <Nop>
 " }}}
 
 " copy(yank) and paste with clipboard {{{
