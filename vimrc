@@ -169,7 +169,7 @@ set modeline
 " do not increase/decrease as octal number or hexadecimal number
 set nrformats& nrformats-=octal,hex
 set virtualedit=all
-set formatoptions=tcroqnlM1
+set formatoptions=tcroqnlM1j
 " show the number of lines of selection
 set showcmd
 set updatetime=1000
