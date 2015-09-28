@@ -3,7 +3,7 @@
 	email = scheakur@gmail.com
 [core]
 	excludesfile = ~/.gitignore
-	editor = vim --noplugin
+	editor = vim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
@@ -56,3 +56,5 @@
 	clean = git lfs clean %f
 	smudge = git lfs smudge %f
 	required = true
+[include]
+	path = .gitconfig.local
