@@ -370,6 +370,7 @@ cnoremap <C-p>  <Up>
 cnoremap <Up>  <C-p>
 cnoremap <C-n>  <Down>
 cnoremap <Down>  <C-n>
+cnoremap <C-b>  <Left>
 
 " remove last element if a string in command line is like path string {{{
 cnoremap <C-w>  <C-\>evimrc#remove_path_element()<CR>
