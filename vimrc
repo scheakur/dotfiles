@@ -309,8 +309,10 @@ noremap '  `
 noremap `  '
 noremap j  gj
 noremap k  gk
+noremap 0  g0
 noremap gj  j
 noremap gk  k
+noremap g0  0
 nnoremap J  <C-d>
 nnoremap K  <C-u>
 noremap H  b
