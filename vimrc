@@ -341,8 +341,8 @@ vnoremap zp  "0p`]
 nnoremap zP  "0P`]
 vnoremap zP  "0P`]
 
-vnoremap <silent> <C-h>  ^
-vnoremap <silent> <C-l>  $
+vnoremap <C-h>  ^
+vnoremap <C-l>  $
 
 " don't quit vim
 nnoremap ZQ <Nop>
