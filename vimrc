@@ -320,6 +320,8 @@ nnoremap <silent> n  nzz
 nnoremap <silent> N  Nzz
 nnoremap <C-o>  <C-o>zz
 nnoremap <C-i>  <C-i>zz
+nnoremap <C-e>  <C-e>j
+nnoremap <C-y>  <C-y>k
 
 nnoremap gm  `[v`]
 vnoremap gm  :<C-u>normal gm<CR>
