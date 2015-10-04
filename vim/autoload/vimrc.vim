@@ -266,7 +266,7 @@ endfunction
 
 function! vimrc#search_with_selected_text() abort
 	let text = s:get_selected_text()
-	let @/ = '\V' . substitute(escape(text, '\/'), "\n", '\\n', 'g')
+	let @/ = '\C\V' . substitute(escape(text, '\/'), "\n", '\\n', 'g')
 	call histadd('/', @/)
 endfunction
 " }}}
@@ -561,7 +561,7 @@ endfunction
 
 
 function! vimrc#search_without_move() abort
-	let @/ = '\<' . expand('<cword>') . '\>'
+	let @/ = '\C\<' . expand('<cword>') . '\>'
 	call histadd('/', @/)
 endfunction
 
