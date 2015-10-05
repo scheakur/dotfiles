@@ -316,10 +316,12 @@ nnoremap K  <C-u>
 noremap H  b
 noremap L  w
 nnoremap Y  y$
-nnoremap <silent> n  nzz
-nnoremap <silent> N  Nzz
+nnoremap n  nzz
+nnoremap N  Nzz
 nnoremap <C-o>  <C-o>zz
 nnoremap <C-i>  <C-i>zz
+nnoremap ]c  ]czz
+nnoremap [c  [czz
 nnoremap <C-e>  <C-e>j
 nnoremap <C-y>  <C-y>k
 
