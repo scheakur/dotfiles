@@ -15,6 +15,10 @@ scriptencoding utf-8
 set fileencodings=utf-8,ucs-bom,iso-2022-jp,euc-jp,cp932,utf-16le,utf-16
 " }}}
 
+if exists('+shellslash')
+	set shellslash
+endif
+
 " make vimrc reloadable
 source $HOME/.vim/autoload/vimrc.vim
 
