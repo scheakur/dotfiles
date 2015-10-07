@@ -140,7 +140,6 @@ set nobackup
 set directory-=.
 let &directory = vimrc#tmp_dir . ',' . &directory
 set undofile
-call vimrc#mkdir(vimrc#undo_dir)
 let &undodir = vimrc#undo_dir . ',' . &directory
 set history=1024
 set viminfo='128,<512,s64,h
@@ -561,7 +560,7 @@ inoremap <C-k>  <C-x><C-k>
 " option {{{
 let g:unite_split_rule = 'aboveleft'
 let g:unite_update_time = 100
-let g:unite_data_directory = vimrc#dir(expand('~/tmp/vim/unite/data'))
+let g:unite_data_directory = vimrc#dir(vimrc#tmp_dir . '/unite/data')
 " }}}
 
 " keymap {{{

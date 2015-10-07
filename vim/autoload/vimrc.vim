@@ -620,8 +620,8 @@ function! vimrc#quickrun_config_for_markdown(css) abort
 endfunction
 
 
-let vimrc#tmp_dir = expand('~/vim/tmp')
-let vimrc#undo_dir = vimrc#tmp_dir . '/undo'
+let vimrc#tmp_dir = vimrc#dir(expand('~/vim/tmp'))
+let vimrc#undo_dir = vimrc#dir(vimrc#tmp_dir . '/undo')
 " }}}
 
 
