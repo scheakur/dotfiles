@@ -400,6 +400,12 @@ function! vimrc#cd(directory) abort
 endfunction
 
 
+function! vimrc#dir(dir) abort
+	call vimrc#mkdir(a:dir)
+	return a:dir
+endfunction
+
+
 function! vimrc#mkdir(dir) abort
 	if isdirectory(a:dir)
 		return

@@ -561,6 +561,7 @@ inoremap <C-k>  <C-x><C-k>
 " option {{{
 let g:unite_split_rule = 'aboveleft'
 let g:unite_update_time = 100
+let g:unite_data_directory = vimrc#dir(expand('~/tmp/vim/unite/data'))
 " }}}
 
 " keymap {{{
