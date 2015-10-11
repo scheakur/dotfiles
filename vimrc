@@ -484,6 +484,9 @@ nnoremap <silent> <SID>(split-to-h)
 \	:<C-u>execute 'topleft' (v:count == 0 ? '' : v:count) 'vsplit'<CR>
 nnoremap <silent> <SID>(split-to-l)
 \	:<C-u>execute 'botright' (v:count == 0 ? '' : v:count) 'vsplit'<CR>
+
+nnoremap <C-n>   <C-w>w
+nnoremap <C-p>   <C-w>W
 " }}}
 
 " yank filename {{{
