@@ -21,3 +21,12 @@ command! -buffer FormatJavaScript4  call <SID>jsbeautify(4)
 
 nmap <buffer> <C-j>  <Plug>(jsdocy-add-jsdoc)
 inoremap <buffer> /<CR>  <C-r>=jsdocy#make_jsdoc(1)<CR><ESC>dd
+
+if exists('g:xml_syntax_folding')
+	unlet g:xml_syntax_folding
+endif
+
+augroup vimrc_javascript
+	autocmd!
+	autocmd BufLeave,WinLeave *.jsx  let g:xml_syntax_folding = 1
+augroup end

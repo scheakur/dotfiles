@@ -962,6 +962,8 @@ autocmd vimrc SwapExists *  let v:swapchoice = 'o'
 " select reload as fcs_choice automatically
 autocmd vimrc FileChangedShell *  let v:fcs_choice = 'reload'
 
+autocmd vimrc BufLeave,WinLeave *.jsx  let g:xml_syntax_folding = 1
+autocmd vimrc BufEnter,WinEnter *.jsx  if exists('g:xml_syntax_folding') | unlet g:xml_syntax_folding | endif
 " }}}
 
 
