@@ -24,9 +24,10 @@ inoremap <buffer> /<CR>  <C-r>=jsdocy#make_jsdoc(1)<CR><ESC>dd
 
 if exists('g:xml_syntax_folding')
 	unlet g:xml_syntax_folding
-endif
 
-augroup vimrc_javascript
-	autocmd!
-	autocmd BufLeave,WinLeave *.jsx  let g:xml_syntax_folding = 1
-augroup end
+	augroup vimrc_javascript
+		autocmd!
+		autocmd BufLeave,WinLeave *.js   let g:xml_syntax_folding = 1
+		autocmd BufLeave,WinLeave *.jsx  let g:xml_syntax_folding = 1
+	augroup end
+endif
