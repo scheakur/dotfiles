@@ -38,11 +38,11 @@ endif
 
 if s:nix
 	if &diff
-		set lines=999
-		set columns=999
+		set lines=99
+		set columns=300
 	else
-		set lines=40
-		set columns=100
+		set lines=80
+		set columns=200
 	endif
 endif
 " }}}
