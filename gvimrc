@@ -33,7 +33,7 @@ endif
 " window size {{{
 if s:mac
 	set lines=48
-	set columns=100
+	set columns=200
 endif
 
 if s:nix
