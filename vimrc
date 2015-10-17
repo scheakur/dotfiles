@@ -722,7 +722,7 @@ let g:quickrun_config = {
 
 if s:mac
 	call extend(g:quickrun_config, {
-	\	'markdown' : {
+	\	'markdown': {
 	\		'command': 'open',
 	\		'cmdopt': '-a',
 	\		'tempfile': '%{tempname()}.md',
@@ -739,6 +739,15 @@ nnoremap <expr><silent> <C-c>  quickrun#is_running() ? quickrun#sweep_sessions()
 let g:watchdogs_check_BufWritePost_enables = {
 \	'javascript': 1,
 \}
+
+call extend(g:quickrun_config, {
+\	'javascript/watchdogs_checker': {
+\		'type':
+\			executable('eslint') ? 'watchdogs_checker/eslint' :
+\			executable('jshint') ? 'watchdogs_checker/jshint' :
+\			''
+\	},
+\})
 " }}}
 
 " dois.vim {{{
