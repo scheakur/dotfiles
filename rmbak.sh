@@ -15,6 +15,7 @@ target_list=(
     config/peco
     npmrc
     gemrc
+    eslintrc
 )
 
 for (( i = 0; i < ${#target_list[@]}; i++ ))
