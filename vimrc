@@ -742,10 +742,7 @@ let g:watchdogs_check_BufWritePost_enables = {
 
 call extend(g:quickrun_config, {
 \	'javascript/watchdogs_checker': {
-\		'type':
-\			executable('eslint') ? 'watchdogs_checker/eslint' :
-\			executable('jshint') ? 'watchdogs_checker/jshint' :
-\			''
+\		'type': executable('eslint') ? 'watchdogs_checker/eslint' : ''
 \	},
 \})
 " }}}
