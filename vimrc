@@ -873,7 +873,10 @@ let g:repautocd_markers = [
 " }}}
 
 " sonictemplate-vim {{{
-let g:sonictemplate_vim_template_dir = expand('~/.vim.local/template')
+let g:sonictemplate_vim_template_dir = [
+\	expand('~/.vim/template'),
+\	expand('~/.vim.local/template'),
+\]
 
 let g:sonictemplate_key = '<SID>(disable)'
 let g:sonictemplate_intelligent_key = '<SID>(disable)'
