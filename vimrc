@@ -792,7 +792,6 @@ let g:skrap_types = [
 \	'css',
 \	'go',
 \	'groovy',
-\	'java',
 \]
 " }}}
 
