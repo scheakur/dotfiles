@@ -1,0 +1,2 @@
+interface {{_cursor_}} {
+}
