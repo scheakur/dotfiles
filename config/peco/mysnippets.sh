@@ -12,8 +12,8 @@ git svn info | grep -E '^Revision: ' | sed 's/Revision: /r/' | xsel -ib #copyrev
 svn propset --recursive svn:ignore *.zip ./src
 
 ## sshfs
-sshfs user@hostname: ~/mnt
-fusermount -u ~/mnt
+sshfs user@hostname: ~/mnt #sshfs
+fusermount -u ~/mnt #sshfs
 
 ## git
 git clean -d -f --dry-run # remove untracked files and dirs (dry run)
