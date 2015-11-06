@@ -2,6 +2,7 @@
 "     bundles.vim
 " ========================================================================
 
+
 set nocompatible
 
 " neobundle {{{
@@ -97,6 +98,7 @@ NeoBundle 'https://github.com/vim-ruby/vim-ruby.git'
 NeoBundle 'https://github.com/vim-scripts/groovyindent.git'
 NeoBundle 'https://github.com/vim-scripts/Lucius.git'
 NeoBundle 'https://github.com/vim-scripts/newspaper.vim.git'
+NeoBundle 'https://github.com/vim-scripts/tracwiki.git'
 " }}}
 
 " try {{{
