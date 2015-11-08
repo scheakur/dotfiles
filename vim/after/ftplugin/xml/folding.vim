@@ -8,14 +8,14 @@ function! s:make_folding_label() abort
 	return l:line
 endfunction
 
-function! s:shorten(line)
+function! s:shorten(line) abort
 	let l:rv = substitute(a:line, '<propert\(y\|ies\)\s\+name="\([^"]\+\)"', '<\2', 'g')
 	let l:rv = substitute(l:rv, '\s*value=', '=', 'g')
 	let l:rv = substitute(l:rv, '\(<[a-zA-Z0-9\-]*\)>\s*<', '\1 ', 'g')
 	return l:rv
 endfunction
 
-function! s:fname(name)
+function! s:fname(name) abort
 	return vimrc#fname(a:name, expand('<sfile>'))
 endfunction
 
