@@ -620,6 +620,20 @@ function! vimrc#quickrun_config_for_markdown(css) abort
 endfunction
 
 
+function! vimrc#rename_file(new_file_path) abort
+	execute 'file ' . a:new_file_path
+	write
+	call delete(expand('#'))
+endfunction
+
+
+function! vimrc#reload_file() abort
+	let file = expand('%:p')
+	call vimrc#delete_buffer()
+	execute 'edit ' . file
+endfunction
+
+
 let vimrc#tmp_dir = vimrc#dir(expand('~/vim'))
 let vimrc#undo_dir = vimrc#dir(vimrc#tmp_dir . '/undo')
 " }}}
