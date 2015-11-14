@@ -1,1 +1,1 @@
-source $HOME/.vim/after/ftplugin/css.vim
+execute 'source ' . expand('<sfile>:h') . '/css.vim'
