@@ -3,6 +3,17 @@
 @include
 @mixin
 @keyframes
+@at-root
+@debug
+@each
+@error
+@extend
+@for
+@if
+@import
+@media
+@warn
+@while
 align-content
 align-items
 align-self
