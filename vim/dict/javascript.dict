@@ -263,3 +263,6 @@ __proto__
 @link
 @tutorial
 DOMContentLoaded
+Promise
+async
+await
