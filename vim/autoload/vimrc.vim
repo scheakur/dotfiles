@@ -501,7 +501,7 @@ endfunction
 function! vimrc#apply_template() abort
 	let pos = getpos('.')
 	let line = getline('.')
-	let name_hint = s:extrace_name_hint(line, pos)
+	let name_hint = s:extract_name_hint(line, pos)
 	let names = sonictemplate#complete(name_hint, '', 0)
 	if len(names) != 1
 		call feedkeys("\<Esc>:Template " . name_hint . "\<C-l>", 'n')
@@ -511,7 +511,7 @@ function! vimrc#apply_template() abort
 endfunction
 
 
-function! s:extrace_name_hint(line, pos) abort
+function! s:extract_name_hint(line, pos) abort
 	let col = a:pos[2]
 	let hint = []
 	for i in range(col)
