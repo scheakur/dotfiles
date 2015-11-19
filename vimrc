@@ -238,14 +238,14 @@ command! -range=% -nargs=1 InsertBlankLineEvery  <line1>,<line2>s!\v(.*\n){<args
 " remove blank lines
 command! -range=% RemoveBlankLines  silent <line1>,<line2>g/^\s*$/d | nohlsearch
 
+" remove trail ^M
+command! -range=% RemoveTrailM  <line1>,<line2>s!\r$!!g | nohlsearch
+
 " reload file
 command! -nargs=0 Reload  call vimrc#reload_file()
 
 " rename file
 command! -nargs=1 -complete=file Rename  call vimrc#rename_file('<args>') | call vimrc#reload_file()
-
-" remove trail ^M
-command! -range=% RemoveTrailM  <line1>,<line2>s!\r$!!g | nohlsearch
 
 " command CD
 command! -nargs=? -complete=dir Cd  call vimrc#cd('<args>')
