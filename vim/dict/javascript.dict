@@ -266,3 +266,4 @@ DOMContentLoaded
 Promise
 async
 await
+strict
