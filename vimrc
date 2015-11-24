@@ -952,9 +952,10 @@ let g:agit_no_default_mappings = 1
 let g:agit_enable_auto_show_commit = 0
 " }}}
 
-" sideways
+" sideways {{{
 nnoremap <C-h>  :SidewaysLeft<CR>
 nnoremap <C-l>  :SidewaysRight<CR>
+" }}}
 
 " /plugin }}}
 
