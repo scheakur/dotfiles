@@ -616,6 +616,9 @@ call unite#custom#source('file_rec/async', 'ignore_pattern', s:ignore_pattern)
 call unite#custom#source('find', 'ignore_pattern', s:ignore_pattern)
 
 unlet s:ignore_pattern
+
+" ignore buffers by `Gita blame`
+call unite#custom#source('file_mru', 'ignore_pattern', '^BLAME:')
 " }}}
 
 " shorten path {{{
