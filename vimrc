@@ -880,7 +880,6 @@ let g:repautocd_markers = [
 \	'.git',
 \	'.hg',
 \	'.svn',
-\	'.gitignore',
 \	'.project',
 \	'.idea',
 \	'package.json',
