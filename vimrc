@@ -180,7 +180,7 @@ set maxfuncdepth=256
 " show preview window at the bottom
 set splitbelow
 " hide intro message
-set shortmess+=I
+set shortmess+=Ic
 " show text as much as possible even if the last line is too long
 set display=lastline
 " hide mode to disable redraw when leaving submode
