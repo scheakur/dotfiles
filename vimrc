@@ -967,6 +967,11 @@ let g:go_highlight_structs = 1
 let g:go_highlight_build_constraints = 1
 " }}}
 
+" sql-completion {{{
+" see :help sql-completion-static
+let g:ftplugin_sql_omni_key = '<C-f>'
+" }}}
+
 " /plugin }}}
 
 
