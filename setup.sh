@@ -38,9 +38,10 @@ do
 done
 
 
-# Clone vundle.vim for vim.
-if [ -e ~/.vim/bundle/neobundle.vim ]; then
-    rm -rf ~/.vim/bundle/neobundle.vim
+# Clone vim-plug for vim.
+if [ -e ~/.vim/bundle/vim-plug ]; then
+    rm -rf ~/.vim/bundle/vim-plug
 fi
-git clone https://github.com/Shougo/neobundle.vim.git ~/.vim/bundle/neobundle.vim
+
+git clone https://github.com/junegunn/vim-plug.git  ~/.vim/bundle/vim-plug/autoload
 

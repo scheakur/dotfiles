@@ -5,111 +5,100 @@
 
 set nocompatible
 
-" neobundle {{{
+" vim-plug {{{
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set runtimepath+=~/.vim/bundle/vim-plug/
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
+call plug#begin(expand('~/.vim/bundle'))
 
 
-" neobundle itself
-NeoBundle 'https://github.com/Shougo/neobundle.vim.git'
+" plug itself
+Plug 'https://github.com/junegunn/vim-plug.git', { 'dir': '~/.vim/bundle/vim-plug/autoload' }
 
-" neobundle list {{{
-NeoBundle 'https://github.com/AndrewRadev/sideways.vim.git'
-NeoBundle 'https://github.com/clausreinke/typescript-tools.git'
-NeoBundle 'https://github.com/cohama/agit.vim.git'
-NeoBundle 'https://github.com/cohama/vim-hier.git'
-NeoBundle 'https://github.com/csscomb/vim-csscomb.git'
-NeoBundle 'https://github.com/fatih/vim-go.git'
-NeoBundle 'https://github.com/google/vim-ft-go.git'
-NeoBundle 'https://github.com/gregsexton/gitv.git'
-NeoBundle 'https://github.com/h1mesuke/vim-alignta.git'
-NeoBundle 'https://github.com/hail2u/vim-css3-syntax.git'
-NeoBundle 'https://github.com/inside/unite-argument.git'
-NeoBundle 'https://github.com/JuliaLang/julia-vim.git'
-NeoBundle 'https://github.com/justinmk/vim-dirvish.git'
-NeoBundle 'https://github.com/kamichidu/vim-textobj-function-go.git'
-NeoBundle 'https://github.com/kana/vim-altr.git'
-NeoBundle 'https://github.com/kana/vim-grex.git'
-NeoBundle 'https://github.com/kana/vim-niceblock.git'
-NeoBundle 'https://github.com/kana/vim-operator-replace.git'
-NeoBundle 'https://github.com/kana/vim-operator-siege.git'
-NeoBundle 'https://github.com/kana/vim-operator-user.git'
-NeoBundle 'https://github.com/kana/vim-submode.git'
-NeoBundle 'https://github.com/kana/vim-tabpagecd.git'
-NeoBundle 'https://github.com/kana/vim-textobj-function.git'
-NeoBundle 'https://github.com/kana/vim-textobj-lastpat.git'
-NeoBundle 'https://github.com/kana/vim-textobj-line.git'
-NeoBundle 'https://github.com/kana/vim-textobj-user.git'
-NeoBundle 'https://github.com/Konfekt/FastFold.git'
-NeoBundle 'https://github.com/kchmck/vim-coffee-script.git'
-NeoBundle 'https://github.com/lambdalisue/vim-gita.git'
-NeoBundle 'https://github.com/LeafCage/unite-recording.git'
-NeoBundle 'https://github.com/leafgarland/typescript-vim.git'
-NeoBundle 'https://github.com/mattn/gist-vim.git'
-NeoBundle 'https://github.com/mattn/sonictemplate-vim.git'
-NeoBundle 'https://github.com/mattn/vim-textobj-url.git'
-NeoBundle 'https://github.com/mattn/webapi-vim.git'
-NeoBundle 'https://github.com/mxw/vim-jsx.git'
-NeoBundle 'https://github.com/osyo-manga/shabadou.vim.git'
-NeoBundle 'https://github.com/osyo-manga/unite-quickfix.git'
-NeoBundle 'https://github.com/osyo-manga/vim-operator-jump_side.git'
-NeoBundle 'https://github.com/osyo-manga/vim-textobj-from_regexp.git'
-NeoBundle 'https://github.com/osyo-manga/vim-watchdogs.git'
-NeoBundle 'https://github.com/pangloss/vim-javascript.git'
-NeoBundle 'https://github.com/rcmdnk/vim-markdown.git'
-NeoBundle 'https://github.com/rhysd/clever-f.vim.git'
-NeoBundle 'https://github.com/scheakur/vim-demitas.git'
-NeoBundle 'https://github.com/scheakur/vim-dois.git'
-NeoBundle 'https://github.com/scheakur/vim-jsdocy.git'
-NeoBundle 'https://github.com/scheakur/vim-repautocd.git'
-NeoBundle 'https://github.com/scheakur/vim-scheakur.git'
-NeoBundle 'https://github.com/scheakur/vim-skrap.git'
-NeoBundle 'https://github.com/scheakur/vim-taskbin.git'
-NeoBundle 'https://github.com/scheakur/vim-unvoice.git'
-NeoBundle 'https://github.com/scheakur/vim-winput.git'
-NeoBundle 'https://github.com/Shougo/neomru.vim.git'
-NeoBundle 'https://github.com/Shougo/neosnippet.vim.git'
-NeoBundle 'https://github.com/Shougo/tabpagebuffer.vim.git'
-NeoBundle 'https://github.com/Shougo/unite.vim.git'
-NeoBundle 'https://github.com/Shougo/vimfiler.vim.git'
-NeoBundle 'https://github.com/Shougo/vimproc.vim.git', {
-\	'build' : {
-\		'windows': 'make -f make_mingw32.mak',
-\		'cygwin': 'make -f make_cygwin.mak',
-\		'mac': 'make -f make_mac.mak',
-\		'unix': 'make -f make_unix.mak',
-\	},
-\}
-NeoBundle 'https://github.com/sorah/unite-ghq.git'
-NeoBundle 'https://github.com/terryma/vim-expand-region.git'
-NeoBundle 'https://github.com/thinca/vim-localrc.git'
-NeoBundle 'https://github.com/thinca/vim-qfreplace.git'
-NeoBundle 'https://github.com/thinca/vim-quickrun.git'
-NeoBundle 'https://github.com/thinca/vim-textobj-between.git'
-NeoBundle 'https://github.com/thinca/vim-textobj-function-javascript.git'
-NeoBundle 'https://github.com/tpope/vim-commentary.git'
-NeoBundle 'https://github.com/tpope/vim-fugitive.git'
-NeoBundle 'https://github.com/tpope/vim-repeat.git'
-NeoBundle 'https://github.com/tyru/open-browser.vim.git'
-NeoBundle 'https://github.com/tyru/operator-camelize.vim.git'
-NeoBundle 'https://github.com/vim-jp/vimdoc-ja.git'
-NeoBundle 'https://github.com/vim-jp/vim-go-extra'
-NeoBundle 'https://github.com/vim-jp/vital.vim.git'
-NeoBundle 'https://github.com/vim-ruby/vim-ruby.git'
-NeoBundle 'https://github.com/vim-scripts/groovyindent.git'
-NeoBundle 'https://github.com/vim-scripts/Lucius.git'
-NeoBundle 'https://github.com/vim-scripts/newspaper.vim.git'
-NeoBundle 'https://github.com/vim-scripts/tracwiki.git'
+" plug list {{{
+Plug 'https://github.com/AndrewRadev/sideways.vim.git'
+Plug 'https://github.com/clausreinke/typescript-tools.git'
+Plug 'https://github.com/cohama/agit.vim.git'
+Plug 'https://github.com/cohama/vim-hier.git'
+Plug 'https://github.com/csscomb/vim-csscomb.git'
+Plug 'https://github.com/fatih/vim-go.git'
+Plug 'https://github.com/google/vim-ft-go.git'
+Plug 'https://github.com/gregsexton/gitv.git'
+Plug 'https://github.com/h1mesuke/vim-alignta.git'
+Plug 'https://github.com/hail2u/vim-css3-syntax.git'
+Plug 'https://github.com/inside/unite-argument.git'
+Plug 'https://github.com/JuliaLang/julia-vim.git'
+Plug 'https://github.com/justinmk/vim-dirvish.git'
+Plug 'https://github.com/kamichidu/vim-textobj-function-go.git'
+Plug 'https://github.com/kana/vim-altr.git'
+Plug 'https://github.com/kana/vim-grex.git'
+Plug 'https://github.com/kana/vim-niceblock.git'
+Plug 'https://github.com/kana/vim-operator-replace.git'
+Plug 'https://github.com/kana/vim-operator-siege.git'
+Plug 'https://github.com/kana/vim-operator-user.git'
+Plug 'https://github.com/kana/vim-submode.git'
+Plug 'https://github.com/kana/vim-tabpagecd.git'
+Plug 'https://github.com/kana/vim-textobj-function.git'
+Plug 'https://github.com/kana/vim-textobj-lastpat.git'
+Plug 'https://github.com/kana/vim-textobj-line.git'
+Plug 'https://github.com/kana/vim-textobj-user.git'
+Plug 'https://github.com/Konfekt/FastFold.git'
+Plug 'https://github.com/kchmck/vim-coffee-script.git'
+Plug 'https://github.com/lambdalisue/vim-gita.git'
+Plug 'https://github.com/LeafCage/unite-recording.git'
+Plug 'https://github.com/leafgarland/typescript-vim.git'
+Plug 'https://github.com/mattn/gist-vim.git'
+Plug 'https://github.com/mattn/sonictemplate-vim.git'
+Plug 'https://github.com/mattn/vim-textobj-url.git'
+Plug 'https://github.com/mattn/webapi-vim.git'
+Plug 'https://github.com/mxw/vim-jsx.git'
+Plug 'https://github.com/osyo-manga/shabadou.vim.git'
+Plug 'https://github.com/osyo-manga/unite-quickfix.git'
+Plug 'https://github.com/osyo-manga/vim-operator-jump_side.git'
+Plug 'https://github.com/osyo-manga/vim-textobj-from_regexp.git'
+Plug 'https://github.com/osyo-manga/vim-watchdogs.git'
+Plug 'https://github.com/pangloss/vim-javascript.git'
+Plug 'https://github.com/rcmdnk/vim-markdown.git'
+Plug 'https://github.com/rhysd/clever-f.vim.git'
+Plug 'https://github.com/scheakur/vim-demitas.git'
+Plug 'https://github.com/scheakur/vim-dois.git'
+Plug 'https://github.com/scheakur/vim-jsdocy.git'
+Plug 'https://github.com/scheakur/vim-repautocd.git'
+Plug 'https://github.com/scheakur/vim-scheakur.git'
+Plug 'https://github.com/scheakur/vim-skrap.git'
+Plug 'https://github.com/scheakur/vim-taskbin.git'
+Plug 'https://github.com/scheakur/vim-unvoice.git'
+Plug 'https://github.com/scheakur/vim-winput.git'
+Plug 'https://github.com/Shougo/neomru.vim.git'
+Plug 'https://github.com/Shougo/neosnippet.vim.git'
+Plug 'https://github.com/Shougo/tabpagebuffer.vim.git'
+Plug 'https://github.com/Shougo/unite.vim.git'
+Plug 'https://github.com/Shougo/vimfiler.vim.git'
+Plug 'https://github.com/Shougo/vimproc.vim.git', { 'do': 'make' }
+Plug 'https://github.com/sorah/unite-ghq.git'
+Plug 'https://github.com/terryma/vim-expand-region.git'
+Plug 'https://github.com/thinca/vim-localrc.git'
+Plug 'https://github.com/thinca/vim-qfreplace.git'
+Plug 'https://github.com/thinca/vim-quickrun.git'
+Plug 'https://github.com/thinca/vim-textobj-between.git'
+Plug 'https://github.com/thinca/vim-textobj-function-javascript.git'
+Plug 'https://github.com/tpope/vim-commentary.git'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+Plug 'https://github.com/tpope/vim-repeat.git'
+Plug 'https://github.com/tyru/open-browser.vim.git'
+Plug 'https://github.com/tyru/operator-camelize.vim.git'
+Plug 'https://github.com/vim-jp/vimdoc-ja.git'
+Plug 'https://github.com/vim-jp/vim-go-extra'
+Plug 'https://github.com/vim-jp/vital.vim.git'
+Plug 'https://github.com/vim-ruby/vim-ruby.git'
+Plug 'https://github.com/vim-scripts/groovyindent.git'
+Plug 'https://github.com/vim-scripts/Lucius.git'
+Plug 'https://github.com/vim-scripts/newspaper.vim.git'
+Plug 'https://github.com/vim-scripts/tracwiki.git'
 " }}}
 
-" try {{{
-NeoBundleLocal ~/.vim/try
-" }}}
-
-call neobundle#end()
+call plug#end()
 " }}}
 
 
