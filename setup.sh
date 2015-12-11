@@ -39,9 +39,9 @@ done
 
 
 # Clone vim-plug for vim.
-if [ -e ~/.vim/bundle/vim-plug ]; then
-    rm -rf ~/.vim/bundle/vim-plug
+if [ -e ~/.vim/plugins/vim-plug ]; then
+    rm -rf ~/.vim/plugins/vim-plug
 fi
 
-git clone https://github.com/junegunn/vim-plug.git  ~/.vim/bundle/vim-plug/autoload
+git clone https://github.com/junegunn/vim-plug.git  ~/.vim/plugins/vim-plug/autoload
 

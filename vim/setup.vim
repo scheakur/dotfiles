@@ -6,7 +6,7 @@
 " ========================================================================
 
 set nocompatible
-execute 'source ' . expand('~/.vim/bundles.vim')
+execute 'source ' . expand('~/.vim/plugins.vim')
 
 augroup mysetup
     autocmd!

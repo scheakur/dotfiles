@@ -1,5 +1,5 @@
 " ========================================================================
-"     bundles.vim
+"     plugins.vim
 " ========================================================================
 
 
@@ -7,14 +7,14 @@ set nocompatible
 
 " vim-plug {{{
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/vim-plug/
+    set runtimepath+=~/.vim/plugins/vim-plug/
 endif
 
-call plug#begin(expand('~/.vim/bundle'))
+call plug#begin(expand('~/.vim/plugins'))
 
 
 " plug itself
-Plug 'https://github.com/junegunn/vim-plug.git', { 'dir': '~/.vim/bundle/vim-plug/autoload' }
+Plug 'https://github.com/junegunn/vim-plug.git', { 'dir': '~/.vim/plugins/vim-plug/autoload' }
 
 " plug list {{{
 Plug 'https://github.com/AndrewRadev/sideways.vim.git'

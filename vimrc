@@ -53,11 +53,11 @@ syntax enable
 " runtimepath {{{
 filetype off
 
-" bundle {{{
-source $HOME/.vim/bundles.vim
+" plugins {{{
+source $HOME/.vim/plugins.vim
 " }}}
 
-" after bundling, enable filetype
+" after loading plugins, enable filetype
 filetype plugin on
 filetype indent on
 " /runtimepath }}}
