@@ -21,15 +21,22 @@ let s:sql_keywords = [
 \	'inner join',
 \	'left outer join',
 \	'right outer join',
+\	'join',
 \	'on',
 \	'case',
 \	'when',
 \	'then',
 \	'end',
+\	'pivot',
+\	'unpivot',
+\	'for',
+\	'start with',
+\	'connect by nocycle',
+\	'connect by',
 \]
 
 function! s:list2regex(list) " {{{
-	let regexp = '\V\ \<\('
+	let regexp = '\V\<\('
 	let sep = ''
 	for word in a:list
 		let escaped = substitute(word, '\ ', '\\ ', '')
@@ -43,6 +50,7 @@ endfunction " }}}
 command! -buffer -range=% FormatSql
 \	setlocal nohlsearch
 \	| execute '<line1>,<line2>s!' . <SID>list2regex(s:sql_keywords) . '!\r&!g'
+\	| g/\<select\>/s!, !,\r!g
 \	| normal =ip
 " }}}
 
