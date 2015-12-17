@@ -38,7 +38,7 @@ do
 done
 
 
-# Clone vim-plug for vim.
+# clone plugin manager for vim
 if [ -e ~/.vim/plugins/vim-plug ]; then
     rm -rf ~/.vim/plugins/vim-plug
 fi
