@@ -4,7 +4,7 @@ if [ ! -d ~/.config ]; then
     mkdir ~/.config
 fi
 
-# Make symbolic links.
+# make symbolic links
 path=$(pwd)
 
 target_list=(
