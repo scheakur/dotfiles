@@ -70,7 +70,7 @@ function zshrc-prompt-git-info { # {{{
 
 	branch=$(basename "$(command git symbolic-ref HEAD 2> /dev/null)")
 	if [[ -z $branch ]]; then
-		branch=$(echo "$(command git rev-parse HEAD 2> /dev/null)" | cut -c 1-7)
+		branch=${"$(command git rev-parse HEAD 2> /dev/null)":0:7}
 		if [[ -z $branch ]]; then
 			return
 		fi
