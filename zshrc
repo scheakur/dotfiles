@@ -72,8 +72,7 @@ function zshrc-prompt-git-info { # {{{
 	if [[ -z $branch ]]; then
 		branch=${"$(command git rev-parse HEAD 2> /dev/null)":0:7}
 		if [[ -z $branch ]]; then
-			echo "???"
-			return
+			branch='???'
 		fi
 	fi
 
