@@ -50,17 +50,9 @@ let g:maplocalleader = '\'
 
 syntax enable
 
-" runtimepath {{{
-filetype off
-
 " plugins {{{
 source $HOME/.vim/plugins.vim
 " }}}
-
-" after loading plugins, enable filetype
-filetype plugin on
-filetype indent on
-" /runtimepath }}}
 
 " color {{{
 " auto loading after/colors
