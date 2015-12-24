@@ -51,6 +51,7 @@ let g:maplocalleader = '\'
 syntax enable
 
 " plugins {{{
+" not need to change filetype off/on because vim-plug will do it
 source $HOME/.vim/plugins.vim
 " }}}
 
