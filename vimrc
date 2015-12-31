@@ -332,7 +332,8 @@ nnoremap J  <C-d>
 nnoremap K  <C-u>
 noremap H  b
 noremap L  w
-nnoremap Y  y$
+map y <Plug>(operator-flashy)
+nmap Y <Plug>(operator-flashy)$
 nnoremap n  nzz
 nnoremap N  Nzz
 nnoremap <C-o>  <C-o>zz
@@ -984,6 +985,10 @@ let g:go_highlight_build_constraints = 1
 " sql-completion {{{
 " see :help sql-completion-static
 let g:ftplugin_sql_omni_key = '<C-f>'
+" }}}
+
+" vim-operator-flashy {{{
+let g:operator#flashy#group = 'Visual'
 " }}}
 
 " /plugin }}}
