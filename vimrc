@@ -154,7 +154,7 @@ let &directory = vimrc#tmp_dir . ',' . &directory
 set undofile
 let &undodir = vimrc#undo_dir . ',' . &directory
 set history=1024
-set viminfo='128,<512,s64,h
+set viminfo=%,'128,<1024,s256,h
 " }}}
 
 " invisible characters {{{
