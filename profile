@@ -37,13 +37,8 @@ export DYLD_LIBRARY_PATH=$HOME/app/oracle:$DYLD_LIBRARY_PATH
 PATH=$HOME/app/oracle:$PATH
 
 # golang
-if [ -s "$HOME/app/go" ]; then
-    export GOROOT=$HOME/app/go
-else
-    export GOROOT=/usr/local/go
-fi
 export GOPATH=$HOME
-PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+PATH=$GOPATH/bin:$PATH
 
 # heroku toolbelt
 PATH=/usr/local/heroku/bin:$PATH
