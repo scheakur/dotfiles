@@ -58,8 +58,10 @@ PATH=$HOME/.nodebrew/current/bin:$PATH
 [ -f $HOME/.travis/travis.sh ] && source $HOME/.travis/travis.sh
 
 # rbenv
-PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init -)"
+if type rbenv >/dev/null 2>&1; then
+    PATH=$HOME/.rbenv/bin:$PATH
+    eval "$(rbenv init -)"
+fi
 
 PATH=$HOME/local/bin:$HOME/bin:$PATH
 
