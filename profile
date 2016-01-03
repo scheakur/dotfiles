@@ -33,6 +33,7 @@ PATH=$ELIXIR_HOME/bin:$PATH
 
 # oracle
 export NLS_LANG=English_Japan.AL32UTF8
+export ORACLE_HOME=$HOME/app/oracle
 export DYLD_LIBRARY_PATH=$HOME/app/oracle:$DYLD_LIBRARY_PATH
 PATH=$HOME/app/oracle:$PATH
 
