@@ -33,6 +33,8 @@ PATH=$ELIXIR_HOME/bin:$PATH
 
 # oracle
 export NLS_LANG=English_Japan.AL32UTF8
+export DYLD_LIBRARY_PATH=$HOME/app/oracle:$DYLD_LIBRARY_PATH
+PATH=$HOME/app/oracle:$PATH
 
 # golang
 if [ -s "$HOME/app/go" ]; then
