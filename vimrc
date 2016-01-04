@@ -332,8 +332,7 @@ nnoremap J  <C-d>
 nnoremap K  <C-u>
 noremap H  b
 noremap L  w
-map y <Plug>(operator-flashy)
-nmap Y <Plug>(operator-flashy)$
+nnoremap Y  y$
 nnoremap n  nzz
 nnoremap N  Nzz
 nnoremap <C-o>  <C-o>zz
