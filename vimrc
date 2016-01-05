@@ -986,10 +986,6 @@ let g:go_highlight_build_constraints = 1
 let g:ftplugin_sql_omni_key = '<C-f>'
 " }}}
 
-" vim-operator-flashy {{{
-let g:operator#flashy#group = 'Visual'
-" }}}
-
 " /plugin }}}
 
 
