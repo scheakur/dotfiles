@@ -39,7 +39,7 @@ PATH=$HOME/app/oracle:$PATH
 
 # golang
 export GOPATH=$HOME
-PATH=$GOPATH/bin:$PATH
+PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
 
 # heroku toolbelt
 PATH=/usr/local/heroku/bin:$PATH
