@@ -58,3 +58,7 @@
 	required = true
 [include]
 	path = .gitconfig.local
+[rebase]
+	autostash = true
+[stash]
+	showPatch = true
