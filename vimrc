@@ -10,13 +10,13 @@
 " `set encoding=utf8` *must* be before `scriptencoding utf8`
 " because `scriptencoding utf-8` converts source string
 " from its argument encoding to current `&encoding`.
-set encoding=utf-8
+setglobal encoding=utf-8
 scriptencoding utf-8
-set fileencodings=utf-8,ucs-bom,iso-2022-jp,euc-jp,cp932,utf-16le,utf-16
+setglobal fileencodings=utf-8,ucs-bom,iso-2022-jp,euc-jp,cp932,utf-16le,utf-16
 " }}}
 
 if exists('+shellslash')
-	set shellslash
+	setglobal shellslash
 endif
 
 " ignore some default plugins {{{
@@ -83,16 +83,16 @@ autocmd vimrc Syntax *  syntax match FullWidthSpace containedin=ALL /　/
 
 
 if !has('gui_running')
-	set background=dark
+	setglobal background=dark
 	colorscheme scheakur
 endif
 
 " to keep background in terminal clean
-set t_ut=
-set t_Co=256
+setglobal t_ut=
+setglobal t_Co=256
 " }}}
 
-set noesckeys
+setglobal noesckeys
 " /basic }}}
 
 
@@ -100,30 +100,30 @@ set noesckeys
 " ------------------------------------------------------------------------------
 
 " search {{{
-set ignorecase
-set smartcase
-set incsearch
-set hlsearch
-set wrapscan
+setglobal ignorecase
+setglobal smartcase
+setglobal incsearch
+setglobal hlsearch
+setglobal wrapscan
 " }}}
 
 " characters {{{
-set fileformats=unix,dos,mac
-set ambiwidth=double
+setglobal fileformats=unix,dos,mac
+setglobal ambiwidth=double
 " }}}
 
 " indent {{{
-set smarttab
-set expandtab
-set tabstop=4
-set shiftwidth=4
-set softtabstop&
-set shiftround
+setglobal smarttab
+setglobal expandtab
+setglobal tabstop=4
+setglobal shiftwidth=4
+setglobal softtabstop&
+setglobal shiftround
 
 let &showbreak = '␣'
 if exists('&breakindent')
-	set breakindent
-	set breakindentopt=shift:-1
+	setglobal breakindent
+	setglobal breakindentopt=shift:-1
 endif
 
 " for Vim script. see help: ft-vim-indent
@@ -131,92 +131,92 @@ let g:vim_indent_cont = 0
 " }}}
 
 " matching parenthesis {{{
-set showmatch
-set matchtime=2
-set cpoptions-=m
-set matchpairs+=<:>
+setglobal showmatch
+setglobal matchtime=2
+setglobal cpoptions-=m
+setglobal matchpairs+=<:>
 " }}}
 
 " fold {{{
-set foldenable
-set foldmethod=marker
+setglobal foldenable
+setglobal foldmethod=marker
 " vert:\| is default
-set fillchars=fold:\ ,vert:\|
+setglobal fillchars=fold:\ ,vert:\|
 " for xml folding
 let g:xml_syntax_folding = 1
 " }}}
 
 " backup & swap & undo {{{
-set nowritebackup
-set nobackup
-set directory-=.
+setglobal nowritebackup
+setglobal nobackup
+setglobal directory-=.
 let &directory = vimrc#tmp_dir . ',' . &directory
-set undofile
+setglobal undofile
 let &undodir = vimrc#undo_dir . ',' . &directory
-set history=1024
-set viminfo=%,'128,<1024,s256,h
+setglobal history=1024
+setglobal viminfo=%,'128,<1024,s256,h
 " }}}
 
 " invisible characters {{{
-set list
-set listchars=tab:»_,trail:･,extends:>,precedes:<
+setglobal list
+setglobal listchars=tab:»_,trail:･,extends:>,precedes:<
 " highlight column 81
-set colorcolumn=81
-set textwidth=0
+setglobal colorcolumn=81
+setglobal textwidth=0
 " }}}
 
 " footer (statusline, cmdheight) {{{
-set cmdheight=2
-set laststatus=2
+setglobal cmdheight=2
+setglobal laststatus=2
 
 autocmd vimrc BufLeave,WinLeave *  call vimrc#set_statusline_nc()
 autocmd vimrc BufEnter,WinEnter *  call vimrc#set_statusline()
 " }}}
 
 " misc {{{
-set hidden
-set backspace=indent,eol,start
-set clipboard=unnamed
+setglobal hidden
+setglobal backspace=indent,eol,start
+setglobal clipboard=unnamed
 if has('unnamedplus')
-	set clipboard+=unnamedplus
+	setglobal clipboard+=unnamedplus
 endif
-set modeline
+setglobal modeline
 " do not increase/decrease as octal number or hexadecimal number
-set nrformats& nrformats-=octal,hex
-set virtualedit=all
-set formatoptions=tcroqnlM1j
+setglobal nrformats& nrformats-=octal,hex
+setglobal virtualedit=all
+setglobal formatoptions=tcroqnlM1j
 " show the number of lines of selection
-set showcmd
-set updatetime=1000
-set maxfuncdepth=256
+setglobal showcmd
+setglobal updatetime=1000
+setglobal maxfuncdepth=256
 " show preview window at the bottom
-set splitbelow
+setglobal splitbelow
 " hide intro message
-set shortmess+=Ic
+setglobal shortmess+=Ic
 " show text as much as possible even if the last line is too long
-set display=lastline
+setglobal display=lastline
 " hide mode to disable redraw when leaving submode
 " see. help g:submode_always_show_submode
-set noshowmode
+setglobal noshowmode
 " }}}
 
 " tabpages {{{
-set showtabline=2
-set tabline=%!vimrc#tabline()
+setglobal showtabline=2
+setglobal tabline=%!vimrc#tabline()
 command! -nargs=? SetTabTitle  call vimrc#set_tabpage_title(<q-args>)
 " }}}
 
 " completion {{{
-set wildignore&
-set wildignore+=.git,.hg,.svn
-set wildignore+=*.o,*.exe,*.zip,*.so,*.swp
-set wildignore+=.gradle,.m2,*.jar,*.class
-set wildignore+=.DS_Store
-set nowildmenu
-set wildmode=list:longest,full
+setglobal wildignore&
+setglobal wildignore+=.git,.hg,.svn
+setglobal wildignore+=*.o,*.exe,*.zip,*.so,*.swp
+setglobal wildignore+=.gradle,.m2,*.jar,*.class
+setglobal wildignore+=.DS_Store
+setglobal nowildmenu
+setglobal wildmode=list:longest,full
 
 " use dictionary by default
-set complete& complete+=k
+setglobal complete& complete+=k
 " }}}
 
 " /option }}}
@@ -1003,7 +1003,7 @@ autocmd vimrc QuickfixCmdPost  make copen
 autocmd vimrc BufWriteCmd *;*  call vimrc#ignore_invalid_file(expand('<afile>'))
 
 " reload a file on WinEnter if the file has been modified
-set autoread
+setglobal autoread
 autocmd vimrc WinEnter *  checktime
 
 " key mapping in vimdiff
@@ -1026,7 +1026,7 @@ autocmd vimrc FileChangedShell *  let v:fcs_choice = 'reload'
 call vimrc#load_local_vimrc()
 call watchdogs#setup(g:quickrun_config)
 call vimrc#print_error_in_splash()
-set secure
+setglobal secure
 
 " /finally }}}
 
