@@ -40,7 +40,10 @@ echo $PATH | tr -s ':' '\n'
 
 
 ## netstat
-netstat -apn
+netstat -tnpa
+netstat -tnpl
+lsof -nP -iTCP
+lsof -nP -iTCP -sTCP:LISTEN
 
 
 ## nkf
