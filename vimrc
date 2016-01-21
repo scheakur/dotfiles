@@ -927,12 +927,12 @@ call submode#map('foldclose', 'n', '', 'c', 'zjzczz')
 call submode#map('foldclose', 'n', '', 'u', 'zkzozz')
 
 " change tab
-call submode#enter_with('changetab>', 'n', '', 'gt', 'gt')
-call submode#map('changetab>', 'n', '', 't', 'gt')
-call submode#map('changetab>', 'n', '', 'T', 'gT')
-call submode#enter_with('changetab<', 'n', '', 'gT', 'gT')
-call submode#map('changetab<', 'n', '', 't', 'gT')
-call submode#map('changetab<', 'n', '', 'T', 'gt')
+call submode#enter_with('nexttab', 'n', '', 'gt', 'gt')
+call submode#map('nexttab', 'n', '', 't', 'gt')
+call submode#map('nexttab', 'n', '', 'T', 'gT')
+call submode#enter_with('prevtab', 'n', '', 'gT', 'gT')
+call submode#map('prevtab', 'n', '', 't', 'gT')
+call submode#map('prevtab', 'n', '', 'T', 'gt')
 
 " window
 call submode#enter_with('wincycle', 'n', '', '<C-w><C-w>', '<C-w>w')
