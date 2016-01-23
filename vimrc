@@ -875,6 +875,8 @@ let g:operator_siege_decos = [
 \	{'chars': ['=', '='], 'keys': ['=']},
 \	{'chars': ['#', '#'], 'keys': ['#']},
 \	{'chars': ['「', '」'], 'keys': ['j']},
+\	{'chars': ['『', '』'], 'keys': ['k']},
+\	{'chars': ['【', '】'], 'keys': ['l']},
 \]
 
 call vimrc#define_operator_my_siege_add()
