@@ -572,14 +572,6 @@ function! vimrc#search_without_move() abort
 endfunction
 
 
-function! vimrc#maximize_winheight_in_help() abort
-	if &filetype != 'help'
-		return
-	endif
-	call feedkeys("\<C-w>_", 'n')
-endfunction
-
-
 function! vimrc#config_in_diff_mode() abort
 	if !&diff
 		return

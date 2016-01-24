@@ -1010,9 +1010,6 @@ autocmd vimrc WinEnter *  checktime
 " key mapping in vimdiff
 autocmd vimrc FilterWritePre *  call vimrc#config_in_diff_mode()
 
-" maximize help window
-autocmd vimrc BufWinEnter *  call vimrc#maximize_winheight_in_help()
-
 " select readonly as swapchoice automatically
 autocmd vimrc SwapExists *  let v:swapchoice = 'o'
 
