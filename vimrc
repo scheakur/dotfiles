@@ -565,10 +565,6 @@ nnoremap <S-F4>  "0p<C-a>yy
 inoremap <C-k>  <C-x><C-k>
 " }}}
 
-" abbrev {{{
-inoreabbrev filed  field
-" }}}
-
 " /keymap }}}
 
 
