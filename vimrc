@@ -180,6 +180,8 @@ endif
 setglobal modeline
 " do not increase/decrease as octal number or hexadecimal number
 setglobal nrformats& nrformats-=octal,hex
+" TODO why?
+set nrformats& nrformats-=octal,hex
 setglobal virtualedit=all
 setglobal formatoptions=tcroqnlM1j
 " show the number of lines of selection
