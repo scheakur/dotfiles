@@ -42,7 +42,6 @@ export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30
 case "${OSTYPE}" in
 	darwin*)
 		alias ls='ls -GFv'
-		alias vim='open -a /Applications/MacVim.app'
 		;;
 	linux-gnu*)
 		alias ls='ls --color -Fv'
