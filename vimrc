@@ -370,13 +370,11 @@ nnoremap ZQ <Nop>
 
 " copy(yank) and paste with clipboard {{{
 if s:nix
-	inoremap <C-o>p  <C-r><C-o>+
 	cnoremap <C-o>p  <C-r><C-o>+
 	vnoremap <C-o>y  "+y
 	vnoremap <C-o>Y  "+y$
 	cnoremap <C-t><C-v>  <C-r><C-o>+
 else
-	inoremap <C-o>p  <C-r><C-o>*
 	cnoremap <C-o>p  <C-r><C-o>*
 	vnoremap <C-o>y  "*y
 	vnoremap <C-o>Y  "*y$
