@@ -799,6 +799,7 @@ let g:skrap_types = [
 \	'txt',
 \	'vim',
 \	'sql',
+\	'sh',
 \	'xml',
 \	'html',
 \	'css',
