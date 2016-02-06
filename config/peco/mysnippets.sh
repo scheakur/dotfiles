@@ -49,3 +49,6 @@ lsof -nP -iTCP -sTCP:LISTEN
 ## nkf
 find . -name "*.csv" | xargs nkf -w --overwrite
 nkf --guess *.csv
+
+
+screencapture -R100,100,800,600 ~/Desktop/1.png
