@@ -95,7 +95,7 @@ function zshrc-prompt-git-info { # {{{
 } # }}}
 
 export PROMPT='%F{blue}[%D{%m/%d %H:%M:%S}]%f %F{cyan}%n@%m:%~%f $(zshrc-prompt-git-info)
-%F{cyan}%(!.#.$)%f '
+%F{cyan}%(!.$.#)%f '
 export RPROMPT=''
 # }}}
 
