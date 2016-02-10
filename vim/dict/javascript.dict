@@ -270,3 +270,8 @@ await
 strict
 querySelector
 querySelectorAll
+React
+Component
+PropTypes
+className
+style
