@@ -20,11 +20,6 @@ if exists('+shellslash')
 endif
 
 " ignore some default plugins {{{
-let g:loaded_gzip = 1
-let g:loaded_tar = 1
-let g:loaded_tarPlugin = 1
-let g:loaded_zip = 1
-let g:loaded_zipPlugin = 1
 let g:loaded_rrhelper = 1
 let g:loaded_2html_plugin = 1
 let g:loaded_vimball = 1
@@ -208,7 +203,7 @@ command! -nargs=? SetTabTitle  call vimrc#set_tabpage_title(<q-args>)
 " completion {{{
 setglobal wildignore&
 setglobal wildignore+=.git,.hg,.svn
-setglobal wildignore+=*.o,*.exe,*.zip,*.so,*.swp
+setglobal wildignore+=*.o,*.exe,*.so,*.swp
 setglobal wildignore+=.gradle,.m2,*.jar,*.class
 setglobal wildignore+=.DS_Store
 setglobal nowildmenu
