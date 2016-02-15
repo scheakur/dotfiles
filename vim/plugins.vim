@@ -17,7 +17,6 @@ call plug#begin(expand('~/.vim/plugins'))
 Plug 'https://github.com/junegunn/vim-plug.git', { 'dir': '~/.vim/plugins/vim-plug/autoload' }
 
 " plug list {{{
-Plug 'https://github.com/AndrewRadev/sideways.vim.git'
 Plug 'https://github.com/cohama/agit.vim.git'
 Plug 'https://github.com/cohama/vim-hier.git'
 Plug 'https://github.com/fatih/vim-go.git'

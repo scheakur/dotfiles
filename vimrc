@@ -961,11 +961,6 @@ let g:agit_no_default_mappings = 1
 let g:agit_enable_auto_show_commit = 0
 " }}}
 
-" sideways {{{
-nnoremap <C-h>  :SidewaysLeft<CR>
-nnoremap <C-l>  :SidewaysRight<CR>
-" }}}
-
 " vim-go {{{
 let g:go_highlight_operators = 1
 let g:go_highlight_functions = 1
