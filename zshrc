@@ -194,7 +194,7 @@ fi
 
 
 # misc {{{
-alias grep='grep -Ei --color=auto'
+alias grep='grep -Ein --color=auto'
 export GREP_COLORS='fn=01;34:mt=00;33'
 
 autoload -Uz zmv
