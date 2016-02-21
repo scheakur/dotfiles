@@ -725,6 +725,12 @@ let g:quickrun_config = {
 \	},
 \	'markdown': vimrc#quickrun_config_for_markdown('nice.css'),
 \	'presen': vimrc#quickrun_config_for_markdown('presentation.css'),
+\	'kotlin.script': {
+\		'command': 'kotlinc',
+\		'cmdopt': '-script',
+\		'tempfile': '%{tempname()}.kts',
+\		'exec': '%c %o %s',
+\	},
 \}
 
 if s:mac
