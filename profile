@@ -63,13 +63,13 @@ PATH=$HOME/local/bin:$HOME/bin:$PATH
 
 export PATH
 
-#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
-[[ -s "$HOME/.gvm/bin/gvm-init.sh" ]] && source "$HOME/.gvm/bin/gvm-init.sh"
-
 # load environment specific .profile
 [[ -s "$HOME/.profile.local" ]] && source "$HOME/.profile.local"
 
 # pythonz
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
+
+# sdkman
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # vim: ft=sh
