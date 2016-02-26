@@ -22,20 +22,9 @@ call s:set_syntax()
 syntax match markdownOrderedListItem '^\s*\zs\d\+\.\ze\s\+'
 highlight link markdownOrderedListItem Identifier
 
-highlight clear htmlH1
 highlight link htmlH1 Statement
-
-highlight clear htmlH2
 highlight link htmlH2 Function
-
-highlight clear htmlH3
 highlight link htmlH3 Number
-
-highlight clear htmlH4
 highlight link htmlH4 Type
-
-highlight clear htmlH5
 highlight link htmlH5 Operator
-
-highlight clear htmlH6
 highlight link htmlH6 Special
