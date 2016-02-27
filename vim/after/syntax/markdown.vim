@@ -3,6 +3,7 @@ function! s:list_syntax(start, cycle) abort
 	return printf('"\v^\s{%s}(\s{%s})*\zs[-+*]\ze\s+"', indent * a:start, indent * a:cycle)
 endfunction
 
+
 function! s:set_syntax() abort
 	let marks = ['￭', '▸', '∙', '▹', '￮', '⋆']
 	let n = len(marks)
@@ -11,6 +12,7 @@ function! s:set_syntax() abort
 		execute 'highlight link markdownListItem' . i 'Identifier'
 	endfor
 endfunction
+
 
 highlight clear Conceal
 highlight link Conceal Identifier
