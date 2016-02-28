@@ -4,7 +4,7 @@ function! s:list_syntax(start, cycle) abort
 endfunction
 
 function! s:set_syntax() abort
-	let marks = ['￭', '▸', '∙', '▹', '￮', '⋆']
+	let marks = (has('mac') || has('macunix')) ? ['▪', '▸', '∙', '▹', '￮', '⋆'] : ['￭', '▸', '∙', '▹', '￮', '⋆']
 	let n = len(marks)
 	for i in range(n)
 		execute 'syntax match tracListItem' . i s:list_syntax(i, n) 'conceal cchar=' . marks[i]
