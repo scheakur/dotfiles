@@ -8,6 +8,7 @@ highlight link sassClass Special
 highlight link sassClassChar Special
 highlight link sassId Special
 highlight link sassIdChar Special
+highlight link sassAmpersand Special
 highlight link sassMixinName Function
 
 let s:webkit_props = [
