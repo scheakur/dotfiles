@@ -26,3 +26,5 @@ execute 'syntax match cssWebkitProp contained "\<\(' . join(s:webkit_props, '\|'
 highlight link cssWebkitProp cssProp
 
 syntax keyword cssCommonAttr contained touch
+syntax keyword cssCommonAttr contained background-color
+syntax keyword cssCommonAttr contained border-color
