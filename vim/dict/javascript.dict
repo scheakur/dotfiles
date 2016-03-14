@@ -275,3 +275,10 @@ Component
 PropTypes
 className
 style
+componentWillMount
+componentDidMount
+componentWillReceiveProps
+shouldComponentUpdate
+componentWillUpdate
+componentDidUpdate
+componentWillUnmount
