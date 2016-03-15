@@ -750,14 +750,8 @@ nnoremap <expr><silent> <C-c>  quickrun#is_running() ? quickrun#sweep_sessions()
 
 " watchdogs {{{
 let g:watchdogs_check_BufWritePost_enables = {
-\	'javascript': 1,
+\	'javascript': 0,
 \}
-
-call extend(g:quickrun_config, {
-\	'javascript/watchdogs_checker': {
-\		'type': executable('eslint') ? 'watchdogs_checker/eslint' : ''
-\	},
-\})
 " }}}
 
 " dois.vim {{{
