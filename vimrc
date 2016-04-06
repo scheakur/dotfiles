@@ -969,6 +969,10 @@ let g:go_highlight_structs = 1
 let g:go_highlight_build_constraints = 1
 " }}}
 
+" vim-jsx {{{
+let g:jsx_ext_required = 0
+" }}}
+
 " /plugin }}}
 
 
