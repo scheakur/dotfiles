@@ -282,3 +282,5 @@ shouldComponentUpdate
 componentWillUpdate
 componentDidUpdate
 componentWillUnmount
+compositionstart
+compositionend
