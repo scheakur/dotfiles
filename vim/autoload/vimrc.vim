@@ -318,23 +318,46 @@ function! vimrc#unite_converter_short_path(candidates, context) abort
 
 	for candidate in a:candidates
 		let path = candidate.word
-
-		if path =~# '^' . home . sep
-			let path = fnamemodify(path, ':~')
-		endif
-
-		let parts = split(path, sep, 1)
-		let n = len(parts)
-		if n > 5
-			" shorten middle path elements
-			let path = join(parts[0:2], sep)
-			\	. sep . pathshorten(join(parts[3:n-3], sep))
-			\	. sep . join(parts[n-2:], sep)
-		endif
-
-		let candidate.abbr = path
+		let candidate.abbr = s:shorten(path, home, sep)
 	endfor
+
 	return a:candidates
+endfunction
+
+
+function! vimrc#unite_converter_simple_buffer(candidates, context) abort
+	let home = expand('~')
+	let sep = '/'
+
+	for candidate in a:candidates
+		let bufname = bufname(candidate.action__buffer_nr)
+		let path = s:shorten(fnamemodify(bufname, ':p'), home, sep)
+		let candidate.abbr = printf("%s", path)
+	endfor
+
+	return a:candidates
+endfunction
+
+
+function! s:shorten(path, home, sep) abort
+	let path = a:path
+	let home = a:home
+	let sep = a:sep
+
+	if path =~# '^' . home . sep
+		let path = fnamemodify(path, ':~')
+	endif
+
+	let parts = split(path, sep, 1)
+	let n = len(parts)
+	if n > 5
+		" shorten middle path elements
+		let path = join(parts[0:2], sep)
+		\	. sep . pathshorten(join(parts[3:n-3], sep))
+		\	. sep . join(parts[n-2:], sep)
+	endif
+
+	return path
 endfunction
 
 
