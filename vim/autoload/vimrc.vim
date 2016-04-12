@@ -341,20 +341,18 @@ endfunction
 
 function! s:shorten(path, home, sep) abort
 	let path = a:path
-	let home = a:home
-	let sep = a:sep
 
-	if path =~# '^' . home . sep
+	if path =~# '^' . a:home . a:sep
 		let path = fnamemodify(path, ':~')
 	endif
 
-	let parts = split(path, sep, 1)
+	let parts = split(path, a:sep, 1)
 	let n = len(parts)
 	if n > 5
 		" shorten middle path elements
-		let path = join(parts[0:2], sep)
-		\	. sep . pathshorten(join(parts[3:n-3], sep))
-		\	. sep . join(parts[n-2:], sep)
+		let path = join(parts[0:2], a:sep)
+		\	. a:sep . pathshorten(join(parts[3:n-3], a:sep))
+		\	. a:sep . join(parts[n-2:], a:sep)
 	endif
 
 	return path
