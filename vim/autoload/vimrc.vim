@@ -318,7 +318,7 @@ function! vimrc#unite_converter_short_path(candidates, context) abort
 
 	for candidate in a:candidates
 		let path = candidate.word
-		let candidate.abbr = s:shorten(path, home, sep)
+		let candidate.abbr = s:shorten_path(path, home, sep)
 	endfor
 
 	return a:candidates
@@ -331,7 +331,7 @@ function! vimrc#unite_converter_simple_buffer(candidates, context) abort
 
 	for candidate in a:candidates
 		let bufname = bufname(candidate.action__buffer_nr)
-		let path = s:shorten(fnamemodify(bufname, ':p'), home, sep)
+		let path = s:shorten_path(fnamemodify(bufname, ':p'), home, sep)
 		let candidate.abbr = printf("%s", path)
 	endfor
 
@@ -339,7 +339,7 @@ function! vimrc#unite_converter_simple_buffer(candidates, context) abort
 endfunction
 
 
-function! s:shorten(path, home, sep) abort
+function! s:shorten_path(path, home, sep) abort
 	let path = a:path
 
 	if path =~# '^' . a:home . a:sep
