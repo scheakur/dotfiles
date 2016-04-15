@@ -719,6 +719,10 @@ let g:quickrun_config = {
 \		'hook/back_window/enable_exit': 1,
 \		'hook/back_window/priority_exit': -1000,
 \	},
+\	'javascript.jsx': {
+\		'command': 'node',
+\		'tempfile': '%{tempname()}.js',
+\	},
 \	'sql': {
 \		'command': 'sqlplus',
 \		'cmdopt': '-S',
