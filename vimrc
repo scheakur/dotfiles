@@ -695,9 +695,9 @@ call vimfiler#custom#profile('default', 'context', {
 nnoremap <expr> <Leader>f  ':VimFiler ' . expand('%:h') . "\<CR>"
 " }}}
 
-" commentary {{{
-vmap <Space>/  <Plug>Commentary
-nmap <Space>/  <Plug>CommentaryLine
+" caw.vim {{{
+vmap <Space>/  <Plug>(caw:hatpos:toggle)
+nmap <Space>/  <Plug>(caw:hatpos:toggle)
 " }}}
 
 " matchit {{{
