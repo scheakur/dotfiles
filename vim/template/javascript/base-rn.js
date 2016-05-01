@@ -5,7 +5,6 @@ import React, {
   Text,
 } from 'react-native';
 
-
 export default class Xxx extends Component {
 
   render() {
