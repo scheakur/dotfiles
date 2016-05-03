@@ -108,7 +108,7 @@ setglobal smarttab
 setglobal expandtab
 setglobal tabstop=4
 setglobal shiftwidth=4
-setglobal softtabstop&
+setglobal softtabstop=-1
 setglobal shiftround
 
 let &showbreak = '␣'
