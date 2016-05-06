@@ -989,6 +989,7 @@ let g:jsx_ext_required = 0
 
 " vim-operator-flashy {{{
 let g:operator#flashy#group = 'Visual'
+let g:operator#flashy#flash_time = 50
 " }}}
 
 " /plugin }}}
