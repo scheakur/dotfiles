@@ -870,10 +870,6 @@ nmap <F2>  <Plug>(altr-forward)
 nmap <S-F2>  <Plug>(altr-back)
 " }}}
 
-" neomru {{{
-let g:neomru#time_format = '(%m/%d %H:%M) '
-" }}}
-
 " operator-siege {{{
 let g:operator_siege_decos = [
 \	{'chars': [' ', ' '], 'keys': [' ']},
