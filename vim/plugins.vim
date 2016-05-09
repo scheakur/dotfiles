@@ -92,8 +92,6 @@ Plug 'https://github.com/vim-jp/vim-go-extra.git'
 Plug 'https://github.com/vim-jp/vital.vim.git'
 Plug 'https://github.com/vim-ruby/vim-ruby.git'
 Plug 'https://github.com/vim-scripts/groovyindent-unix.git'
-Plug 'https://github.com/vim-scripts/Lucius.git'
-Plug 'https://github.com/vim-scripts/newspaper.vim.git'
 Plug 'https://github.com/vim-scripts/tracwiki.git'
 " }}}
 
