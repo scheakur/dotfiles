@@ -14,6 +14,13 @@ export default class Xxx extends Component {
 
 }
 
+
 Xxx.propTypes = {
   yyy: PropTypes.string,
 };
+
+
+Xxx.defaultProps = {
+  yyy: 'foo',
+};
+

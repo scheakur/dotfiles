@@ -1,5 +1,6 @@
 import React, {
   Component,
+  PropTypes,
   StyleSheet,
   Text,
   View,
@@ -16,6 +17,17 @@ export default class Xxx extends Component {
   }
 
 }
+
+
+Xxx.propTypes = {
+  yyy: PropTypes.string,
+};
+
+
+Xxx.defaultProps = {
+  yyy: 'foo',
+};
+
 
 const styles = StyleSheet.create({
   container: {
