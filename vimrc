@@ -346,8 +346,6 @@ inoremap <C-d>  <Delete>
 nnoremap <silent> O  :<C-u>call append(expand('.'), '')<CR>j
 nnoremap <Space>M  :<C-u>marks<CR>:mark<Space>
 
-map y  <Plug>(operator-flashy)
-nmap Y  <Plug>(operator-flashy)$
 vnoremap <silent> y  y`]
 vnoremap <silent> p  p`]
 nnoremap <silent> p  p`]
@@ -980,11 +978,6 @@ let g:go_highlight_build_constraints = 1
 
 " vim-jsx {{{
 let g:jsx_ext_required = 0
-" }}}
-
-" vim-operator-flashy {{{
-let g:operator#flashy#group = 'Visual'
-let g:operator#flashy#flash_time = 50
 " }}}
 
 " /plugin }}}
