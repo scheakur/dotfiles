@@ -700,7 +700,11 @@ nmap <Space>/  <Plug>(caw:hatpos:toggle)
 " }}}
 
 " matchit {{{
-source $VIMRUNTIME/macros/matchit.vim
+if exists(':packadd') == 2
+	packadd! matchit
+else
+	source $VIMRUNTIME/macros/matchit.vim
+endif
 " }}}
 
 " quickrun {{{
