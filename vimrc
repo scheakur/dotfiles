@@ -350,6 +350,12 @@ vnoremap <silent> y  y`]
 vnoremap <silent> p  p`]
 nnoremap <silent> p  p`]
 
+inoremap {  {}<Left>
+inoremap [  []<Left>
+inoremap (  ()<Left>
+inoremap "  ""<Left>
+inoremap '  ''<Left>
+
 " paste yank register
 nnoremap zp  "0p`]
 vnoremap zp  "0p`]
