@@ -803,7 +803,8 @@ let g:neosnippet#disable_runtime_snippets = {
 let g:html_indent_inctags = 'html,body,head,tbody,th,td,tr,tfoot,thead'
 let g:html_indent_script1 = 'inc'
 let g:html_indent_style1 = 'inc'
-let g:javascript_enable_domhtmlcss = 1
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
 " }}}
 
 " vim-skrap {{{
