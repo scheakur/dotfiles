@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 
 export default class Xxx extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
