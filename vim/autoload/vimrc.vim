@@ -647,6 +647,70 @@ function! vimrc#reload_file() abort
 endfunction
 
 
+function! vimrc#input_pair_char_nicely(char) abort
+	let line = getline('.')
+	let col = col('.')
+	let prev_char = line[col - 2]
+	let next_char = line[col - 1]
+
+	if next_char ==# a:char
+		return "\<Right>"
+	endif
+
+	if prev_char =~? '\w' || next_char =~? '\w'
+		return a:char
+	endif
+
+	return a:char . a:char . "\<Left>"
+endfunction
+
+
+function! vimrc#input_open_char_nicely(open, close) abort
+	return a:open . a:close . "\<Left>"
+endfunction
+
+
+function! vimrc#input_close_char_nicely(open, close) abort
+	let next_char = getline('.')[col('.') - 1]
+
+	if next_char ==# a:close
+		return "\<Right>"
+	endif
+
+	return a:close
+endfunction
+
+
+function! vimrc#input_cr_nicely() abort
+	let line = getline('.')
+	let col = col('.')
+	let surround = line[col - 2:col - 1]
+
+	for pair in ['()', '{}', '[]']
+		if surround ==# pair
+			return "\<CR>\<CR>\<Up>\<Tab>"
+		endif
+	endfor
+
+	return "\<CR>"
+endfunction
+
+
+function! vimrc#input_bs_nicely() abort
+	let line = getline('.')
+	let col = col('.')
+	let surround = line[col - 2] . line[col - 1]
+
+	for pair in ['()', '{}', '[]']
+		if surround ==# pair
+			return "\<BS>\<Delete>"
+		endif
+	endfor
+
+	return "\<BS>"
+endfunction
+
+
 let vimrc#tmp_dir = vimrc#dir(expand('~/vim'))
 let vimrc#undo_dir = vimrc#dir(vimrc#tmp_dir . '/undo')
 " }}}

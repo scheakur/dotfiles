@@ -350,6 +350,17 @@ vnoremap <silent> y  y`]
 vnoremap <silent> p  p`]
 nnoremap <silent> p  p`]
 
+inoremap <expr> "  vimrc#input_pair_char_nicely('"')
+inoremap <expr> '  vimrc#input_pair_char_nicely("'")
+inoremap <expr> `  vimrc#input_pair_char_nicely('`')
+inoremap <expr> {  vimrc#input_open_char_nicely('{', '}')
+inoremap <expr> }  vimrc#input_close_char_nicely('{', '}')
+inoremap <expr> [  vimrc#input_open_char_nicely('[', ']')
+inoremap <expr> ]  vimrc#input_close_char_nicely('[', ']')
+inoremap <expr> (  vimrc#input_open_char_nicely('(', ')')
+inoremap <expr> )  vimrc#input_close_char_nicely('(', ')')
+inoremap <expr> <BS>  vimrc#input_bs_nicely()
+
 " paste yank register
 nnoremap zp  "0p`]
 vnoremap zp  "0p`]
@@ -548,7 +559,7 @@ nnoremap <C-F12>  :<C-u>ShowHilite<CR>
 nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
 
 " completion
-inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : vimrc#input_cr_nicely()
 
 nnoremap <C-]>  g<C-]>
 
