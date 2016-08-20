@@ -77,7 +77,7 @@ function! s:make_statusline(hi1, hi2) abort
 	\	'%' . a:hi1 . '* %h%w%m%r ',
 	\	'%0* %<%f ',
 	\	'%=',
-	\	'%0* %{(&fenc != "") ? &fenc : &enc} ',
+	\	'%0* %{(&fenc !=# "") ? &fenc : &enc} ',
 	\	'%' . a:hi1 . '* %{&ff} ',
 	\	'%' . a:hi2 . '* %lL %2vC %3p%%',
 	\], '')
@@ -188,7 +188,7 @@ endfunction
 
 
 function! vimrc#remove_path_element() abort
-	if getcmdtype() != ':'
+	if getcmdtype() !=# ':'
 		return s:do_original_c_w()
 	endif
 	if getcmdpos() != len(getcmdline()) + 1 " cursor position is not end of line
@@ -290,7 +290,7 @@ endfunction
 function! vimrc#get_oracle_conn(mode) abort
 	let user_pass = s:get_option('oracle_user_pass', 'system/oracle')
 	let sid = s:get_option('oracle_sid', 'localhost/xe')
-	let sep = (a:mode == 'quickrun') ? '\@' : '@'
+	let sep = (a:mode ==# 'quickrun') ? '\@' : '@'
 	let conn = user_pass . sep . sid
 	return conn
 endfunction
@@ -332,7 +332,7 @@ function! vimrc#unite_converter_simple_buffer(candidates, context) abort
 	for candidate in a:candidates
 		let bufname = bufname(candidate.action__buffer_nr)
 		let path = s:shorten_path(fnamemodify(bufname, ':p'), home, sep)
-		let candidate.abbr = printf("%s", path)
+		let candidate.abbr = printf('%s', path)
 	endfor
 
 	return a:candidates
@@ -382,7 +382,7 @@ endfunction
 
 " handle E149: Sorry, no help for xxx {{{
 function! vimrc#help_with_trailing_atmark() abort
-	if getcmdtype() != ':'
+	if getcmdtype() !=# ':'
 		return 0
 	endif
 	return s:is_invalid_help_arg(getcmdline())
@@ -413,7 +413,7 @@ endfunction
 
 " directory {{{
 function! vimrc#cd(directory) abort
-	if a:directory == ''
+	if a:directory ==# ''
 		lcd %:p:h
 	else
 		execute 'lcd' a:directory
