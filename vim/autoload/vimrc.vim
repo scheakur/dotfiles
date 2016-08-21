@@ -657,7 +657,9 @@ function! vimrc#input_pair_char_nicely(char) abort
 		return "\<Right>"
 	endif
 
-	if prev_char =~? '\w' || next_char =~? '\w'
+	let re = '\w\|\\'
+
+	if prev_char =~# re || next_char =~# re
 		return a:char
 	endif
 
