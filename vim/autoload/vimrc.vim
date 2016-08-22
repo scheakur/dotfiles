@@ -701,7 +701,7 @@ endfunction
 function! vimrc#input_bs_nicely() abort
 	let line = getline('.')
 	let col = col('.')
-	let surround = line[col - 2] . line[col - 1]
+	let surround = line[col - 2:col - 1]
 
 	for pair in ['()', '{}', '[]']
 		if surround ==# pair
