@@ -585,9 +585,11 @@ endfunction
 
 
 function! vimrc#input_close_char_nicely(open, close) abort
-	let next_char = getline('.')[col('.') - 1]
+	let line = getline('.')
+	let col = col('.')
+	let surround = line[col - 2:col - 1]
 
-	if next_char ==# a:close
+	if a:open . a:close ==# surround
 		return "\<Right>"
 	endif
 
