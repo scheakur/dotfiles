@@ -598,6 +598,10 @@ endfunction
 
 
 function! vimrc#input_cr_nicely() abort
+	if pumvisible()
+		return "\<C-y>"
+	endif
+
 	let line = getline('.')
 	let col = col('.')
 	let surround = line[col - 2:col - 1]

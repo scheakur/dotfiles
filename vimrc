@@ -360,6 +360,7 @@ inoremap <expr> ]  vimrc#input_close_char_nicely('[', ']')
 inoremap <expr> (  vimrc#input_open_char_nicely('(', ')')
 inoremap <expr> )  vimrc#input_close_char_nicely('(', ')')
 inoremap <expr> <BS>  vimrc#input_bs_nicely()
+inoremap <expr> <CR>  vimrc#input_cr_nicely()
 
 " paste yank register
 nnoremap zp  "0p`]
@@ -557,9 +558,6 @@ nnoremap <C-F12>  :<C-u>ShowHilite<CR>
 
 " hlsearch (search and highlight)
 nnoremap <Esc><Esc>  :<C-u>nohlsearch<CR>
-
-" completion
-inoremap <expr> <CR>  pumvisible() ? "\<C-y>" : vimrc#input_cr_nicely()
 
 nnoremap <C-]>  g<C-]>
 
