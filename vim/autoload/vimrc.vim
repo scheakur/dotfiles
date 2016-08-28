@@ -606,11 +606,9 @@ function! vimrc#input_cr_nicely() abort
 	let col = col('.')
 	let surround = line[col - 2:col - 1]
 
-	for pair in ['()', '{}', '[]']
-		if surround ==# pair
-			return "\<CR>\<CR>\<Up>\<Tab>"
-		endif
-	endfor
+	if s:contains(['()', '{}', '[]'], surround)
+		return "\<CR>\<CR>\<Up>\<Tab>"
+	endif
 
 	return "\<CR>"
 endfunction
@@ -621,13 +619,16 @@ function! vimrc#input_bs_nicely() abort
 	let col = col('.')
 	let surround = line[col - 2:col - 1]
 
-	for pair in ['()', '{}', '[]']
-		if surround ==# pair
-			return "\<BS>\<Delete>"
-		endif
-	endfor
+	if s:contains(['()', '{}', '[]'], surround)
+		return "\<BS>\<Delete>"
+	endif
 
 	return "\<BS>"
+endfunction
+
+
+function! s:contains(list, elem)
+	return index(a:list, a:elem) >= 0
 endfunction
 " }}}
 
