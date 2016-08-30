@@ -350,18 +350,6 @@ vnoremap <silent> y  y`]
 vnoremap <silent> p  p`]
 nnoremap <silent> p  p`]
 
-inoremap <expr> "  vimrc#input_pair_char_nicely('"')
-inoremap <expr> '  vimrc#input_pair_char_nicely("'")
-inoremap <expr> `  vimrc#input_pair_char_nicely('`')
-inoremap <expr> {  vimrc#input_open_char_nicely('{', '}')
-inoremap <expr> }  vimrc#input_close_char_nicely('{', '}')
-inoremap <expr> [  vimrc#input_open_char_nicely('[', ']')
-inoremap <expr> ]  vimrc#input_close_char_nicely('[', ']')
-inoremap <expr> (  vimrc#input_open_char_nicely('(', ')')
-inoremap <expr> )  vimrc#input_close_char_nicely('(', ')')
-inoremap <expr> <BS>  vimrc#input_bs_nicely()
-inoremap <expr> <CR>  vimrc#input_cr_nicely()
-
 " paste yank register
 nnoremap zp  "0p`]
 vnoremap zp  "0p`]
@@ -373,6 +361,20 @@ vnoremap <C-l>  $
 
 " don't quit vim
 nnoremap ZQ <Nop>
+" }}}
+
+" input {{{
+inoremap <expr> "  vimrc#input_pair_char_nicely('"')
+inoremap <expr> '  vimrc#input_pair_char_nicely("'")
+inoremap <expr> `  vimrc#input_pair_char_nicely('`')
+inoremap <expr> {  vimrc#input_open_char_nicely('{', '}')
+inoremap <expr> }  vimrc#input_close_char_nicely('{', '}')
+inoremap <expr> [  vimrc#input_open_char_nicely('[', ']')
+inoremap <expr> ]  vimrc#input_close_char_nicely('[', ']')
+inoremap <expr> (  vimrc#input_open_char_nicely('(', ')')
+inoremap <expr> )  vimrc#input_close_char_nicely('(', ')')
+inoremap <expr> <BS>  vimrc#input_bs_nicely()
+inoremap <expr> <CR>  vimrc#input_cr_nicely()
 " }}}
 
 " copy(yank) and paste with clipboard {{{

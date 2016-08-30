@@ -585,9 +585,7 @@ endfunction
 
 
 function! vimrc#input_close_char_nicely(open, close) abort
-	let line = getline('.')
-	let col = col('.')
-	let surround = line[col - 2:col - 1]
+	let surround = s:get_surround_chars()
 
 	if a:open . a:close ==# surround
 		return "\<Right>"
@@ -602,9 +600,7 @@ function! vimrc#input_cr_nicely() abort
 		return "\<C-y>"
 	endif
 
-	let line = getline('.')
-	let col = col('.')
-	let surround = line[col - 2:col - 1]
+	let surround = s:get_surround_chars()
 
 	if s:contains(['()', '{}', '[]'], surround)
 		return "\<CR>\<CR>\<Up>\<Tab>"
@@ -615,9 +611,7 @@ endfunction
 
 
 function! vimrc#input_bs_nicely() abort
-	let line = getline('.')
-	let col = col('.')
-	let surround = line[col - 2:col - 1]
+	let surround = s:get_surround_chars()
 
 	if s:contains(['()', '{}', '[]'], surround)
 		return "\<BS>\<Delete>"
@@ -627,7 +621,14 @@ function! vimrc#input_bs_nicely() abort
 endfunction
 
 
-function! s:contains(list, elem)
+function! s:get_surround_chars() abort
+	let line = getline('.')
+	let col = col('.')
+	return line[col - 2:col - 1]
+endfunction
+
+
+function! s:contains(list, elem) abort
 	return index(a:list, a:elem) >= 0
 endfunction
 " }}}
