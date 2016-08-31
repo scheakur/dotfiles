@@ -15,6 +15,7 @@ let s:error = []
 function! vimrc#load_local_vimrc(...) abort
 	let suffix = (a:0 > 0) ? ('.' . a:1) : ''
 	let vimrc = expand('~/.vimrc.local' . suffix)
+
 	if filereadable(vimrc)
 		try
 			execute 'source' vimrc
@@ -52,7 +53,9 @@ function! vimrc#load_after_colors() abort
 	if empty(get(g:, 'colors_name', ''))
 		return
 	endif
+
 	let color = expand('~/.vim/after/colors/' . g:colors_name . '.vim')
+
 	if filereadable(color)
 		execute 'source' color
 	endif
@@ -109,11 +112,13 @@ endfunction
 function! s:tabpage_title(n) abort
 	let bufnrs = tabpagebuflist(a:n)
 	let title = gettabvar(a:n, '__title__')
+
 	if !len(title)
 		let curbufnr = bufnrs[tabpagewinnr(a:n) - 1]
 		let title = fnamemodify(bufname(curbufnr), ':t')
 		let title = len(title) ? title : '[No Name]'
 	endif
+
 	return title
 endfunction
 
@@ -124,10 +129,12 @@ function! vimrc#set_tabpage_title(title) abort
 	else
 		let n = tabpagenr()
 		let title = input("Tab's title : ", s:tabpage_title(n))
+
 		if !empty(title)
 			let t:__title__ = title
 		endif
 	endif
+
 	redraw!
 endfunction
 " }}}
@@ -145,9 +152,11 @@ function! s:random_char_array(chars, n) abort
 	let arr = []
 	let chars = split(a:chars, '\ze')
 	let max = len(chars) - 1
+
 	for x in range(a:n)
 		call add(arr, (chars[s:rand(max)]))
 	endfor
+
 	return arr
 endfunction
 
@@ -169,12 +178,15 @@ function! s:uuid() abort
 	if executable('uuidgen')
 		return system('uuidgen')
 	endif
+
 	if executable('python')
 		return system("python -c 'import uuid;print uuid.uuid4()'")
 	endif
+
 	if executable('groovy')
 		return system("groovy -e 'println UUID.randomUUID().toString()'")
 	endif
+
 	echoerr 'Need uuidgen or python or groovy'
 endfunction
 " }}}
@@ -191,6 +203,7 @@ function! vimrc#remove_path_element() abort
 	if getcmdtype() !=# ':'
 		return s:do_original_c_w()
 	endif
+
 	if getcmdpos() != len(getcmdline()) + 1 " cursor position is not end of line
 		return s:do_original_c_w()
 	endif
@@ -300,9 +313,11 @@ function! s:get_option(option_name, ...) abort
 	if exists('b:' . a:option_name)
 		return eval('b:' . a:option_name)
 	endif
+
 	if exists('g:' . a:option_name)
 		return eval('g:' . a:option_name)
 	endif
+
 	if a:0 > 0
 		" default value
 		return a:1
@@ -348,6 +363,7 @@ function! s:shorten_path(path, home, sep) abort
 
 	let parts = split(path, a:sep, 1)
 	let n = len(parts)
+
 	if n > 5
 		" shorten middle path elements
 		let path = join(parts[0:2], a:sep)
@@ -374,6 +390,7 @@ function! vimrc#greprep(grep_args) abort
 		echoerr 'Need :Qfreplace (https://github.com/thinca/vim-qfreplace)'
 		return
 	endif
+
 	silent execute 'grep' a:grep_args
 	Qfreplace
 endfunction
@@ -385,12 +402,14 @@ function! vimrc#help_with_trailing_atmark() abort
 	if getcmdtype() !=# ':'
 		return 0
 	endif
+
 	return s:is_invalid_help_arg(getcmdline())
 endfunction
 
 
 function! s:is_invalid_help_arg(cmd) abort
 	let re = '^\s*h\%[elp]\s\+.*@\s*$'
+
 	if a:cmd !~# re
 		return 0
 	endif
@@ -431,6 +450,7 @@ function! vimrc#mkdir(dir) abort
 	if isdirectory(a:dir)
 		return
 	endif
+
 	call mkdir(iconv(a:dir, &encoding, &termencoding), 'p')
 endfunction
 " }}}
@@ -493,6 +513,7 @@ function! vimrc#urlencode(str) abort
 
 	let len = strlen(a:str)
 	let i = 0
+
 	while i < len
 		let hex = s:nr2hex(char2nr(a:str[i]))
 		let pad = (strlen(hex) < 2) ? '0' : ''
@@ -506,8 +527,8 @@ endfunction
 
 function! s:nr2hex(nr) abort
 	let hex = ''
-
 	let n = a:nr
+
 	while n != 0
 		let hex = '0123456789ABCDEF'[n % 16] . hex
 		let n = n / 16
@@ -524,10 +545,12 @@ function! vimrc#apply_template() abort
 	let line = getline('.')
 	let name_hint = s:extract_name_hint(line, pos)
 	let names = sonictemplate#complete(name_hint, '', 0)
+
 	if len(names) != 1
 		call feedkeys("\<Esc>:Template " . name_hint . "\<C-l>", 'n')
 		return
 	endif
+
 	execute 'Template ' . names[0]
 endfunction
 
@@ -535,12 +558,15 @@ endfunction
 function! s:extract_name_hint(line, pos) abort
 	let col = a:pos[2]
 	let hint = []
+
 	for i in range(col)
 		let char = a:line[col - i - 1]
+
 		if char !~# '[0-9a-zA-Z_-]'
 			let i -= 1
 			break
 		endif
+
 		call add(hint, char)
 	endfor
 
@@ -673,6 +699,7 @@ function! vimrc#config_in_diff_mode() abort
 	if !&diff
 		return
 	endif
+
 	nnoremap <buffer> <C-k>  [c
 	nnoremap <buffer> <C-j>  ]c
 endfunction
