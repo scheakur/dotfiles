@@ -606,6 +606,16 @@ endfunction
 
 
 function! vimrc#input_open_char_nicely(open, close) abort
+	let surround = s:get_surround_chars()
+
+	if a:open . a:close ==# surround
+		return a:open . a:close . "\<Left>"
+	endif
+
+	if surround[1] ==# a:close
+		return a:open
+	endif
+
 	return a:open . a:close . "\<Left>"
 endfunction
 
