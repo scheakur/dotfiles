@@ -75,7 +75,7 @@ endfunction
 
 
 function! s:make_statusline(hi1, hi2) abort
-	let st = join([
+	return join([
 	\	'%' . a:hi2 . '* %{&ft} ',
 	\	'%' . a:hi1 . '* %h%w%m%r ',
 	\	'%0* %<%f ',
@@ -84,7 +84,6 @@ function! s:make_statusline(hi1, hi2) abort
 	\	'%' . a:hi1 . '* %{&ff} ',
 	\	'%' . a:hi2 . '* %lL %2vC %3p%%',
 	\], '')
-	return st
 endfunction
 " }}}
 
@@ -290,11 +289,12 @@ endfunction
 function! vimrc#show_hilite() abort
 	let l = line('.')
 	let c = col('.')
-	let hilite = ''
-	let hilite .= 'hilite <' . synIDattr(synID(l, c, 1), 'name') . '>, '
-	let hilite .= 'trans <' . synIDattr(synID(l, c, 0), 'name') . '>, '
-	let hilite .= 'link <' . synIDattr(synIDtrans(synID(l, c, 1)), 'name') . '>'
-	echo hilite
+
+	echo join([
+	\	'hilite <' . synIDattr(synID(l, c, 1), 'name') . '>',
+	\	'trans <' . synIDattr(synID(l, c, 0), 'name') . '>',
+	\	'link <' . synIDattr(synIDtrans(synID(l, c, 1)), 'name') . '>',
+	\], ', ')
 endfunction
 " }}}
 
