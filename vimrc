@@ -126,7 +126,6 @@ setglobal showmatch
 setglobal matchtime=2
 setglobal cpoptions-=m
 setglobal matchpairs+=<:>
-setglobal matchpairs+=「:」,『:』,【:】
 " }}}
 
 " fold {{{
