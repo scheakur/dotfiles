@@ -41,6 +41,12 @@ PATH=$HOME/app/oracle:$PATH
 export GOPATH=$HOME
 PATH=$HOME/app/go/bin:/usr/local/go/bin:$GOPATH/bin:$PATH
 
+# android (Mac)
+export ANDROID_HOME=$HOME/Library/Android/sdk
+PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
+export ANDROID_NDK=$HOME/Library/Android/ndk
+
 # heroku toolbelt
 PATH=/usr/local/heroku/bin:$PATH
 
