@@ -670,6 +670,13 @@ endfunction
 " }}}
 
 
+" plugin {{{
+function! vimrc#plugin_exists(name) abort
+    return !empty(glob(expand('~/.vim/plugins/' . a:name)))
+endfunction
+" }}}
+
+
 " misc. {{{
 function! vimrc#toggle_option(option_name) abort
 	execute 'setlocal' a:option_name . '!'
