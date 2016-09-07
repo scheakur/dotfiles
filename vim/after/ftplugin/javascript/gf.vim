@@ -45,24 +45,41 @@ endfunction
 
 
 function! s:detect_full_path(path) abort
-	let full_path = simplify(expand('%:h') . '/' . a:path)
-
-	if filereadable(full_path)
-		return full_path
+	if a:path =~# '^\.'
+		let full_path = simplify(expand('%:h') . '/' . a:path)
+		return s:complete_path(full_path)
 	endif
 
-	if isdirectory(full_path)
-		return s:select_extension(full_path . '/index', ['.js', '.jsx'])
+	if getcwd() =~# '/node_modules'
+		let base_dir = substitute(getcwd(),  'node_modules\zs.*', '/' . a:path, '')
+	else
+		let base_dir = getcwd() . '/node_modules/' . a:path
 	endif
 
-	return s:select_extension(full_path, ['.js', '.jsx'])
+	let package_info = json_decode(join(readfile(base_dir . '/package.json'), ''))
+	let main = get(package_info, 'main', 'index.js')
+	let full_path = simplify(base_dir . '/' . main)
+	return s:complete_path(full_path)
 endfunction
 
 
-function! s:select_extension(path, extensions) abort
-	for ext in a:extensions
-		if filereadable(a:path . ext)
-			return a:path . ext
+function! s:complete_path(path)
+	if filereadable(a:path)
+		return a:path
+	endif
+
+	if isdirectory(a:path)
+		return s:select_suffix(a:path, ['/index.js', '/index.jsx'])
+	endif
+
+	return s:select_suffix(a:path, ['.js', '.jsx'])
+endfunction
+
+
+function! s:select_suffix(path, suffix_list) abort
+	for suffix in a:suffix_list
+		if filereadable(a:path . suffix)
+			return a:path . suffix
 		endif
 	endfor
 
