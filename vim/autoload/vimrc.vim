@@ -735,6 +735,13 @@ function! vimrc#sort_lines(bang) range abort
 endfunction
 
 
+function! vimrc#reverse_lines() range abort
+	let range = a:firstline . ',' . a:lastline
+	execute range . 'g/^/m' . (a:firstline - 1)
+	call histdel('search', -1)
+endfunction
+
+
 function! vimrc#fname(name, sfile) abort
 	let sid = matchstr(a:sfile, '<SNR>\zs\d\+\ze_.\+$')
 	return printf('<SNR>%s_%s', sid, a:name)

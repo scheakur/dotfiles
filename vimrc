@@ -294,12 +294,14 @@ command! -nargs=+ -complete=file Greprep  call vimrc#greprep(<q-args>)
 " sudo write
 command! SudoWrite  write !sudo tee > /dev/null %
 
-" sort lines
+" manipulate lines
 command! -bang -range=% SortLines  <line1>,<line2>call vimrc#sort_lines('<bang>')
+command! -range=% ReverseLines  <line1>,<line2>call vimrc#reverse_lines()
 
 " urlencode/urldecode
 command! -nargs=1 UrlEncode  let @+ = vimrc#urlencode(<q-args>) | echo @+
 command! -nargs=1 UrlDecode  let @+ = vimrc#urldecode(<q-args>) | echo @+
+
 " /command }}}
 
 
