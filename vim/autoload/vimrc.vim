@@ -299,7 +299,7 @@ endfunction
 " }}}
 
 
-" quickrun sql {{{
+" quickrun {{{
 function! vimrc#get_oracle_conn(mode) abort
 	let user_pass = s:get_option('oracle_user_pass', 'system/oracle')
 	let sid = s:get_option('oracle_sid', 'localhost/xe')
@@ -322,6 +322,18 @@ function! s:get_option(option_name, ...) abort
 		" default value
 		return a:1
 	endif
+endfunction
+
+
+function! vimrc#quickrun_config_for_markdown(css) abort
+	return {
+	\	'__setup__': 'go get github.com/russross/blackfriday-tool',
+	\	'command': 'blackfriday-tool',
+	\	'cmdopt': '-css=' . $HOME . '/Dropbox/config/marked/' . a:css,
+	\	'tempfile': '%{tempname()}.md',
+	\	'exec': '%c %o %a %s',
+	\	'outputter': 'browser',
+	\}
 endfunction
 " }}}
 
@@ -426,6 +438,27 @@ function! s:is_invalid_help_arg(cmd) abort
 	endfor
 
 	return 0
+endfunction
+" }}}
+
+
+" file {{{
+function! vimrc#ignore_invalid_file(file) abort
+	echoerr 'Invalid file name: "' . a:file . '"'
+endfunction
+
+
+function! vimrc#rename_file(new_file_path) abort
+	execute 'file ' . a:new_file_path
+	write
+	call delete(expand('#'))
+endfunction
+
+
+function! vimrc#reload_file() abort
+	let file = expand('%:p')
+	call vimrc#delete_buffer()
+	execute 'edit ' . file
 endfunction
 " }}}
 
@@ -722,11 +755,6 @@ function! vimrc#config_in_diff_mode() abort
 endfunction
 
 
-function! vimrc#ignore_invalid_file(file) abort
-	echoerr 'Invalid file name: "' . a:file . '"'
-endfunction
-
-
 function! vimrc#sort_lines(bang) range abort
 	let range = a:firstline . ',' . a:lastline
 	silent execute range . 's/^\(.*\)$/\=strdisplaywidth(submatch(0)) . " " . submatch(0)/'
@@ -745,32 +773,6 @@ endfunction
 function! vimrc#fname(name, sfile) abort
 	let sid = matchstr(a:sfile, '<SNR>\zs\d\+\ze_.\+$')
 	return printf('<SNR>%s_%s', sid, a:name)
-endfunction
-
-
-function! vimrc#quickrun_config_for_markdown(css) abort
-	return {
-	\	'__setup__': 'go get github.com/russross/blackfriday-tool',
-	\	'command': 'blackfriday-tool',
-	\	'cmdopt': '-css=' . $HOME . '/Dropbox/config/marked/' . a:css,
-	\	'tempfile': '%{tempname()}.md',
-	\	'exec': '%c %o %a %s',
-	\	'outputter': 'browser',
-	\}
-endfunction
-
-
-function! vimrc#rename_file(new_file_path) abort
-	execute 'file ' . a:new_file_path
-	write
-	call delete(expand('#'))
-endfunction
-
-
-function! vimrc#reload_file() abort
-	let file = expand('%:p')
-	call vimrc#delete_buffer()
-	execute 'edit ' . file
 endfunction
 
 
