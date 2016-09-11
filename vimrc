@@ -42,7 +42,6 @@ language time C
 
 " environment {{{
 let s:mac = has('mac') || has('macunix')
-let s:nix = !s:mac && has('unix')
 " }}}
 
 if !s:mac
@@ -380,16 +379,16 @@ inoremap <expr> <CR>  vimrc#input_cr_nicely()
 " }}}
 
 " copy(yank) and paste with clipboard {{{
-if s:nix
-	cnoremap <C-o>p  <C-r><C-o>+
-	vnoremap <C-o>y  "+y
-	vnoremap <C-o>Y  "+y$
-	cnoremap <C-t><C-v>  <C-r><C-o>+
-else
+if s:mac
 	cnoremap <C-o>p  <C-r><C-o>*
 	vnoremap <C-o>y  "*y
 	vnoremap <C-o>Y  "*y$
 	cnoremap <C-t><C-v>  <C-r><C-o>*
+else
+	cnoremap <C-o>p  <C-r><C-o>+
+	vnoremap <C-o>y  "+y
+	vnoremap <C-o>Y  "+y$
+	cnoremap <C-t><C-v>  <C-r><C-o>+
 endif
 " }}}
 
