@@ -50,16 +50,45 @@ function! s:detect_full_path(path) abort
 		return s:complete_path(full_path)
 	endif
 
-	if getcwd() =~# '/node_modules'
-		let base_dir = substitute(getcwd(),  'node_modules\zs.*', '/' . a:path, '')
-	else
-		let base_dir = getcwd() . '/node_modules/' . a:path
+	let base_dir = s:detect_base_dir(a:path)
+
+	if a:path =~# '/'
+		let full_path = simplify(base_dir . a:path)
+		return s:complete_path(full_path)
 	endif
 
-	let package_info = json_decode(join(readfile(base_dir . '/package.json'), ''))
+	let package_info = json_decode(join(readfile(base_dir . a:path . '/package.json'), ''))
 	let main = get(package_info, 'main', 'index.js')
-	let full_path = simplify(base_dir . '/' . main)
+	let full_path = simplify(base_dir . a:path . '/' . main)
 	return s:complete_path(full_path)
+endfunction
+
+
+function! s:detect_project_root_dir() abort
+	let dir = expand('%:p:h')
+
+	while dir != '/'
+		let path = dir . '/package.json'
+
+		if isdirectory(path) || filereadable(path)
+			return dir
+		endif
+
+		let dir = fnamemodify(dir, ':h')
+	endwhile
+
+	return ''
+endfunction
+
+
+function! s:detect_base_dir(path) abort
+	let root_dir = s:detect_project_root_dir()
+
+ 	if root_dir =~# '/node_modules/'
+		return substitute(root_dir,  '/node_modules/\zs.*', '', '')
+	endif
+
+	return root_dir . '/node_modules/'
 endfunction
 
 
@@ -91,7 +120,7 @@ if !exists('*s:override_gf')
 	function! s:override_gf() abort
 		let fn = s:fname('jump_to_import_file')
 		if gf#user#try(fn, 'gf') is 0
-			try 
+			try
 				normal! gf
 			catch /\C\V\^Vim\%((\a\+)\)\?:\(E446\|E447\):/
 				echohl ErrorMsg
