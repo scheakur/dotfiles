@@ -92,7 +92,7 @@ function! s:detect_base_dir(path) abort
 endfunction
 
 
-function! s:complete_path(path)
+function! s:complete_path(path) abort
 	if filereadable(a:path)
 		return a:path
 	endif
