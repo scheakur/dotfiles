@@ -57,7 +57,8 @@ function! s:detect_full_path(path) abort
 		return s:complete_path(full_path)
 	endif
 
-	let package_info = json_decode(join(readfile(base_dir . a:path . '/package.json'), ''))
+	let json = join(readfile(base_dir . a:path . '/package.json'), '')
+	let package_info = json_decode(json)
 	let main = get(package_info, 'main', 'index.js')
 	let full_path = simplify(base_dir . a:path . '/' . main)
 	return s:complete_path(full_path)
