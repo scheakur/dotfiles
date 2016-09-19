@@ -882,6 +882,11 @@ let g:godef_split = 0
 " altr {{{
 nmap <F2>  <Plug>(altr-forward)
 nmap <S-F2>  <Plug>(altr-back)
+
+call altr#define('index.js', 'test.js')
+call altr#define('index.jsx', 'test.jsx')
+call altr#define('src/%.js', 'test/%.js')
+call altr#define('src/%.jsx', 'test/%.jsx')
 " }}}
 
 " operator-siege {{{
