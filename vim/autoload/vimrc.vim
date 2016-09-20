@@ -618,7 +618,7 @@ endfunction
 
 
 " input {{{
-function! vimrc#input_pair_char_nicely(char) abort
+function! vimrc#input_pair_char_nicely(char, ...) abort
 	let line = getline('.')
 	let col = col('.')
 	let prev_char = line[col - 2]
@@ -626,6 +626,16 @@ function! vimrc#input_pair_char_nicely(char) abort
 
 	if next_char ==# a:char
 		return "\<Right>"
+	endif
+
+	if a:0 > 0
+		for prev_str in a:1
+			if line[col - len(prev_str) - 1:col - 2] ==# prev_str
+				return a:char . a:char . "\<Left>"
+			endif
+		endfor
+
+		return a:char
 	endif
 
 	let re = '\w\|\\'
