@@ -102,7 +102,8 @@ function! s:complete_path(path) abort
 		return s:select_suffix(a:path, ['/index.js', '/index.jsx'])
 	endif
 
-	return s:select_suffix(a:path, ['.js', '.jsx'])
+	" support react-native
+	return s:select_suffix(a:path, ['.js', '.jsx', '.ios.js', '.android.js'])
 endfunction
 
 

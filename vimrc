@@ -887,6 +887,7 @@ call altr#define('index.js', 'test.js')
 call altr#define('index.jsx', 'test.jsx')
 call altr#define('src/%.js', 'test/%.js')
 call altr#define('src/%.jsx', 'test/%.jsx')
+call altr#define('%.ios.js', '%.android.js')
 " }}}
 
 " operator-siege {{{
