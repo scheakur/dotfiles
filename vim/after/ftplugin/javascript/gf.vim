@@ -46,21 +46,23 @@ endfunction
 
 function! s:detect_full_path(path) abort
 	if a:path =~# '^\.'
-		let full_path = simplify(expand('%:h') . '/' . a:path)
+		let base_dir = expand('%:h')
+		let full_path = simplify(base_dir . '/' . a:path)
+		return s:complete_path(full_path)
+	endif
+
+	if a:path =~# '/'
+		let base_dir = s:detect_base_dir(a:path)
+		let full_path = simplify(base_dir . '/' . a:path)
 		return s:complete_path(full_path)
 	endif
 
 	let base_dir = s:detect_base_dir(a:path)
-
-	if a:path =~# '/'
-		let full_path = simplify(base_dir . a:path)
-		return s:complete_path(full_path)
-	endif
-
-	let json = join(readfile(base_dir . a:path . '/package.json'), '')
-	let package_info = json_decode(json)
-	let main = get(package_info, 'main', 'index.js')
-	let full_path = simplify(base_dir . a:path . '/' . main)
+	let pkg_json_path = simplify(base_dir . '/' . a:path . '/package.json')
+	let pkg_json = join(readfile(pkg_json_path), '')
+	let pkg_info = json_decode(pkg_json)
+	let main = get(pkg_info, 'main', 'index.js')
+	let full_path = simplify(base_dir . '/' . a:path . '/' . main)
 	return s:complete_path(full_path)
 endfunction
 
@@ -85,7 +87,7 @@ endfunction
 function! s:detect_base_dir(path) abort
 	let root_dir = s:detect_project_root_dir()
 
- 	if root_dir =~# '/node_modules/'
+	if root_dir =~# '/node_modules/'
 		return substitute(root_dir,  '/node_modules/\zs.*', '', '')
 	endif
 
