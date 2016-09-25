@@ -888,6 +888,10 @@ call altr#define('index.jsx', 'test.jsx')
 call altr#define('src/%.js', 'test/%.js')
 call altr#define('src/%.jsx', 'test/%.jsx')
 call altr#define('%.ios.js', '%.android.js')
+
+call altr#define('app/models/%.rb', 'test/models/%_test.rb', 'test/factories/%s.rb')
+call altr#define('app/controllers/%.rb', 'test/controllers/%_test.rb')
+call altr#define('app/helpers/%.rb', 'test/helpers/%_test.rb')
 " }}}
 
 " operator-siege {{{
