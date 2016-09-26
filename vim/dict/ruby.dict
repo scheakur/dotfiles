@@ -281,6 +281,7 @@ replace
 require
 require_relative
 respond_to?
+respond_to_missing?
 reverse
 reverse!
 reverse_each
