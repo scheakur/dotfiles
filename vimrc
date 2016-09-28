@@ -889,7 +889,8 @@ call altr#define('src/%.js', 'test/%.js')
 call altr#define('src/%.jsx', 'test/%.jsx')
 call altr#define('%.ios.js', '%.android.js')
 
-call altr#define('app/models/%.rb', 'test/models/%_test.rb', 'test/factories/%s.rb')
+" ruby on rails
+call altr#define('app/models/%.rb', 'test/models/%_test.rb', 'test/fixtures/%s.yml')
 call altr#define('app/controllers/%.rb', 'test/controllers/%_test.rb')
 call altr#define('app/helpers/%.rb', 'test/helpers/%_test.rb')
 " }}}
