@@ -769,6 +769,12 @@ if s:mac
 	\		'exec': '%c %s %o /Applications/Marked\ 2.app',
 	\		'outputter': 'null',
 	\	},
+	\	'html': {
+	\		'command': 'open',
+	\		'tempfile': '%{tempname()}.html',
+	\		'exec': '%c %s',
+	\		'outputter': 'null',
+	\	},
 	\})
 endif
 
