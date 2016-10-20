@@ -59,6 +59,11 @@ function! s:detect_full_path(path) abort
 
 	let base_dir = s:detect_base_dir(a:path)
 	let pkg_json_path = simplify(base_dir . '/' . a:path . '/package.json')
+
+	if !filereadable(pkg_json_path)
+		return ''
+	endif
+
 	let pkg_json = join(readfile(pkg_json_path), '')
 	let pkg_info = json_decode(pkg_json)
 	let main = get(pkg_info, 'main', 'index.js')
