@@ -4,42 +4,44 @@
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
-export JAVA_HOME=$HOME/app/java
+export MY_HOME=$HOME/Work
+
+export JAVA_HOME=$MY_HOME/app/java
 PATH=$JAVA_HOME/bin:$PATH
 
-export MAVEN_HOME=$HOME/app/maven
+export MAVEN_HOME=$MY_HOME/app/maven
 PATH=$MAVEN_HOME/bin:$PATH
 
-export ANT_HOME=$HOME/app/ant
+export ANT_HOME=$MY_HOME/app/ant
 PATH=$ANT_HOME/bin:$PATH
 
-export IVY_HOME=$HOME/app/ivy
+export IVY_HOME=$MY_HOME/app/ivy
 PATH=$IVY_HOME/bin:$PATH
 
-export FINDBUGS_HOME=$HOME/app/findbugs
+export FINDBUGS_HOME=$MY_HOME/app/findbugs
 PATH=$FINDBUGS_HOME/bin:$PATH
 
-export GRADLE_HOME=$HOME/app/gradle
+export GRADLE_HOME=$MY_HOME/app/gradle
 PATH=$GRADLE_HOME/bin:$PATH
 
-export SCALA_HOME=$HOME/app/scala
+export SCALA_HOME=$MY_HOME/app/scala
 PATH=$SCALA_HOME/bin:$PATH
 
-export PLAY_HOME=$HOME/app/play
+export PLAY_HOME=$MY_HOME/app/play
 PATH=$PLAY_HOME/bin:$PATH
 
-export ELIXIR_HOME=$HOME/app/elixir
+export ELIXIR_HOME=$MY_HOME/app/elixir
 PATH=$ELIXIR_HOME/bin:$PATH
 
 # oracle
 export NLS_LANG=English_Japan.AL32UTF8
-export ORACLE_HOME=$HOME/app/oracle
-export DYLD_LIBRARY_PATH=$HOME/app/oracle:$DYLD_LIBRARY_PATH
-PATH=$HOME/app/oracle:$PATH
+export ORACLE_HOME=$MY_HOME/app/oracle
+export DYLD_LIBRARY_PATH=$MY_HOME/app/oracle:$DYLD_LIBRARY_PATH
+PATH=$MY_HOME/app/oracle:$PATH
 
 # golang
-export GOPATH=$HOME
-PATH=$HOME/app/go/bin:/usr/local/go/bin:$GOPATH/bin:$PATH
+export GOPATH=$MY_HOME/go
+PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
 
 # android (Mac)
 export ANDROID_HOME=$HOME/Library/Android/sdk

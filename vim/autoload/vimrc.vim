@@ -786,7 +786,7 @@ function! vimrc#fname(name, sfile) abort
 endfunction
 
 
-let vimrc#tmp_dir = vimrc#dir(expand('~/vim'))
+let vimrc#tmp_dir = vimrc#dir(expand('~/tmp/vim'))
 let vimrc#undo_dir = vimrc#dir(vimrc#tmp_dir . '/undo')
 " }}}
 
