@@ -45,7 +45,8 @@
 	clean = git media clean %f
 	smudge = git media smudge %f
 [ghq]
-	root = ~/src
+	root = ~/Work/src
+	root = ~/Work/go/src
 [push]
 	default = simple
 [filter "hawser"]
