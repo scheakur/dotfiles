@@ -110,7 +110,7 @@ zstyle ':completion:*' verbose true
 zstyle ':completion:*:processes' command "ps -u $USER -o pid,command"
 
 fpath=(
-	$HOME/src/github.com/zsh-users/zsh-completions
+	$HOME/Work/src/github.com/zsh-users/zsh-completions
 	/usr/local/share/zsh-completions
 	$fpath
 )
@@ -132,8 +132,8 @@ function zshrc-chpwd() {
 }
 add-zsh-hook chpwd zshrc-chpwd
 
-hash -d gh=$HOME/src/github.com/scheakur
-hash -d bb=$HOME/src/bitbucket.org/scheakur
+hash -d gh=$HOME/Work/src/github.com/scheakur
+hash -d bb=$HOME/Work/src/bitbucket.org/scheakur
 # }}}
 
 
