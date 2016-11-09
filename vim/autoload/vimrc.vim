@@ -329,7 +329,7 @@ function! vimrc#quickrun_config_for_markdown(css) abort
 	return {
 	\	'__setup__': 'go get github.com/russross/blackfriday-tool',
 	\	'command': 'blackfriday-tool',
-	\	'cmdopt': '-css=' . $HOME . '/Dropbox/config/marked/' . a:css,
+	\	'cmdopt': '-css=' . $HOME . '/Dropbox/Work/config/marked/' . a:css,
 	\	'tempfile': '%{tempname()}.md',
 	\	'exec': '%c %o %a %s',
 	\	'outputter': 'browser',
