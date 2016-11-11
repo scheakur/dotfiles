@@ -367,11 +367,7 @@ endfunction
 
 
 function! s:shorten_path(path, home, sep) abort
-	let path = a:path
-
-	if path =~# '^' . a:home . a:sep
-		let path = fnamemodify(path, ':~')
-	endif
+	let path = s:replace_with_short_keyword(a:path, a:home, a:sep)
 
 	let parts = split(path, a:sep, 1)
 	let n = len(parts)
@@ -382,6 +378,29 @@ function! s:shorten_path(path, home, sep) abort
 		\	. a:sep . pathshorten(join(parts[3:n-3], a:sep))
 		\	. a:sep . join(parts[n-2:], a:sep)
 	endif
+
+	return path
+endfunction
+
+
+function! s:replace_with_short_keyword(path, home, sep) abort
+	let path = a:path
+
+	if path =~# '^' . a:home . a:sep
+		let path = fnamemodify(path, ':~')
+	endif
+
+	let replace_patterns = [
+	\	['^\~/Dropbox/Work/src/github.com/scheakur/', '~me/'],
+	\	['^\~/Dropbox/Work/src/github.com/', '~gh/'],
+	\	['^\~/Dropbox/tmp/', '~tmp/'],
+	\]
+
+	for pat in replace_patterns
+		if path =~# pat[0]
+			return substitute(path, pat[0], pat[1], '')
+		endif
+	endfor
 
 	return path
 endfunction
