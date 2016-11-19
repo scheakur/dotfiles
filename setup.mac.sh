@@ -28,3 +28,7 @@ defaults write com.apple.dock autohide-delay -float 0
 defaults write com.apple.dock autohide-time-modifier -float 0.24
 
 killall Dock
+
+# vscode
+rm ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/Dropbox/Work/src/github.com/scheakur/dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
