@@ -16,6 +16,7 @@ export LOCALE=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 
 bindkey -e
+bindkey '^[[3~' delete-char
 
 disable r
 
