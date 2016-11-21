@@ -1,5 +1,5 @@
-# Open 1Password
-chromium-browser --temp-profile --allow-file-access-from-files --incognito ~/Dropbox/etc/1Password.agilekeychain/1Password.html #1password
+# My working home
+cd ~/Work/src/github.com/scheakur #home
 
 # Activate Firefox Add-on SDK
 cd ~/app/addon-sdk-1.17/; source bin/activate; cd - #addon

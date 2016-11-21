@@ -221,6 +221,7 @@ function git() {
 }
 
 alias hexdump='od -A x -t x1z -v'
+alias ~~='cd $HOME/Work/src/github.com/scheakur'
 # }}}
 
 
