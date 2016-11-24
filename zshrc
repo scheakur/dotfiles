@@ -211,6 +211,7 @@ bindkey -s '^z' '^[q fg^m'
 
 alias v=vim
 alias g=git
+alias dc=docker-compose
 
 function git() {
 	if [[ $1 == "clone" ]]; then
