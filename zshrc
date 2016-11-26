@@ -222,6 +222,14 @@ function git() {
 	fi
 }
 
+function mygit() {
+	url=$(command git remote get-url origin)
+	if [[ $url =~ ^https://github.com/scheakur/.* ]]; then
+		new_url='https://scheakur@'${url:8}
+		command git remote set-url origin $new_url
+	fi
+}
+
 alias hexdump='od -A x -t x1z -v'
 alias ~~='cd $HOME/Work/src/github.com/scheakur'
 # }}}
