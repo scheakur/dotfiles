@@ -7,6 +7,7 @@
     ],
     "editor.wordWrap": true,
     "editor.wrappingColumn": 999,
+    "editor.renderIndentGuides": true,
     "editor.roundedSelection": false,
     "extensions.autoUpdate": true,
     "openvim.executablePath": "/Applications/MacVim.app/Contents/MacOS/gvim"
