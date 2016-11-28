@@ -10,5 +10,8 @@
     "editor.renderIndentGuides": true,
     "editor.roundedSelection": false,
     "extensions.autoUpdate": true,
+    "search.exclude": {
+		"**/vendor/bundle": true
+	},
     "openvim.executablePath": "/Applications/MacVim.app/Contents/MacOS/gvim"
 }
