@@ -13,5 +13,7 @@
     "search.exclude": {
 		"**/vendor/bundle": true
 	},
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
     "openvim.executablePath": "/Applications/MacVim.app/Contents/MacOS/gvim"
 }
