@@ -18,6 +18,7 @@
     "openvim.executablePath": "/Applications/MacVim.app/Contents/MacOS/gvim",
     "editor.cursorStyle": "block",
     "vim.hlsearch": true,
+    "vim.useSystemClipboard": true,
     "vim.otherModesKeyBindingsNonRecursive": [
         {
             "before": [":"],
