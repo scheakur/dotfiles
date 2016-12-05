@@ -580,6 +580,10 @@ inoremap <C-k>  <C-x><C-k>
 " plugin {{{
 " ------------------------------------------------------------------------------
 
+" vim-ruby {{{
+let g:ruby_indent_block_style = 'do'
+" }}}
+
 " unite {{{
 
 " option {{{
