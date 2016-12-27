@@ -191,6 +191,7 @@ setglobal display=lastline
 " hide mode to disable redraw when leaving submode
 " see. help g:submode_always_show_submode
 setglobal noshowmode
+setglobal tagcase=match
 " }}}
 
 " tabpages {{{
