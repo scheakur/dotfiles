@@ -192,6 +192,7 @@ setglobal display=lastline
 " see. help g:submode_always_show_submode
 setglobal noshowmode
 setglobal tagcase=match
+setglobal belloff=all
 " }}}
 
 " tabpages {{{
