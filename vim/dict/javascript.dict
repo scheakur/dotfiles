@@ -285,3 +285,4 @@ componentWillUnmount
 compositionstart
 compositionend
 undefined
+dispatchEvent
