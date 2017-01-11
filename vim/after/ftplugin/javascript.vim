@@ -31,3 +31,8 @@ if exists('g:xml_syntax_folding')
 		autocmd BufLeave,WinLeave *.jsx  let g:xml_syntax_folding = s:xml_syntax_folding
 	augroup end
 endif
+
+setlocal commentstring=//\ %s
+setlocal foldmethod=syntax
+setlocal foldtext=vimrc#make_folding_label()
+

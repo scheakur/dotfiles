@@ -739,6 +739,23 @@ endfunction
 " }}}
 
 
+" folding {{{
+function! vimrc#make_folding_label() abort
+	let line = getline(v:foldstart)
+
+	if (line =~# '/\*\*\?\s*')
+		let next = getline(v:foldstart + 1)
+		let next = substitute(next, '^\s*\*\?\s*', '', '')
+		let line = substitute(line, '/\*\*\?\zs\s*', '', '')
+		let line .= ' ' . next
+	endif
+
+	let note = printf(&commentstring, (v:foldend - v:foldstart + 1) . ' lines')
+	return line . ' ' . note
+endfunction
+" }}}
+
+
 " misc. {{{
 function! vimrc#toggle_option(option_name) abort
 	execute 'setlocal' a:option_name . '!'
