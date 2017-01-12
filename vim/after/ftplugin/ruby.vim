@@ -7,4 +7,5 @@ setlocal dictionary=$HOME/.vim/dict/ruby.dict
 inoremap <buffer><expr> \|  vimrc#input_pair_char_nicely('\|', [' { ', ' do '])
 
 setlocal foldmethod=syntax
+setlocal foldminlines=3
 setlocal foldtext=vimrc#make_folding_label()
