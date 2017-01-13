@@ -750,6 +750,8 @@ function! vimrc#make_folding_label() abort
 		let line .= ' ' . next
 	endif
 
+	let sp = repeat(' ', &tabstop)
+	let line = substitute(line, '\t', sp, 'g')
 	let note = printf(&commentstring, (v:foldend - v:foldstart + 1) . ' lines')
 	return line . ' ' . note
 endfunction
