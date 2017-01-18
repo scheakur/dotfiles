@@ -252,7 +252,9 @@ command! -range=% RemoveTrailM  <line1>,<line2>s!\r$!!g | nohlsearch
 command! -nargs=0 Reload  call vimrc#reload_file()
 
 " rename file
-command! -nargs=1 -complete=file Rename  call vimrc#rename_file('<args>') | call vimrc#reload_file()
+command! -bang -nargs=1 -complete=file Rename
+\	call vimrc#rename_file('<args>', '<bang>') |
+\	call vimrc#reload_file()
 
 " command CD
 command! -nargs=? -complete=dir Cd  call vimrc#cd('<args>')

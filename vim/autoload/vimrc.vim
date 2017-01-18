@@ -467,9 +467,9 @@ function! vimrc#ignore_invalid_file(file) abort
 endfunction
 
 
-function! vimrc#rename_file(new_file_path) abort
+function! vimrc#rename_file(new_file_path, bang) abort
 	execute 'file ' . a:new_file_path
-	write
+	execute 'write' . a:bang
 	call delete(expand('#'))
 endfunction
 
