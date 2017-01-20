@@ -144,6 +144,8 @@ each_key
 each_line
 each_pair
 each_value
+each_cons
+each_slice
 empty?
 encode
 encode!
