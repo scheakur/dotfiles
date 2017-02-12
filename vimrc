@@ -904,6 +904,7 @@ call altr#define('index.jsx', 'test.jsx')
 call altr#define('src/%.js', 'test/%.js')
 call altr#define('src/%.jsx', 'test/%.jsx')
 call altr#define('%.ios.js', '%.android.js')
+call altr#define('reducers/%.js', 'actions/%.js')
 
 " ruby on rails
 call altr#define('app/models/%.rb', 'test/models/%_test.rb', 'test/fixtures/%s.yml')
