@@ -43,6 +43,9 @@ PATH=$MY_HOME/app/oracle:$PATH
 export GOPATH=$MY_HOME/go
 PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
 
+# haskell
+export PATH=$HOME/Library/Haskell/bin:$PATH
+
 # android (Mac)
 export ANDROID_HOME=$HOME/Library/Android/sdk
 PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
