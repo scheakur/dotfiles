@@ -90,6 +90,7 @@ Plug 'https://github.com/vim-jp/vimdoc-ja.git'
 Plug 'https://github.com/vim-jp/vim-go-extra.git'
 Plug 'https://github.com/vim-jp/vital.vim.git'
 Plug 'https://github.com/vim-ruby/vim-ruby.git'
+Plug 'https://github.com/vim-scripts/bnf.vim.git'
 Plug 'https://github.com/vim-scripts/groovyindent-unix.git'
 Plug 'https://github.com/vim-scripts/tracwiki.git'
 " }}}
