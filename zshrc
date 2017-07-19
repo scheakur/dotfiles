@@ -239,6 +239,7 @@ alias tree='tree --charset ascii'
 # others {{{
 [[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
 [[ -f $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+source /usr/local/share/zsh/site-functions/_awless
 # }}}
 
 
