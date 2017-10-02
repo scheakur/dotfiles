@@ -434,8 +434,8 @@ inoremap <Leader>dy  <C-r>=strftime('%Y')<CR>
 inoremap <Leader>dT  <C-r>=strftime('%H:%M:%S')<CR>
 inoremap <Leader>dt  <C-r>=strftime
 
-cnoremap <expr> <C-o>d  strftime('%Y-%m-%d')
-cnoremap <expr> <C-o>t  strftime('%Y-%m-%d-%H%M%S')
+cnoremap <expr> <C-o>d  strftime('%Y%m%d')
+cnoremap <expr> <C-o>t  strftime('%Y%m%d-%H%M%S')
 " }}}
 
 " completion {{{
