@@ -44,5 +44,7 @@
             "before": ["g", "k"],
             "after": ["k"]
         }
-    ]
+    ],
+    "workbench.colorTheme": "Default Light+",
+    "workbench.iconTheme": "vs-seti"
 }
