@@ -5,8 +5,8 @@
     "editor.rulers": [
         80
     ],
-    "editor.wordWrap": true,
-    "editor.wrappingColumn": 999,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.wordWrapColumn": 999,
     "editor.renderIndentGuides": true,
     "editor.roundedSelection": false,
     "extensions.autoUpdate": true,
@@ -46,5 +46,6 @@
         }
     ],
     "workbench.colorTheme": "Default Light+",
-    "workbench.iconTheme": "vs-seti"
+    "workbench.iconTheme": "vs-seti",
+    "vim.disableAnnoyingNeovimMessage": true
 }

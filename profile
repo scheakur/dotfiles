@@ -89,4 +89,7 @@ if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 # yarn
 export PATH="$PATH:`yarn global bin`"
 
+# homebrew python
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
 # vim: ft=sh
