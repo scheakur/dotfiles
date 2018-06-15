@@ -41,7 +41,7 @@ PATH=$MY_HOME/app/oracle:$PATH
 
 # golang
 export GOPATH=$MY_HOME/go
-PATH=/usr/local/go/bin:$GOPATH/bin:$PATH
+PATH=$GOPATH/bin:$PATH
 
 # haskell
 export PATH=$HOME/Library/Haskell/bin:$PATH
