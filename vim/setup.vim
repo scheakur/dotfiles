@@ -6,7 +6,12 @@
 " ========================================================================
 
 set nocompatible
-execute 'source ' . expand('~/.vim/plugins.vim')
+
+if has('win64')
+    execute 'source ' . expand('~/vimfiles/plugins.vim')
+else
+    execute 'source ' . expand('~/.vim/plugins.vim')
+endif
 
 augroup mysetup
     autocmd!
