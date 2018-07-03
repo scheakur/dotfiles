@@ -54,6 +54,7 @@ Plug 'https://github.com/osyo-manga/vim-operator-jump_side.git'
 Plug 'https://github.com/osyo-manga/vim-textobj-from_regexp.git'
 Plug 'https://github.com/osyo-manga/vim-watchdogs.git'
 Plug 'https://github.com/pangloss/vim-javascript.git'
+Plug 'https://github.com/prettier/vim-prettier.git', { 'do': 'yarn install' }
 Plug 'https://github.com/rcmdnk/vim-markdown.git'
 Plug 'https://github.com/rhysd/clever-f.vim.git'
 Plug 'https://github.com/scheakur/vim-demitas.git'

@@ -1031,6 +1031,19 @@ let g:go_highlight_build_constraints = 1
 let g:jsx_ext_required = 0
 " }}}
 
+" vim-prettier {{{
+let g:prettier#autoformat = 0
+autocmd vimrc BufWritePre
+\	*.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.scss,*.json
+\	Prettier
+
+" same options as prettier default
+let g:prettier#config#single_quote = 'false'
+let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#parser = 'babylon'
+let g:prettier#config#jsx_bracket_same_line = 'false'
+" }}}
+
 " /plugin }}}
 
 
