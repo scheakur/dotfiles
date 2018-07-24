@@ -62,7 +62,7 @@ set langmenu=none
 " macvim {{{
 if has('gui_macvim')
 	set noimdisable
-	set iminsert=2
+	set iminsert=0
 endif
 " }}}
 
