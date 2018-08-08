@@ -1,5 +1,5 @@
 function! s:list_syntax(start, cycle) abort
-	let indent = 4
+	let indent = 2
 	return printf('"\v^\s{%s}(\s{%s})*\zs[-+*]\ze\s+"', indent * a:start, indent * a:cycle)
 endfunction
 
