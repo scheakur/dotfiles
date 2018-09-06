@@ -5,12 +5,25 @@ endfunction
 
 
 function! s:set_syntax() abort
-	let marks = (has('mac') || has('macunix')) ? ['∙', '▸', '￮', '▹', '⋆', '▪'] : ['￭', '▸', '∙', '▹', '￮', '⋆']
+	let marks = s:select_marks()
 	let n = len(marks)
 	for i in range(n)
 		execute 'syntax match markdownListItem' . i s:list_syntax(i, n) 'conceal cchar=' . marks[i]
 		execute 'highlight link markdownListItem' . i 'Identifier'
 	endfor
+endfunction
+
+
+function! s:select_marks() abort
+	if has('mac') || has('macunix')
+		return ['∙', '▸', '￮', '▹', '⋆', '▪']
+	endif
+
+	if has('win')
+		return ['￭', '▸', '∙', '▹', '￮', '⋆']
+	endif
+
+	return ['∙', '▸', '⋆', '▹', '◉', '-']
 endfunction
 
 
