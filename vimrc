@@ -1039,6 +1039,7 @@ autocmd vimrc BufWritePre
 
 " same options as prettier default
 let g:prettier#config#single_quote = 'false'
+let g:prettier#config#bracket_spacing = 'true'
 let g:prettier#config#trailing_comma = 'none'
 let g:prettier#config#parser = 'babylon'
 let g:prettier#config#jsx_bracket_same_line = 'false'
