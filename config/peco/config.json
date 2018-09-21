@@ -1,10 +1,12 @@
 {
+  "Prompt": ">",
   "Keymap": {
-    "C-j": "peco.SelectNext",
-    "C-k": "peco.SelectPrevious"
+    "C-j": "peco.SelectDown",
+    "C-k": "peco.SelectUp"
   },
   "Style": {
     "Selected": ["on_magenta", "white"],
     "Query": ["white"]
-  }
+  },
+  "Layout": "top-down"
 }
