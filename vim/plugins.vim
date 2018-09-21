@@ -19,6 +19,7 @@ Plug 'https://github.com/junegunn/vim-plug.git', { 'dir': '~/.vim/plugins/vim-pl
 " plug list {{{
 Plug 'https://github.com/cohama/agit.vim.git'
 Plug 'https://github.com/cohama/vim-hier.git'
+Plug 'https://github.com/dag/vim-fish.git'
 Plug 'https://github.com/fatih/vim-go.git'
 Plug 'https://github.com/google/vim-ft-go.git'
 Plug 'https://github.com/gregsexton/gitv.git'
