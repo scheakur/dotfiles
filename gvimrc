@@ -24,8 +24,8 @@ if s:mac
 	set guifont=Monaco:h14
 	set linespace=1
 elseif s:nix
-	set guifont=Ricty\ 12
-	set guifontwide=Ricty\ 12
+	set guifont=Inconsolata\ 12
+	set guifontwide=Inconsolata\ 12
 endif
 " }}}
 
