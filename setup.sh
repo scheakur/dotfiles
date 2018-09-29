@@ -43,5 +43,5 @@ if [ -e ~/.vim/plugins/vim-plug ]; then
     rm -rf ~/.vim/plugins/vim-plug
 fi
 
-git clone https://github.com/junegunn/vim-plug.git  ~/.vim/plugins/vim-plug/autoload
-
+command git clone https://github.com/junegunn/vim-plug.git  ~/.vim/plugins/vim-plug/autoload
+command git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
