@@ -20,6 +20,7 @@ target_list=(
     zshrc
     zshenv
     config/peco
+    config/fish
     npmrc
     gemrc
     eslintrc

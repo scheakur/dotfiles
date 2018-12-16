@@ -1,0 +1,11 @@
+fishd.*
+conf.d/z.fish
+functions/z.awk
+functions/peco_select_history.fish
+functions/__z_complete.fish
+functions/zadd.awk
+functions/__z_clean.fish
+functions/peco_kill.fish
+functions/__z.fish
+functions/zclean.awk
+functions/__z_add.fish
