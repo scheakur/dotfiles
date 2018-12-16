@@ -1079,6 +1079,16 @@ autocmd vimrc FileChangedShell *  let v:fcs_choice = 'reload'
 " finally {{{
 " ------------------------------------------------------------------------------
 
+function! s:copy_path_from_shell() abort
+	if has('unix')
+		let l:sep = (&shell =~# '/fish$') ? ' ' : ':'
+		let l:path = system('echo -n $PATH')
+		let $PATH = join(split(l:path, l:sep), ':')
+	endif
+endfunction
+
+call s:copy_path_from_shell()
+
 call vimrc#load_local_vimrc()
 call watchdogs#setup(g:quickrun_config)
 call vimrc#print_error_in_splash()
