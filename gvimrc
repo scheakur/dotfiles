@@ -24,8 +24,8 @@ if s:mac
 	set guifont=Monaco:h14
 	set linespace=1
 elseif s:nix
-	set guifont=Inconsolata\ 12
-	set guifontwide=Inconsolata\ 12
+	set guifont=Migu\ 1M\ 12
+	set guifontwide=Migu\ 1M\ 12
 endif
 " }}}
 
@@ -38,10 +38,10 @@ endif
 
 if s:nix
 	if &diff
-		set lines=72
+		set lines=60
 		set columns=300
 	else
-		set lines=72
+		set lines=60
 		set columns=200
 	endif
 endif
