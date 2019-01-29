@@ -26,6 +26,7 @@ if s:mac
 elseif s:nix
 	set guifont=Migu\ 1M\ 12
 	set guifontwide=Migu\ 1M\ 12
+	set linespace=1
 endif
 " }}}
 
