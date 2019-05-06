@@ -867,6 +867,7 @@ call unite#custom_source('demitas', 'sorters', 'sorter_reverse')
 
 " vim-markdown {{{
 let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
 " }}}
 
 " open-browser {{{

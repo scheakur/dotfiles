@@ -20,5 +20,11 @@ function fish_user_key_bindings
   bind \cf 'ghq_change_directory'
 end
 
+functions --copy cd standard_cd
+
+function cd
+  standard_cd $argv; and ls
+end
+
 # direnv
 eval (direnv hook fish)
