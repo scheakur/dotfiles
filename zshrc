@@ -64,11 +64,13 @@ setopt prompt_subst
 
 function zshrc-prompt-git-info { # {{{
 	local branch st color gitdir action user stash
+
 	if [[ $(command git rev-parse --is-inside-work-tree 2> /dev/null) != 'true' ]]; then
 		return
 	fi
 
 	branch=$(basename "$(command git symbolic-ref HEAD 2> /dev/null)")
+
 	if [[ -z $branch ]]; then
 		branch=${"$(command git rev-parse HEAD 2> /dev/null)":0:7}
 		if [[ -z $branch ]]; then
@@ -77,6 +79,7 @@ function zshrc-prompt-git-info { # {{{
 	fi
 
 	st=$(command git status 2> /dev/null)
+
 	if [[ -n $(echo "$st" | grep '^nothing to') ]]; then
 		color=green
 	elif [[ -n $(echo "$st" | grep '^no changes added') ]]; then
@@ -147,6 +150,7 @@ setopt append_history
 setopt inc_append_history
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
+setopt extended_history
 setopt share_history
 setopt hist_reduce_blanks
 setopt hist_no_store
@@ -162,6 +166,18 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 # }}}
 
+# cdr {{{
+# cdr
+if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
+    autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+    add-zsh-hook chpwd chpwd_recent_dirs
+    zstyle ':completion:*' recent-dirs-insert both
+    zstyle ':chpwd:*' recent-dirs-default true
+    zstyle ':chpwd:*' recent-dirs-max 1000
+    zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
+fi
+# }}}
+
 
 # peco {{{
 function zshrc-exists() {
@@ -169,11 +185,13 @@ function zshrc-exists() {
 }
 
 function zshrc-peco-ghq-cd() {
-	local selected_dir=$(ghq list --full-path | peco --query "$LBUFFER")
-	if [ -n "$selected_dir" ]; then
-		BUFFER="cd ${selected_dir}"
+	local dir=$(ghq list --full-path | peco --query "$LBUFFER")
+
+	if [ -n "$dir" ]; then
+		BUFFER="cd ${dir}"
 		zle accept-line
 	fi
+
 	zle clear-screen
 }
 
@@ -183,6 +201,21 @@ function zshrc-peco-mysnippets() {
 	zle clear-screen
 }
 
+function zshrc-peco-history() {
+    BUFFER=`history -n 1 | tac | peco`
+    CURSOR=$#BUFFER
+	zle reset-prompt
+}
+
+function zshrc-peco-cdr () {
+    local dir=$(cdr -l | awk '{print $2}' | peco --query "$LBUFFER")
+
+    if [ -n "$dir" ]; then
+        BUFFER="cd ${dir}"
+        zle accept-line
+    fi
+}
+
 if zshrc-exists peco; then
 	if zshrc-exists ghq; then
 		zle -N zshrc-peco-ghq-cd
@@ -190,7 +223,13 @@ if zshrc-exists peco; then
 	fi
 
 	zle -N zshrc-peco-mysnippets
-	bindkey '^xs' zshrc-peco-mysnippets
+	bindkey '^x^s' zshrc-peco-mysnippets
+
+	zle -N zshrc-peco-history
+	bindkey '^r' zshrc-peco-history
+
+	zle -N zshrc-peco-cdr
+	bindkey '^n' zshrc-peco-cdr
 fi
 # }}}
 
@@ -224,6 +263,7 @@ function git() {
 
 function mygit() {
 	url=$(command git remote get-url origin)
+
 	if [[ $url =~ ^https://github.com/scheakur/.* ]]; then
 		new_url='https://scheakur@'${url:8}
 		command git remote set-url origin $new_url
@@ -239,7 +279,7 @@ alias tree='tree --charset ascii'
 # others {{{
 [[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
 [[ -f $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
-source /usr/local/share/zsh/site-functions/_awless
+[[ -f /usr/local/share/zsh/site-functions/_awless ]] && source /usr/local/share/zsh/site-functions/_awless
 # }}}
 
 

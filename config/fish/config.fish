@@ -3,6 +3,13 @@ set PATH $GOPATH/bin $PATH
 set PATH $HOME/.local/bin $PATH
 set PATH $HOME/.gem/ruby/2.5.0/bin $PATH
 set PATH $HOME/.yarn/bin $PATH
+set PATH $HOME/app/flutter/bin $PATH
+
+set --export ANDROID_HOME $HOME/Android/Sdk
+set PATH $PATH $ANDROID_HOME/emulator
+set PATH $PATH $ANDROID_HOME/tools
+set PATH $PATH $ANDROID_HOME/tools/bin
+set PATH $PATH $ANDROID_HOME/platform-tools
 
 alias g="git"
 
