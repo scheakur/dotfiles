@@ -34,4 +34,4 @@ function cd
 end
 
 # direnv
-eval (direnv hook fish)
+direnv hook fish | source

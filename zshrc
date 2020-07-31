@@ -273,6 +273,8 @@ function mygit() {
 alias hexdump='od -A x -t x1z -v'
 alias ~~='cd $HOME/Work/src/github.com/scheakur'
 alias tree='tree --charset ascii'
+
+eval "$(direnv hook zsh)"
 # }}}
 
 

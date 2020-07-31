@@ -2,3 +2,7 @@
 	root = ~/src
 [credential]
 	helper = /usr/lib/git-core/git-credential-gnome-keyring
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less

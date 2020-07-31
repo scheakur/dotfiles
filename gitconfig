@@ -40,3 +40,5 @@
 	showPatch = true
 [credential]
 	useHttpPath = true
+[pull]
+	ff = only

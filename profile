@@ -4,7 +4,7 @@
 
 PATH=/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin
 
-export MY_HOME=$HOME/Work
+export MY_HOME=$HOME
 
 export JAVA_HOME=$MY_HOME/app/java
 PATH=$JAVA_HOME/bin:$PATH
@@ -40,7 +40,7 @@ export DYLD_LIBRARY_PATH=$MY_HOME/app/oracle:$DYLD_LIBRARY_PATH
 PATH=$MY_HOME/app/oracle:$PATH
 
 # golang
-export GOPATH=$MY_HOME/go
+export GOPATH=$MY_HOME
 PATH=$GOPATH/bin:$PATH
 
 # haskell
@@ -70,12 +70,9 @@ if type rbenv >/dev/null 2>&1; then
     eval "$(rbenv init -)"
 fi
 
-PATH=$HOME/local/bin:$HOME/bin:$PATH
+PATH=$HOME/.local/bin:$HOME/local/bin:$HOME/bin:$PATH
 
 export PATH
-
-# load environment specific .profile
-[[ -s "$HOME/.profile.local" ]] && source "$HOME/.profile.local"
 
 # pythonz
 [[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
@@ -91,5 +88,8 @@ export PATH="$PATH:`yarn global bin`"
 
 # homebrew python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# load environment specific .profile
+[[ -s "$HOME/.profile.local" ]] && source "$HOME/.profile.local"
 
 # vim: ft=sh
