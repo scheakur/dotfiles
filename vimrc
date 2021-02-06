@@ -984,10 +984,10 @@ call submode#map('prevtab', 'n', '', 't', 'gT')
 call submode#map('prevtab', 'n', '', 'T', 'gt')
 
 " window
-call submode#enter_with('wincycle', 'n', '', '<C-w><C-w>', '<C-w>w')
-call submode#enter_with('wincycle', 'n', '', '<C-w>w', '<C-w>w')
-call submode#map('wincycle', 'n', '', '<C-w>', '<C-w>w')
-call submode#map('wincycle', 'n', '', 'w', '<C-w>w')
+call submode#enter_with('win', 'n', '', '<C-w><C-w>', '<C-w>w')
+call submode#enter_with('win', 'n', '', '<C-w>w', '<C-w>w')
+call submode#map('win', 'n', '', '<C-w>', '<C-w>w')
+call submode#map('win', 'n', '', 'w', '<C-w>w')
 " }}}
 
 " vim-operator-jump_side {{{
