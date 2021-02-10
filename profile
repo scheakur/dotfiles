@@ -40,7 +40,7 @@ export DYLD_LIBRARY_PATH=$MY_HOME/app/oracle:$DYLD_LIBRARY_PATH
 PATH=$MY_HOME/app/oracle:$PATH
 
 # golang
-export GOPATH=$MY_HOME
+export GOPATH=$MY_HOME/go
 PATH=$GOPATH/bin:$PATH
 
 # haskell

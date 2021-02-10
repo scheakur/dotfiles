@@ -282,6 +282,7 @@ eval "$(direnv hook zsh)"
 [[ -f $HOME/.config/tmuxinator/tmuxinator.zsh ]] && source $HOME/.config/tmuxinator/tmuxinator.zsh
 [[ -f $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 [[ -f /usr/local/share/zsh/site-functions/_awless ]] && source /usr/local/share/zsh/site-functions/_awless
+[[ -f /usr/local/bin/direnv ]] && eval "$(direnv hook zsh)"
 # }}}
 
 
