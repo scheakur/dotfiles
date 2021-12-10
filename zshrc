@@ -283,6 +283,7 @@ eval "$(direnv hook zsh)"
 [[ -f $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
 [[ -f /usr/local/share/zsh/site-functions/_awless ]] && source /usr/local/share/zsh/site-functions/_awless
 [[ -f /usr/local/bin/direnv ]] && eval "$(direnv hook zsh)"
+[[ -f /usr/bin/terraform ]] && autoload -U +X bashcompinit && bashcompinit && complete -o nospace -C /usr/bin/terraform terraform
 # }}}
 
 
