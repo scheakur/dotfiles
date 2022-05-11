@@ -35,6 +35,8 @@
 	default = simple
 [include]
 	path = .gitconfig.local
+[include]
+	path = .gitconfig.work
 [rebase]
 	autostash = true
 [stash]
