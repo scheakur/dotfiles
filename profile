@@ -84,7 +84,7 @@ export PATH
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # yarn
-export PATH="$PATH:`yarn global bin`"
+if which yarn > /dev/null; then export PATH="$PATH:`yarn global bin`"; fi
 
 # homebrew python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
