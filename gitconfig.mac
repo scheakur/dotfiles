@@ -13,8 +13,7 @@
 	clean = git media clean %f
 	smudge = git media smudge %f
 [ghq]
-	root = ~/Work/src
-	root = ~/Work/go/src
+	root = ~/src
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
