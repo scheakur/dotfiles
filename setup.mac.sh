@@ -5,3 +5,5 @@ defaults write com.apple.dock autohide-time-modifier -float 0.24
 defaults write com.apple.dock appswitcher-all-displays -bool true
 
 killall Dock
+
+defaults write -g NSWindowShouldDragOnGesture -bool true
