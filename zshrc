@@ -31,8 +31,17 @@ bindkey '^xe' edit-command-line
 
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-bindkey $terminfo[kRIT] forward-word
-bindkey $terminfo[kLFT] backward-word
+if [[ "${terminfo[kRIT]}" != "" ]]; then
+	bindkey "${terminfo[kRIT]}" forward-word
+else
+	bindkey '^[[1;2C' forward-word
+fi
+
+if [[ "${terminfo[kLFT]}" != "" ]]; then
+	bindkey "${terminfo[kLFT]}" backward-word
+else
+	bindkey '^[[1;2D' backward-word
+fi
 
 export LSCOLORS=ExFxCxdxBxegedabagacad
 export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
@@ -165,6 +174,7 @@ bindkey '^N' history-beginning-search-forward-end
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 # }}}
+
 
 # cdr {{{
 # cdr
