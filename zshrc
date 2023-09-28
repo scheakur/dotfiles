@@ -293,6 +293,7 @@ alias tree='tree --charset ascii'
 [[ -f /usr/local/bin/direnv ]] && eval "$(direnv hook zsh)"
 [[ -f /usr/bin/terraform ]] && autoload -U +X bashcompinit && bashcompinit && complete -o nospace -C /usr/bin/terraform terraform
 [[ -f /opt/homebrew/bin/rbenv ]] && eval "$(rbenv init - zsh)"
+[[ -f /usr/share/nvm/init-nvm.sh ]] && source /usr/share/nvm/init-nvm.sh
 # }}}
 
 

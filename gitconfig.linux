@@ -1,7 +1,8 @@
 [ghq]
 	root = ~/src
 [credential]
-	helper = /usr/lib/git-core/git-credential-gnome-keyring
+#	helper = /usr/lib/git-core/git-credential-gnome-keyring
+	helper = /usr/lib/git-core/git-credential-libsecret
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
