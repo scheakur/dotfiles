@@ -1,9 +1,15 @@
 [ghq]
 	root = ~/src
 [credential]
-#	helper = /usr/lib/git-core/git-credential-gnome-keyring
-	helper = /usr/lib/git-core/git-credential-libsecret
+	helper = /usr/bin/git-credential-manager
+	credentialStore = gpg
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
 	diff = diff-highlight | less
+[merge]
+   tool = vimdiff
+[difftool "vimdiff"]
+    cmd = vimdiff \"$LOCAL\" \"$REMOTE\"
+[mergetool "vimdiff"]
+    cmd = vimdiff \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
