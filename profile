@@ -89,7 +89,11 @@ if which yarn > /dev/null; then export PATH="$PATH:`yarn global bin`"; fi
 # homebrew python
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
+# ghcup-env
+[[ -f "$HOME/.ghcup/env" ]] && source "$HOME/.ghcup/env" 
+
 # load environment specific .profile
 [[ -s "$HOME/.profile.local" ]] && source "$HOME/.profile.local"
 
 # vim: ft=sh
+
