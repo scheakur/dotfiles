@@ -92,6 +92,9 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # ghcup-env
 [[ -f "$HOME/.ghcup/env" ]] && source "$HOME/.ghcup/env" 
 
+# rust
+[[ -s "$HOME/.cargo/env" ]] && . "$HOME/.cargo/env"
+
 # load environment specific .profile
 [[ -s "$HOME/.profile.local" ]] && source "$HOME/.profile.local"
 
